@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaixaEletronico", "CaixaEle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoMediaIdade", "CalculoMediaIdade\CalculoMediaIdade\CalculoMediaIdade.csproj", "{AD41B721-4C56-470D-A67B-F09398F478D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoBhaskara", "CalculoBhaskara\CalculoBhaskara\CalculoBhaskara.csproj", "{3875D4CA-ED41-47BA-867A-9004683EB1A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AD41B721-4C56-470D-A67B-F09398F478D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD41B721-4C56-470D-A67B-F09398F478D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD41B721-4C56-470D-A67B-F09398F478D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3875D4CA-ED41-47BA-867A-9004683EB1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3875D4CA-ED41-47BA-867A-9004683EB1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3875D4CA-ED41-47BA-867A-9004683EB1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3875D4CA-ED41-47BA-867A-9004683EB1A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
