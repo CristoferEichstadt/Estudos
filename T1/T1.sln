@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votacao", "Votacao\Votacao\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoImposto", "CalculoImposto\CalculoImposto\CalculoImposto.csproj", "{7DA0F400-1EE6-471B-8B9D-FC865C450DBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoAula4", "Aula4\VideoAula4\VideoAula4.csproj", "{46CE2E7C-0251-475D-B2CD-222B69EB4EDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7DA0F400-1EE6-471B-8B9D-FC865C450DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DA0F400-1EE6-471B-8B9D-FC865C450DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DA0F400-1EE6-471B-8B9D-FC865C450DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46CE2E7C-0251-475D-B2CD-222B69EB4EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CE2E7C-0251-475D-B2CD-222B69EB4EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CE2E7C-0251-475D-B2CD-222B69EB4EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CE2E7C-0251-475D-B2CD-222B69EB4EDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
