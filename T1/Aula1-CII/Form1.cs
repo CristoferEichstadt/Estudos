@@ -46,7 +46,7 @@ namespace Aula1_CII
             cliente = new Cliente("Guilherme Francisco");
             conta1.Titular = cliente;
             cliente.idade = 18;
-                                 
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -55,6 +55,6 @@ namespace Aula1_CII
 
         }
 
-        
+
     }
 }
