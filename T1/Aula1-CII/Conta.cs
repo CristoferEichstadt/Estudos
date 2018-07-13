@@ -8,19 +8,19 @@ namespace Aula1_CII
 {
     class Conta
     {
-        public double Saldo { get; private set; }
-        public int numero;
-        public Cliente cliente;
+        public double Saldo { get; set; }
+        public int numero { get; set; }
+        public Cliente Titular { get; set; }
 
         public bool Saca(double valor)
         {
-            if (valor > this.Saldo || valor < 0)
-            {
+            if (valor > this.Saldo || valor <= 0)
+            { 
                 return false;
             }
             else
             {
-                if (this.cliente.MaiorDeIdade())
+                if (this.Titular.MaiorDeIdade())
                 {
                     this.Saldo -= valor + 0.1;
                     return true;
