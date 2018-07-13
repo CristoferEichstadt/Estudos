@@ -10,7 +10,10 @@ namespace Aula1_CII
     {
         public string nome, rg, endereco, cpf;
         public int idade;
-        
+        public Cliente(string nome)
+        {
+            this.nome = nome;
+        }
         public bool MaiorDeIdade()
         {
             return this.idade >= 18;

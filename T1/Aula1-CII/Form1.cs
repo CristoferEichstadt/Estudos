@@ -13,7 +13,7 @@ namespace Aula1_CII
     public partial class Form1 : Form
     {
         Conta conta1;
-        Cliente cliente1;
+        Cliente cliente;
         public Form1()
         {
             InitializeComponent();
@@ -43,11 +43,10 @@ namespace Aula1_CII
         private void Form1_Load(object sender, EventArgs e)
         {
             conta1 = new Conta();
-            cliente1 = new Cliente();
-            conta1.Titular = cliente1;
-            cliente1.idade = 18;
-            cliente1.nome = "Guilherme Francisco";
-                     
+            cliente = new Cliente("Guilherme Francisco");
+            conta1.Titular = cliente;
+            cliente.idade = 18;
+                                 
         }
 
         private void button3_Click(object sender, EventArgs e)
