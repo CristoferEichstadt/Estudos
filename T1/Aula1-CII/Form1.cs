@@ -47,6 +47,7 @@ namespace Aula1_CII
             conta1.Titular = cliente1;
             cliente1.idade = 18;
             cliente1.nome = "Guilherme Francisco";
+                     
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -54,5 +55,7 @@ namespace Aula1_CII
             MessageBox.Show("Saldo em conta: " + conta1.Saldo);
 
         }
+
+        
     }
 }
