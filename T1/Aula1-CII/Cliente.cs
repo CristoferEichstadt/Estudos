@@ -8,5 +8,8 @@ namespace Aula1_CII
 {
     class Cliente
     {
+        public string nome, rg, endereco, cpf;
+        public int idade;
+
     }
 }
