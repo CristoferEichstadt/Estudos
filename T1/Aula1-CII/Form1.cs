@@ -43,10 +43,9 @@ namespace Aula1_CII
         private void Form1_Load(object sender, EventArgs e)
         {
             conta1 = new Conta();
-            cliente = new Cliente("Guilherme Francisco");
+            cliente = new Cliente("Guilherme Francisco", "5.726.598", "Rua Luiza Lucas", "356.357.674-89");
             conta1.Titular = cliente;
             cliente.idade = 18;
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -55,6 +54,9 @@ namespace Aula1_CII
 
         }
 
-
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Dados do cliente: " + cliente.nome + "\nRg: " + cliente.rg + "\nEndereço: " + cliente.endereco + "\nCpf: " + cliente.cpf);
+        }
     }
 }
