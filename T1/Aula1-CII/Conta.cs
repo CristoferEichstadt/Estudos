@@ -8,13 +8,13 @@ namespace Aula1_CII
 {
     class Conta
     {
-        public double saldo;
+        public double Saldo { get; private set; }
         public int numero;
         public Cliente cliente;
 
         public bool Saca(double valor)
         {
-            if (valor > this.saldo || valor < 0)
+            if (valor > this.Saldo || valor < 0)
             {
                 return false;
             }
@@ -22,7 +22,7 @@ namespace Aula1_CII
             {
                 if (this.cliente.MaiorDeIdade())
                 {
-                    this.saldo -= valor + 0.1;
+                    this.Saldo -= valor + 0.1;
                     return true;
                 }
                 else
@@ -36,7 +36,7 @@ namespace Aula1_CII
         {
             if (valor > 0)
             {
-                this.saldo += valor;
+                this.Saldo += valor;
             }
         }
 
