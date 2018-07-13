@@ -56,7 +56,8 @@ namespace Aula1_CII
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Dados do cliente: " + cliente.nome + "\nRg: " + cliente.rg + "\nEndereço: " + cliente.endereco + "\nCpf: " + cliente.cpf);
+            MessageBox.Show("Dados do cliente: " + cliente.nome + "\nRg: " + cliente.rg + "\nEndereço: " +
+                cliente.endereco + "\nCpf: " + cliente.cpf);
         }
     }
 }
