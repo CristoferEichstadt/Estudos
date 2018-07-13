@@ -22,7 +22,7 @@ namespace Aula1_CII
             {
                 if (this.cliente.MaiorDeIdade())
                 {
-                    this.saldo -= valor;
+                    this.saldo -= valor + 0.1;
                     return true;
                 }
                 else
