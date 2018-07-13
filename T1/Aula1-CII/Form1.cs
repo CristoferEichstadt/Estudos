@@ -20,7 +20,7 @@ namespace Aula1_CII
         private void button1_Click(object sender, EventArgs e)
         {
             Conta conta = new Conta();
-
+            conta.Deposita(10000.0);
         }
     }
 }
