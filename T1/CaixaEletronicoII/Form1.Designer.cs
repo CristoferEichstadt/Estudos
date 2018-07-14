@@ -165,6 +165,7 @@
             this.buttonSacar.TabIndex = 9;
             this.buttonSacar.Text = "Sacar";
             this.buttonSacar.UseVisualStyleBackColor = false;
+            this.buttonSacar.Click += new System.EventHandler(this.buttonSacar_Click);
             // 
             // Form1
             // 

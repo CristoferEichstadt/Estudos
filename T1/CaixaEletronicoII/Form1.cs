@@ -15,6 +15,11 @@ namespace CaixaEletronicoII
         Conta contaGuilherme;
         string valorParaDepositar;
         string valorSaldo;
+        double saldoAtual;
+        double valorSaldoDepois;
+
+        string valorSaldo2;
+        string valorParaSacar;
 
 
         public Form1()
@@ -24,15 +29,15 @@ namespace CaixaEletronicoII
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            contaGuilherme = new Conta(500.0 , 1);
-            contaGuilherme.Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09");
+            contaGuilherme = new Conta(0.0, 1);
+            contaGuilherme.Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
 
             textBoxTitular.Text = contaGuilherme.Titular.nome;
             textBoxTitular.SelectionStart = 0;
             textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
             //converte int em string para passar p/ textBox
             textBoxNumeroConta.Text = Convert.ToString(contaGuilherme.numero);
-            
+
         }
 
         private void buttonDepositar_Click(object sender, EventArgs e)
@@ -42,12 +47,32 @@ namespace CaixaEletronicoII
             contaGuilherme.Deposita(valorDoDeposito);
 
             valorSaldo = textBoxSaldo.Text;
-            double valorSaldoDepois = Convert.ToDouble(valorSaldo);
+            valorSaldoDepois = Convert.ToDouble(valorSaldo);
 
-            double saldoAtual = valorDoDeposito + valorSaldoDepois;
+            saldoAtual = valorDoDeposito + valorSaldoDepois;
             textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
 
             MessageBox.Show("Você depositou R$ " + valorDoDeposito);
+
+            textBoxValor.Clear();
         }
-    }   
+
+        private void buttonSacar_Click(object sender, EventArgs e)
+        {
+            valorParaSacar = textBoxValor.Text;
+            double valorDoSaque = Convert.ToDouble(valorParaSacar);
+            contaGuilherme.Saca(valorDoSaque);
+
+            valorSaldo2 = textBoxSaldo.Text;
+            double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
+
+            double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
+            textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
+
+            MessageBox.Show("Você sacou R$ " + valorDoSaque);
+
+            textBoxValor.Clear();
+
+        }
+    }
 }

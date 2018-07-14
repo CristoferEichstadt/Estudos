@@ -10,12 +10,13 @@ namespace CaixaEletronicoII
     {
         public string nome, rg, endereco, cpf;
         public int idade;
-        public Cliente(string Nome, string Rg, string Endereco, string Cpf)
+        public Cliente(string Nome, string Rg, string Endereco, string Cpf, int Idade)
         {
             this.nome = Nome;
             this.rg = Rg;
             this.endereco = Endereco;
             this.cpf = Cpf;
+            this.idade = Idade;
         }
         /*parametro de nome... vai ser opcional, pois tem um construtor de Cliente que pede o nome... e um construtor vazio, 
         sendo assim os dois válidos*/
