@@ -32,6 +32,8 @@
             this.labelTitular = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxSaldo = new System.Windows.Forms.TextBox();
+            this.textBoxNumeroConta = new System.Windows.Forms.TextBox();
+            this.labelNumeroConta = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxTitular
@@ -63,7 +65,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(64, 120);
+            this.label1.Location = new System.Drawing.Point(61, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(324, 23);
             this.label1.TabIndex = 2;
@@ -78,7 +80,7 @@
             this.textBoxSaldo.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxSaldo.HideSelection = false;
             this.textBoxSaldo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxSaldo.Location = new System.Drawing.Point(67, 146);
+            this.textBoxSaldo.Location = new System.Drawing.Point(64, 123);
             this.textBoxSaldo.Name = "textBoxSaldo";
             this.textBoxSaldo.ReadOnly = true;
             this.textBoxSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -86,11 +88,39 @@
             this.textBoxSaldo.TabIndex = 3;
             this.textBoxSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // textBoxNumeroConta
+            // 
+            this.textBoxNumeroConta.BackColor = System.Drawing.Color.Black;
+            this.textBoxNumeroConta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxNumeroConta.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNumeroConta.ForeColor = System.Drawing.Color.Aqua;
+            this.textBoxNumeroConta.HideSelection = false;
+            this.textBoxNumeroConta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.textBoxNumeroConta.Location = new System.Drawing.Point(64, 196);
+            this.textBoxNumeroConta.Name = "textBoxNumeroConta";
+            this.textBoxNumeroConta.ReadOnly = true;
+            this.textBoxNumeroConta.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxNumeroConta.Size = new System.Drawing.Size(324, 20);
+            this.textBoxNumeroConta.TabIndex = 5;
+            this.textBoxNumeroConta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelNumeroConta
+            // 
+            this.labelNumeroConta.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
+            this.labelNumeroConta.Location = new System.Drawing.Point(61, 170);
+            this.labelNumeroConta.Name = "labelNumeroConta";
+            this.labelNumeroConta.Size = new System.Drawing.Size(324, 23);
+            this.labelNumeroConta.TabIndex = 4;
+            this.labelNumeroConta.Text = "Número da Conta";
+            this.labelNumeroConta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 450);
+            this.Controls.Add(this.textBoxNumeroConta);
+            this.Controls.Add(this.labelNumeroConta);
             this.Controls.Add(this.textBoxSaldo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelTitular);
@@ -109,6 +139,8 @@
         private System.Windows.Forms.Label labelTitular;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxSaldo;
+        private System.Windows.Forms.TextBox textBoxNumeroConta;
+        private System.Windows.Forms.Label labelNumeroConta;
     }
 }
 
