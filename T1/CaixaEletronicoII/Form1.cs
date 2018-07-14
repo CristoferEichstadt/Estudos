@@ -29,13 +29,18 @@ namespace CaixaEletronicoII
             textBoxNumeroConta.Text = Convert.ToString(contaGuilherme.numero);
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
-        {
-            if (textBoxValor.Text == string.Empty)
+        {            
+            if (textBoxValor.Text == string.Empty) //Verifica se o textBox está vazio.
             {
                 MessageBox.Show("Campo não pode ser vazio!");
                 return;
+            }            
+            else if (Char.IsLetter(textBoxValor.Text, 0)) //Verifica se está digitado com letras.
+            {
+                MessageBox.Show("Valor inválido!");
+                textBoxValor.Clear();
             }
-            else
+            else // se não for letras nem vazio, faz o depósito.
             {
                 string valorParaDepositar = textBoxValor.Text;
                 double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
