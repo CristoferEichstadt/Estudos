@@ -34,6 +34,10 @@
             this.textBoxSaldo = new System.Windows.Forms.TextBox();
             this.textBoxNumeroConta = new System.Windows.Forms.TextBox();
             this.labelNumeroConta = new System.Windows.Forms.Label();
+            this.textBoxValor = new System.Windows.Forms.TextBox();
+            this.labelValor = new System.Windows.Forms.Label();
+            this.buttonDepositar = new System.Windows.Forms.Button();
+            this.buttonSacar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxTitular
@@ -114,11 +118,63 @@
             this.labelNumeroConta.Text = "Número da Conta";
             this.labelNumeroConta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // textBoxValor
+            // 
+            this.textBoxValor.BackColor = System.Drawing.Color.Black;
+            this.textBoxValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxValor.Font = new System.Drawing.Font("Georgia", 12.2F, System.Drawing.FontStyle.Bold);
+            this.textBoxValor.ForeColor = System.Drawing.Color.Aqua;
+            this.textBoxValor.Location = new System.Drawing.Point(64, 265);
+            this.textBoxValor.Name = "textBoxValor";
+            this.textBoxValor.Size = new System.Drawing.Size(324, 24);
+            this.textBoxValor.TabIndex = 6;
+            // 
+            // labelValor
+            // 
+            this.labelValor.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
+            this.labelValor.Location = new System.Drawing.Point(64, 239);
+            this.labelValor.Name = "labelValor";
+            this.labelValor.Size = new System.Drawing.Size(324, 23);
+            this.labelValor.TabIndex = 7;
+            this.labelValor.Text = "Digite o valor:";
+            this.labelValor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // buttonDepositar
+            // 
+            this.buttonDepositar.BackColor = System.Drawing.Color.Black;
+            this.buttonDepositar.FlatAppearance.BorderSize = 0;
+            this.buttonDepositar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
+            this.buttonDepositar.ForeColor = System.Drawing.Color.Aqua;
+            this.buttonDepositar.Location = new System.Drawing.Point(64, 319);
+            this.buttonDepositar.Name = "buttonDepositar";
+            this.buttonDepositar.Size = new System.Drawing.Size(155, 30);
+            this.buttonDepositar.TabIndex = 8;
+            this.buttonDepositar.Text = "Depositar";
+            this.buttonDepositar.UseVisualStyleBackColor = false;
+            this.buttonDepositar.Click += new System.EventHandler(this.buttonDepositar_Click);
+            // 
+            // buttonSacar
+            // 
+            this.buttonSacar.BackColor = System.Drawing.Color.Black;
+            this.buttonSacar.FlatAppearance.BorderSize = 0;
+            this.buttonSacar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
+            this.buttonSacar.ForeColor = System.Drawing.Color.Aqua;
+            this.buttonSacar.Location = new System.Drawing.Point(233, 319);
+            this.buttonSacar.Name = "buttonSacar";
+            this.buttonSacar.Size = new System.Drawing.Size(155, 30);
+            this.buttonSacar.TabIndex = 9;
+            this.buttonSacar.Text = "Sacar";
+            this.buttonSacar.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 450);
+            this.Controls.Add(this.buttonSacar);
+            this.Controls.Add(this.buttonDepositar);
+            this.Controls.Add(this.labelValor);
+            this.Controls.Add(this.textBoxValor);
             this.Controls.Add(this.textBoxNumeroConta);
             this.Controls.Add(this.labelNumeroConta);
             this.Controls.Add(this.textBoxSaldo);
@@ -141,6 +197,10 @@
         private System.Windows.Forms.TextBox textBoxSaldo;
         private System.Windows.Forms.TextBox textBoxNumeroConta;
         private System.Windows.Forms.Label labelNumeroConta;
+        private System.Windows.Forms.TextBox textBoxValor;
+        private System.Windows.Forms.Label labelValor;
+        private System.Windows.Forms.Button buttonDepositar;
+        private System.Windows.Forms.Button buttonSacar;
     }
 }
 
