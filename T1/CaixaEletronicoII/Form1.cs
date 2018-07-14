@@ -30,19 +30,27 @@ namespace CaixaEletronicoII
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
         {
-            string valorParaDepositar = textBoxValor.Text;
-            double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
-            contaGuilherme.Deposita(valorDoDeposito);
+            if (textBoxValor.Text == string.Empty)
+            {
+                MessageBox.Show("Campo não pode ser vazio!");
+                return;
+            }
+            else
+            {
+                string valorParaDepositar = textBoxValor.Text;
+                double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
+                contaGuilherme.Deposita(valorDoDeposito);
 
-            string valorSaldo = textBoxSaldo.Text;
-            double valorSaldoDepois = Convert.ToDouble(valorSaldo);
+                string valorSaldo = textBoxSaldo.Text;
+                double valorSaldoDepois = Convert.ToDouble(valorSaldo);
 
-            double saldoAtual = valorDoDeposito + valorSaldoDepois;
-            textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
+                double saldoAtual = valorDoDeposito + valorSaldoDepois;
+                textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
 
-            MessageBox.Show("Você depositou R$ " + valorDoDeposito + ".");
+                MessageBox.Show("Você depositou R$ " + valorDoDeposito + ".");
 
-            textBoxValor.Clear();
+                textBoxValor.Clear();
+            }
         }
 
         private void buttonSacar_Click(object sender, EventArgs e)
@@ -50,7 +58,7 @@ namespace CaixaEletronicoII
 
             if (textBoxValor.Text == string.Empty)
             {
-                MessageBox.Show("Campo Não pode ser Vazio!");
+                MessageBox.Show("Campo não pode ser vazio!");
                 return;
             }
             else
@@ -70,11 +78,5 @@ namespace CaixaEletronicoII
                 textBoxValor.Clear();
             }
         }
-
-        private void textBoxValor_Leave(object sender, EventArgs e)
-        {
-        }
-
-
     }
 }
