@@ -71,6 +71,11 @@ namespace CaixaEletronicoII
                 MessageBox.Show("Valor inválido! Digite novamente.");
                 textBoxValor.Clear();
             }
+            else if (Convert.ToDouble(textBoxValor.Text.ToString()) > Convert.ToDouble(contaGuilherme.Saldo.ToString()))
+            {
+                MessageBox.Show("Você não tem saldo em conta para efetuar o saque.");
+                textBoxValor.Clear();
+            }
             else //se não for letras nem vazio, faz saque
             {
                 string valorParaSacar = textBoxValor.Text;
