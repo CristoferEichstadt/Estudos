@@ -13,20 +13,10 @@ namespace CaixaEletronicoII
     public partial class Form1 : Form
     {
         Conta contaGuilherme;
-        string valorParaDepositar;
-        string valorSaldo;
-        double saldoAtual;
-        double valorSaldoDepois;
-
-        string valorSaldo2;
-        string valorParaSacar;
-
-
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             contaGuilherme = new Conta(0.0, 1);
@@ -37,41 +27,53 @@ namespace CaixaEletronicoII
             textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
             //converte int em string para passar p/ textBox
             textBoxNumeroConta.Text = Convert.ToString(contaGuilherme.numero);
-
         }
-
         private void buttonDepositar_Click(object sender, EventArgs e)
         {
-            valorParaDepositar = textBoxValor.Text;
+            string valorParaDepositar = textBoxValor.Text;
             double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
             contaGuilherme.Deposita(valorDoDeposito);
 
-            valorSaldo = textBoxSaldo.Text;
-            valorSaldoDepois = Convert.ToDouble(valorSaldo);
+            string valorSaldo = textBoxSaldo.Text;
+            double valorSaldoDepois = Convert.ToDouble(valorSaldo);
 
-            saldoAtual = valorDoDeposito + valorSaldoDepois;
+            double saldoAtual = valorDoDeposito + valorSaldoDepois;
             textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
 
-            MessageBox.Show("Você depositou R$ " + valorDoDeposito);
+            MessageBox.Show("Você depositou R$ " + valorDoDeposito + ".");
 
             textBoxValor.Clear();
         }
 
         private void buttonSacar_Click(object sender, EventArgs e)
         {
-            valorParaSacar = textBoxValor.Text;
-            double valorDoSaque = Convert.ToDouble(valorParaSacar);
-            contaGuilherme.Saca(valorDoSaque);
+            double valorTexto = Convert.ToDouble(textBoxValor.Text);
+            if (valorTexto > 0)
+            {
+                string valorParaSacar = textBoxValor.Text;
+                double valorDoSaque = Convert.ToDouble(valorParaSacar);
+                contaGuilherme.Saca(valorDoSaque);
 
-            valorSaldo2 = textBoxSaldo.Text;
-            double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
+                string valorSaldo2 = textBoxSaldo.Text;
+                double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
 
-            double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
-            textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
+                double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
+                textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
 
-            MessageBox.Show("Você sacou R$ " + valorDoSaque);
+                MessageBox.Show("Você sacou R$ " + valorDoSaque + " + taxa de R$ 0,10.");
 
-            textBoxValor.Clear();
+                textBoxValor.Clear();
+            }
+
+            if (textBoxValor.Text == "" )
+            {
+                MessageBox.Show("Insira um valor válido para saque!");
+            }
+            else
+            {
+                return;
+            }
+
 
         }
     }
