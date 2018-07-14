@@ -96,7 +96,7 @@
             this.textBoxNumeroConta.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxNumeroConta.HideSelection = false;
             this.textBoxNumeroConta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxNumeroConta.Location = new System.Drawing.Point(64, 196);
+            this.textBoxNumeroConta.Location = new System.Drawing.Point(64, 193);
             this.textBoxNumeroConta.Name = "textBoxNumeroConta";
             this.textBoxNumeroConta.ReadOnly = true;
             this.textBoxNumeroConta.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -107,7 +107,7 @@
             // labelNumeroConta
             // 
             this.labelNumeroConta.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.labelNumeroConta.Location = new System.Drawing.Point(61, 170);
+            this.labelNumeroConta.Location = new System.Drawing.Point(61, 167);
             this.labelNumeroConta.Name = "labelNumeroConta";
             this.labelNumeroConta.Size = new System.Drawing.Size(324, 23);
             this.labelNumeroConta.TabIndex = 4;

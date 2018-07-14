@@ -26,8 +26,9 @@ namespace CaixaEletronicoII
 
             textBoxTitular.Text = contaGuilherme.Titular.nome;
             textBoxTitular.SelectionStart = 0;
-
             textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
+            //converte int em string para passar p/ textBox
+            textBoxNumeroConta.Text = Convert.ToString(contaGuilherme.numero);
         }
     }
 }
