@@ -24,6 +24,7 @@ namespace CaixaEletronicoII
             Conta contaGuilherme = new Conta();
             contaGuilherme.Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09");
             textBoxTitular.Text = contaGuilherme.Titular.nome;
+            textBoxTitular.SelectionStart = 0;
         }
     }
 }
