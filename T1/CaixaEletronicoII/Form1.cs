@@ -47,10 +47,11 @@ namespace CaixaEletronicoII
 
         private void buttonSacar_Click(object sender, EventArgs e)
         {
-            //double valorTexto = Convert.ToDouble(textBoxValor.Text);
-            if (textBoxValor.Text == "")
+
+            if (textBoxValor.Text == string.Empty)
             {
-                MessageBox.Show("Insira um valor válido para saque!");
+                MessageBox.Show("Campo Não pode ser Vazio!");
+                return;
             }
             else
             {
@@ -67,8 +68,13 @@ namespace CaixaEletronicoII
                 MessageBox.Show("Você sacou R$ " + valorDoSaque + " + taxa de R$ 0,10.");
 
                 textBoxValor.Clear();
-
             }
         }
+
+        private void textBoxValor_Leave(object sender, EventArgs e)
+        {
+        }
+
+
     }
 }

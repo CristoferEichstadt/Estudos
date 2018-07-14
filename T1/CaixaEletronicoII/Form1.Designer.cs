@@ -128,6 +128,7 @@
             this.textBoxValor.Name = "textBoxValor";
             this.textBoxValor.Size = new System.Drawing.Size(324, 24);
             this.textBoxValor.TabIndex = 6;
+            this.textBoxValor.Leave += new System.EventHandler(this.textBoxValor_Leave);
             // 
             // labelValor
             // 
