@@ -38,6 +38,8 @@
             this.labelValor = new System.Windows.Forms.Label();
             this.buttonDepositar = new System.Windows.Forms.Button();
             this.buttonSacar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxTitular
@@ -49,6 +51,7 @@
             this.textBoxTitular.HideSelection = false;
             this.textBoxTitular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textBoxTitular.Location = new System.Drawing.Point(64, 56);
+            this.textBoxTitular.MaxLength = 20;
             this.textBoxTitular.Name = "textBoxTitular";
             this.textBoxTitular.ReadOnly = true;
             this.textBoxTitular.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -84,13 +87,13 @@
             this.textBoxSaldo.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxSaldo.HideSelection = false;
             this.textBoxSaldo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxSaldo.Location = new System.Drawing.Point(64, 123);
+            this.textBoxSaldo.Location = new System.Drawing.Point(102, 123);
             this.textBoxSaldo.Name = "textBoxSaldo";
             this.textBoxSaldo.ReadOnly = true;
             this.textBoxSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxSaldo.Size = new System.Drawing.Size(324, 20);
+            this.textBoxSaldo.Size = new System.Drawing.Size(286, 20);
             this.textBoxSaldo.TabIndex = 3;
-            this.textBoxSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxNumeroConta
             // 
@@ -124,9 +127,11 @@
             this.textBoxValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxValor.Font = new System.Drawing.Font("Georgia", 12.2F, System.Drawing.FontStyle.Bold);
             this.textBoxValor.ForeColor = System.Drawing.Color.Aqua;
-            this.textBoxValor.Location = new System.Drawing.Point(64, 265);
+            this.textBoxValor.Location = new System.Drawing.Point(102, 265);
+            this.textBoxValor.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxValor.Name = "textBoxValor";
-            this.textBoxValor.Size = new System.Drawing.Size(324, 24);
+            this.textBoxValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBoxValor.Size = new System.Drawing.Size(286, 24);
             this.textBoxValor.TabIndex = 6;
             // 
             // labelValor
@@ -146,9 +151,9 @@
             this.buttonDepositar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDepositar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonDepositar.ForeColor = System.Drawing.Color.Aqua;
-            this.buttonDepositar.Location = new System.Drawing.Point(64, 319);
+            this.buttonDepositar.Location = new System.Drawing.Point(63, 319);
             this.buttonDepositar.Name = "buttonDepositar";
-            this.buttonDepositar.Size = new System.Drawing.Size(155, 30);
+            this.buttonDepositar.Size = new System.Drawing.Size(156, 30);
             this.buttonDepositar.TabIndex = 8;
             this.buttonDepositar.Text = "Depositar";
             this.buttonDepositar.UseVisualStyleBackColor = false;
@@ -169,11 +174,39 @@
             this.buttonSacar.UseVisualStyleBackColor = false;
             this.buttonSacar.Click += new System.EventHandler(this.buttonSacar_Click);
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Aqua;
+            this.label2.Location = new System.Drawing.Point(60, 265);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 23);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "  R$";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Aqua;
+            this.label3.Location = new System.Drawing.Point(60, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "  R$";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonSacar);
             this.Controls.Add(this.buttonDepositar);
             this.Controls.Add(this.labelValor);
@@ -204,6 +237,8 @@
         private System.Windows.Forms.Label labelValor;
         private System.Windows.Forms.Button buttonDepositar;
         private System.Windows.Forms.Button buttonSacar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

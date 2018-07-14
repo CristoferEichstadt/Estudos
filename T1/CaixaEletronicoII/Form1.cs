@@ -19,7 +19,7 @@ namespace CaixaEletronicoII
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            contaGuilherme = new Conta(0.0, 1);
+            contaGuilherme = new Conta(100.0, 1);
             contaGuilherme.Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
 
             textBoxTitular.Text = contaGuilherme.Titular.nome;
