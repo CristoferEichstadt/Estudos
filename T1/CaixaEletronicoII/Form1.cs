@@ -47,8 +47,12 @@ namespace CaixaEletronicoII
 
         private void buttonSacar_Click(object sender, EventArgs e)
         {
-            double valorTexto = Convert.ToDouble(textBoxValor.Text);
-            if (valorTexto > 0)
+            //double valorTexto = Convert.ToDouble(textBoxValor.Text);
+            if (textBoxValor.Text == "")
+            {
+                MessageBox.Show("Insira um valor válido para saque!");
+            }
+            else
             {
                 string valorParaSacar = textBoxValor.Text;
                 double valorDoSaque = Convert.ToDouble(valorParaSacar);
@@ -63,18 +67,8 @@ namespace CaixaEletronicoII
                 MessageBox.Show("Você sacou R$ " + valorDoSaque + " + taxa de R$ 0,10.");
 
                 textBoxValor.Clear();
-            }
 
-            if (textBoxValor.Text == "" )
-            {
-                MessageBox.Show("Insira um valor válido para saque!");
             }
-            else
-            {
-                return;
-            }
-
-
         }
     }
 }
