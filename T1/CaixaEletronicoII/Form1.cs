@@ -12,6 +12,8 @@ namespace CaixaEletronicoII
 {
     public partial class Form1 : Form
     {
+        
+        
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +21,9 @@ namespace CaixaEletronicoII
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBoxTitular.Text = "";
+            Conta contaGuilherme = new Conta();
+            contaGuilherme.Titular = "Guilherme";
+            textBoxTitular.Text = contaGuilherme.Titular;
         }
     }
 }
