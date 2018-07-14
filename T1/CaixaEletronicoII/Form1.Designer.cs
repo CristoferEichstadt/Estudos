@@ -128,7 +128,6 @@
             this.textBoxValor.Name = "textBoxValor";
             this.textBoxValor.Size = new System.Drawing.Size(324, 24);
             this.textBoxValor.TabIndex = 6;
-    
             // 
             // labelValor
             // 
@@ -144,6 +143,7 @@
             // 
             this.buttonDepositar.BackColor = System.Drawing.Color.Black;
             this.buttonDepositar.FlatAppearance.BorderSize = 0;
+            this.buttonDepositar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDepositar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonDepositar.ForeColor = System.Drawing.Color.Aqua;
             this.buttonDepositar.Location = new System.Drawing.Point(64, 319);
@@ -158,6 +158,7 @@
             // 
             this.buttonSacar.BackColor = System.Drawing.Color.Black;
             this.buttonSacar.FlatAppearance.BorderSize = 0;
+            this.buttonSacar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSacar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonSacar.ForeColor = System.Drawing.Color.Aqua;
             this.buttonSacar.Location = new System.Drawing.Point(233, 319);
