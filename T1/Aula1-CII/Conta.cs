@@ -12,6 +12,14 @@ namespace Aula1_CII
         public int numero { get; set; }
         public Cliente Titular { get; set; }
 
+        public Conta(double saldo, int Numero)
+        {
+            this.Saldo = saldo;
+            this.numero = Numero;
+        }
+
+        public Conta() { }
+
         public bool Saca(double valor)
         {
             if (valor > this.Saldo || valor <= 0)

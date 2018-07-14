@@ -35,14 +35,14 @@ namespace Aula1_CII
             }
             else
             {
-                MessageBox.Show("Sem saldo em conta para efetuar o saque");
+                MessageBox.Show("Sem saldo em conta para efetuar o saque!");
             }
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            conta1 = new Conta();
+            conta1 = new Conta(0, 1);
             cliente = new Cliente("Guilherme Francisco", "5.726.598", "Rua Luiza Lucas", "356.357.674-89");
             conta1.Titular = cliente;
             cliente.idade = 18;
