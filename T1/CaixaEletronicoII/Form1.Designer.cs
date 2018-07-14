@@ -35,7 +35,7 @@
             // 
             this.textBoxTitular.Location = new System.Drawing.Point(148, 259);
             this.textBoxTitular.Name = "textBoxTitular";
-            this.textBoxTitular.Size = new System.Drawing.Size(100, 22);
+            this.textBoxTitular.Size = new System.Drawing.Size(324, 22);
             this.textBoxTitular.TabIndex = 0;
             // 
             // Form1
