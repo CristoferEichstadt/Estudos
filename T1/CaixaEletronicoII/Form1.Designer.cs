@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxContas = new System.Windows.Forms.ComboBox();
+            this.labelEscolherConta = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxTitular
@@ -67,7 +68,7 @@
             this.labelTitular.Name = "labelTitular";
             this.labelTitular.Size = new System.Drawing.Size(328, 16);
             this.labelTitular.TabIndex = 1;
-            this.labelTitular.Text = "Titular da Conta";
+            this.labelTitular.Text = "Titular";
             this.labelTitular.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label1
@@ -77,7 +78,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(324, 23);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Saldo da Conta";
+            this.label1.Text = "Saldo";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // textBoxSaldo
@@ -119,7 +120,7 @@
             this.labelNumeroConta.Name = "labelNumeroConta";
             this.labelNumeroConta.Size = new System.Drawing.Size(324, 23);
             this.labelNumeroConta.TabIndex = 4;
-            this.labelNumeroConta.Text = "Número da Conta";
+            this.labelNumeroConta.Text = "Número";
             this.labelNumeroConta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // textBoxValor
@@ -203,18 +204,32 @@
             // 
             // comboBoxContas
             // 
+            this.comboBoxContas.BackColor = System.Drawing.Color.Black;
+            this.comboBoxContas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxContas.ForeColor = System.Drawing.Color.Aqua;
             this.comboBoxContas.FormattingEnabled = true;
-            this.comboBoxContas.Location = new System.Drawing.Point(63, 36);
+            this.comboBoxContas.Location = new System.Drawing.Point(63, 62);
             this.comboBoxContas.Name = "comboBoxContas";
             this.comboBoxContas.Size = new System.Drawing.Size(325, 24);
             this.comboBoxContas.TabIndex = 15;
             this.comboBoxContas.SelectedIndexChanged += new System.EventHandler(this.comboBoxContas_SelectedIndexChanged);
+            // 
+            // labelEscolherConta
+            // 
+            this.labelEscolherConta.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
+            this.labelEscolherConta.Location = new System.Drawing.Point(60, 43);
+            this.labelEscolherConta.Name = "labelEscolherConta";
+            this.labelEscolherConta.Size = new System.Drawing.Size(328, 16);
+            this.labelEscolherConta.TabIndex = 16;
+            this.labelEscolherConta.Text = "Escolha a conta";
+            this.labelEscolherConta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 463);
+            this.Controls.Add(this.labelEscolherConta);
             this.Controls.Add(this.comboBoxContas);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -251,6 +266,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxContas;
+        private System.Windows.Forms.Label labelEscolherConta;
     }
 }
 
