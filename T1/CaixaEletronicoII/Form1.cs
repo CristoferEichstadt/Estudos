@@ -61,7 +61,6 @@ namespace CaixaEletronicoII
                 textBoxValor.Clear();
             }
         }
-
         private void buttonSacar_Click(object sender, EventArgs e)
         {
             if (textBoxValor.Text == string.Empty || Char.IsLetter(textBoxValor.Text, 0))
@@ -91,8 +90,6 @@ namespace CaixaEletronicoII
                 textBoxValor.Clear();
             }
         }
-
-
         private void comboBoxContas_SelectedIndexChanged(object sender, EventArgs e)
         {
             indiceSelecionado = comboBoxContas.SelectedIndex;
@@ -104,13 +101,10 @@ namespace CaixaEletronicoII
             textBoxNumeroConta.Text = Convert.ToString(contaSelecionada.numero);
 
         }
-
         private void comboBoxTransferencia_SelectedIndexChanged(object sender, EventArgs e)
         {
             indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
             contaSelecionadaTransefere = contas[indiceSelecionadoTransferencia];
-
-
         }
         private void buttonTransferir_Click(object sender, EventArgs e)
         {
@@ -137,6 +131,5 @@ namespace CaixaEletronicoII
 
             }
         }
-
     }
 }

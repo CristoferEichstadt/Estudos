@@ -10,6 +10,7 @@ namespace CaixaEletronicoII
     {
         public string nome, rg, endereco, cpf;
         public int idade;
+        public bool EEmancipado {get; set;}
         public Cliente(string Nome, string Rg, string Endereco, string Cpf, int Idade)
         {
             this.nome = Nome;
@@ -24,6 +25,14 @@ namespace CaixaEletronicoII
         public bool MaiorDeIdade()
         {
             return this.idade >= 18;
+        }
+        public bool PodeAbrirConta() //método que vai verificar se o cliente pode abrir uma conta
+        {
+            var maiorDeIdade = (this.idade >= 18);
+            var emancipado = (this.EEmancipado);
+            var temCpf = !string.IsNullOrEmpty(this.cpf); //vai verificar se o atributo Cpf está preenchido
+
+            return ((maiorDeIdade || emancipado) && temCpf); //retorna se é maior de idade ou emancipado e se tem cpf
         }
     }
 }
