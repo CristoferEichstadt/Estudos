@@ -27,13 +27,13 @@ namespace CaixaEletronicoII
             contaPoupancaGuilherme.Titular = contaGuilherme.Titular;
             totalizador = new TotalizadorDeContas();
             totalizador.Adiciona(contaGuilherme);
-
             
             textBoxTitular.Text = contaGuilherme.Titular.nome;
             textBoxTitular.SelectionStart = 0;
             textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
             //converte int em string para passar p/ textBox
             textBoxNumeroConta.Text = Convert.ToString(contaGuilherme.numero);
+
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
         {
@@ -102,6 +102,22 @@ namespace CaixaEletronicoII
         private void button2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("O total é: " + totalizador.Total);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Conta[] contas = new Conta[2];//criação de array de Conta
+            contas[0] = new Conta();//definição de cada posição do array
+            contas[1] = new ContaPoupanca();
+
+            contas[0].Deposita(500);
+            contas[1].Deposita(200);
+
+            for (int i = 0; i < contas.Length; i++)//vai rodar o tamanho da array = i<contas.Length
+            {
+                MessageBox.Show("O saldo da conta é R$ " + contas[i].Saldo);//a cada vez que rodar, vai mostrar o saldo da conta referente ao número da volta do looping
+            }
+
         }
     }
 }
