@@ -33,14 +33,9 @@ namespace CaixaEletronicoII
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
         {
-            if (textBoxValor.Text == string.Empty) //Verifica se o textBox está vazio.
+            if (textBoxValor.Text == string.Empty || Char.IsLetter(textBoxValor.Text, 0)) //Verifica se o textBox está vazio || Verifica se está digitado com letras.
             {
-                MessageBox.Show("Campo não pode ser vazio!");
-                return;
-            }
-            else if (Char.IsLetter(textBoxValor.Text, 0)) //Verifica se está digitado com letras.
-            {
-                MessageBox.Show("Valor inválido! Digite novamente.");
+                MessageBox.Show("Valor inválido. Digite novamente!");
                 textBoxValor.Clear();
             }
             else // se não for letras nem vazio, faz o depósito.
@@ -55,7 +50,7 @@ namespace CaixaEletronicoII
                 double saldoAtual = valorDoDeposito + valorSaldoDepois;
                 textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
 
-                MessageBox.Show("Você depositou R$ " + valorDoDeposito + ".");
+                MessageBox.Show("Você depositou R$ " + valorDoDeposito);
 
                 textBoxValor.Clear();
             }
@@ -63,20 +58,14 @@ namespace CaixaEletronicoII
 
         private void buttonSacar_Click(object sender, EventArgs e)
         {
-
-            if (textBoxValor.Text == string.Empty)
+            if (textBoxValor.Text == string.Empty || Char.IsLetter(textBoxValor.Text, 0))
             {
-                MessageBox.Show("Campo não pode ser vazio!");
-                return;
-            }
-            else if (Char.IsLetter(textBoxValor.Text, 0))
-            {
-                MessageBox.Show("Valor inválido! Digite novamente.");
+                MessageBox.Show("Valor inválido. Digite novamente!");
                 textBoxValor.Clear();
             }
-            else if (Convert.ToDouble(textBoxValor.Text.ToString()) > Convert.ToDouble(contaGuilherme.Saldo.ToString()))
+            else if (Convert.ToDouble(textBoxValor.Text.ToString()) > Convert.ToDouble(contaGuilherme.Saldo.ToString())) //Verifica se o valor digitado é maior que saldo em conta.
             {
-                MessageBox.Show("Você não tem saldo em conta para efetuar o saque.");
+                MessageBox.Show("Valor superior ao saldo. Digite um valor válido.");
                 textBoxValor.Clear();
             }
             else //se não for letras nem vazio, faz saque
@@ -91,7 +80,7 @@ namespace CaixaEletronicoII
                 double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
                 textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
 
-                MessageBox.Show("Você sacou R$ " + valorDoSaque + " + taxa de R$ 0,10.");
+                MessageBox.Show("Você sacou R$ " + valorDoSaque);
 
                 textBoxValor.Clear();
             }

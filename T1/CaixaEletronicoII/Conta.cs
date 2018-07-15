@@ -32,7 +32,7 @@ namespace CaixaEletronicoII
             {
                 if (this.Titular.MaiorDeIdade())
                 {
-                    this.Saldo -= valor + 0.1;
+                    this.Saldo -= valor;
                     return true;
                 }
                 else
