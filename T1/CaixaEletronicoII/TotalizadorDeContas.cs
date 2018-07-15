@@ -13,6 +13,6 @@ namespace CaixaEletronicoII
         public void Adiciona(Conta conta)
         {
             this.Total += conta.Saldo; //toda vez que adiciona uma conta ao relatorio, pega o saldo da conta, e adiciona ao total.
-        }
+        }               
     }
 }
