@@ -113,10 +113,15 @@ namespace CaixaEletronicoII
             contas[0].Deposita(500);
             contas[1].Deposita(200);
 
-            for (int i = 0; i < contas.Length; i++)//vai rodar o tamanho da array = i<contas.Length
+            for (int i = 0; i < contas.Length; i++)//vai rodar o tamanho da array = i<contas.Length. Com o for passa pelas contas escolhidas
             {
                 MessageBox.Show("O saldo da conta é R$ " + contas[i].Saldo);//a cada vez que rodar, vai mostrar o saldo da conta referente ao número da volta do looping
             }
+
+            /*foreach(Conta conta in contas) //No foreach, obrigatoriamente ele rodaria por toda a array.
+            {
+                MessageBox.Show("O saldo da conta é R$ " + conta.Saldo);
+            }*/
 
         }
     }
