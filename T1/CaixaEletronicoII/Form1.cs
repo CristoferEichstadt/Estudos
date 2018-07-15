@@ -13,6 +13,7 @@ namespace CaixaEletronicoII
     public partial class Form1 : Form
     {
         Conta contaGuilherme;
+        ContaPoupanca contaPoupancaGuilherme;
         public Form1()
         {
             InitializeComponent();
@@ -21,6 +22,8 @@ namespace CaixaEletronicoII
         {
             contaGuilherme = new Conta(100.0, 1);
             contaGuilherme.Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
+            contaPoupancaGuilherme = new ContaPoupanca();
+            contaPoupancaGuilherme.Titular = contaGuilherme.Titular;
 
             textBoxTitular.Text = contaGuilherme.Titular.nome;
             textBoxTitular.SelectionStart = 0;
@@ -92,6 +95,14 @@ namespace CaixaEletronicoII
 
                 textBoxValor.Clear();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            contaPoupancaGuilherme.Deposita(100);
+            contaPoupancaGuilherme.Saca(10);
+
+            MessageBox.Show("Saldo da conta poupança é R$ " + contaPoupancaGuilherme.Saldo);
         }
     }
 }

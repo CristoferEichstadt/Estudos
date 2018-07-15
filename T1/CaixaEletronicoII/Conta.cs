@@ -9,8 +9,9 @@ namespace CaixaEletronicoII
     class Conta
     {
 
-        public double Saldo { get; set; }
+        public double Saldo { get; protected set; } //saldo proteido para class filhas (contaPoupança).
         public int numero { get; set; }
+        public int Tipo { get; set;  }
         public Cliente Titular { get; set; }
 
         public Conta(double saldo, int Numero)
@@ -21,7 +22,7 @@ namespace CaixaEletronicoII
 
         public Conta() { }
 
-        public bool Saca(double valor)
+        public virtual bool Saca(double valor)
         {
             if (valor > this.Saldo || valor <= 0)
             {
