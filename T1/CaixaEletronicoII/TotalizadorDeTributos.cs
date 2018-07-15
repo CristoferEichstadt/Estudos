@@ -14,5 +14,9 @@ namespace CaixaEletronicoII
         {
             Total += contaPoupanca.CalculaTributo();
         }
+        public void Acumula(ContaInvestimento contaInvestimento)
+        {
+            Total += contaInvestimento.CalculaTributo();
+        }
     }
 }
