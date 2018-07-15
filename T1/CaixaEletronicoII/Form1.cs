@@ -33,7 +33,7 @@ namespace CaixaEletronicoII
             {
                 comboBoxContas.Items.Add(conta.Titular.nome);
             }
-
+            textBoxTitular.Hide();
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
         {

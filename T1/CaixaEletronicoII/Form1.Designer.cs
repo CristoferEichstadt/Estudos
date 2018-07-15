@@ -74,7 +74,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(61, 166);
+            this.label1.Location = new System.Drawing.Point(61, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(324, 23);
             this.label1.TabIndex = 2;
@@ -89,7 +89,7 @@
             this.textBoxSaldo.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxSaldo.HideSelection = false;
             this.textBoxSaldo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxSaldo.Location = new System.Drawing.Point(102, 192);
+            this.textBoxSaldo.Location = new System.Drawing.Point(102, 191);
             this.textBoxSaldo.Name = "textBoxSaldo";
             this.textBoxSaldo.ReadOnly = true;
             this.textBoxSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -105,7 +105,7 @@
             this.textBoxNumeroConta.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxNumeroConta.HideSelection = false;
             this.textBoxNumeroConta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxNumeroConta.Location = new System.Drawing.Point(64, 262);
+            this.textBoxNumeroConta.Location = new System.Drawing.Point(64, 256);
             this.textBoxNumeroConta.Name = "textBoxNumeroConta";
             this.textBoxNumeroConta.ReadOnly = true;
             this.textBoxNumeroConta.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -116,7 +116,7 @@
             // labelNumeroConta
             // 
             this.labelNumeroConta.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.labelNumeroConta.Location = new System.Drawing.Point(61, 236);
+            this.labelNumeroConta.Location = new System.Drawing.Point(61, 230);
             this.labelNumeroConta.Name = "labelNumeroConta";
             this.labelNumeroConta.Size = new System.Drawing.Size(324, 23);
             this.labelNumeroConta.TabIndex = 4;
@@ -129,7 +129,7 @@
             this.textBoxValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxValor.Font = new System.Drawing.Font("Georgia", 12.2F, System.Drawing.FontStyle.Bold);
             this.textBoxValor.ForeColor = System.Drawing.Color.Aqua;
-            this.textBoxValor.Location = new System.Drawing.Point(102, 334);
+            this.textBoxValor.Location = new System.Drawing.Point(102, 323);
             this.textBoxValor.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxValor.Name = "textBoxValor";
             this.textBoxValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -139,7 +139,7 @@
             // labelValor
             // 
             this.labelValor.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.labelValor.Location = new System.Drawing.Point(64, 308);
+            this.labelValor.Location = new System.Drawing.Point(64, 297);
             this.labelValor.Name = "labelValor";
             this.labelValor.Size = new System.Drawing.Size(324, 23);
             this.labelValor.TabIndex = 7;
@@ -153,7 +153,7 @@
             this.buttonDepositar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDepositar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonDepositar.ForeColor = System.Drawing.Color.Aqua;
-            this.buttonDepositar.Location = new System.Drawing.Point(63, 388);
+            this.buttonDepositar.Location = new System.Drawing.Point(63, 377);
             this.buttonDepositar.Name = "buttonDepositar";
             this.buttonDepositar.Size = new System.Drawing.Size(156, 30);
             this.buttonDepositar.TabIndex = 8;
@@ -168,7 +168,7 @@
             this.buttonSacar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSacar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonSacar.ForeColor = System.Drawing.Color.Aqua;
-            this.buttonSacar.Location = new System.Drawing.Point(233, 388);
+            this.buttonSacar.Location = new System.Drawing.Point(233, 377);
             this.buttonSacar.Name = "buttonSacar";
             this.buttonSacar.Size = new System.Drawing.Size(155, 30);
             this.buttonSacar.TabIndex = 9;
@@ -182,7 +182,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Aqua;
-            this.label2.Location = new System.Drawing.Point(60, 334);
+            this.label2.Location = new System.Drawing.Point(60, 323);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 23);
             this.label2.TabIndex = 10;
@@ -195,7 +195,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Aqua;
-            this.label3.Location = new System.Drawing.Point(60, 192);
+            this.label3.Location = new System.Drawing.Point(60, 191);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 20);
             this.label3.TabIndex = 11;
