@@ -14,17 +14,21 @@ namespace CaixaEletronicoII
     {
         Conta contaGuilherme;
         ContaPoupanca contaPoupancaGuilherme;
+        TotalizadorDeContas totalizador;
         public Form1()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            contaGuilherme = new Conta(100.0, 1);
+            contaGuilherme = new Conta(1000.0, 1);
             contaGuilherme.Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
             contaPoupancaGuilherme = new ContaPoupanca();
             contaPoupancaGuilherme.Titular = contaGuilherme.Titular;
+            totalizador = new TotalizadorDeContas();
+            totalizador.Adiciona(contaGuilherme);
 
+            
             textBoxTitular.Text = contaGuilherme.Titular.nome;
             textBoxTitular.SelectionStart = 0;
             textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
@@ -93,6 +97,11 @@ namespace CaixaEletronicoII
 
             MessageBox.Show("Saldo da conta poupança é R$ " + contaPoupancaGuilherme.Saldo
                 + "\nSaldo da conta corrente é R$ " + contaGuilherme.Saldo);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("O total é: " + totalizador.Total);
         }
     }
 }
