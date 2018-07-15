@@ -13,8 +13,10 @@ namespace CaixaEletronicoII
     public partial class Form1 : Form
     {
         Conta[] contas;
-        int indiceSelecionado;
         Conta contaSelecionada;
+        Conta contaSelecionadaTransefere;
+        int indiceSelecionado;
+        int indiceSelecionadoTransferencia;
         public Form1()
         {
             InitializeComponent();
@@ -32,8 +34,8 @@ namespace CaixaEletronicoII
             foreach (Conta conta in contas)
             {
                 comboBoxContas.Items.Add(conta.Titular.nome);
+                comboBoxTransferencia.Items.Add(conta.Titular.nome);
             }
-            textBoxTitular.Hide();
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
         {
@@ -102,5 +104,39 @@ namespace CaixaEletronicoII
             textBoxNumeroConta.Text = Convert.ToString(contaSelecionada.numero);
 
         }
+
+        private void comboBoxTransferencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
+            contaSelecionadaTransefere = contas[indiceSelecionadoTransferencia];
+
+
+        }
+        private void buttonTransferir_Click(object sender, EventArgs e)
+        {
+            if (textBoxValor.Text == string.Empty || Char.IsLetter(textBoxValor.Text, 0)) //Verifica se o textBox está vazio || Verifica se está digitado com letras.
+            {
+                MessageBox.Show("Valor inválido. Digite novamente!");
+                textBoxValor.Clear();
+            }
+            else // se não for letras nem vazio, faz o depósito.
+            {
+                string valorParaTransferir = textBoxValor.Text;
+                double valorDaTransferencia = Convert.ToDouble(valorParaTransferir);
+                contaSelecionada.Transfere(valorDaTransferencia, contaSelecionadaTransefere);
+
+                string valorSaldo = textBoxSaldo.Text;
+                double valorSaldoDepois = Convert.ToDouble(valorSaldo);
+
+                double saldoAtual = valorDaTransferencia - valorSaldoDepois;
+                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
+
+                MessageBox.Show("Você transferiu R$ " + valorDaTransferencia);
+
+                textBoxValor.Clear();
+
+            }
+        }
+
     }
 }
