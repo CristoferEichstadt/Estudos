@@ -10,7 +10,7 @@ namespace CaixaEletronicoII
     {
         public double Total { get; private set; }
 
-        public void Acumula(Tributavel contaPoupanca)
+        public void Acumula(ITributavel contaPoupanca)
         {
             Total += contaPoupanca.CalculaTributo();
         }
