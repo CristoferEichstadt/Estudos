@@ -42,7 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.comboBoxContas = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textBoxTitular
@@ -53,7 +53,7 @@
             this.textBoxTitular.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxTitular.HideSelection = false;
             this.textBoxTitular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxTitular.Location = new System.Drawing.Point(64, 56);
+            this.textBoxTitular.Location = new System.Drawing.Point(64, 125);
             this.textBoxTitular.MaxLength = 20;
             this.textBoxTitular.Name = "textBoxTitular";
             this.textBoxTitular.ReadOnly = true;
@@ -65,7 +65,7 @@
             // labelTitular
             // 
             this.labelTitular.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.labelTitular.Location = new System.Drawing.Point(60, 37);
+            this.labelTitular.Location = new System.Drawing.Point(60, 106);
             this.labelTitular.Name = "labelTitular";
             this.labelTitular.Size = new System.Drawing.Size(328, 16);
             this.labelTitular.TabIndex = 1;
@@ -75,7 +75,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(61, 97);
+            this.label1.Location = new System.Drawing.Point(61, 166);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(324, 23);
             this.label1.TabIndex = 2;
@@ -90,7 +90,7 @@
             this.textBoxSaldo.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxSaldo.HideSelection = false;
             this.textBoxSaldo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxSaldo.Location = new System.Drawing.Point(102, 123);
+            this.textBoxSaldo.Location = new System.Drawing.Point(102, 192);
             this.textBoxSaldo.Name = "textBoxSaldo";
             this.textBoxSaldo.ReadOnly = true;
             this.textBoxSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -106,7 +106,7 @@
             this.textBoxNumeroConta.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxNumeroConta.HideSelection = false;
             this.textBoxNumeroConta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxNumeroConta.Location = new System.Drawing.Point(64, 193);
+            this.textBoxNumeroConta.Location = new System.Drawing.Point(64, 262);
             this.textBoxNumeroConta.Name = "textBoxNumeroConta";
             this.textBoxNumeroConta.ReadOnly = true;
             this.textBoxNumeroConta.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -117,7 +117,7 @@
             // labelNumeroConta
             // 
             this.labelNumeroConta.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.labelNumeroConta.Location = new System.Drawing.Point(61, 167);
+            this.labelNumeroConta.Location = new System.Drawing.Point(61, 236);
             this.labelNumeroConta.Name = "labelNumeroConta";
             this.labelNumeroConta.Size = new System.Drawing.Size(324, 23);
             this.labelNumeroConta.TabIndex = 4;
@@ -130,7 +130,7 @@
             this.textBoxValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxValor.Font = new System.Drawing.Font("Georgia", 12.2F, System.Drawing.FontStyle.Bold);
             this.textBoxValor.ForeColor = System.Drawing.Color.Aqua;
-            this.textBoxValor.Location = new System.Drawing.Point(102, 265);
+            this.textBoxValor.Location = new System.Drawing.Point(102, 334);
             this.textBoxValor.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxValor.Name = "textBoxValor";
             this.textBoxValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -140,7 +140,7 @@
             // labelValor
             // 
             this.labelValor.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
-            this.labelValor.Location = new System.Drawing.Point(64, 239);
+            this.labelValor.Location = new System.Drawing.Point(64, 308);
             this.labelValor.Name = "labelValor";
             this.labelValor.Size = new System.Drawing.Size(324, 23);
             this.labelValor.TabIndex = 7;
@@ -154,7 +154,7 @@
             this.buttonDepositar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDepositar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonDepositar.ForeColor = System.Drawing.Color.Aqua;
-            this.buttonDepositar.Location = new System.Drawing.Point(63, 319);
+            this.buttonDepositar.Location = new System.Drawing.Point(63, 388);
             this.buttonDepositar.Name = "buttonDepositar";
             this.buttonDepositar.Size = new System.Drawing.Size(156, 30);
             this.buttonDepositar.TabIndex = 8;
@@ -169,7 +169,7 @@
             this.buttonSacar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSacar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonSacar.ForeColor = System.Drawing.Color.Aqua;
-            this.buttonSacar.Location = new System.Drawing.Point(233, 319);
+            this.buttonSacar.Location = new System.Drawing.Point(233, 388);
             this.buttonSacar.Name = "buttonSacar";
             this.buttonSacar.Size = new System.Drawing.Size(155, 30);
             this.buttonSacar.TabIndex = 9;
@@ -183,7 +183,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Aqua;
-            this.label2.Location = new System.Drawing.Point(60, 265);
+            this.label2.Location = new System.Drawing.Point(60, 334);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 23);
             this.label2.TabIndex = 10;
@@ -196,7 +196,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Aqua;
-            this.label3.Location = new System.Drawing.Point(60, 123);
+            this.label3.Location = new System.Drawing.Point(60, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 20);
             this.label3.TabIndex = 11;
@@ -205,7 +205,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(63, 397);
+            this.button1.Location = new System.Drawing.Point(63, 466);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(156, 23);
             this.button1.TabIndex = 12;
@@ -215,7 +215,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(63, 426);
+            this.button2.Location = new System.Drawing.Point(63, 495);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(155, 23);
             this.button2.TabIndex = 13;
@@ -223,22 +223,21 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // comboBoxContas
             // 
-            this.button3.Location = new System.Drawing.Point(233, 397);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Array";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.comboBoxContas.FormattingEnabled = true;
+            this.comboBoxContas.Location = new System.Drawing.Point(63, 36);
+            this.comboBoxContas.Name = "comboBoxContas";
+            this.comboBoxContas.Size = new System.Drawing.Size(325, 24);
+            this.comboBoxContas.TabIndex = 15;
+            this.comboBoxContas.SelectedIndexChanged += new System.EventHandler(this.comboBoxContas_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 468);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(464, 534);
+            this.Controls.Add(this.comboBoxContas);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -277,7 +276,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBoxContas;
     }
 }
 

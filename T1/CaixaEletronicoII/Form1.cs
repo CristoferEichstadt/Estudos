@@ -15,6 +15,7 @@ namespace CaixaEletronicoII
         Conta contaGuilherme;
         ContaPoupanca contaPoupancaGuilherme;
         TotalizadorDeContas totalizador;
+        Conta[] contas;
         public Form1()
         {
             InitializeComponent();
@@ -27,12 +28,25 @@ namespace CaixaEletronicoII
             contaPoupancaGuilherme.Titular = contaGuilherme.Titular;
             totalizador = new TotalizadorDeContas();
             totalizador.Adiciona(contaGuilherme);
-            
+
             textBoxTitular.Text = contaGuilherme.Titular.nome;
             textBoxTitular.SelectionStart = 0;
             textBoxSaldo.Text = contaGuilherme.Saldo.ToString();
             //converte int em string para passar p/ textBox
             textBoxNumeroConta.Text = Convert.ToString(contaGuilherme.numero);
+
+            //criando array de contas:
+            contas = new Conta[2];
+            contas[0] = new Conta(2500.0, 1);
+            contas[0].Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
+
+            contas[1] = new Conta(1500.0, 2);
+            contas[1].Titular = new Cliente("João Silva", "241.421.563", "Rua São Paulo", "213.758.132-23", 20);
+
+            foreach (Conta conta in contas)
+            {
+                comboBoxContas.Items.Add(conta.Titular);
+            }
 
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
@@ -122,6 +136,11 @@ namespace CaixaEletronicoII
             {
                 MessageBox.Show("O saldo da conta é R$ " + conta.Saldo);
             }*/
+
+        }
+
+        private void comboBoxContas_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
