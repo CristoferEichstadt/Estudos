@@ -27,5 +27,9 @@ namespace CaixaEletronicoII
                 }
             }
         }
+        public double CalculaTributo()
+        {
+            return this.Saldo * 0.03; //vai retornar o saldo com tributos
+        }
     }
 }
