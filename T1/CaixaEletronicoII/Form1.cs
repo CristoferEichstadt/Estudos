@@ -136,8 +136,8 @@ namespace CaixaEletronicoII
         {
             ContaPoupanca contaPoupanca = new ContaPoupanca();
             ContaInvestimento contaInvestimento = new ContaInvestimento();
-            contaPoupanca.Deposita(200);
-            contaInvestimento.Deposita(800);
+            contaPoupanca.Deposita(10);
+            contaInvestimento.Deposita(100);
             TotalizadorDeTributos totalizador = new TotalizadorDeTributos();
             totalizador.Acumula(contaPoupanca);
             totalizador.Acumula(contaInvestimento);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronicoII
 {
-    class ContaPoupanca : Conta //class ContaPoupança herda atributos|métodoss da class Conta.
+    class ContaPoupanca : Conta, Tributavel //class ContaPoupança herda atributos|métodoss da class Conta.
     {
         public override bool Saca(double valor) //override = pode substituir método da class Conta 
         {

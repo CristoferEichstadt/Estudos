@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronicoII
 {
-    class ContaInvestimento : Conta
+    class ContaInvestimento : Conta, Tributavel
     {
         public override bool Saca(double valor)
         {
