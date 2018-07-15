@@ -27,5 +27,11 @@ namespace CaixaEletronicoII
                 }
             }
         }
+
+        public ContaCorrente(double saldo, int Numero)
+        {
+            this.Saldo = saldo;
+            this.numero = Numero;
+        }
     }
 }

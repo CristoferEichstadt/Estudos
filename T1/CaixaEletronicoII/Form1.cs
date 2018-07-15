@@ -12,9 +12,9 @@ namespace CaixaEletronicoII
 {
     public partial class Form1 : Form
     {
-        Conta[] contas;
-        Conta contaSelecionada;
-        Conta contaSelecionadaTransefere;
+        ContaCorrente[] contas;
+        ContaCorrente contaSelecionada;
+        ContaCorrente contaSelecionadaTransefere;
         int indiceSelecionado;
         int indiceSelecionadoTransferencia;
         public Form1()
@@ -24,11 +24,11 @@ namespace CaixaEletronicoII
         private void Form1_Load(object sender, EventArgs e)
         {
             //criando array de contas:
-            contas = new Conta[2];
-            contas[0] = new Conta(2500.0, 1);
+            contas = new ContaCorrente[2];
+            contas[0] = new ContaCorrente(2500.0, 1);
             contas[0].Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
 
-            contas[1] = new Conta(1500.0, 2);
+            contas[1] = new ContaCorrente(1500.0, 2);
             contas[1].Titular = new Cliente("João Silva", "241.421.563", "Rua São Paulo", "213.758.132-23", 20);
 
             foreach (Conta conta in contas)
