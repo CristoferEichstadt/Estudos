@@ -91,7 +91,8 @@ namespace CaixaEletronicoII
             contaPoupancaGuilherme.Deposita(100);
             contaPoupancaGuilherme.Saca(10);
 
-            MessageBox.Show("Saldo da conta poupança é R$ " + contaPoupancaGuilherme.Saldo);
+            MessageBox.Show("Saldo da conta poupança é R$ " + contaPoupancaGuilherme.Saldo
+                + "\nSaldo da conta corrente é R$ " + contaGuilherme.Saldo);
         }
     }
 }
