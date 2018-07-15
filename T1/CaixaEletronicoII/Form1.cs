@@ -131,5 +131,14 @@ namespace CaixaEletronicoII
 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ContaPoupanca contaPoupanca = new ContaPoupanca();
+            ContaInvestimento contaInvestimento = new ContaInvestimento();
+            contaPoupanca.Deposita(200);
+            contaInvestimento.Deposita(800);
+
+        }
     }
 }
