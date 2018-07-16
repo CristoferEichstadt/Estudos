@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronicoII
 {
-    interface ITributavel // comportamentos que uma classe deve ter para que ela seja tributavel
+    interface ITributavel
     {
+
         double CalculaTributo();
     }
 }

@@ -31,10 +31,20 @@ namespace CaixaEletronicoII
             contas[1] = new ContaCorrente(1500.0, 2);
             contas[1].Titular = new Cliente("João Silva", "241.421.563", "Rua São Paulo", "213.758.132-23", 20);
 
+
+            PopulaContas(comboBoxContas);
+            PopulaContas(comboBoxTransferencia);
+            labelEscolherConta.Select();
+
+
+
+        }
+
+        private void PopulaContas(ComboBox combo)
+        {
             foreach (Conta conta in contas)
             {
-                comboBoxContas.Items.Add(conta.Titular.nome);
-                comboBoxTransferencia.Items.Add(conta.Titular.nome);
+                combo.Items.Add(conta.Titular.nome);
             }
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
@@ -100,9 +110,17 @@ namespace CaixaEletronicoII
             textBoxSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
             textBoxNumeroConta.Text = Convert.ToString(contaSelecionada.numero);
 
+            for (int n = comboBoxTransferencia.Items.Count - 1; n >= 0; --n)
+            {
+                if (comboBoxTransferencia.Items[n].ToString().Contains(contaSelecionada.Titular.nome))
+                {
+                    comboBoxTransferencia.Items.RemoveAt(n);
+                }
+            }
         }
         private void comboBoxTransferencia_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
             contaSelecionadaTransefere = contas[indiceSelecionadoTransferencia];
         }
@@ -128,21 +146,16 @@ namespace CaixaEletronicoII
                 MessageBox.Show("Você transferiu R$ " + valorDaTransferencia);
 
                 textBoxValor.Clear();
-
+                comboBoxTransferencia.Items.Clear();
+                PopulaContas(comboBoxTransferencia);
+                for (int n = comboBoxTransferencia.Items.Count - 1; n >= 0; --n)
+                {
+                    if (comboBoxTransferencia.Items[n].ToString().Contains(contaSelecionada.Titular.nome))
+                    {
+                        comboBoxTransferencia.Items.RemoveAt(n);
+                    }
+                }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ContaPoupanca contaPoupanca = new ContaPoupanca();
-            ContaInvestimento contaInvestimento = new ContaInvestimento();
-            contaPoupanca.Deposita(10);
-            contaInvestimento.Deposita(100);
-            TotalizadorDeTributos totalizador = new TotalizadorDeTributos();
-            totalizador.Acumula(contaPoupanca);
-            totalizador.Acumula(contaInvestimento);
-
-            MessageBox.Show("Tributos: " + totalizador.Total);
         }
     }
 }
