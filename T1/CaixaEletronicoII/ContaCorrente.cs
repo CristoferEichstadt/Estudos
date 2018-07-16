@@ -8,23 +8,27 @@ namespace CaixaEletronicoII
 {
     class ContaCorrente : Conta
     {
-        public override bool Saca(double valor)
+        public override void Saca(double valor)
         {
-            if (valor > this.Saldo || valor <= 0)
+            if (valor > this.Saldo)
             {
-                return false;
+                throw new SaldoInsuficienteException();
             }
-            else
+            if (valor < 0)
             {
-                if (this.Titular.MaiorDeIdade())
-                {
-                    this.Saldo -= valor;
-                    return true; 
-                }
-                else
-                {
-                    throw new Exception();
-                }
+                throw new ArgumentException();
+            }
+            if (valor == 0)
+            {
+                throw new ValorIgualZeroException();
+            }
+            if (valor < this.Saldo && this.Titular.MaiorDeIdade())
+            {
+                this.Saldo -= valor + 0.1;
+            }
+            if (valor == null)
+            {
+                throw new ArgumentNullException();
             }
         }
         public static int TotalDeContasCorrentes { get; private set; } //vai contar quantas contas tem. Static diz que é da classe, e não um atributo de cada conta criada, assim vai contar quantas contas foram criadas no total.

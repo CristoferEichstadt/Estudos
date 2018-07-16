@@ -8,23 +8,23 @@ namespace CaixaEletronicoII
 {
     class ContaPoupanca : Conta, ITributavel //class ContaPoupança herda atributos|métodoss da class Conta.
     {
-        public override bool Saca(double valor) //override = pode substituir método da class Conta 
+        public override void Saca(double valor)
         {
-            if (valor > this.Saldo || valor <= 0)
+            if (valor > this.Saldo)
             {
-                return false;
+                throw new SaldoInsuficienteException();
             }
-            else
+            if (valor < 0)
             {
-                if (this.Titular.MaiorDeIdade())
-                {
-                    this.Saldo -= valor + 0.1;
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                throw new ArgumentException();
+            }
+            if (valor == 0)
+            {
+                throw new ValorIgualZeroException();
+            }
+            if (valor < this.Saldo && this.Titular.MaiorDeIdade())
+            {
+                this.Saldo -= valor + 0.1;
             }
         }
         public double CalculaTributo()

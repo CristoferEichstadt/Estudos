@@ -49,26 +49,45 @@ namespace CaixaEletronicoII
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
         {
-            if (textBoxValor.Text == string.Empty || Char.IsLetter(textBoxValor.Text, 0)) //Verifica se o textBox está vazio || Verifica se está digitado com letras.
+            if (Char.IsLetter(textBoxValor.Text, 0))
             {
                 MessageBox.Show("Valor inválido. Digite novamente!");
                 textBoxValor.Clear();
             }
-            else // se não for letras nem vazio, faz o depósito.
+            else
             {
-                string valorParaDepositar = textBoxValor.Text;
-                double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
-                contaSelecionada.Deposita(valorDoDeposito);
+                try
+                {
+                    string valorParaDepositar = textBoxValor.Text;
+                    double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
+                    contaSelecionada.Deposita(valorDoDeposito);
 
-                string valorSaldo = textBoxSaldo.Text;
-                double valorSaldoDepois = Convert.ToDouble(valorSaldo);
+                    string valorSaldo = textBoxSaldo.Text;
+                    double valorSaldoDepois = Convert.ToDouble(valorSaldo);
 
-                double saldoAtual = valorDoDeposito + valorSaldoDepois;
-                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
+                    double saldoAtual = valorDoDeposito + valorSaldoDepois;
+                    textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
-                MessageBox.Show("Você depositou R$ " + valorDoDeposito);
+                    MessageBox.Show("Você depositou R$ " + valorDoDeposito);
 
-                textBoxValor.Clear();
+                    textBoxValor.Clear();
+                }
+                catch (ValorIgualZeroException exception)
+                {
+                    MessageBox.Show("Valor não pode ser zero. Digite um valor válido.");
+                }
+                catch (SaldoInsuficienteException exception)
+                {
+                    MessageBox.Show("Saldo insuficiente. Digite um valor válido.");
+                }
+                catch (ArgumentException exception)
+                {
+                    MessageBox.Show("Valor inválido. Digite novamente.");
+                }
+                catch ()
+                {
+
+                }
             }
         }
         private void buttonSacar_Click(object sender, EventArgs e)

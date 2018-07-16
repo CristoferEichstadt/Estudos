@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronicoII
 {
-    class SaldoInsuficienteException : Exception
+    class ValorIgualZeroException : Exception
     {
     }
 }

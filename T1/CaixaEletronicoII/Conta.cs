@@ -22,7 +22,7 @@ namespace CaixaEletronicoII
 
         public Conta() { }
 
-        public abstract bool Saca(double valor);
+        public abstract void Saca(double valor);
         public void Deposita(double valor)
         {
             if (valor > 0)

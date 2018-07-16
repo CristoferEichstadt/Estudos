@@ -8,23 +8,23 @@ namespace CaixaEletronicoII
 {
     class ContaInvestimento : Conta, ITributavel
     {
-        public override bool Saca(double valor)
+        public override void Saca(double valor)
         {
-            if (valor > this.Saldo || valor <= 0)
+            if (valor > this.Saldo)
             {
-                return false;
+                throw new SaldoInsuficienteException();
             }
-            else
+            if (valor < 0)
             {
-                if (this.Titular.MaiorDeIdade())
-                {
-                    this.Saldo -= valor;
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                throw new ArgumentException();
+            }
+            if (valor == 0)
+            {
+                throw new ValorIgualZeroException();
+            }
+            if (valor < this.Saldo)
+            {
+                this.Saldo -= valor;
             }
         }
         public double CalculaTributo()
