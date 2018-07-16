@@ -23,7 +23,7 @@ namespace CaixaEletronicoII
                 }
                 else
                 {
-                    return false;
+                    throw new Exception();
                 }
             }
         }
