@@ -55,13 +55,13 @@
             this.textBoxTitular.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxTitular.HideSelection = false;
             this.textBoxTitular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxTitular.Location = new System.Drawing.Point(48, 102);
+            this.textBoxTitular.Location = new System.Drawing.Point(47, 102);
             this.textBoxTitular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxTitular.MaxLength = 20;
             this.textBoxTitular.Name = "textBoxTitular";
             this.textBoxTitular.ReadOnly = true;
             this.textBoxTitular.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxTitular.Size = new System.Drawing.Size(243, 16);
+            this.textBoxTitular.Size = new System.Drawing.Size(246, 16);
             this.textBoxTitular.TabIndex = 0;
             this.textBoxTitular.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -91,16 +91,16 @@
             // 
             this.textBoxSaldo.BackColor = System.Drawing.Color.Black;
             this.textBoxSaldo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSaldo.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSaldo.Font = new System.Drawing.Font("Georgia", 12.2F, System.Drawing.FontStyle.Bold);
             this.textBoxSaldo.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxSaldo.HideSelection = false;
             this.textBoxSaldo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxSaldo.Location = new System.Drawing.Point(76, 152);
+            this.textBoxSaldo.Location = new System.Drawing.Point(79, 152);
             this.textBoxSaldo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSaldo.Name = "textBoxSaldo";
             this.textBoxSaldo.ReadOnly = true;
             this.textBoxSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxSaldo.Size = new System.Drawing.Size(214, 16);
+            this.textBoxSaldo.Size = new System.Drawing.Size(211, 19);
             this.textBoxSaldo.TabIndex = 3;
             this.textBoxSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -108,7 +108,7 @@
             // 
             this.textBoxNumeroConta.BackColor = System.Drawing.Color.Black;
             this.textBoxNumeroConta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxNumeroConta.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNumeroConta.Font = new System.Drawing.Font("Georgia", 12.2F, System.Drawing.FontStyle.Bold);
             this.textBoxNumeroConta.ForeColor = System.Drawing.Color.Aqua;
             this.textBoxNumeroConta.HideSelection = false;
             this.textBoxNumeroConta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -117,7 +117,7 @@
             this.textBoxNumeroConta.Name = "textBoxNumeroConta";
             this.textBoxNumeroConta.ReadOnly = true;
             this.textBoxNumeroConta.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxNumeroConta.Size = new System.Drawing.Size(243, 16);
+            this.textBoxNumeroConta.Size = new System.Drawing.Size(243, 19);
             this.textBoxNumeroConta.TabIndex = 5;
             this.textBoxNumeroConta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -138,11 +138,11 @@
             this.textBoxValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxValor.Font = new System.Drawing.Font("Georgia", 12.2F, System.Drawing.FontStyle.Bold);
             this.textBoxValor.ForeColor = System.Drawing.Color.Aqua;
-            this.textBoxValor.Location = new System.Drawing.Point(76, 259);
+            this.textBoxValor.Location = new System.Drawing.Point(79, 259);
             this.textBoxValor.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxValor.Name = "textBoxValor";
             this.textBoxValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxValor.Size = new System.Drawing.Size(214, 19);
+            this.textBoxValor.Size = new System.Drawing.Size(211, 19);
             this.textBoxValor.TabIndex = 6;
             // 
             // labelValor
@@ -182,7 +182,7 @@
             this.buttonSacar.Location = new System.Drawing.Point(175, 349);
             this.buttonSacar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSacar.Name = "buttonSacar";
-            this.buttonSacar.Size = new System.Drawing.Size(116, 24);
+            this.buttonSacar.Size = new System.Drawing.Size(117, 24);
             this.buttonSacar.TabIndex = 9;
             this.buttonSacar.Text = "Sacar";
             this.buttonSacar.UseVisualStyleBackColor = false;
@@ -194,7 +194,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Aqua;
-            this.label2.Location = new System.Drawing.Point(45, 259);
+            this.label2.Location = new System.Drawing.Point(47, 259);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 19);
@@ -208,10 +208,10 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Aqua;
-            this.label3.Location = new System.Drawing.Point(45, 152);
+            this.label3.Location = new System.Drawing.Point(47, 152);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 16);
+            this.label3.Size = new System.Drawing.Size(32, 19);
             this.label3.TabIndex = 11;
             this.label3.Text = "  R$";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,7 +226,7 @@
             this.comboBoxContas.Location = new System.Drawing.Point(47, 50);
             this.comboBoxContas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxContas.Name = "comboBoxContas";
-            this.comboBoxContas.Size = new System.Drawing.Size(245, 25);
+            this.comboBoxContas.Size = new System.Drawing.Size(246, 25);
             this.comboBoxContas.TabIndex = 15;
             this.comboBoxContas.SelectedIndexChanged += new System.EventHandler(this.comboBoxContas_SelectedIndexChanged);
             // 
@@ -263,7 +263,7 @@
             this.comboBoxTransferencia.Location = new System.Drawing.Point(47, 309);
             this.comboBoxTransferencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxTransferencia.Name = "comboBoxTransferencia";
-            this.comboBoxTransferencia.Size = new System.Drawing.Size(245, 25);
+            this.comboBoxTransferencia.Size = new System.Drawing.Size(244, 25);
             this.comboBoxTransferencia.TabIndex = 17;
             this.comboBoxTransferencia.SelectedIndexChanged += new System.EventHandler(this.comboBoxTransferencia_SelectedIndexChanged);
             // 
@@ -277,7 +277,7 @@
             this.buttonTransferir.Location = new System.Drawing.Point(47, 387);
             this.buttonTransferir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonTransferir.Name = "buttonTransferir";
-            this.buttonTransferir.Size = new System.Drawing.Size(244, 24);
+            this.buttonTransferir.Size = new System.Drawing.Size(245, 24);
             this.buttonTransferir.TabIndex = 19;
             this.buttonTransferir.Text = "Transferir";
             this.buttonTransferir.UseVisualStyleBackColor = false;
