@@ -33,10 +33,6 @@ namespace CaixaEletronicoII
             {
                 throw new ValorIgualZeroException();
             }
-            if (Convert.ToDouble(valor) == 0)
-            {
-                throw new ValorDigitadoLetrasExeption();
-            }
             if (valor > 0)
             {
                 this.Saldo += valor;

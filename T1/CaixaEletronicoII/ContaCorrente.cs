@@ -26,10 +26,6 @@ namespace CaixaEletronicoII
             {
                 throw new ValorIgualZeroException();
             }
-            if (Convert.ToDouble(valor) == 0)
-            {
-                throw new ValorDigitadoLetrasExeption();
-            }
         }
         public static int TotalDeContasCorrentes { get; private set; } //vai contar quantas contas tem. Static diz que é da classe, e não um atributo de cada conta criada, assim vai contar quantas contas foram criadas no total.
 
