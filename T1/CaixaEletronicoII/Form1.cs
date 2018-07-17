@@ -52,26 +52,24 @@ namespace CaixaEletronicoII
             try
             {
                 string valorParaDepositar = textBoxValor.Text;
-                try
-                {
-                    double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
-                    contaSelecionada.Deposita(valorDoDeposito);
-                    contaSelecionada.Deposita(valorDoDeposito);
 
-                    string valorSaldo = textBoxSaldo.Text;
-                    double valorSaldoDepois = Convert.ToDouble(valorSaldo);
+                double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
+                contaSelecionada.Deposita(valorDoDeposito);
+                contaSelecionada.Deposita(valorDoDeposito);
 
-                    double saldoAtual = valorDoDeposito + valorSaldoDepois;
-                    textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
+                string valorSaldo = textBoxSaldo.Text;
+                double valorSaldoDepois = Convert.ToDouble(valorSaldo);
 
-                    MessageBox.Show("Você depositou R$ " + valorDoDeposito);
+                double saldoAtual = valorDoDeposito + valorSaldoDepois;
+                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
-                    textBoxValor.Clear();
-                }
-                catch (FormatException exception)
-                {
-                    MessageBox.Show("Digite algum valor no campo.");
-                }
+                MessageBox.Show("Você depositou R$ " + valorDoDeposito);
+                textBoxValor.Clear();
+            }
+            catch (FormatException exception)
+            {
+                MessageBox.Show("Digite um valor válido no campo.");
+                textBoxValor.Clear();
             }
             catch (ValorIgualZeroException exception)
             {
@@ -82,12 +80,7 @@ namespace CaixaEletronicoII
             {
                 MessageBox.Show("Valor negativo é inválido! Digite novamente.");
                 textBoxValor.Clear();
-            }
-            catch (ValorDigitadoLetrasExeption exception)
-            {
-                MessageBox.Show("Valor Inválido! Digite novamente.");
-                textBoxValor.Clear();
-            }
+            }            
         }
         private void buttonSacar_Click(object sender, EventArgs e)
         {
@@ -104,15 +97,18 @@ namespace CaixaEletronicoII
                 textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
                 MessageBox.Show("Você sacou R$ " + valorDoSaque);
+                textBoxValor.Clear();
             }
             catch (FormatException exception)
             {
-                MessageBox.Show("Digite um valor válido.");
+                MessageBox.Show("Digite um valor válido no campo.");
+                textBoxValor.Clear();
             }
 
             catch (SaldoInsuficienteException exception)
             {
                 MessageBox.Show("Saldo insuficiente! Digite um valor válido.");
+                textBoxValor.Clear();
             }
             catch (ValorIgualZeroException exception)
             {
@@ -123,26 +119,18 @@ namespace CaixaEletronicoII
             {
                 MessageBox.Show("Valor negativo é inválido! Digite novamente.");
                 textBoxValor.Clear();
-            }
-            catch (ValorDigitadoLetrasExeption exception)
-            {
-                MessageBox.Show("Valor inválido! Digite novamente.");
-                textBoxValor.Clear();
-            }
+            }            
         }
         private void comboBoxContas_SelectedIndexChanged(object sender, EventArgs e)
         {
             indiceSelecionado = comboBoxContas.SelectedIndex;
             contaSelecionada = contas[indiceSelecionado];
-            //vai ver qual conta foi selecionada no comboBox e usá-la
 
             textBoxTitular.Text = Convert.ToString(contaSelecionada.Titular.nome);
             textBoxSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
             textBoxNumeroConta.Text = Convert.ToString(contaSelecionada.numero);
 
-
             comboBoxTransferencia.Items.Clear();
-
             for (int i = 0; i < contas.Length; i++)
             {
                 if (!contas[i].Titular.nome.Equals(comboBoxContas.Text)) //se tudo o que for de diferente do que está no textBox..
@@ -150,14 +138,11 @@ namespace CaixaEletronicoII
                     comboBoxTransferencia.Items.Add(contas[i].Titular.nome); //vai adicionar tudo o que for diferente do que foi selecionado no primeiro comboBox
                 }
             }
-
         }
         private void comboBoxTransferencia_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
             contaSelecionadaTransefere = contas[indiceSelecionadoTransferencia];
-
         }
         private void buttonTransferir_Click(object sender, EventArgs e)
         {
