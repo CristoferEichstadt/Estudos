@@ -146,12 +146,7 @@ namespace CaixaEletronicoII
         }
         private void buttonTransferir_Click(object sender, EventArgs e)
         {
-            if (textBoxValor.Text == string.Empty || Char.IsLetter(textBoxValor.Text, 0)) //Verifica se o textBox está vazio || Verifica se está digitado com letras.
-            {
-                MessageBox.Show("Valor inválido. Digite novamente!");
-                textBoxValor.Clear();
-            }
-            else // se não for letras nem vazio, faz o depósito.
+            try
             {
                 string valorParaTransferir = textBoxValor.Text;
                 double valorDaTransferencia = Convert.ToDouble(valorParaTransferir);
@@ -164,6 +159,13 @@ namespace CaixaEletronicoII
                 textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
                 MessageBox.Show("Você transferiu R$ " + valorDaTransferencia);
+                textBoxValor.Clear();
+            }
+            catch (FormatException exception)
+            {
+                MessageBox.Show("Digite um valor válido no campo.");
+                textBoxValor.Clear();
+            }
 
 
 

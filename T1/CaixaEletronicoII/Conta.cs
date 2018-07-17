@@ -21,7 +21,7 @@ namespace CaixaEletronicoII
         }
 
         public Conta() { }
-         
+
         public abstract void Saca(double valor);
         public void Deposita(double valor)
         {
@@ -45,8 +45,19 @@ namespace CaixaEletronicoII
                 this.Saca(valor);
                 destino.Deposita(valor);
             }
+            if (valor > this.Saldo)
+            {
+                throw new SaldoInsuficienteException();
+            }
+            if (valor < 0)
+            {
+                throw new ArgumentException();
+            }
+            if (valor == 0)
+            {
+                throw new ValorIgualZeroException();
+            }
         }
-
     }
 }
 
