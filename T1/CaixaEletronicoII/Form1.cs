@@ -15,9 +15,10 @@ namespace CaixaEletronicoII
         ContaCorrente[] contas;
         ContaCorrente contaSelecionada;
         ContaCorrente contaSelecionadaTransefere;
+
         int indiceSelecionado;
         int indiceSelecionadoTransferencia;
-        int contaTeste;
+
         public Form1()
         {
             InitializeComponent();
@@ -63,21 +64,21 @@ namespace CaixaEletronicoII
                 textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
                 MessageBox.Show("Você depositou R$ " + valorDoDeposito);
-                textBoxValor.Clear();
             }
             catch (FormatException exception)
             {
                 MessageBox.Show("Digite um valor válido no campo.");
-                textBoxValor.Clear();
             }
             catch (ValorIgualZeroException exception)
             {
                 MessageBox.Show("Valor não pode ser zero! Digite um valor válido.");
-                textBoxValor.Clear();
             }
             catch (ArgumentException exception)
             {
-                MessageBox.Show("Valor negativo é inválido! Digite novamente.");
+                MessageBox.Show("Valor negativo é inválido! Digite novamente.");                
+            }
+            finally
+            {
                 textBoxValor.Clear();
             }
         }
@@ -96,27 +97,26 @@ namespace CaixaEletronicoII
                 textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
                 MessageBox.Show("Você sacou R$ " + valorDoSaque);
-                textBoxValor.Clear();
             }
             catch (FormatException exception)
             {
                 MessageBox.Show("Digite um valor válido no campo.");
-                textBoxValor.Clear();
             }
 
             catch (SaldoInsuficienteException exception)
             {
                 MessageBox.Show("Saldo insuficiente! Digite um valor válido.");
-                textBoxValor.Clear();
             }
             catch (ValorIgualZeroException exception)
             {
                 MessageBox.Show("Valor não pode ser zero! Digite um valor válido.");
-                textBoxValor.Clear();
             }
             catch (ArgumentException exception)
             {
                 MessageBox.Show("Valor negativo é inválido! Digite novamente.");
+            }
+            finally
+            {
                 textBoxValor.Clear();
             }
         }
@@ -158,26 +158,25 @@ namespace CaixaEletronicoII
                 textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
                 MessageBox.Show("Você transferiu R$ " + valorDaTransferencia);
-                textBoxValor.Clear();
             }
             catch (FormatException exception)
             {
                 MessageBox.Show("Digite um valor válido no campo.");
-                textBoxValor.Clear();
             }
             catch (SaldoInsuficienteException exception)
             {
                 MessageBox.Show("Saldo insuficiente! Digite um valor válido.");
-                textBoxValor.Clear();
             }
             catch (ValorIgualZeroException exception)
             {
                 MessageBox.Show("Valor não pode ser zero! Digite um valor válido.");
-                textBoxValor.Clear();
             }
             catch (ArgumentException exception)
             {
                 MessageBox.Show("Valor negativo é inválido! Digite novamente.");
+            }
+            finally
+            {
                 textBoxValor.Clear();
             }
         }
