@@ -17,6 +17,7 @@ namespace CaixaEletronicoII
         ContaCorrente contaSelecionadaTransefere;
         int indiceSelecionado;
         int indiceSelecionadoTransferencia;
+        int contaTeste;
         public Form1()
         {
             InitializeComponent();
@@ -24,20 +25,19 @@ namespace CaixaEletronicoII
         private void Form1_Load(object sender, EventArgs e)
         {
             //criando array de contas:
-            contas = new ContaCorrente[2];
+            contas = new ContaCorrente[3];
             contas[0] = new ContaCorrente(2500.0, 1);
             contas[0].Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
 
             contas[1] = new ContaCorrente(1500.0, 2);
             contas[1].Titular = new Cliente("João Silva", "241.421.563", "Rua São Paulo", "213.758.132-23", 20);
 
+            contas[2] = new ContaCorrente(2000.0, 3);
+            contas[2].Titular = new Cliente("Gabriel Menezes", "566.983.653", "Rua Itajaí", "621.354.953.93", 41);
 
             PopulaContas(comboBoxContas);
             PopulaContas(comboBoxTransferencia);
             labelEscolherConta.Select();
-
-
-
         }
 
         private void PopulaContas(ComboBox combo)
@@ -75,49 +75,59 @@ namespace CaixaEletronicoII
             }
             catch (ValorIgualZeroException exception)
             {
-                MessageBox.Show("Valor não pode ser zero. Digite um valor válido.");
+                MessageBox.Show("Valor não pode ser zero! Digite um valor válido.");
+                textBoxValor.Clear();
             }
             catch (ArgumentException exception)
             {
-                MessageBox.Show("Valor negativo é inválido. Digite novamente.");
+                MessageBox.Show("Valor negativo é inválido! Digite novamente.");
+                textBoxValor.Clear();
             }
             catch (ValorDigitadoLetrasExeption exception)
             {
-                MessageBox.Show("Valor Inválido. Digite novamente. Valor em letras.");
+                MessageBox.Show("Valor Inválido! Digite novamente.");
+                textBoxValor.Clear();
             }
         }
         private void buttonSacar_Click(object sender, EventArgs e)
         {
             try
             {
-                try
-                {
-                    string valorParaSacar = textBoxValor.Text;
-                    double valorDoSaque = Convert.ToDouble(valorParaSacar);
-                    contaSelecionada.Saca(valorDoSaque);
+                string valorParaSacar = textBoxValor.Text;
+                double valorDoSaque = Convert.ToDouble(valorParaSacar);
+                contaSelecionada.Saca(valorDoSaque);
 
-                    string valorSaldo2 = textBoxSaldo.Text;
-                    double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
+                string valorSaldo2 = textBoxSaldo.Text;
+                double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
 
-                    double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
-                    textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
+                double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
+                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
-                    MessageBox.Show("Você sacou R$ " + valorDoSaque);
-
-                    textBoxValor.Clear();
-                }
-                catch (FormatException exception)
-                {
-                    MessageBox.Show("Digite algum valor no campo.");
-                }
+                MessageBox.Show("Você sacou R$ " + valorDoSaque);
             }
+            catch (FormatException exception)
+            {
+                MessageBox.Show("Digite um valor válido.");
+            }
+
             catch (SaldoInsuficienteException exception)
             {
-                MessageBox.Show("Saldo insuficiente!");
+                MessageBox.Show("Saldo insuficiente! Digite um valor válido.");
             }
-            catch(ArgumentException exception)
+            catch (ValorIgualZeroException exception)
             {
-                MessageBox.Show("Valor negativo é inválido. Digite novamente.");
+                MessageBox.Show("Valor não pode ser zero! Digite um valor válido.");
+                textBoxValor.Clear();
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show("Valor negativo é inválido! Digite novamente.");
+                textBoxValor.Clear();
+            }
+            catch (ValorDigitadoLetrasExeption exception)
+            {
+                MessageBox.Show("Valor inválido! Digite novamente.");
+                textBoxValor.Clear();
             }
         }
         private void comboBoxContas_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,19 +140,24 @@ namespace CaixaEletronicoII
             textBoxSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
             textBoxNumeroConta.Text = Convert.ToString(contaSelecionada.numero);
 
-            for (int n = comboBoxTransferencia.Items.Count - 1; n >= 0; --n)
+
+            comboBoxTransferencia.Items.Clear();
+
+            for (int i = 0; i < contas.Length; i++)
             {
-                if (comboBoxTransferencia.Items[n].ToString().Contains(contaSelecionada.Titular.nome))
+                if (!contas[i].Titular.nome.Equals(comboBoxContas.Text)) //se tudo o que for de diferente do que está no textBox..
                 {
-                    comboBoxTransferencia.Items.RemoveAt(n);
+                    comboBoxTransferencia.Items.Add(contas[i].Titular.nome); //vai adicionar tudo o que for diferente do que foi selecionado no primeiro comboBox
                 }
             }
+
         }
         private void comboBoxTransferencia_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
             contaSelecionadaTransefere = contas[indiceSelecionadoTransferencia];
+
         }
         private void buttonTransferir_Click(object sender, EventArgs e)
         {
@@ -165,16 +180,8 @@ namespace CaixaEletronicoII
 
                 MessageBox.Show("Você transferiu R$ " + valorDaTransferencia);
 
-                textBoxValor.Clear();
-                comboBoxTransferencia.Items.Clear();
-                PopulaContas(comboBoxTransferencia);
-                for (int n = comboBoxTransferencia.Items.Count - 1; n >= 0; --n)
-                {
-                    if (comboBoxTransferencia.Items[n].ToString().Contains(contaSelecionada.Titular.nome))
-                    {
-                        comboBoxTransferencia.Items.RemoveAt(n);
-                    }
-                }
+
+
             }
         }
     }
