@@ -49,17 +49,13 @@ namespace CaixaEletronicoII
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
         {
-            if (Char.IsLetter(textBoxValor.Text, 0))
+            try
             {
-                MessageBox.Show("Valor inválido. Digite novamente!");
-                textBoxValor.Clear();
-            }
-            else
-            {
+                string valorParaDepositar = textBoxValor.Text;
                 try
                 {
-                    string valorParaDepositar = textBoxValor.Text;
                     double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
+                    contaSelecionada.Deposita(valorDoDeposito);
                     contaSelecionada.Deposita(valorDoDeposito);
 
                     string valorSaldo = textBoxSaldo.Text;
@@ -72,22 +68,22 @@ namespace CaixaEletronicoII
 
                     textBoxValor.Clear();
                 }
-                catch (ValorIgualZeroException exception)
+                catch (FormatException exception)
                 {
-                    MessageBox.Show("Valor não pode ser zero. Digite um valor válido.");
+                    MessageBox.Show("Digite algum valor no campo.");
                 }
-                catch (SaldoInsuficienteException exception)
-                {
-                    MessageBox.Show("Saldo insuficiente. Digite um valor válido.");
-                }
-                catch (ArgumentException exception)
-                {
-                    MessageBox.Show("Valor inválido. Digite novamente.");
-                }
-                catch ()
-                {
-
-                }
+            }
+            catch (ValorIgualZeroException exception)
+            {
+                MessageBox.Show("Valor não pode ser zero. Digite um valor válido.");
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show("Valor negativo é inválido. Digite novamente.");
+            }
+            catch (ValorDigitadoLetrasExeption exception)
+            {
+                MessageBox.Show("Valor Inválido. Digite novamente. Valor em letras.");
             }
         }
         private void buttonSacar_Click(object sender, EventArgs e)
@@ -118,6 +114,40 @@ namespace CaixaEletronicoII
 
                 textBoxValor.Clear();
             }
+
+
+            /*try
+            {
+                string valorParaDepositar = textBoxValor.Text;
+                double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
+                contaSelecionada.Deposita(valorDoDeposito);
+
+                string valorSaldo = textBoxSaldo.Text;
+                double valorSaldoDepois = Convert.ToDouble(valorSaldo);
+
+                double saldoAtual = valorDoDeposito + valorSaldoDepois;
+                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
+
+                MessageBox.Show("Você depositou R$ " + valorDoDeposito);
+
+                textBoxValor.Clear();
+            }
+            catch (ValorIgualZeroException exception)
+            {
+                MessageBox.Show("Valor não pode ser zero. Digite um valor válido.");
+            }
+            catch (SaldoInsuficienteException exception)
+            {
+                MessageBox.Show("Saldo insuficiente. Digite um valor válido.");
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show("Valor inválido. Digite novamente. Valor negativo.");
+            }
+            catch (ValorDigitadoLetrasExeption exception)
+            {
+                MessageBox.Show("Valor Inválido. Digite novamente. Valor em letras.");
+            }*/
         }
         private void comboBoxContas_SelectedIndexChanged(object sender, EventArgs e)
         {
