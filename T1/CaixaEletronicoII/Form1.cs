@@ -88,66 +88,37 @@ namespace CaixaEletronicoII
         }
         private void buttonSacar_Click(object sender, EventArgs e)
         {
-            if (textBoxValor.Text == string.Empty || Char.IsLetter(textBoxValor.Text, 0))
+            try
             {
-                MessageBox.Show("Valor inválido. Digite novamente!");
-                textBoxValor.Clear();
-            }
-            else if (Convert.ToDouble(textBoxValor.Text.ToString()) > Convert.ToDouble(contaSelecionada.Saldo.ToString())) //Verifica se o valor digitado é maior que saldo em conta.
-            {
-                MessageBox.Show("Valor superior ao saldo. Digite um valor válido.");
-                textBoxValor.Clear();
-            }
-            else //se não for letras nem vazio, faz saque
-            {
-                string valorParaSacar = textBoxValor.Text;
-                double valorDoSaque = Convert.ToDouble(valorParaSacar);
-                contaSelecionada.Saca(valorDoSaque);
+                try
+                {
+                    string valorParaSacar = textBoxValor.Text;
+                    double valorDoSaque = Convert.ToDouble(valorParaSacar);
+                    contaSelecionada.Saca(valorDoSaque);
 
-                string valorSaldo2 = textBoxSaldo.Text;
-                double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
+                    string valorSaldo2 = textBoxSaldo.Text;
+                    double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
 
-                double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
-                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
+                    double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
+                    textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
-                MessageBox.Show("Você sacou R$ " + valorDoSaque);
+                    MessageBox.Show("Você sacou R$ " + valorDoSaque);
 
-                textBoxValor.Clear();
-            }
-
-
-            /*try
-            {
-                string valorParaDepositar = textBoxValor.Text;
-                double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
-                contaSelecionada.Deposita(valorDoDeposito);
-
-                string valorSaldo = textBoxSaldo.Text;
-                double valorSaldoDepois = Convert.ToDouble(valorSaldo);
-
-                double saldoAtual = valorDoDeposito + valorSaldoDepois;
-                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
-
-                MessageBox.Show("Você depositou R$ " + valorDoDeposito);
-
-                textBoxValor.Clear();
-            }
-            catch (ValorIgualZeroException exception)
-            {
-                MessageBox.Show("Valor não pode ser zero. Digite um valor válido.");
+                    textBoxValor.Clear();
+                }
+                catch (FormatException exception)
+                {
+                    MessageBox.Show("Digite algum valor no campo.");
+                }
             }
             catch (SaldoInsuficienteException exception)
             {
-                MessageBox.Show("Saldo insuficiente. Digite um valor válido.");
+                MessageBox.Show("Saldo insuficiente!");
             }
-            catch (ArgumentException exception)
+            catch(ArgumentException exception)
             {
-                MessageBox.Show("Valor inválido. Digite novamente. Valor negativo.");
+                MessageBox.Show("Valor negativo é inválido. Digite novamente.");
             }
-            catch (ValorDigitadoLetrasExeption exception)
-            {
-                MessageBox.Show("Valor Inválido. Digite novamente. Valor em letras.");
-            }*/
         }
         private void comboBoxContas_SelectedIndexChanged(object sender, EventArgs e)
         {

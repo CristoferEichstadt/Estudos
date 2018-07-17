@@ -10,6 +10,10 @@ namespace CaixaEletronicoII
     {
         public override void Saca(double valor)
         {
+            if (valor < this.Saldo && this.Titular.MaiorDeIdade())
+            {
+                this.Saldo -= valor + 0.1;
+            }
             if (valor > this.Saldo)
             {
                 throw new SaldoInsuficienteException();
@@ -21,10 +25,6 @@ namespace CaixaEletronicoII
             if (valor == 0)
             {
                 throw new ValorIgualZeroException();
-            }
-            if (valor < this.Saldo && this.Titular.MaiorDeIdade())
-            {
-                this.Saldo -= valor + 0.1;
             }
             if (Convert.ToDouble(valor) == 0)
             {
