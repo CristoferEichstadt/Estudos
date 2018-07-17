@@ -63,7 +63,6 @@
     <Compile Include="SaldoInsuficienteException.cs" />
     <Compile Include="TotalizadorDeContas.cs" />
     <Compile Include="TotalizadorDeTributos.cs" />
-    <Compile Include="ValorDigitadoLetrasExeption.cs" />
     <Compile Include="ValorIgualZeroException.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

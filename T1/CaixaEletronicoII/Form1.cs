@@ -24,7 +24,8 @@ namespace CaixaEletronicoII
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //criando array de contas:
+            labelEscolherConta.Select();
+
             contas = new ContaCorrente[3];
             contas[0] = new ContaCorrente(2500.0, 1);
             contas[0].Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
@@ -37,9 +38,7 @@ namespace CaixaEletronicoII
 
             PopulaContas(comboBoxContas);
             PopulaContas(comboBoxTransferencia);
-            labelEscolherConta.Select();
         }
-
         private void PopulaContas(ComboBox combo)
         {
             foreach (Conta conta in contas)
@@ -80,7 +79,7 @@ namespace CaixaEletronicoII
             {
                 MessageBox.Show("Valor negativo é inválido! Digite novamente.");
                 textBoxValor.Clear();
-            }            
+            }
         }
         private void buttonSacar_Click(object sender, EventArgs e)
         {
@@ -119,7 +118,7 @@ namespace CaixaEletronicoII
             {
                 MessageBox.Show("Valor negativo é inválido! Digite novamente.");
                 textBoxValor.Clear();
-            }            
+            }
         }
         private void comboBoxContas_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -166,10 +165,22 @@ namespace CaixaEletronicoII
                 MessageBox.Show("Digite um valor válido no campo.");
                 textBoxValor.Clear();
             }
-
-
-
+            catch (SaldoInsuficienteException exception)
+            {
+                MessageBox.Show("Saldo insuficiente! Digite um valor válido.");
+                textBoxValor.Clear();
+            }
+            catch (ValorIgualZeroException exception)
+            {
+                MessageBox.Show("Valor não pode ser zero! Digite um valor válido.");
+                textBoxValor.Clear();
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show("Valor negativo é inválido! Digite novamente.");
+                textBoxValor.Clear();
             }
         }
     }
 }
+
