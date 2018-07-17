@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaixaEletronicoII
+namespace Benner.CaixaEletronicoII
 {
     class ContaPoupanca : Conta, ITributavel //class ContaPoupança herda atributos|métodoss da class Conta.
     {

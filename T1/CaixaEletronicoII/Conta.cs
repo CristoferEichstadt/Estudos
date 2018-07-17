@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaixaEletronicoII
+namespace Benner.CaixaEletronicoII.Contas
 {
     abstract class Conta //abstract impede que Conta seja instanciada, só as que recebem herança, conta corrente e poupança.
     {
