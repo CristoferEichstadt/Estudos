@@ -18,6 +18,7 @@ namespace Benner.CaixaEletronicoII
         ContaCorrente contaSelecionada;
         ContaCorrente contaSelecionadaTransefere;
 
+        private int quantidadeDeContas;
         int indiceSelecionado;
         int indiceSelecionadoTransferencia;
 
@@ -185,7 +186,7 @@ namespace Benner.CaixaEletronicoII
 
         public void AdicionaConta(Conta conta)
         {
-            this.contas[this.quantidadeDeContas] = conta;
+            this.contas[this.] = conta;
             this.quantidadeDeContas++;
 
         }

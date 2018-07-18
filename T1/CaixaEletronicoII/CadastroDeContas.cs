@@ -23,7 +23,6 @@ namespace Benner.CaixaEletronicoII
         {
 
         }
-
         public CadastroDeContas(Form1 aplicacaoPrincipal)
         {
             this.aplicacaoPrincipal = aplicacaoPrincipal;
