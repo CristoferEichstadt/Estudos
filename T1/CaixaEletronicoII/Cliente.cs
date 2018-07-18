@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Benner.CaixaEletronicoII.Usuarios
 {
-    class Cliente
+    public class Cliente
     {
         public string nome, rg, endereco, cpf;
         public int idade;

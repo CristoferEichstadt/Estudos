@@ -7,13 +7,20 @@ using Benner.CaixaEletronicoII.Usuarios;
 
 namespace Benner.CaixaEletronicoII.Contas
 {
-    abstract class Conta //abstract impede que Conta seja instanciada, só as que recebem herança, conta corrente e poupança.
+    public abstract class Conta //abstract impede que Conta seja instanciada, só as que recebem herança, conta corrente e poupança.
     {
 
         public double Saldo { get; protected set; } //saldo protegido para class filhas (contaPoupança).
         public int numero { get; set; }
         public int Tipo { get; set; }
         public Cliente Titular { get; set; }
+
+        public static int TotalDeContas { get; protected set; }
+
+        public static int ProximaConta()
+        {
+            return Conta.TotalDeContas++;
+        }
 
         public Conta(double saldo, int Numero)
         {

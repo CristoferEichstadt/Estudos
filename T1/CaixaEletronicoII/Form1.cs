@@ -182,6 +182,13 @@ namespace Benner.CaixaEletronicoII
                 textBoxValor.Clear();
             }
         }
+
+        public void AdicionaConta(Conta conta)
+        {
+            this.contas[this.quantidadeDeContas] = conta;
+            this.quantidadeDeContas++;
+
+        }
     }
 }
 
