@@ -1,4 +1,4 @@
-﻿namespace CaixaEletronicoII
+﻿namespace Benner.CaixaEletronicoII
 {
     partial class Form1
     {
