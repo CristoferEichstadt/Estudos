@@ -11,7 +11,7 @@ namespace Benner.CaixaEletronicoII.Contas
     {
 
         public double Saldo { get; protected set; } //saldo protegido para class filhas (contaPoupança).
-        public int numero { get; set; }
+        public int Numero { get; set; }
         public int Tipo { get; set; }
         public Cliente Titular { get; set; }
 
@@ -22,11 +22,11 @@ namespace Benner.CaixaEletronicoII.Contas
             return Conta.TotalDeContas++;
         }
 
-        public Conta(double saldo, int Numero)
-        {
-            this.Saldo = saldo;
-            this.numero = Numero;
-        }
+        //public Conta(double saldo, int numero)
+        //{
+        //    this.Saldo = saldo;
+        //    this.Numero = numero;
+        //}
 
         public Conta() { }
 

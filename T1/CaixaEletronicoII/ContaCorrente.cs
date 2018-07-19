@@ -7,7 +7,7 @@ using Benner.CaixaEletronicoII.Contas;
 
 namespace Benner.CaixaEletronicoII
 {
-    class ContaCorrente : Conta
+    public class ContaCorrente : Conta
     {
         public override void Saca(double valor)
         {
@@ -30,11 +30,11 @@ namespace Benner.CaixaEletronicoII
         }
         public static int TotalDeContasCorrentes { get; private set; } //vai contar quantas contas tem. Static diz que é da classe, e não um atributo de cada conta criada, assim vai contar quantas contas foram criadas no total.
 
-        public ContaCorrente(double saldo, int Numero)
-        {
-            this.Saldo = saldo;
-            this.numero = Numero;
-            ContaCorrente.TotalDeContasCorrentes++; //cada vez que criar uma conta corrente, ela vai somar no contador
-        }
+        //public ContaCorrente(double saldo, int numero)
+        //{
+        //    this.Saldo = saldo;
+        //    this.Numero = numero;
+        //    ContaCorrente.TotalDeContasCorrentes++; //cada vez que criar uma conta corrente, ela vai somar no contador
+        //}
     }
 }

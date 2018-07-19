@@ -16,8 +16,6 @@ namespace Benner.CaixaEletronicoII
     {
         private Form1 aplicacaoPrincipal;
 
-        string titular, rg, cpf, endereco;
-        Cliente cliente;
 
         private void CadastroDeContas_Load(object sender, EventArgs e)
         {
@@ -31,13 +29,18 @@ namespace Benner.CaixaEletronicoII
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            titular = textBoxNomeCliente.Text;
-            rg = textBoxRgCliente.Text;
-            cpf = textBoxCpfCliente.Text;
-            endereco = textBoxEnderecoCliente.Text;
+            Cliente titular = new Cliente(textBoxNomeCliente.Text);
+            int numero = Convert.ToInt32(textBoxEnderecoCliente.Text);
 
-            cliente = new Cliente();
+            Conta conta = new ContaCorrente()
+            {
+                Titular = titular,
+                Numero = numero
+            };
 
+            aplicacaoPrincipal.AdicionaConta(conta);
         }
     }
 }
+
+

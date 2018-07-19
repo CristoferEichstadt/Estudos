@@ -22,6 +22,11 @@ namespace Benner.CaixaEletronicoII.Usuarios
         /*parametro de nome... vai ser opcional, pois tem um construtor de Cliente que pede o nome... e um construtor vazio, 
         sendo assim os dois válidos*/
         public Cliente() { }
+
+        public Cliente(string Nome)
+        {
+            this.nome = Nome;
+        }
         public bool MaiorDeIdade()
         {
             return this.idade >= 18;

@@ -45,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxTransferencia = new System.Windows.Forms.ComboBox();
             this.buttonTransferir = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxTitular
@@ -56,7 +57,7 @@
             this.textBoxTitular.HideSelection = false;
             this.textBoxTitular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textBoxTitular.Location = new System.Drawing.Point(47, 102);
-            this.textBoxTitular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTitular.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTitular.MaxLength = 20;
             this.textBoxTitular.Name = "textBoxTitular";
             this.textBoxTitular.ReadOnly = true;
@@ -96,7 +97,7 @@
             this.textBoxSaldo.HideSelection = false;
             this.textBoxSaldo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textBoxSaldo.Location = new System.Drawing.Point(79, 152);
-            this.textBoxSaldo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSaldo.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSaldo.Name = "textBoxSaldo";
             this.textBoxSaldo.ReadOnly = true;
             this.textBoxSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -113,7 +114,7 @@
             this.textBoxNumeroConta.HideSelection = false;
             this.textBoxNumeroConta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textBoxNumeroConta.Location = new System.Drawing.Point(48, 205);
-            this.textBoxNumeroConta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNumeroConta.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNumeroConta.Name = "textBoxNumeroConta";
             this.textBoxNumeroConta.ReadOnly = true;
             this.textBoxNumeroConta.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -164,7 +165,7 @@
             this.buttonDepositar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonDepositar.ForeColor = System.Drawing.Color.Aqua;
             this.buttonDepositar.Location = new System.Drawing.Point(47, 349);
-            this.buttonDepositar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonDepositar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDepositar.Name = "buttonDepositar";
             this.buttonDepositar.Size = new System.Drawing.Size(117, 24);
             this.buttonDepositar.TabIndex = 8;
@@ -180,7 +181,7 @@
             this.buttonSacar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonSacar.ForeColor = System.Drawing.Color.Aqua;
             this.buttonSacar.Location = new System.Drawing.Point(175, 349);
-            this.buttonSacar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSacar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSacar.Name = "buttonSacar";
             this.buttonSacar.Size = new System.Drawing.Size(117, 24);
             this.buttonSacar.TabIndex = 9;
@@ -224,7 +225,7 @@
             this.comboBoxContas.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Bold);
             this.comboBoxContas.ForeColor = System.Drawing.Color.Aqua;
             this.comboBoxContas.Location = new System.Drawing.Point(47, 50);
-            this.comboBoxContas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxContas.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxContas.Name = "comboBoxContas";
             this.comboBoxContas.Size = new System.Drawing.Size(246, 25);
             this.comboBoxContas.TabIndex = 15;
@@ -261,7 +262,7 @@
             this.comboBoxTransferencia.ForeColor = System.Drawing.Color.Aqua;
             this.comboBoxTransferencia.FormattingEnabled = true;
             this.comboBoxTransferencia.Location = new System.Drawing.Point(47, 309);
-            this.comboBoxTransferencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxTransferencia.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTransferencia.Name = "comboBoxTransferencia";
             this.comboBoxTransferencia.Size = new System.Drawing.Size(244, 25);
             this.comboBoxTransferencia.TabIndex = 17;
@@ -275,7 +276,7 @@
             this.buttonTransferir.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonTransferir.ForeColor = System.Drawing.Color.Aqua;
             this.buttonTransferir.Location = new System.Drawing.Point(47, 387);
-            this.buttonTransferir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTransferir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTransferir.Name = "buttonTransferir";
             this.buttonTransferir.Size = new System.Drawing.Size(245, 24);
             this.buttonTransferir.TabIndex = 19;
@@ -283,11 +284,28 @@
             this.buttonTransferir.UseVisualStyleBackColor = false;
             this.buttonTransferir.Click += new System.EventHandler(this.buttonTransferir_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Aqua;
+            this.button1.Location = new System.Drawing.Point(49, 424);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(245, 24);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "-> CADASTRAR <-";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 432);
+            this.ClientSize = new System.Drawing.Size(348, 479);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonTransferir);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBoxTransferencia);
@@ -305,7 +323,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelTitular);
             this.Controls.Add(this.textBoxTitular);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -334,6 +352,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxTransferencia;
         private System.Windows.Forms.Button buttonTransferir;
+        private System.Windows.Forms.Button button1;
     }
 }
 

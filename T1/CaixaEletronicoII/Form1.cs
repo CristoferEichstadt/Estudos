@@ -14,9 +14,9 @@ namespace Benner.CaixaEletronicoII
 {
     public partial class Form1 : Form
     {
-        ContaCorrente[] contas;
-        ContaCorrente contaSelecionada;
-        ContaCorrente contaSelecionadaTransefere;
+        Conta contaSelecionada;
+        Conta contaSelecionadaTransefere;
+        private Conta[] contas;
 
         private int quantidadeDeContas;
         int indiceSelecionado;
@@ -29,26 +29,13 @@ namespace Benner.CaixaEletronicoII
         private void Form1_Load(object sender, EventArgs e)
         {
             labelEscolherConta.Select();
-
-            contas = new ContaCorrente[3];
-            contas[0] = new ContaCorrente(2500.0, 1);
-            contas[0].Titular = new Cliente("Guilherme Francisco", "782.372.283", "Rua Luiza Lucas", "234.543.231-09", 18);
-
-            contas[1] = new ContaCorrente(1500.0, 2);
-            contas[1].Titular = new Cliente("João Silva", "241.421.563", "Rua São Paulo", "213.758.132-23", 20);
-
-            contas[2] = new ContaCorrente(2000.0, 3);
-            contas[2].Titular = new Cliente("Gabriel Menezes", "566.983.653", "Rua Itajaí", "621.354.953.93", 41);
-
-            PopulaContas(comboBoxContas);
-            PopulaContas(comboBoxTransferencia);
+            contas = new Conta[10];
         }
         private void PopulaContas(ComboBox combo)
         {
-            foreach (Conta conta in contas)
-            {
-                combo.Items.Add(conta.Titular.nome);
-            }
+            textBoxTitular.Text = Convert.ToString(contas[comboBoxContas.SelectedIndex].Titular.nome);
+            textBoxSaldo.Text = Convert.ToString(contas[comboBoxContas.SelectedIndex].Saldo);
+            textBoxNumeroConta.Text = Convert.ToString(contas[comboBoxContas.SelectedIndex].Numero);
         }
         private void buttonDepositar_Click(object sender, EventArgs e)
         {
@@ -57,7 +44,6 @@ namespace Benner.CaixaEletronicoII
                 string valorParaDepositar = textBoxValor.Text;
 
                 double valorDoDeposito = Convert.ToDouble(valorParaDepositar);
-                contaSelecionada.Deposita(valorDoDeposito);
                 contaSelecionada.Deposita(valorDoDeposito);
 
                 string valorSaldo = textBoxSaldo.Text;
@@ -78,7 +64,7 @@ namespace Benner.CaixaEletronicoII
             }
             catch (ArgumentException exception)
             {
-                MessageBox.Show("Valor negativo é inválido! Digite novamente.");                
+                MessageBox.Show("Valor negativo é inválido! Digite novamente.");
             }
             finally
             {
@@ -127,13 +113,9 @@ namespace Benner.CaixaEletronicoII
         {
             indiceSelecionado = comboBoxContas.SelectedIndex;
             contaSelecionada = contas[indiceSelecionado];
-
-            textBoxTitular.Text = Convert.ToString(contaSelecionada.Titular.nome);
-            textBoxSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
-            textBoxNumeroConta.Text = Convert.ToString(contaSelecionada.numero);
-
+            PopulaContas(comboBoxContas);
             comboBoxTransferencia.Items.Clear();
-            for (int i = 0; i < contas.Length; i++)
+            for (int i = 0; i < quantidadeDeContas; i++)
             {
                 if (!contas[i].Titular.nome.Equals(comboBoxContas.Text)) //se tudo o que for de diferente do que está no textBox..
                 {
@@ -186,9 +168,16 @@ namespace Benner.CaixaEletronicoII
 
         public void AdicionaConta(Conta conta)
         {
-            this.contas[this.] = conta;
+            this.contas[this.quantidadeDeContas] = conta;
             this.quantidadeDeContas++;
+            comboBoxContas.Items.Add(conta.Titular.nome);
+            comboBoxContas.SelectedIndex = -1;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CadastroDeContas formularioDeCadastro = new CadastroDeContas(this);
+            formularioDeCadastro.ShowDialog(); //mostra a tela
         }
     }
 }
