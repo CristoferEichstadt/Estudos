@@ -15,7 +15,7 @@ namespace Benner.CaixaEletronicoII
     public partial class Form1 : Form
     {
         Conta contaSelecionada;
-        Conta contaSelecionadaTransefere;
+        Conta contaSelecionadaTransfere;
         private Conta[] contas;
 
         private int quantidadeDeContas;
@@ -29,7 +29,7 @@ namespace Benner.CaixaEletronicoII
         private void Form1_Load(object sender, EventArgs e)
         {
             labelEscolherConta.Select();
-            contas = new Conta[10];
+            contas = new Conta[10];            
         }
         private void PopulaContas(ComboBox combo)
         {
@@ -83,7 +83,7 @@ namespace Benner.CaixaEletronicoII
                 double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
 
                 double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
-                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
+                textBoxSaldo.Text = saldoAtualDepoisSaque.ToString();
 
                 MessageBox.Show("Você sacou R$ " + valorDoSaque);
             }
@@ -115,6 +115,7 @@ namespace Benner.CaixaEletronicoII
             contaSelecionada = contas[indiceSelecionado];
             PopulaContas(comboBoxContas);
             comboBoxTransferencia.Items.Clear();
+
             for (int i = 0; i < quantidadeDeContas; i++)
             {
                 if (!contas[i].Titular.nome.Equals(comboBoxContas.Text)) //se tudo o que for de diferente do que está no textBox..
@@ -126,7 +127,12 @@ namespace Benner.CaixaEletronicoII
         private void comboBoxTransferencia_SelectedIndexChanged(object sender, EventArgs e)
         {
             indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
-            contaSelecionadaTransefere = contas[indiceSelecionadoTransferencia];
+            contaSelecionadaTransfere = contas[indiceSelecionadoTransferencia];
+
+            for (int i = 0; i < length; i++)
+            {   //FAZER UM FOR
+
+            }
         }
         private void buttonTransferir_Click(object sender, EventArgs e)
         {
@@ -134,7 +140,7 @@ namespace Benner.CaixaEletronicoII
             {
                 string valorParaTransferir = textBoxValor.Text;
                 double valorDaTransferencia = Convert.ToDouble(valorParaTransferir);
-                contaSelecionada.Transfere(valorDaTransferencia, contaSelecionadaTransefere);
+                contaSelecionada.Transfere(valorDaTransferencia, contaSelecionadaTransfere);
 
                 string valorSaldo = textBoxSaldo.Text;
                 double valorSaldoDepois = Convert.ToDouble(valorSaldo);
