@@ -83,7 +83,7 @@ namespace Benner.CaixaEletronicoII
                 double valorSaldoAntes = Convert.ToDouble(valorSaldo2);
 
                 double saldoAtualDepoisSaque = (valorSaldoAntes - valorDoSaque);
-                textBoxSaldo.Text = saldoAtualDepoisSaque.ToString();
+                textBoxSaldo.Text = contaSelecionada.Saldo.ToString();
 
                 MessageBox.Show("Você sacou R$ " + valorDoSaque);
             }
@@ -118,17 +118,14 @@ namespace Benner.CaixaEletronicoII
 
             for (int i = 0; i < quantidadeDeContas; i++)
             {
-                if (!contas[i].Titular.nome.Equals(comboBoxContas.Text)) //se tudo o que for de diferente do que está no textBox..
+                if (!contas[i].Titular.nome.Equals(comboBoxContas.Text))
                 {
-                    comboBoxTransferencia.Items.Add(contas[i].Titular.nome); //vai adicionar tudo o que for diferente do que foi selecionado no primeiro comboBox
+                    comboBoxTransferencia.Items.Add(contas[i].Titular.nome); 
                 }
             }
         }
         private void comboBoxTransferencia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
-            //contaSelecionadaTransfere = contas[indiceSelecionadoTransferencia];
-
             for (int i = 0; i < quantidadeDeContas; i++)
             {
                 if (contas[i].Titular.nome == comboBoxTransferencia.Text)
@@ -175,7 +172,6 @@ namespace Benner.CaixaEletronicoII
                 textBoxValor.Clear();
             }
         }
-
         public void AdicionaConta(Conta conta)
         {
             this.contas[this.quantidadeDeContas] = conta;
@@ -183,11 +179,10 @@ namespace Benner.CaixaEletronicoII
             comboBoxContas.Items.Add(conta.Titular.nome);
             comboBoxContas.SelectedIndex = -1;
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             CadastroDeContas formularioDeCadastro = new CadastroDeContas(this);
-            formularioDeCadastro.ShowDialog(); //mostra a tela
+            formularioDeCadastro.ShowDialog();
         }
     }
 }

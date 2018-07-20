@@ -38,18 +38,20 @@
             this.buttonLimparCampos = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBoxTipoConta = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxNomeCliente
             // 
-            this.textBoxNomeCliente.Location = new System.Drawing.Point(64, 152);
+            this.textBoxNomeCliente.Location = new System.Drawing.Point(64, 193);
             this.textBoxNomeCliente.Name = "textBoxNomeCliente";
             this.textBoxNomeCliente.Size = new System.Drawing.Size(275, 20);
             this.textBoxNomeCliente.TabIndex = 0;
             // 
             // textBoxEnderecoCliente
             // 
-            this.textBoxEnderecoCliente.Location = new System.Drawing.Point(64, 203);
+            this.textBoxEnderecoCliente.Location = new System.Drawing.Point(64, 244);
             this.textBoxEnderecoCliente.Name = "textBoxEnderecoCliente";
             this.textBoxEnderecoCliente.Size = new System.Drawing.Size(275, 20);
             this.textBoxEnderecoCliente.TabIndex = 3;
@@ -69,7 +71,7 @@
             // 
             this.labelDigiteNome.AutoSize = true;
             this.labelDigiteNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDigiteNome.Location = new System.Drawing.Point(61, 133);
+            this.labelDigiteNome.Location = new System.Drawing.Point(61, 174);
             this.labelDigiteNome.Name = "labelDigiteNome";
             this.labelDigiteNome.Size = new System.Drawing.Size(45, 16);
             this.labelDigiteNome.TabIndex = 5;
@@ -89,7 +91,7 @@
             // 
             this.labelEnderecoCliente.AutoSize = true;
             this.labelEnderecoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEnderecoCliente.Location = new System.Drawing.Point(61, 184);
+            this.labelEnderecoCliente.Location = new System.Drawing.Point(61, 225);
             this.labelEnderecoCliente.Name = "labelEnderecoCliente";
             this.labelEnderecoCliente.Size = new System.Drawing.Size(56, 16);
             this.labelEnderecoCliente.TabIndex = 9;
@@ -102,7 +104,7 @@
             this.buttonCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCadastrar.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonCadastrar.ForeColor = System.Drawing.Color.Aqua;
-            this.buttonCadastrar.Location = new System.Drawing.Point(291, 315);
+            this.buttonCadastrar.Location = new System.Drawing.Point(291, 353);
             this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(102, 24);
@@ -118,7 +120,7 @@
             this.buttonLimparCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLimparCampos.Font = new System.Drawing.Font("Georgia", 8.2F, System.Drawing.FontStyle.Bold);
             this.buttonLimparCampos.ForeColor = System.Drawing.Color.Aqua;
-            this.buttonLimparCampos.Location = new System.Drawing.Point(170, 315);
+            this.buttonLimparCampos.Location = new System.Drawing.Point(170, 353);
             this.buttonLimparCampos.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLimparCampos.Name = "buttonLimparCampos";
             this.buttonLimparCampos.Size = new System.Drawing.Size(117, 24);
@@ -130,7 +132,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(61, 239);
+            this.label2.Location = new System.Drawing.Point(61, 280);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 16);
             this.label2.TabIndex = 14;
@@ -138,16 +140,39 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 258);
+            this.textBox1.Location = new System.Drawing.Point(64, 299);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(275, 20);
             this.textBox1.TabIndex = 13;
+            // 
+            // comboBoxTipoConta
+            // 
+            this.comboBoxTipoConta.FormattingEnabled = true;
+            this.comboBoxTipoConta.Items.AddRange(new object[] {
+            "Conta Corrente",
+            "Conta Poupança"});
+            this.comboBoxTipoConta.Location = new System.Drawing.Point(64, 143);
+            this.comboBoxTipoConta.Name = "comboBoxTipoConta";
+            this.comboBoxTipoConta.Size = new System.Drawing.Size(275, 21);
+            this.comboBoxTipoConta.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(59, 124);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 16);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Tipo de conta";
             // 
             // CadastroDeContas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 354);
+            this.ClientSize = new System.Drawing.Size(406, 393);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBoxTipoConta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonLimparCampos);
@@ -178,5 +203,7 @@
         private System.Windows.Forms.Button buttonLimparCampos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBoxTipoConta;
+        private System.Windows.Forms.Label label3;
     }
 }

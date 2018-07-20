@@ -48,7 +48,7 @@ namespace Benner.CaixaEletronicoII.Contas
         }
         public void Transfere(double valor, Conta destino)
         {
-            if (valor > 0)
+            if (valor > 0 && Titular.idade >= 18)
             {
                 this.Saca(valor);
                 destino.Deposita(valor);
