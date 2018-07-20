@@ -31,11 +31,13 @@ namespace Benner.CaixaEletronicoII
         {
             Cliente titular = new Cliente(textBoxNomeCliente.Text);
             int numero = Convert.ToInt32(textBoxEnderecoCliente.Text);
+            titular.idade = Convert.ToInt16(textBox1.Text);
 
             Conta conta = new ContaCorrente()
             {
                 Titular = titular,
                 Numero = numero
+                
             };
 
             aplicacaoPrincipal.AdicionaConta(conta);

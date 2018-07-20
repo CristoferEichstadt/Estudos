@@ -33,17 +33,17 @@ namespace Benner.CaixaEletronicoII.Contas
         public abstract void Saca(double valor);
         public void Deposita(double valor)
         {
-            if (valor < 0)
-            {
-                throw new ArgumentException();
-            }
-            if (valor == 0)
-            {
-                throw new ValorIgualZeroException();
-            }
             if (valor > 0)
             {
                 this.Saldo += valor;
+            }
+            else if(valor < 0)
+            {
+                throw new ArgumentException();
+            }
+            else if(valor == 0)
+            {
+                throw new ValorIgualZeroException();
             }
         }
         public void Transfere(double valor, Conta destino)
@@ -53,18 +53,24 @@ namespace Benner.CaixaEletronicoII.Contas
                 this.Saca(valor);
                 destino.Deposita(valor);
             }
-            if (valor > this.Saldo)
+            else if (valor > this.Saldo)
             {
                 throw new SaldoInsuficienteException();
             }
-            if (valor < 0)
+            else if(valor < 0)
             {
                 throw new ArgumentException();
             }
-            if (valor == 0)
+            else if(valor == 0)
             {
                 throw new ValorIgualZeroException();
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            Conta conta = (Conta)obj;
+            return (this.Titular == conta.Titular && this.Numero == conta.Numero);
         }
     }
 }

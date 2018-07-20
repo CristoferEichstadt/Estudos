@@ -11,19 +11,19 @@ namespace Benner.CaixaEletronicoII
     {
         public override void Saca(double valor)
         {
-            if (valor < this.Saldo && this.Titular.MaiorDeIdade())
+            if ((valor+0.1) <= this.Saldo && this.Titular.MaiorDeIdade())
             {
                 this.Saldo -= valor + 0.1;
             }
-            if (valor > this.Saldo)
+            else if ((valor + 0.1) > this.Saldo)
             {
                 throw new SaldoInsuficienteException();
             }
-            if (valor < 0)
+            else if ((valor + 0.1) < 0)
             {
                 throw new ArgumentException();
             }
-            if (valor == 0)
+            else if ((valor + 0.1) == 0)
             {
                 throw new ValorIgualZeroException();
             }

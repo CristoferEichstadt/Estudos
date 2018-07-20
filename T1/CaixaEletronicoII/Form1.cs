@@ -126,11 +126,15 @@ namespace Benner.CaixaEletronicoII
         }
         private void comboBoxTransferencia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
-            contaSelecionadaTransfere = contas[indiceSelecionadoTransferencia];
+            //indiceSelecionadoTransferencia = comboBoxTransferencia.SelectedIndex;
+            //contaSelecionadaTransfere = contas[indiceSelecionadoTransferencia];
 
-            for (int i = 0; i < length; i++)
-            {   //FAZER UM FOR
+            for (int i = 0; i < quantidadeDeContas; i++)
+            {
+                if (contas[i].Titular.nome == comboBoxTransferencia.Text)
+                {
+                    contaSelecionadaTransfere = contas[i];
+                }
 
             }
         }
@@ -141,7 +145,7 @@ namespace Benner.CaixaEletronicoII
                 string valorParaTransferir = textBoxValor.Text;
                 double valorDaTransferencia = Convert.ToDouble(valorParaTransferir);
                 contaSelecionada.Transfere(valorDaTransferencia, contaSelecionadaTransfere);
-
+                MessageBox.Show("novo saldo " + contaSelecionada.Saldo);
                 string valorSaldo = textBoxSaldo.Text;
                 double valorSaldoDepois = Convert.ToDouble(valorSaldo);
 

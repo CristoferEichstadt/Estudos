@@ -36,6 +36,8 @@
             this.labelEnderecoCliente = new System.Windows.Forms.Label();
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.buttonLimparCampos = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxNomeCliente
@@ -47,7 +49,7 @@
             // 
             // textBoxEnderecoCliente
             // 
-            this.textBoxEnderecoCliente.Location = new System.Drawing.Point(64, 228);
+            this.textBoxEnderecoCliente.Location = new System.Drawing.Point(64, 203);
             this.textBoxEnderecoCliente.Name = "textBoxEnderecoCliente";
             this.textBoxEnderecoCliente.Size = new System.Drawing.Size(275, 20);
             this.textBoxEnderecoCliente.TabIndex = 3;
@@ -87,7 +89,7 @@
             // 
             this.labelEnderecoCliente.AutoSize = true;
             this.labelEnderecoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEnderecoCliente.Location = new System.Drawing.Point(61, 209);
+            this.labelEnderecoCliente.Location = new System.Drawing.Point(61, 184);
             this.labelEnderecoCliente.Name = "labelEnderecoCliente";
             this.labelEnderecoCliente.Size = new System.Drawing.Size(56, 16);
             this.labelEnderecoCliente.TabIndex = 9;
@@ -124,11 +126,30 @@
             this.buttonLimparCampos.Text = "Limpar campos";
             this.buttonLimparCampos.UseVisualStyleBackColor = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(61, 239);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 16);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Idade";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(64, 258);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(275, 20);
+            this.textBox1.TabIndex = 13;
+            // 
             // CadastroDeContas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 354);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonLimparCampos);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.labelEnderecoCliente);
@@ -155,5 +176,7 @@
         private System.Windows.Forms.Label labelEnderecoCliente;
         private System.Windows.Forms.Button buttonCadastrar;
         private System.Windows.Forms.Button buttonLimparCampos;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
