@@ -174,6 +174,15 @@ namespace Benner.CaixaEletronicoII
         }
         public void AdicionaConta(Conta conta)
         {
+            if (this.quantidadeDeContas == this.contas.Length)
+            {
+                Conta[] novo = new Conta[this.contas.Length * 2];
+                for (int i = 0; i < this.quantidadeDeContas; i++)
+                {
+                    novo[i] = this.contas[i];
+                }
+                this.contas = novo;
+            }
             this.contas[this.quantidadeDeContas] = conta;
             this.quantidadeDeContas++;
             comboBoxContas.Items.Add(conta.Titular.nome);
