@@ -54,6 +54,7 @@ namespace Benner.CaixaEletronicoII
                 }
                 
                 aplicacaoPrincipal.AdicionaConta(conta);
+                this.Close();
             }
             catch (Exception exception)
             {

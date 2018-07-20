@@ -29,7 +29,7 @@ namespace Benner.CaixaEletronicoII
         private void Form1_Load(object sender, EventArgs e)
         {
             labelEscolherConta.Select();
-            contas = new Conta[10];            
+            contas = new Conta[10];
         }
         private void PopulaContas(ComboBox combo)
         {
@@ -120,7 +120,7 @@ namespace Benner.CaixaEletronicoII
             {
                 if (!contas[i].Titular.nome.Equals(comboBoxContas.Text))
                 {
-                    comboBoxTransferencia.Items.Add(contas[i].Titular.nome); 
+                    comboBoxTransferencia.Items.Add(contas[i].Titular.nome);
                 }
             }
         }
@@ -192,6 +192,42 @@ namespace Benner.CaixaEletronicoII
         {
             CadastroDeContas formularioDeCadastro = new CadastroDeContas(this);
             formularioDeCadastro.ShowDialog();
+        }
+
+        public void RemoverContas(Conta conta)
+        {
+            comboBoxContas.Items.Remove(conta);
+
+            int i;
+            for (i = 0; i < this.quantidadeDeContas; i++)
+            {
+                if (this.contas[i] == conta)
+                {
+                    break;
+                }
+            }
+            while (i + 1 <= this.quantidadeDeContas)
+            {
+                this.contas[i] = this.contas[i + 1];
+                i++;
+            }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RemoverContas(contas[comboBoxContas.SelectedIndex]);
+
+            if (quantidadeDeContas > 1)
+            {
+                PopulaContas(comboBoxContas);
+            }
+            else
+            {
+                comboBoxContas.Items.Clear();
+                textBoxNumeroConta.Clear();
+                textBoxSaldo.Clear();
+                textBoxTitular.Clear();
+                textBoxValor.Clear();
+            }
         }
     }
 }
