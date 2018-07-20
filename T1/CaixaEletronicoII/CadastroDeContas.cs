@@ -29,35 +29,37 @@ namespace Benner.CaixaEletronicoII
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-
-
-            Cliente titular = new Cliente(textBoxNomeCliente.Text);
-            int numero = Convert.ToInt32(textBoxEnderecoCliente.Text);
-            titular.idade = Convert.ToInt16(textBox1.Text);
-            Conta conta = null;
-
-            if (comboBoxTipoConta.SelectedIndex == 0)
+            try
             {
-                conta = new ContaCorrente()
+                Cliente titular = new Cliente(textBoxNomeCliente.Text);
+                int numero = Convert.ToInt32(textBoxEnderecoCliente.Text);
+                titular.idade = Convert.ToInt16(textBox1.Text);
+                Conta conta = null;
+
+                if (comboBoxTipoConta.SelectedIndex == 0)
                 {
-                    Titular = titular,
-                    Numero = numero
-                };
-            }
-            else if (comboBoxTipoConta.SelectedIndex == 1)
-            {
-                conta = new ContaPoupanca()
+                    conta = new ContaCorrente()
+                    {
+                        Titular = titular,
+                        Numero = numero
+                    };
+                }
+                else if (comboBoxTipoConta.SelectedIndex == 1)
                 {
-                    Titular = titular,
-                    Numero = numero
-                };
+                    conta = new ContaPoupanca()
+                    {
+                        Titular = titular,
+                        Numero = numero
+                    };
+                }
+                
+                aplicacaoPrincipal.AdicionaConta(conta);
             }
-            else
+            catch (Exception exception)
             {
+
                 MessageBox.Show("Selecione o tipo de conta");
             }
-
-            aplicacaoPrincipal.AdicionaConta(conta);
         }
     }
 }

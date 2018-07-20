@@ -53,6 +53,7 @@
       <DependentUpon>CadastroDeContas.cs</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs" />
+    <Compile Include="ComboException.cs" />
     <Compile Include="Conta.cs" />
     <Compile Include="ContaCorrente.cs" />
     <Compile Include="ContaInvestimento.cs" />
