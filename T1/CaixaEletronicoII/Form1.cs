@@ -253,6 +253,8 @@ namespace Benner.CaixaEletronicoII
 
             //contas.Remove(c1); //remove pelo nome da conta;
 
+            MessageBox.Show("Número de contas na List: " + contas.Count);//".Count" -> retorna a quantidade de elementos na List;
+
         }
     }
 }
