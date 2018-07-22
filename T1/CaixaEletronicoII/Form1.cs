@@ -268,6 +268,11 @@ namespace Benner.CaixaEletronicoII
 
             contasCorrente.Add(contaCorrente1);
             contasCorrente.Add(contaCorrente1);//adicionando duas vezes o mesmo elemento para testar HashSet;
+
+            foreach (var contasCo in contasCorrente)
+            {
+                MessageBox.Show(contasCo.Titular.nome);//vai retornar o nome do titular de todas as contas da List, mas com HashSet, vai tirar as repetidas;
+            }
         }
     }
 }
