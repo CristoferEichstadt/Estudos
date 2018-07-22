@@ -229,6 +229,21 @@ namespace Benner.CaixaEletronicoII
                 textBoxValor.Clear();
             }
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var contas = new List<Conta>(); //cria List de Contas
+            var c1 = new ContaCorrente();
+            c1.Titular.nome = "Guilherme";
+            contas.Add(c1); //adiciona a c1 ao List criado(contas)
+
+            Conta copiaC1 = contas[0]; //"copiaC1" vai ser igual ao "c1"
+
+            var c2 = new ContaCorrente();
+            c2.Titular.nome = "Bruno";
+
+
+
+        }
     }
 }
 
