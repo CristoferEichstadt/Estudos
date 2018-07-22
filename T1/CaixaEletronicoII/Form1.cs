@@ -246,7 +246,7 @@ namespace Benner.CaixaEletronicoII
             c2.Titular.nome = "Bruno";
             contas.Add(c2);
 
-            contas.RemoveAt(0); //remove na posição 0 da List;
+            //contas.RemoveAt(0); //remove na posição 0 da List;
 
             MessageBox.Show("Tem? " + contas.Contains(c1)); //".Contains" -> vai verificar se c1 está na List, retornando true ou false;
             MessageBox.Show("Tem? " + contas.Contains(c2));
@@ -255,6 +255,10 @@ namespace Benner.CaixaEletronicoII
 
             MessageBox.Show("Número de contas na List: " + contas.Count);//".Count" -> retorna a quantidade de elementos na List;
 
+            foreach (var conta in contas) //vai passar todos os elementos da List contas;
+            {
+                MessageBox.Show(conta.Titular.nome); //vai retornar o nome do titular de cada conta;
+            }
         }
     }
 }
