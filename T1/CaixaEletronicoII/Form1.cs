@@ -282,6 +282,11 @@ namespace Benner.CaixaEletronicoII
             {
                 MessageBox.Show(palavra);//vai mostrar em ordem alfabética;
             }
+
+            Dictionary<string, string> nomesEPalavras = new Dictionary<string, string>();   
+            nomesEPalavras.Add("Erich", "vida");
+            nomesEPalavras.Add("Alberto", "delicia");
+            MessageBox.Show(nomesEPalavras["Erich"]);//vai retornar "vida", pois a chave Erich está associada à palavra "vida"
         }
     }
 }
