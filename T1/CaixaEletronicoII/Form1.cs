@@ -286,7 +286,17 @@ namespace Benner.CaixaEletronicoII
             Dictionary<string, string> nomesEPalavras = new Dictionary<string, string>();   
             nomesEPalavras.Add("Erich", "vida");
             nomesEPalavras.Add("Alberto", "delicia");
-            MessageBox.Show(nomesEPalavras["Erich"]);//vai retornar "vida", pois a chave Erich está associada à palavra "vida"
+            MessageBox.Show(nomesEPalavras["Erich"]);//vai retornar "vida", pois a chave Erich está associada à palavra "vida";
+
+            SortedDictionary<string, string> nomes = new SortedDictionary<string, string>();//igual dictionary, mas vai organizar em ordem crescente das chaves;
+            nomes.Add("Adriano", "Almeida");
+            nomes.Add("Mario", "Amaral");
+            nomes.Add("Eric", "Torti");
+            nomes.Add("Guilherme", "Silveira");
+            foreach (var i in nomes)
+            {
+                MessageBox.Show(i.Key + " " + i.Value);
+            }
         }
     }
 }
