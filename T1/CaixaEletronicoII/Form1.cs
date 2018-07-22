@@ -233,16 +233,16 @@ namespace Benner.CaixaEletronicoII
         {
             var contas = new List<Conta>(); //cria List de Contas;
             var c1 = new ContaCorrente();
-            var ClienteC1 = new Cliente();
-            c1.Titular = ClienteC1;
+            var clienteC1 = new Cliente();
+            c1.Titular = clienteC1;
             c1.Titular.nome = "Guilherme";
             contas.Add(c1); //adiciona a c1 ao List criado(contas);
 
             Conta copiaC1 = contas[0]; //"copiaC1" vai ser igual ao "c1";
 
             var c2 = new ContaCorrente();
-            var ClienteC2 = new Cliente();
-            c2.Titular = ClienteC2;
+            var clienteC2 = new Cliente();
+            c2.Titular = clienteC2;
             c2.Titular.nome = "Bruno";
             contas.Add(c2);
 
@@ -259,6 +259,15 @@ namespace Benner.CaixaEletronicoII
             {
                 MessageBox.Show(conta.Titular.nome); //vai retornar o nome do titular de cada conta;
             }
+
+            var contasCorrente = new HashSet<Conta>(); //HashSet verifica cada elemento e impede que haja repetição na List;
+            var contaCorrente1 = new ContaCorrente();
+            var clienteCO1 = new Cliente();
+            contaCorrente1.Titular = clienteCO1;
+            contaCorrente1.Titular.nome = "Guilherme";
+
+            contasCorrente.Add(contaCorrente1);
+            contasCorrente.Add(contaCorrente1);//adicionando duas vezes o mesmo elemento para testar HashSet;
         }
     }
 }
