@@ -273,6 +273,15 @@ namespace Benner.CaixaEletronicoII
             {
                 MessageBox.Show(contasCo.Titular.nome);//vai retornar o nome do titular de todas as contas da List, mas com HashSet, vai tirar as repetidas;
             }
+
+            SortedSet<string> palavras = new SortedSet<string>();//mantem todos elementos em ordem crescente/alfabética e também não aceita repetição;
+            palavras.Add("vida");
+            palavras.Add("furadeira");
+            palavras.Add("maçã");
+            foreach (string palavra in palavras)
+            {
+                MessageBox.Show(palavra);//vai mostrar em ordem alfabética;
+            }
         }
     }
 }
