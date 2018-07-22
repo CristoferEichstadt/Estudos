@@ -231,22 +231,27 @@ namespace Benner.CaixaEletronicoII
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            var contas = new List<Conta>(); //cria List de Contas
+            var contas = new List<Conta>(); //cria List de Contas;
             var c1 = new ContaCorrente();
             var ClienteC1 = new Cliente();
             c1.Titular = ClienteC1;
             c1.Titular.nome = "Guilherme";
-            contas.Add(c1); //adiciona a c1 ao List criado(contas)
+            contas.Add(c1); //adiciona a c1 ao List criado(contas);
 
-            Conta copiaC1 = contas[0]; //"copiaC1" vai ser igual ao "c1"
+            Conta copiaC1 = contas[0]; //"copiaC1" vai ser igual ao "c1";
 
             var c2 = new ContaCorrente();
             var ClienteC2 = new Cliente();
             c2.Titular = ClienteC2;
             c2.Titular.nome = "Bruno";
+            contas.Add(c2);
 
-            MessageBox.Show("Tem? " + contas.Contains(c1)); //".Contains" -> vai verificar se c1 está na List, retornando true ou false
+            contas.RemoveAt(0); //remove na posição 0 da List;
+
+            MessageBox.Show("Tem? " + contas.Contains(c1)); //".Contains" -> vai verificar se c1 está na List, retornando true ou false;
             MessageBox.Show("Tem? " + contas.Contains(c2));
+
+            //contas.Remove(c1); //remove pelo nome da conta;
 
         }
     }
