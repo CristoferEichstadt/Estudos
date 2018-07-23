@@ -298,6 +298,13 @@ namespace Benner.CaixaEletronicoII
                 MessageBox.Show(i.Key + " " + i.Value);
             }
         }
+
+        private Conta ContaComSaldo(double saldo)
+        {
+            Conta conta = new ContaCorrente();
+            conta.Deposita(saldo);
+            return conta;
+        }
     }
 }
 
