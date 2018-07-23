@@ -328,7 +328,7 @@ namespace Benner.CaixaEletronicoII
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(StringUtils.Pluralize("conta"));
+            MessageBox.Show("conta".Pluralize());
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Benner.CaixaEletronicoII.Sistema
 {
     static class StringUtils 
     {
-        public static string Pluralize (string palavra)
+        public static string Pluralize (this string palavra)
         {
             if (palavra.EndsWith("s")) //se a palavra termina em S
             {
