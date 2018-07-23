@@ -23,7 +23,8 @@ namespace Alura.Loja.Testes.ConsoleApp
 
             using (var contexto = new LojaContext())
             {
-                contexto.Adicionar(p);
+                contexto.Produtos.Add(p);
+                contexto.SaveChanges();
             }
             
         }
