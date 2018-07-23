@@ -308,9 +308,23 @@ namespace Benner.CaixaEletronicoII
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var contas = new List<Conta>(); //cria List de Contas
-            contas.Add(ContaComSaldo(2300));//adiciona ao List uma conta com tal saldo
+            var contas = new List<Conta>(); //cria List de Contas;
+            contas.Add(ContaComSaldo(2300));//adiciona ao List uma conta com tal saldo;
             contas.Add(ContaComSaldo(3000));
+
+            var contasFiltradas = new List<Conta>(); //cria List de Contas filtradas;
+            foreach (var conta in contas)
+            {
+                if (conta.Saldo > 2000)
+                {
+                    contasFiltradas.Add(conta); //vai adicionar na Lista de contas filtradas, todas contas com saldo maior de 2mil;
+                }
+            }
+
+            foreach (var conta in contasFiltradas)
+            {
+                MessageBox.Show("Saldo da conta: " + conta.Saldo); //vai mostrar as contas da List de contasfiltradas;
+            }
         }
     }
 }
