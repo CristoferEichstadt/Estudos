@@ -22,7 +22,6 @@ namespace EditorDeTexto
         {
             if (File.Exists("entrada.txt"))
             {
-
                 Stream entrada = File.Open("entrada.txt", FileMode.Open);
                 StreamReader leitor = new StreamReader(entrada);
                 string linha = leitor.ReadLine();
@@ -34,7 +33,18 @@ namespace EditorDeTexto
                 }
 
                 leitor.Close();
+                entrada.Close();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Stream saida = File.Open("entrada.txt", FileMode.Create);
+            StreamWriter escritor = new StreamWriter(saida);
+            escritor.Write(texto.Text);
+
+            escritor.Close();
+            saida.Close();
         }
     }
 }
