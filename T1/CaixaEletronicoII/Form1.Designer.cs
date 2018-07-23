@@ -329,7 +329,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 27);
             this.button4.TabIndex = 23;
-            this.button4.Text = "button4";
+            this.button4.Text = "Filtro";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

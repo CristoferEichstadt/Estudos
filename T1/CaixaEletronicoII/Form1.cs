@@ -320,6 +320,9 @@ namespace Benner.CaixaEletronicoII
             {
                 MessageBox.Show("Saldo da conta: " + conta.Saldo); //vai mostrar as contas da List de contasfiltradas;
             }
+
+            double saldoTotal = contasFiltradas.Sum(c => c.Saldo); //Lambda
+            MessageBox.Show("Saldo total: " + saldoTotal);
         }
     }
 }
