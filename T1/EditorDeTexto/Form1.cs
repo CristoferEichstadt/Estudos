@@ -24,7 +24,7 @@ namespace EditorDeTexto
             {
                 Stream entrada = File.Open("entrada.txt", FileMode.Open);
                 StreamReader leitor = new StreamReader(entrada);
-                string linha = leitor.ReadLine();
+                string linha = leitor.ReadToEnd();
 
                 while (linha != null)
                 {
@@ -36,7 +36,6 @@ namespace EditorDeTexto
                 entrada.Close();
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Stream saida = File.Open("entrada.txt", FileMode.Create);
