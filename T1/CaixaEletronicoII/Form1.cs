@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Benner.CaixaEletronicoII.Contas;
 using Benner.CaixaEletronicoII.Usuarios;
+using Benner.CaixaEletronicoII.Sistema;
 
 namespace Benner.CaixaEletronicoII
 {
@@ -323,6 +324,11 @@ namespace Benner.CaixaEletronicoII
 
             double saldoTotal = contasFiltradas.Sum(c => c.Saldo); //Lambda
             MessageBox.Show("Saldo total: " + saldoTotal);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(StringUtils.Pluralize("conta"));
         }
     }
 }
