@@ -20,9 +20,21 @@ namespace EditorDeTexto
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Stream entrada = File.Open("entrada.txt" , FileMode.Open);
-            StreamReader leitor = new StreamReader(entrada);
-            leitor.ReadLine();
+            if (File.Exists("entrada.txt"))
+            {
+
+                Stream entrada = File.Open("entrada.txt", FileMode.Open);
+                StreamReader leitor = new StreamReader(entrada);
+                string linha = leitor.ReadLine();
+
+                while (linha != null)
+                {
+                    texto.Text += linha;
+                    linha = leitor.ReadLine();
+                }
+
+                leitor.Close();
+            }
         }
     }
 }
