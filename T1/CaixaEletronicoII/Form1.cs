@@ -312,14 +312,9 @@ namespace Benner.CaixaEletronicoII
             contas.Add(ContaComSaldo(2300));//adiciona ao List uma conta com tal saldo;
             contas.Add(ContaComSaldo(3000));
 
-            var contasFiltradas = new List<Conta>(); //cria List de Contas filtradas;
-            foreach (var conta in contas)
-            {
-                if (conta.Saldo > 2000)
-                {
-                    contasFiltradas.Add(conta); //vai adicionar na Lista de contas filtradas, todas contas com saldo maior de 2mil;
-                }
-            }
+            var contasFiltradas = from conta in contas
+                                  where conta.Saldo > 2000
+                                  select conta; //LINQ -> equivale a um foreach
 
             foreach (var conta in contasFiltradas)
             {
