@@ -305,6 +305,13 @@ namespace Benner.CaixaEletronicoII
             conta.Deposita(saldo);
             return conta;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var contas = new List<Conta>(); //cria List de Contas
+            contas.Add(ContaComSaldo(2300));//adiciona ao List uma conta com tal saldo
+            contas.Add(ContaComSaldo(3000));
+        }
     }
 }
 
