@@ -12,7 +12,13 @@ namespace Alura.Loja.Testes.ConsoleApp
             //GravarUsandoAdoNet();
             //GravarUsandoEntity();
             //RecuperarProdutos();
-            ExcluirProduto();
+            //ExcluirProduto();
+            AtualizarProduto();
+
+        private static void AtualizarProduto() //faz o UPDATE
+        {
+            
+        }
 
         private static void ExcluirProduto()
         {
