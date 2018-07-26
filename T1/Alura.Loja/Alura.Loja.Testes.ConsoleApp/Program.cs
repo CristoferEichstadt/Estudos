@@ -17,7 +17,19 @@ namespace Alura.Loja.Testes.ConsoleApp
 
         private static void AtualizarProduto() //faz o UPDATE
         {
-            
+            //inclui um arquivo
+            GravarUsandoEntity();
+            RecuperarProdutos();
+
+            //atualiza o produto
+            using (var repo = new LojaContext())
+            {
+                Produto primeiro = repo.Produtos.First(); //pega um Produto e nao a lista toda
+                primeiro.Nome = "EDITADO"; //edita 
+                repo.Produtos.Update(primeiro); //faz o update
+                repo.SaveChanges();
+            }
+            RecuperarProdutos();
         }
 
         private static void ExcluirProduto()
