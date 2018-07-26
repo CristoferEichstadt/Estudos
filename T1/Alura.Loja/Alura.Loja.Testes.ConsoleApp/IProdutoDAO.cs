@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    class Program
+    interface IProdutoDAO
     {
-        static void Main(string[] args) {
-        }
-        
+        void Adicionar(Produto p);
+        void Atualizar(Produto p);
+        void Remover(Produto p);
+        IList<Produto> Produtos();
     }
 }
