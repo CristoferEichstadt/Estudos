@@ -9,7 +9,6 @@ namespace Alura.Loja.Testes.ConsoleApp
     class Program
     {
         static void Main(string[] args) =>
-            //GravarUsandoAdoNet();
             //GravarUsandoEntity();
             //RecuperarProdutos();
             //ExcluirProduto();
@@ -70,9 +69,6 @@ namespace Alura.Loja.Testes.ConsoleApp
                 contexto.Produtos.Add(p);
                 contexto.SaveChanges();
             }
-        }
-        private static void GravarUsandoAdoNet()
-        {
         }
     }
 }
