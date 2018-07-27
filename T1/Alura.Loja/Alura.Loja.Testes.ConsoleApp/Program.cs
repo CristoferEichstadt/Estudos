@@ -18,7 +18,6 @@ namespace Alura.Loja.Testes.ConsoleApp
                     Console.WriteLine(p);
                 }
             }
-        }
-        
+        }        
     }
 }
