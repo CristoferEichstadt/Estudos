@@ -10,14 +10,17 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            using (var contexto = new LojaContext())
-            {
-                var produtos = contexto.Produtos.ToList();
-                foreach (var p in produtos)
-                {
-                    Console.WriteLine(p);
-                }
-            }
+            // compra de pães
+
+            var paoFrances = new Produto();
+            paoFrances.PrecoUnitario = 0.40;
+            paoFrances.Unidade = "Unidade";
+            paoFrances.Categoria = "Padaria";
+
+            var compra = new Compra();
+            compra.Quantidade = 6;
+            compra.Produto = paoFrances;
+            compra.Preco = paoFrances.PrecoUnitario * compra.Quantidade;
         }        
     }
 }
