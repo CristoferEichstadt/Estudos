@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
@@ -10,25 +6,25 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            // compra de pães
-
-            //var paoFrances = new Produto();
-            //paoFrances.PrecoUnitario = 0.40;
-            //paoFrances.Unidade = "Unidade";
-            //paoFrances.Categoria = "Padaria";
-
-            //var compra = new Compra();
-            //compra.Quantidade = 6;
-            //compra.Produto = paoFrances;
-            //compra.Preco = paoFrances.PrecoUnitario * compra.Quantidade;
+            var p1 = new Produto() { Nome = "Suco de laranja", Categoria = "Bebidas", PrecoUnitario = 8.99, Unidade = "Litros"};
+            var p2 = new Produto() { Nome = "Café", Categoria = "Bebidas", PrecoUnitario = 12.65, Unidade = "Gramas" };
+            var p3 = new Produto() { Nome = "Macarrão", Categoria = "Alimentos", PrecoUnitario = 4.50, Unidade = "Gramas" };
 
             var promocaoDePascoa = new Promocao();
             promocaoDePascoa.Descricao = "Feliz Páscoa";
             promocaoDePascoa.DataInicio = DateTime.Now;
             promocaoDePascoa.DataTermino = DateTime.Now.AddMonths(3);
-            //promocaoDePascoa.Produtos.Add(new Produto());
-            //promocaoDePascoa.Produtos.Add(new Produto());
-            //promocaoDePascoa.Produtos.Add(new Produto());
-        }        
+
+            promocaoDePascoa.IncluiProduto(p1);
+            promocaoDePascoa.IncluiProduto(p2);
+            promocaoDePascoa.IncluiProduto(p3);
+
+            using (var contexto = new LojaContext())
+            {
+                contexto.Promocoes.Add(promocaoDePascoa);
+                contexto.SaveChanges();
+
+            }
+        }
     }
 }
