@@ -26,9 +26,9 @@ namespace Alura.Loja.Testes.ConsoleApp
             promocaoDePascoa.Descricao = "Feliz Páscoa";
             promocaoDePascoa.DataInicio = DateTime.Now;
             promocaoDePascoa.DataTermino = DateTime.Now.AddMonths(3);
-            promocaoDePascoa.Produtos.Add(new Produto());
-            promocaoDePascoa.Produtos.Add(new Produto());
-            promocaoDePascoa.Produtos.Add(new Produto());
+            //promocaoDePascoa.Produtos.Add(new Produto());
+            //promocaoDePascoa.Produtos.Add(new Produto());
+            //promocaoDePascoa.Produtos.Add(new Produto());
         }        
     }
 }
