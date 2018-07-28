@@ -8,6 +8,7 @@ namespace Alura.Loja.Testes.ConsoleApp
         public DbSet<Produto> Produtos { get; set; } //DbSet monitora a classe Produto e cria uma tabela automaticamente
         public DbSet<Compra> Compras { get; set; }   //a partir dos atributos da classe Produto, a tabela recebe o nome de Produtos;
         public DbSet<Promocao> Promocoes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
         public LojaContext() 
         { }
         public LojaContext(DbContextOptions<LojaContext> options) : base(options)
