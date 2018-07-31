@@ -4,6 +4,9 @@ main h1 {
     color: #FFF;
     text-align: center;
     font-family: "Open Sans", sans-serif;
+    padding: 25px;
+    margin: 0;
+    border-bottom: 10px solid black;
 }
 
 h1,
@@ -15,6 +18,7 @@ hh2 {
 body {
     font-family: "Crimson Text", "Times New Roman", serif;
     background-color: #F2FFFC;
+    line-height: 1.5;
 }
 
 p {
@@ -23,11 +27,20 @@ p {
 
 blockquote {
     background-color: #D9E5E3;
+    border: 10px solid #C2CCCA;
+    width: 198px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+blockquote,aside,footer {
+    padding: 20px;
 }
 
 aside {
     background-color: #3C1D3D;
     color: #F2FFFC;
+    text-align: center;
 }
 
 footer {
@@ -46,4 +59,9 @@ main a {
 aside a {
     color: inherit;
     font-family: "Open Sans Condensed", sans-serif;
+}
+
+main div {
+    width: 720px;
+    margin: auto;
 }
