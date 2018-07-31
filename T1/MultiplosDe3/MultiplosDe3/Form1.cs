@@ -23,7 +23,7 @@ namespace MultiplosDe3
             {
                 if(i % 3 == 0)
                 {
-                    MessageBox.Show("-> O número " + i + " é múltiplo de 3 <-")
+                    MessageBox.Show("-> O número " + i + " é múltiplo de 3 <-");
                 }
             }
         }
