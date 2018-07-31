@@ -79,3 +79,10 @@ aside h1 {
     font-size: 30px;
     margin-bottom: 25px;
 }
+.icones-sociais li {
+    display: inline-block;
+    height: 60px;
+}
+.social-rodape{
+    margin: 10px;
+}
