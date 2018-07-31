@@ -6,7 +6,8 @@ main h1 {
     font-family: "Open Sans", sans-serif;
 }
 
-h1, hh2 {
+h1,
+hh2 {
     font-size: 45px;
     font-family: "Open Sans Condensed", "Arial", sans-serif;
 }
@@ -18,4 +19,31 @@ body {
 
 p {
     text-align: justify;
+}
+
+blockquote {
+    background-color: #D9E5E3;
+}
+
+aside {
+    background-color: #3C1D3D;
+    color: #F2FFFC;
+}
+
+footer {
+    background-color: #000;
+    color: #F2FFFC;
+}
+
+nav a {
+    color: #F2FFFC;
+}
+
+main a {
+    color: #851944;
+}
+
+aside a {
+    color: inherit;
+    font-family: "Open Sans Condensed", sans-serif;
 }
