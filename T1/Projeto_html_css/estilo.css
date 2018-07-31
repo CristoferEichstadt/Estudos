@@ -1,4 +1,4 @@
-h1 {
+main h1 {
     font-size: 70px;
     background-color: #851944;
     color: #FFF;
@@ -6,7 +6,7 @@ h1 {
     font-family: "Open Sans", sans-serif;
 }
 
-h1, h2 {
+h1, hh2 {
     font-size: 45px;
     font-family: "Open Sans Condensed", "Arial", sans-serif;
 }
