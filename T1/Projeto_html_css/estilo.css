@@ -1,4 +1,4 @@
-main h1 {
+.titulo-pagina {
     font-size: 60px;
     background-color: #851944;
     color: #FFF;
@@ -7,6 +7,7 @@ main h1 {
     padding: 25px;
     margin: 0;
     border-bottom: 10px solid black;
+    text-transform: uppercase;
 }
 
 h1 {
@@ -18,19 +19,37 @@ body {
     font-family: "Crimson Text", "Times New Roman", serif;
     background-color: #F2FFFC;
     line-height: 1.5;
+    text-align: center;
+}
+.tags{
+    background-color: #851944;
+}
+.links{
+    color: white;
 }
 
 p {
-    text-align: justify;
+    text-align: center;
     margin: 20px 0;
 }
 
-blockquote {
+
+
+.citacao {
     background-color: #D9E5E3;
     border: 10px solid #C2CCCA;
     width: 198px;
     margin: 20px 40px;
     box-sizing: border-box;
+}
+
+.leia-mais {
+    padding: 8px;
+    margin: 16px;
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    background-color: #E6E7E8;
 }
 
 blockquote,
@@ -39,7 +58,7 @@ footer {
     padding: 20px;
 }
 
-aside {
+.barra-navegacao {
     background-color: #3C1D3D;
     color: #F2FFFC;
     text-align: center;
@@ -79,10 +98,29 @@ aside h1 {
     font-size: 30px;
     margin-bottom: 25px;
 }
-.icones-sociais li {
+.icones-sociais li{
     display: inline-block;
-    height: 60px;
 }
-.social-rodape{
+
+.icones-sociais a {
+    width: 40px;
+    height: 40px;
+    display: inline-block;    
+    text-indent: -9999px;
+}
+
+.github{
+    background-image: url(github.png);
+}
+
+.twitter{
+    background-image: url(twitter.png);
+}
+
+.linkedin{
+    background-image: url(linkedin.png);
+}
+
+.social-rodape {
     margin: 10px;
 }
