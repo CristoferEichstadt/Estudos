@@ -14,11 +14,7 @@
     width: 720px;
     margin: auto;
     padding: 30px 0;
-}
-
-h1 {
-    font-size: 45px;
-    font-family: "Open Sans Condensed", "Arial", sans-serif;
+    padding-bottom: 80px;
 }
 
 body {
@@ -26,6 +22,13 @@ body {
     background-color: #F2FFFC;
     line-height: 1.5;
     text-align: center;
+}
+
+main p a {
+    text-decoration: none;
+    font-family: "Open Sans Condensed";
+    color: #54aee8;
+    text-decoration: underline#54aee8;
 }
 
 .tags {
@@ -94,7 +97,16 @@ img {
     width: 15%;
     top: 310px;
     position: relative;
+    padding: 20px;
+}
 
+.nome-barra {
+    font-size: 25px;
+    font-family: "Open Sans Condensed", "Arial", sans-serif;
+}
+
+.nome-links a {
+    text-decoration: none;
 }
 
 img {
@@ -102,11 +114,6 @@ img {
     top: 0;
     right: 0;
     width: 310px;
-}
-
-footer {
-    background-color: #000;
-    color: #F2FFFC;
 }
 
 nav a {
@@ -155,6 +162,7 @@ aside h1 {
     height: 40px;
     display: inline-block;
     text-indent: -9999px;
+    margin-top: 10px;
 }
 
 .github {
@@ -175,4 +183,10 @@ aside h1 {
 
 .rodape {
     clear: left;
+    background-color: #000;
+    color: #F2FFFC;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
 }
