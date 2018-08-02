@@ -92,7 +92,7 @@ img {
 .barra-navegacao {
     clear: right;
     width: 15%;
-    top: 310%;
+    top: 310px;
     position: relative;
 
 }
@@ -101,6 +101,7 @@ img {
     position: absolute;
     top: 0;
     right: 0;
+    width: 310px;
 }
 
 footer {
