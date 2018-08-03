@@ -32,7 +32,11 @@ main p a {
 }
 
 .tags {
+    margin: 16px;
     background-color: #851944;
+    position: relative;
+    bottom: 20px;
+    padding: 0;
 }
 
 .links {
@@ -55,6 +59,8 @@ blockquote {
     width: 198px;
     margin: 20px 40px;
     box-sizing: border-box;
+    border-bottom-color: #333;
+    border-right-color: #FFF;
 }
 
 .citacao-fiat {
@@ -72,6 +78,7 @@ blockquote {
     font-size: 24px;
     text-align: center;
     background-color: #E6E7E8;
+    text-decoration: none;
 }
 
 blockquote,
@@ -166,15 +173,15 @@ aside h1 {
 }
 
 .github {
-    background-image: url(github.png);
+    background-image: url(../img/github.png);
 }
 
 .twitter {
-    background-image: url(twitter.png);
+    background-image: url(../img/twitter.png);
 }
 
 .linkedin {
-    background-image: url(linkedin.png);
+    background-image: url(../img/linkedin.png);
 }
 
 .social-rodape {
@@ -182,11 +189,11 @@ aside h1 {
 }
 
 .rodape {
+    padding: 0;
     clear: left;
     background-color: #000;
     color: #F2FFFC;
     position: fixed;
     width: 100%;
     bottom: 0;
-
 }
