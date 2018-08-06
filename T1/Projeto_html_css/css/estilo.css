@@ -88,15 +88,19 @@ footer {
 }
 
 .barra-navegacao,
-img {
+.img-cara {
     background-color: #3C1D3D;
     color: #F2FFFC;
     text-align: center;
     float: right;
-    width: 15%;
     box-sizing: border-box;
     border-left: 10px solid black;
     border-bottom: 10px solid black;
+}
+
+.img-cara {
+    position: absolute;
+    right: 0px;
 }
 
 .barra-navegacao {
@@ -126,7 +130,7 @@ img {
     margin-right: 16px;
     margin-bottom: 16px;
 }
-.portfolio img {
+.img-portfolio  {
     width: 100%;
 }
 
