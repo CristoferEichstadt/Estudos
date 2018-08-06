@@ -21,12 +21,12 @@
                 </tr>
             </thead>
             <tbody>
-                foreach(var produtos in LISTA_DE_PRODUTOS)
+                @foreach(var produto in ViewBag.Produtos)
                 {
                     <tr>
-                        <td>produto.Id</td>
-                        <td>produto.Nome</td>
-                        <td>produto.Quantidade</td>
+                        <td>@produto.Id</td>
+                        <td>@produto.Nome</td>
+                        <td>@produto.Quantidade</td>
                     </tr>
                 }
             </tbody>
