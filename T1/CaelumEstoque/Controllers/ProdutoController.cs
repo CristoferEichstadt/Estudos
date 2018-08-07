@@ -24,15 +24,32 @@ namespace CaelumEstoque.Controllers
             CategoriasDAO categoriasDao = new CategoriasDAO();
             IList<CategoriaDoProduto> categorias = categoriasDao.Lista();
             ViewBag.Categorias = categorias;
+            ViewBag.Produto = new Produto();
             return View();
         }
 
         [HttpPost]
         public ActionResult Adiciona(Produto produto)
         {
-            ProdutosDAO dao = new ProdutosDAO();
-            dao.Adiciona(produto);
-            return RedirectToAction("Index", "Produto");
+            int idDaInformatica = 1;
+            if (produto.CategoriaId.Equals(idDaInformatica) && produto.Preco < 100) //vai verificar se o preço do produto é inferior a 100 reais
+            {
+                ModelState.AddModelError("produto.Invalido", "Produto de informática com valor abaixo de R$ 100,00."); /*adiciona um "erro" e cria nome -> produto.Invalido */
+            }                                                                                                          /*e a mensagem que vai retornar depois de usar o nome.*/
+
+            if (ModelState.IsValid)//verifica se o modelstate é valido
+            {
+                ProdutosDAO dao = new ProdutosDAO();
+                dao.Adiciona(produto);
+                return RedirectToAction("Index", "Produto");
+            }
+            else
+            {
+                ViewBag.Produto = produto;
+                CategoriasDAO categoriasDAO = new CategoriasDAO();
+                ViewBag.Categorias = categoriasDAO.Lista();
+                return View("Form");
+            }
         }
     }
 }
