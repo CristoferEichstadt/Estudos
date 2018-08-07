@@ -26,8 +26,12 @@
             <input id="descricao" name="produto.Descricao" />
 
             <label for="categoria">Categoria:</label>
-            <input id="categoria" name="produto.CategoriaId">
-
+            <select id="categoria" name="produto.CategoriaId">
+                @foreach (var categoria in ViewBag.Categorias)
+                {
+                    <option value=@categoria.Id>@categoria.Nome</option>
+                }
+            </select>
             <input type="submit" value="Cadastrar" />
         </form>
     </div>
