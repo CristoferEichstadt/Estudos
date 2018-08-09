@@ -13,15 +13,15 @@
 <body>
     <div>
         <form action="/Produto/Adiciona" method="post">
-            @Html.ValidationMessage("produto.Invalido")
-
+            @Html.ValidationMessage("informaticaPrecoMenorQueCem") 
+            
             <label for="nome">Nome:</label>
             <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome" />
-            @Html.ValidationMessage("produto.Nome");
+            @Html.ValidationMessage("produto.Nome")
 
             <label for="preco">Preço:</label>
             <input id="preco" name="produto.Preco" value="@ViewBag.Produto.Preco" />
-
+            @Html.ValidationMessage("produto.Preco")
             <label for="quantidade">Quantidade:</label>
             <input id="quantidade" name="produto.Quantidade" value="@ViewBag.Produto.Quantidade" />
 

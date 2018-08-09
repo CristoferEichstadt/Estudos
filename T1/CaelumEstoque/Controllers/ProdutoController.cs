@@ -15,8 +15,7 @@ namespace CaelumEstoque.Controllers
         {
             ProdutosDAO dao = new ProdutosDAO();
             IList<Produto> produtos = dao.Lista();//LISTA
-            ViewBag.Produtos = produtos;
-            return View();
+            return View(produtos);
         }
 
         public ActionResult Form()
@@ -34,7 +33,7 @@ namespace CaelumEstoque.Controllers
             int idDaInformatica = 1;
             if (produto.CategoriaId.Equals(idDaInformatica) && produto.Preco < 100) //vai verificar se o preço do produto é inferior a 100 reais
             {
-                ModelState.AddModelError("produto.Invalido", "Produto de informática com valor abaixo de R$ 100,00."); /*adiciona um "erro" e cria nome -> produto.Invalido */
+                ModelState.AddModelError("informaticaPrecoMenorQueCem", "Produto de informática com valor abaixo de R$ 100,00."); /*adiciona um "erro" e cria nome -> produto.Invalido */
             }                                                                                                          /*e a mensagem que vai retornar depois de usar o nome.*/
 
             if (ModelState.IsValid)//verifica se o modelstate é valido
@@ -50,6 +49,14 @@ namespace CaelumEstoque.Controllers
                 ViewBag.Categorias = categoriasDAO.Lista();
                 return View("Form");
             }
+        }
+
+        public ActionResult Visualiza(int Id)
+        {
+            ProdutosDAO dao = new ProdutosDAO();
+            Produto produto = dao.BuscaPorId(Id);
+            ViewBag.Produto = produto;
+            return View();
         }
     }
 }
