@@ -1,35 +1,19 @@
-﻿
-@{
-    Layout = null;
-}
+﻿<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in ViewBag.Categorias)
+        {
+            <tr>
+                <td>@categoria.Id</td>
+                <td>@categoria.Nome</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var categoria in ViewBag.Categorias)
-                {
-                    <tr>
-                        <td>@categoria.Id</td>
-                        <td>@categoria.Nome</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
