@@ -4,27 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CaelumEstoque.DAO;
+using CaelumEstoque.Filtros;
 using CaelumEstoque.Models;
 
 namespace CaelumEstoque.Controllers
 {
+    [AutorizacaoFilter]
     public class ProdutoController : Controller
     {
         // GET: Produto
         [Route("produtos", Name = "ListaProdutos")]
         public ActionResult Index()
         {
-            object usuario = Session["usuarioLogado"];
-            if (usuario != null)
-            {
-                ProdutosDAO dao = new ProdutosDAO();
-                IList<Produto> produtos = dao.Lista();//LISTA
-                return View(produtos);
-            }
-            else
-            {
-                return RedirectToAction("Index", "login");
-            }
+            ProdutosDAO dao = new ProdutosDAO();
+            IList<Produto> produtos = dao.Lista();//LISTA
+            return View(produtos);
+
         }
 
         public ActionResult Form()
