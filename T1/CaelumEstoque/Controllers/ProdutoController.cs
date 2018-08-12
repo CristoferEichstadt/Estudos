@@ -67,7 +67,9 @@ namespace CaelumEstoque.Controllers
             Produto produto = dao.BuscaPorId(id);
             produto.Quantidade--;
             dao.Atualiza(produto);
-            return RedirectToAction("Index");
+
+            //transforma o retorno em objeto javascript podendo ser manipulado por comandos javascript
+            return Json(produto);
         }
     }
 }
