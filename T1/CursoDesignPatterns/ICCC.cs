@@ -2,7 +2,7 @@
 
 namespace CursoDesignPatterns
 {
-    public class ICCC
+    public class ICCC : IImposto
     {
         public double Calcula(Orcamento orcamento)
         {
@@ -10,7 +10,7 @@ namespace CursoDesignPatterns
             {
                 return (orcamento.Valor * 0.05);
             }
-            else if ((Convert.ToDouble(orcamento) >= 1000) && Convert.ToDouble(orcamento) >= 3000)
+            else if ((Convert.ToDouble(orcamento) >= 1000 && Convert.ToDouble(orcamento) >= 3000))
             {
                 return (orcamento.Valor * 0.07);
             }
