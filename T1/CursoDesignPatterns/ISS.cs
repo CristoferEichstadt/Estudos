@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CursoDesignPatterns
 {
-    class CalculadorDeImposto
+    public class ISS : IImposto
     {
-        public void RealizaCalculo(Orcamento orcamento, IImposto imposto)
+        public double Calcula(Orcamento orcamento)
         {
-            Console.WriteLine(imposto.Calcula(orcamento));
+            return orcamento.Valor * 0.2;
         }
     }
 }
