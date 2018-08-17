@@ -47,8 +47,11 @@
     <Compile Include="CalculadorDeImposto.cs" />
     <Compile Include="Conservador.cs" />
     <Compile Include="Conta.cs" />
+    <Compile Include="DescontoPor500Reais.cs" />
+    <Compile Include="DescontoPorCincoItens.cs" />
     <Compile Include="ICCC.cs" />
     <Compile Include="ICMS.cs" />
+    <Compile Include="IDesconto.cs" />
     <Compile Include="IImposto.cs" />
     <Compile Include="IInvestimento.cs" />
     <Compile Include="ISS.cs" />
@@ -58,6 +61,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealizadorDeInvestimentos.cs" />
+    <Compile Include="SemDesconto.cs" />
     <Compile Include="Teste.cs" />
   </ItemGroup>
   <ItemGroup>
