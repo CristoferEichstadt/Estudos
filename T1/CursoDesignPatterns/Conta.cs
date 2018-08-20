@@ -16,4 +16,10 @@ namespace CursoDesignPatterns
             this.Saldo = saldo;
         }
     }
+    enum Formato
+    {
+        XML,
+        CSV,
+        PORCENTO
+    }
 }
