@@ -48,11 +48,17 @@ namespace CursoDesignPatterns
 
             return this;
         }
-
         public NotaFiscal Constroi()
         {
-            return new NotaFiscal(RazaoSocial, Cnpj, Data, ValorBruto,
-                                Impostos, todosItens, Observacoes);
+            NotaFiscal notaFiscal = new NotaFiscal(RazaoSocial, Cnpj, ValorTotal,
+                                            Impostos, Data, Observacoes);
+
+            foreach (AcaoAposGerarNota acao in todasAcoesASeremExecutadas)
+            {
+                acao.Executa(notaFiscal);
+            }
+
+            return notaFiscal;
         }
     }
 }
