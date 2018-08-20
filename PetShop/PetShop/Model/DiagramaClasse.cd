@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PetShop.Pessoa">
+    <Position X="1.25" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAAACAAAAAAAEAAAAAACAQAIAAAAAAAAEAAkBEAg=</HashCode>
+      <FileName>Pessoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetShop.Usuario">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <AssociationLine Name="Pessoa" Type="PetShop.Pessoa" FixedToPoint="true">
+      <Path>
+        <Point X="5" Y="3.59" />
+        <Point X="0.875" Y="3.59" />
+        <Point X="0.875" Y="5.375" />
+        <Point X="1.25" Y="5.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACAAAAEAAQEAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pessoa" />
+      <Property Name="Pedido" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PetShop.Categoria">
+    <Position X="6.25" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Categoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetShop.Subcategoria">
+    <Position X="6.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAEAAAAAAAAAAAAAAAAAAAEAAAE=</HashCode>
+      <FileName>Subcategoria.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Categoria" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PetShop.Produto">
+    <Position X="10.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAAAAhCAEAAAEAAAAAABAgAAAUIAEAAAA=</HashCode>
+      <FileName>Produto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Subcategoria" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PetShop.Estoque">
+    <Position X="8.75" Y="5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQIAAAAAAAAAAAAAAAAIAAAAAAAAAAAAE=</HashCode>
+      <FileName>Estoque.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Produto" />
+      <Property Name="UsuarioAlteracao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PetShop.Venda">
+    <Position X="8.5" Y="1" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAEQAAAAAAAAEAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Venda.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pedido" />
+      <Property Name="FormaPagamento" />
+      <Property Name="Usuario" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PetShop.VendaItens">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VendaItens.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetShop.Pedido">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Pedido.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Estoque" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PetShop.FormaPagamento">
+    <Position X="9.75" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>FormaPagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

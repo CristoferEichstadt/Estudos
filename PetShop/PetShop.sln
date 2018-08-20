@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoDesignPatterns", "CursoDesignPatterns\CursoDesignPatterns.csproj", "{88C9C968-1655-4470-B486-BE6E64E7E43D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShop", "PetShop\PetShop.csproj", "{B30EA487-2264-45AC-B008-901A923EB407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoDesignPatterns", "..\T1\CursoDesignPatterns\CursoDesignPatterns.csproj", "{88C9C968-1655-4470-B486-BE6E64E7E43D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B30EA487-2264-45AC-B008-901A923EB407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30EA487-2264-45AC-B008-901A923EB407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30EA487-2264-45AC-B008-901A923EB407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30EA487-2264-45AC-B008-901A923EB407}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88C9C968-1655-4470-B486-BE6E64E7E43D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88C9C968-1655-4470-B486-BE6E64E7E43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88C9C968-1655-4470-B486-BE6E64E7E43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -20,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4F6E3321-E95E-4A5E-AA3B-CA3BDE48193C}
+		SolutionGuid = {74F5622D-DFE7-4470-8BD8-387E4C115F36}
 	EndGlobalSection
 EndGlobal
