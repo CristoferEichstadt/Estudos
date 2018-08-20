@@ -49,6 +49,7 @@
     <Compile Include="Conta.cs" />
     <Compile Include="DescontoPor500Reais.cs" />
     <Compile Include="DescontoPorCincoItens.cs" />
+    <Compile Include="DescontoPorVendaCasada.cs" />
     <Compile Include="ICCC.cs" />
     <Compile Include="ICMS.cs" />
     <Compile Include="IDesconto.cs" />
