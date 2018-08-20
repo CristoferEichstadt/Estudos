@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace CursoDesignPatterns
 {
-    public class Requisicao
+    public class TemplateDeImpostoCondicional : IImposto
     {
-        public Formato Formato { get; private set; }
-
-        public Requisicao(Formato formato)
+        public double Calcula(Orcamento orcamento)
         {
-            this.Formato = formato;
+            ;
         }
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CursoDesignPatterns
 {
-    public class RespostaXml : IResposta
+    public class RespostaCsv : IResposta
     {
         public IResposta OutraResposta { get; set; }
         public void Responde(Requisicao requisicao, Conta conta)
         {
-            if (requisicao.Formato == Formato.XML)
+            if (requisicao.Formato == Formato.CSV)
             {
-                Console.WriteLine("<conta><titular>" + conta.Titular + "</titular><saldo>" + conta.Saldo + "</saldo></conta>");
+                Console.WriteLine(conta.Titular + ";" + conta.Saldo);
             }
             else
             {
