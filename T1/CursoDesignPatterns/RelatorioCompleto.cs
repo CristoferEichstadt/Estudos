@@ -10,14 +10,14 @@ namespace CursoDesignPatterns
     {
         protected override void Cabecalho()
         {
-            Console.WriteLine("Banco XYZ");
-            Console.WriteLine("Avenida Paulista, 1234");
-            Console.WriteLine("(11) 1234-5678");
+            Console.WriteLine("Banco Itaú");
+            Console.WriteLine("Rua São Paulo, 1567");
+            Console.WriteLine("(47) 3333-0000");
         }
 
         protected override void Rodape()
         {
-            Console.WriteLine("banco@xyz.com.br");
+            Console.WriteLine("contato@itau.com.br");
             Console.WriteLine(DateTime.Now);
         }
 
@@ -25,7 +25,7 @@ namespace CursoDesignPatterns
         {
             foreach (Conta c in contas)
             {
-                Console.WriteLine(c.Titular + " - " + c.Numero + " - " + c.Agencia + " - " + c.Saldo);
+                Console.WriteLine(c.Titular + " -> " + c.Numero + " -> " + c.Agencia + " -> " + c.Saldo);
             }
         }
     }

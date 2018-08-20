@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CursoDesignPatterns
 {
-    public abstract class TemplateDeImpostoCondicional : IImposto
+    public abstract class TemplateDeImpostoCondicional : Imposto
     {
         protected abstract bool DeveUsarMaximaTaxacao(Orcamento orcamento);
         protected abstract double MaximaTaxacao(Orcamento orcamento);
