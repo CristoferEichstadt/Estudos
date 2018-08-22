@@ -1,4 +1,5 @@
 ﻿using PetShop_Project.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,20 +34,20 @@ namespace PetShop_Project.DAO
             }
         }
 
-        //public void Atualiza(Pessoa pessoa)
-        //{
-        //    using (var contexto = new PetShopContext())
-        //    {
-        //        contexto.Entry(pessoa).State = System.Data.Entity.EntityState.Modified;
-        //        contexto.SaveChanges();
-        //    }
-        //}
-
-        public Pessoa Busca(string nome, string cpfCnpj)
+        public void Atualiza(Pessoa pessoa)
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Pessoas.FirstOrDefault(p => p.Nome == nome && p.CpfCnpj == cpfCnpj);
+                contexto.Entry(pessoa).State = EntityState.Modified;
+                contexto.SaveChanges();
+            }
+        }
+
+        public Pessoa Busca(string cpfCnpj)
+        {
+            using (var contexto = new PetShopContext())
+            {
+                return contexto.Pessoas.FirstOrDefault(p => p.CpfCnpj == cpfCnpj);
             }
         }
     }

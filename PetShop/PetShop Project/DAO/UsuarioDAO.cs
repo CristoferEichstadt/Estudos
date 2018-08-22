@@ -1,4 +1,5 @@
 ﻿using PetShop_Project.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,20 +34,20 @@ namespace PetShop_Project.DAO
             }
         }
 
-        //public void Atualiza(Usuario usuario)
-        //{
-        //    using (var contexto = new PetShopContext())
-        //    {
-        //        contexto.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
-        //        contexto.SaveChanges();
-        //    }
-        //}
+        public void Atualiza(Usuario usuario)
+        {
+            using (var contexto = new PetShopContext())
+            {
+                contexto.Entry(usuario).State = EntityState.Modified;
+                contexto.SaveChanges();
+            }
+        }
 
         public Usuario Busca(string login, string senha)
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Usuarios.FirstOrDefault(u => u.Email == login && u.Senha == senha);
+                return contexto.Usuarios.Include(u => u.Pessoa).FirstOrDefault(u => u.Email == login && u.Senha == senha);
             }
         }
     }

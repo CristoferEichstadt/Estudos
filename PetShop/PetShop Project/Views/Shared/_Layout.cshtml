@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@{PetShop_Project.Models.Usuario usuarioLogado = (PetShop_Project.Models.Usuario)HttpContext.Current.Session["usuarioLogado"]; }
+
+<!DOCTYPE html>
 <!--
 Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
 <html lang="en">
@@ -63,8 +65,19 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
                 <!-- COMEÇO DO MENU BAR DA DIREITA -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li>@Html.ActionLink("Minha Conta", "Index", "ContaUsuario")</li>
-                        <li>@Html.ActionLink("Login / Cadastro", "Index", "Login")</li>
+                    
+                        <!--VERIFICA SE USUÁRIO ESTÁ LOGADO E ADICIONA MENU BAR DIFERENCIADO-->
+                        @{string nome = "";
+                            if (usuarioLogado != null)
+                            {
+                                nome = usuarioLogado.Pessoa.Nome;
+                                <li>@Html.ActionLink("Minha Conta", "Index", "ContaUsuario")</li>
+                                <li>Seja bem vindo, @nome!</li>
+                            }
+                            else
+                            {
+                                <li> @Html.ActionLink("Login / Cadastro", "Index", "Login") </li>
+                            } }
                     </ul>
                 </div>
                 <!-- FIM DO MENU BAR -->

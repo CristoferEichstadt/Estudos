@@ -12,6 +12,7 @@ namespace PetShop_Project.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Autentica(string login, string senha)
         {
             UsuarioDAO dao = new UsuarioDAO();
@@ -20,11 +21,11 @@ namespace PetShop_Project.Controllers
             if (usuario != null)
             {
                 Session["usuarioLogado"] = usuario;
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
-                return RedirectToAction("Indexx");
+                return View("Index");
             }
         }
     }
