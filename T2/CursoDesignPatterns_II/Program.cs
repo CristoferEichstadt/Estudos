@@ -1,4 +1,5 @@
 ﻿using CursoDesignPatterns_II.Cap2;
+using CursoDesignPatterns_II.Cap3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,40 +12,20 @@ namespace CursoDesignPatterns_II
     {
         static void Main(string[] args)
         {
-            //    var notas = new NotasMusicais();
-            //    IList<INota> musica = new List<INota>()
-            //    {
-            //        notas.Pega("do"),
-            //        notas.Pega("re"),
-            //        notas.Pega("mi"),
-            //        notas.Pega("fa"),
-            //        notas.Pega("fa"),
-            //        notas.Pega("fa"),
 
-            //        notas.Pega("do"),
-            //        notas.Pega("re"),
-            //        notas.Pega("do"),
-            //        notas.Pega("re"),
-            //        notas.Pega("re"),
-            //        notas.Pega("re"),
+            var historico = new HistoricoContrato();
+            var contrato = new Contrato(DateTime.Now, "Guilherme", TipoContrato.Novo);
+            historico.Adiciona(contrato.SalvaEstado());
 
-            //        notas.Pega("do"),
-            //        notas.Pega("sol"),
-            //        notas.Pega("fa"),
-            //        notas.Pega("mi"),
-            //        notas.Pega("mi"),
-            //        notas.Pega("mi"),
+            contrato.Avanca();
+            historico.Adiciona(contrato.SalvaEstado());
 
-            //        notas.Pega("do"),
-            //        notas.Pega("re"),
-            //        notas.Pega("mi"),
-            //        notas.Pega("fa"),
-            //        notas.Pega("fa"),
-            //        notas.Pega("fa")
-            //    };
+            contrato.Avanca();
+            historico.Adiciona(contrato.SalvaEstado());
 
-            //    var piano = new Piano();
-            //    piano.Toca(musica);
+            Console.WriteLine(historico.Pega(0).Contrato.Tipo);
+
         }
+
     }
 }

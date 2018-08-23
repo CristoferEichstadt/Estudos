@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cap1\ConnectionFactory.cs" />
     <Compile Include="Cap2\Do.cs" />
     <Compile Include="Cap2\Fa.cs" />
     <Compile Include="Cap2\INota.cs" />
@@ -56,6 +57,10 @@
     <Compile Include="Cap2\Re.cs" />
     <Compile Include="Cap2\Si.cs" />
     <Compile Include="Cap2\Sol.cs" />
+    <Compile Include="Cap3\Contrato.cs" />
+    <Compile Include="Cap3\EstadoContrato.cs" />
+    <Compile Include="Cap3\HistoricoContrato.cs" />
+    <Compile Include="Cap3\TipoContrato.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -80,8 +85,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Cap1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
