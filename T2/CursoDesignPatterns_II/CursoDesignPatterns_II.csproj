@@ -61,6 +61,10 @@
     <Compile Include="Cap3\EstadoContrato.cs" />
     <Compile Include="Cap3\HistoricoContrato.cs" />
     <Compile Include="Cap3\TipoContrato.cs" />
+    <Compile Include="Cap4\IExpressao.cs" />
+    <Compile Include="Cap4\Numero.cs" />
+    <Compile Include="Cap4\Soma.cs" />
+    <Compile Include="Cap4\Subtracao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
