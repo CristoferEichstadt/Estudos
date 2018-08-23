@@ -8,5 +8,6 @@ namespace CursoDesignPatterns_II.Cap4
 {
     interface IExpressao
     {
+        int Avalia();
     }
 }
