@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CursoDesignPatterns_II.Cap5;
 
 namespace CursoDesignPatterns_II.Cap4
 {
-    class Soma : IExpressao
+    public class Soma : IExpressao
     {
+        public IExpressao Esquerda { get; private set; }
+        public IExpressao Direita { get; private set; }
         public Soma(IExpressao esquerda, IExpressao direita)
         {
             Esquerda = esquerda;
             Direita = direita;
         }
-
-        public IExpressao Esquerda { get; }
-        public IExpressao Direita { get; }
-
         public int Avalia()
         {
             int valorEsquerda = Esquerda.Avalia();
             int valorDireita = Direita.Avalia();
             return valorEsquerda + valorDireita;
+        }
+        public void Aceita(ImpressoraVisitor impressora)
+        {
+            impressora.ImprimeSoma(this);
         }
     }
 }

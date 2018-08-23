@@ -1,6 +1,7 @@
 ﻿using CursoDesignPatterns_II.Cap2;
 using CursoDesignPatterns_II.Cap3;
 using CursoDesignPatterns_II.Cap4;
+using CursoDesignPatterns_II.Cap5;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +15,18 @@ namespace CursoDesignPatterns_II
     {
         static void Main(string[] args)
         {
-            //IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
-            //IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
-            //IExpressao soma = new Soma(esquerda, direita);
+            //Expression soma = Expression.Add(Expression.Constant(10), Expression.Constant(100));
+            //Func<int> funcao = Expression.Lambda<Func<int>>(soma).Compile();
 
-            //Console.WriteLine(soma.Avalia());
+            //Console.WriteLine(funcao());
 
-            Expression soma = Expression.Add(Expression.Constant(10), Expression.Constant(100));
-            Func<int> funcao = Expression.Lambda<Func<int>>(soma).Compile();
+            IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
+            IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
+            IExpressao soma = new Soma(esquerda, direita);
 
-            Console.WriteLine(funcao());
+            Console.WriteLine(soma.Avalia());
+            ImpressoraVisitor impressora = new ImpressoraVisitor();
+            soma.Aceita(impressora);
         }
-
     }
 }
