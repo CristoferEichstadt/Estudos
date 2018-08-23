@@ -10,6 +10,6 @@ namespace CursoDesignPatterns_II.Cap4
     public interface IExpressao
     {
         int Avalia();
-        void Aceita(ImpressoraVisitor impressora);
+        void Aceita(IVisitor impressora);
     }
 }

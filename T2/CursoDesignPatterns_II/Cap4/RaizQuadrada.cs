@@ -16,7 +16,7 @@ namespace CursoDesignPatterns_II.Cap4
             this.expressao = e;
         }
 
-        public void Aceita(ImpressoraVisitor impressora)
+        public void Aceita(IVisitor impressora)
         {
             
         }
