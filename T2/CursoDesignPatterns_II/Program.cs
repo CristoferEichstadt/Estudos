@@ -16,7 +16,9 @@ namespace CursoDesignPatterns_II
     {
         static void Main(string[] args)
         {
-            IMensagem mensagem = new MensagemPorEmail("Guilherme");
+            IMensagem mensagem = new MensagemCliente("Guilherme");
+            IEnviador enviador = new EnviaPorEmail();
+            mensagem.Enviador = enviador;
             mensagem.Envia();
         }
     }

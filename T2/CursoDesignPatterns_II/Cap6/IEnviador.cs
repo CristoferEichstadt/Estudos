@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace CursoDesignPatterns_II.Cap6
 {
-    public interface IMensagem
+    public interface IEnviador
     {
-        IEnviador Enviador { get; set; }
-        void Envia();
-
-        string Formata();
+        void Envia(IMensagem mensagem);
     }
 }
