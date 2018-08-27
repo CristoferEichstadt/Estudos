@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EBD8F6AC-A11E-4405-8D76-4DDD7B2D4E35}</ProjectGuid>
+    <ProjectGuid>{D7F90899-E84B-45AF-AA3C-2587BA73A4C8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CursoDesignPatterns_II</RootNamespace>
-    <AssemblyName>CursoDesignPatterns_II</AssemblyName>
+    <RootNamespace>Solid</RootNamespace>
+    <AssemblyName>Solid</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,46 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cap1\ConnectionFactory.cs" />
-    <Compile Include="Cap2\Do.cs" />
-    <Compile Include="Cap2\Fa.cs" />
-    <Compile Include="Cap2\INota.cs" />
-    <Compile Include="Cap2\La.cs" />
-    <Compile Include="Cap2\Mi.cs" />
-    <Compile Include="Cap2\NotasMusicais.cs" />
-    <Compile Include="Cap2\Piano.cs" />
-    <Compile Include="Cap2\Re.cs" />
-    <Compile Include="Cap2\Si.cs" />
-    <Compile Include="Cap2\Sol.cs" />
-    <Compile Include="Cap3\Contrato.cs" />
-    <Compile Include="Cap3\EstadoContrato.cs" />
-    <Compile Include="Cap3\HistoricoContrato.cs" />
-    <Compile Include="Cap3\TipoContrato.cs" />
-    <Compile Include="Cap4\IExpressao.cs" />
-    <Compile Include="Cap4\Numero.cs" />
-    <Compile Include="Cap4\RaizQuadrada.cs" />
-    <Compile Include="Cap4\Soma.cs" />
-    <Compile Include="Cap4\Subtracao.cs" />
-    <Compile Include="Cap5\ImpressoraVisitor.cs" />
-    <Compile Include="Cap5\IVisitor.cs" />
-    <Compile Include="Cap6\EnviaPorEmail.cs" />
-    <Compile Include="Cap6\EnviaPorSMS.cs" />
-    <Compile Include="Cap6\IEnviador.cs" />
-    <Compile Include="Cap6\IMensagem.cs" />
-    <Compile Include="Cap6\MensagemCliente.cs" />
-    <Compile Include="Cap6\MensagemAdministrativa.cs" />
-    <Compile Include="Cap7\FilaDeTrabalho.cs" />
-    <Compile Include="Cap7\FinalizaPedido.cs" />
-    <Compile Include="Cap7\IComando.cs" />
-    <Compile Include="Cap7\PagaPedido.cs" />
-    <Compile Include="Cap7\Pedido.cs" />
-    <Compile Include="Cap7\Status.cs" />
-    <Compile Include="Cap8\Cliente.cs" />
-    <Compile Include="Cap8\GeradorDeXml.cs" />
-    <Compile Include="Cap9\Servico.cs" />
-    <Compile Include="Cap9\ServicoSingleton.cs" />
+    <Compile Include="CalculadoraDeSalario.cs" />
+    <Compile Include="Cargo.cs" />
+    <Compile Include="Dba.cs" />
+    <Compile Include="Desenvolvedor.cs" />
+    <Compile Include="DezOuVintePorcento.cs" />
+    <Compile Include="EnviadorDeEmail.cs" />
+    <Compile Include="Fatura.cs" />
+    <Compile Include="Funcionario.cs" />
+    <Compile Include="GeradorDeNotaFiscal.cs" />
+    <Compile Include="NotaFiscal.cs" />
+    <Compile Include="NotaFiscalDao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuinzeOuVinteCincoPorcento.cs" />
+    <Compile Include="IRegraDeCalculo.cs" />
+    <Compile Include="Tester.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -111,6 +87,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

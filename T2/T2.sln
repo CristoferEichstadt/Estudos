@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoDesignPatterns", "Curs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoDesignPatterns_II", "CursoDesignPatterns_II\CursoDesignPatterns_II.csproj", "{EBD8F6AC-A11E-4405-8D76-4DDD7B2D4E35}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid", "Solid\Solid.csproj", "{D7F90899-E84B-45AF-AA3C-2587BA73A4C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EBD8F6AC-A11E-4405-8D76-4DDD7B2D4E35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBD8F6AC-A11E-4405-8D76-4DDD7B2D4E35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBD8F6AC-A11E-4405-8D76-4DDD7B2D4E35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F90899-E84B-45AF-AA3C-2587BA73A4C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F90899-E84B-45AF-AA3C-2587BA73A4C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F90899-E84B-45AF-AA3C-2587BA73A4C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F90899-E84B-45AF-AA3C-2587BA73A4C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
