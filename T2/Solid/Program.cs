@@ -10,19 +10,13 @@ namespace Solid
     {
         static void Main(string[] args)
         {
-            EnviadorDeEmail enviadorDeEmail = new EnviadorDeEmail();
-            NotaFiscalDao nfDao = new NotaFiscalDao();
-            IList<IAcaoAposGerarNota> acoes = new List<IAcaoAposGerarNota>();
+            Compra compra = new Compra("Sao paulo", 500);
+            CalculadoraDePrecos calc = new CalculadoraDePrecos(new TabelaDePrecoPadrao(), new Frete());
 
-            acoes.Add(new EnviadorDeEmail());
-            acoes.Add(new NotaFiscalDao());
-            GeradorDeNotaFiscal gnf = new GeradorDeNotaFiscal(acoes);
-            Fatura fatura = new Fatura(200, "Guilherme Francisco");
-            gnf.Gera(fatura);
+            double resultado = calc.Calcula(compra);
 
+            Console.WriteLine("O preço da compra é: " + resultado);
             Console.ReadKey();
-            Console.WriteLine();
-
         }
     }
 }
