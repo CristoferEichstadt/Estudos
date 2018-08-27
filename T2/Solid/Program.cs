@@ -10,14 +10,19 @@ namespace Solid
     {
         static void Main(string[] args)
         {
-            CalculadoraDeSalario cs = new CalculadoraDeSalario();
-            Funcionario funcionario = new Funcionario(new Desenvolvedor(new DezOuVintePorcento()), 2000);
-            double resultado;
+            EnviadorDeEmail enviadorDeEmail = new EnviadorDeEmail();
+            NotaFiscalDao nfDao = new NotaFiscalDao();
+            IList<IAcaoAposGerarNota> acoes = new List<IAcaoAposGerarNota>();
 
-            resultado = cs.Calcula(funcionario);
+            acoes.Add(new EnviadorDeEmail());
+            acoes.Add(new NotaFiscalDao());
+            GeradorDeNotaFiscal gnf = new GeradorDeNotaFiscal(acoes);
+            Fatura fatura = new Fatura(200, "Guilherme Francisco");
+            gnf.Gera(fatura);
 
-            Console.WriteLine("O salário de um desenvolvedor que ganha 2000 bruto é: " + resultado);
             Console.ReadKey();
+            Console.WriteLine();
+
         }
     }
 }

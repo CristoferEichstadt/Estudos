@@ -30,7 +30,7 @@ namespace Solid
 
         private object ImpostoSimplesSobre0(double valor)
         {
-            return valor * 0.06
+            return valor * 0.06;
         }
     }
 }

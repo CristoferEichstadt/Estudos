@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAcaoAposGerarNota.cs" />
     <Compile Include="CalculadoraDeSalario.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Dba.cs" />
