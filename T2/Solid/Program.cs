@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Solid.Cap4;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,17 @@ namespace Solid
     {
         static void Main(string[] args)
         {
-            Compra compra = new Compra("Sao paulo", 500);
-            CalculadoraDePrecos calc = new CalculadoraDePrecos(new TabelaDePrecoPadrao(), new Frete());
+            List<Boleto> boletos = new List<Boleto>();
+            boletos.Add(new Boleto(200));
+            boletos.Add(new Boleto(700));
+            boletos.Add(new Boleto(500));
 
-            double resultado = calc.Calcula(compra);
+            Fatura fatura = new Fatura(1400, "Guilherme");
 
-            Console.WriteLine("O preço da compra é: " + resultado);
+            ProcessadorDeBoletos pdb = new ProcessadorDeBoletos();
+            pdb.Processa(boletos, fatura);
+
+            Console.WriteLine(fatura.Pago);
             Console.ReadKey();
         }
     }

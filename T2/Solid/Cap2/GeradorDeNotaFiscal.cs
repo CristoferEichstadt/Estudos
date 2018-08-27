@@ -15,7 +15,7 @@ namespace Solid
             Acoes = acoes;
         }
 
-        public NotaFiscal Gera(Fatura fatura)
+        public NotaFiscal Gera(FaturaDois fatura)
         {
             double valor = fatura.ValorMensal;
             NotaFiscal nf = new NotaFiscal(valor, ImpostoSimplesSobre0(valor));
