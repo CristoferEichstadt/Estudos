@@ -197,7 +197,9 @@
     <Content Include="Content\assets\corporate\img\icons\toggler.png" />
     <Content Include="Content\assets\corporate\img\icons\top-search-icon.png" />
     <Content Include="Content\assets\corporate\img\layerslider-arrows.png" />
-    <Content Include="Content\assets\corporate\img\login\login.png" />
+    <Content Include="Content\assets\corporate\img\layout\favicon.png" />
+    <Content Include="Content\assets\corporate\img\layout\logohome.png" />
+    <Content Include="Content\assets\corporate\img\layout\logologinn.png" />
     <Content Include="Content\assets\corporate\img\logos\0logo-blue-small.png" />
     <Content Include="Content\assets\corporate\img\logos\0logo-blue.png" />
     <Content Include="Content\assets\corporate\img\logos\0logo-green.png" />
@@ -670,7 +672,9 @@
     </None>
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\assets\corporate\img\login\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

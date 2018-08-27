@@ -9,7 +9,7 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
 <html>
 <head>
     <meta charset="utf-8">
-    <title>PetShop</title>
+    <title>VallePet</title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,14 +22,15 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
     <meta property="og:title" content="-CUSTOMER VALUE-">
     <meta property="og:description" content="-CUSTOMER VALUE-">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="-CUSTOMER VALUE-"><!-- link to image for socio -->
     <meta property="og:url" content="-CUSTOMER VALUE-">
 
-    <!--  <link rel="shortcut icon" href="/favicon.ico">-->
+    <link rel="shortcut icon" href="~/Content/assets/corporate/img/layout/favicon.png">
+
     <!-- Fonts START -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"><!--- fonts for slider on the index page -->
     <!-- Fonts END -->
+
     <!-- Global styles START -->
     <link href="~/Content/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/Content/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,7 +66,7 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
                 <!-- COMEÇO DO MENU BAR DA DIREITA -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                    
+
                         <!--VERIFICA SE USUÁRIO ESTÁ LOGADO E ADICIONA MENU BAR DIFERENCIADO-->
                         @{string nome = "";
                             if (usuarioLogado != null)
@@ -89,7 +90,7 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
     <!-- BEGIN HEADER -->
     <div class="header">
         <div class="container">
-            <a class="site-logo" href="shop-index.html"><img src="assets/corporate/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
+            <a class="site-logo" href="/Home"><img src="~/Content/assets/corporate/img/layout/logohome.png" alt="VallePet"></a>
 
             <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -169,16 +170,14 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
                 </div>
             </div>
             <!--END CART -->
-            <!-- BEGIN NAVIGATION -->
+            <!-- MENU NAVEGAÇÃO -->
             <div class="header-navigation">
                 <ul>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                             Alimentos
-
                         </a>
-
-                        <!-- BEGIN DROPDOWN MENU -->
+                        <!-- SUB MENU ALIMENTOS -->
                         <ul class="dropdown-menu">
                             <li class="dropdown-submenu">
                             <li><a href="shop-product-list.html">Cachorro</a></li>
@@ -187,15 +186,14 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
                             <li><a href="shop-product-list.html">Peixes</a></li>
                             <li><a href="shop-product-list.html">Roedores</a></li>
                         </ul>
-                        <!-- END DROPDOWN MENU -->
+                        <!-- FIM -->
+
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                             Cachorros
-
                         </a>
-
-                        <!-- BEGIN DROPDOWN MENU -->
+                        <!-- SUB MENU CACHORROS -->
                         <ul class="dropdown-menu">
                             <li class="dropdown-submenu">
                             <li><a href="shop-product-list.html">Saúde Canina</a></li>
@@ -203,17 +201,15 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
                             <li><a href="shop-product-list.html">Acessórios</a></li>
                             <li><a href="shop-product-list.html">Brinquedos</a></li>
                         </ul>
-                        <!-- END DROPDOWN MENU -->
-
+                        <!-- FIM -->
                     </li>
+
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                             Gatos
-
                         </a>
-
-                        <!-- BEGIN DROPDOWN MENU -->
+                        <!-- SUB MENU GATOS -->
                         <ul class="dropdown-menu">
                             <li class="dropdown-submenu">
                             <li><a href="shop-product-list.html">Saúde Felina</a></li>
@@ -221,13 +217,15 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
                             <li><a href="shop-product-list.html">Acessórios</a></li>
                             <li><a href="shop-product-list.html">Brinquedos</a></li>
                         </ul>
-                        <!-- END DROPDOWN MENU -->
-
+                        <!-- FIM -->
                     </li>
+
+
                     <li><a href="shop-item.html">Hotel</a></li>
                     <li><a href="shop-item.html">Veterinário</a></li>
 
-                    <!-- BEGIN TOP SEARCH -->
+
+                    <!-- BEGIN TOP SEARCH
                     <li class="menu-search">
                         <span class="sep"></span>
                         <i class="fa fa-search search-btn"></i>
@@ -242,7 +240,9 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
                             </form>
                         </div>
                     </li>
-                    <!-- END TOP SEARCH -->
+                    END TOP SEARCH -->
+
+
                 </ul>
             </div>
             <!-- END NAVIGATION -->
@@ -257,41 +257,22 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
         <div class="container">
             <div class="row">
                 <!-- BEGIN BOTTOM ABOUT BLOCK -->
-                <div class="col-md-3 col-sm-6 pre-footer-col">
+                <div class="col-md-3 col-sm-6 pre-footer-col navbar-left" style="text-align: left">
                     <h2>Sobre nós</h2>
-                    <p>Somos uma empresa especializada na área PetShop. Criada em 2018 para atender as necessidades do seu PET.</p>
+                    <p>
+                        Somos um site de<br />  venda especializado na área
+                        <br />PetShop. Criada em 2018 para <br /> atender as necessidades do seu PET.
+                    </p>
                 </div>
                 <!-- END BOTTOM ABOUT BLOCK -->
-                <!-- BEGIN BOTTOM INFO BLOCK
-                <div class="col-md-3 col-sm-6 pre-footer-col">
-                    <h2>Information</h2>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Delivery Information</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Customer Service</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Order Tracking</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Shipping &amp; Returns</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Contact Us</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Careers</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Payment Methods</a></li>
-                    </ul>
-                </div>
-                 END INFO BLOCK -->
-                <!-- BEGIN TWITTER BLOCK -->
-                <div class="col-md-3 col-sm-6 pre-footer-col">
-                    <h2 class="margin-bottom-0">Latest Tweets</h2>
-                    <a class="twitter-timeline" href="https://twitter.com/twitterapi" data-tweet-limit="2" data-theme="dark" data-link-color="#57C8EB" data-widget-id="455411516829736961" data-chrome="noheader nofooter noscrollbar noborders transparent">Loading tweets by keenthemes..."</a>
-                </div>
-                <!-- END TWITTER BLOCK -->
+
                 <!-- BEGIN BOTTOM CONTACTS -->
-                <div class="col-md-3 col-sm-6 pre-footer-col">
-                    <h2>Nossos Contatos</h2>
+                <div class="col-md-3 col-sm-6 pre-footer-col navbar-right" style="text-align: right">
+                    <h2>Contatos</h2>
                     <address class="margin-bottom-40">
-                        35, Lorem Lis Street, Park Ave<br>
-                        California, US<br>
-                        Phone: 300 323 3456<br>
-                        Fax: 300 323 1456<br>
-                        Email: <a href="mailto:info@metronic.com">info@metronic.com</a><br>
-                        Skype: <a href="skype:metronic">metronic</a>
+                        Santa Catarina, Brasil<br>
+                        Contato: (47) 99280-5104<br>
+                        <a href="mailto:guilherme.francis2017@gmail.com">guilherme.francis2017@gmail.com</a><br>
                     </address>
                 </div>
                 <! -- END BOTTOM CONTACTS -->
