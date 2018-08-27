@@ -4,12 +4,15 @@ using CursoDesignPatterns_II.Cap4;
 using CursoDesignPatterns_II.Cap5;
 using CursoDesignPatterns_II.Cap6;
 using CursoDesignPatterns_II.Cap7;
+using CursoDesignPatterns_II.Cap8;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace CursoDesignPatterns_II
 {
@@ -17,15 +20,15 @@ namespace CursoDesignPatterns_II
     {
         static void Main(string[] args)
         {
-            FilaDeTrabalho fila = new FilaDeTrabalho();
-            Pedido pedido1 = new Pedido("Mauricio", 100.0);
-            Pedido pedido2 = new Pedido("Guilherme", 200.0);
-            fila.Adiciona(new PagaPedido(pedido1));
-            fila.Adiciona(new PagaPedido(pedido2));
+            var cliente = new Cliente();
+            cliente.Nome = "Guilherme";
+            cliente.Endereco = "Luiza Lucas";
+            cliente.DataNascimento = DateTime.Now;
 
-            fila.Adiciona(new FinalizaPedido(pedido1));
+            String xml = new GeradorDeXml().GeraXml(cliente);
 
-            fila.Processa();
+            Console.WriteLine(xml);
+            Console.ReadKey();
         }
     }
 }

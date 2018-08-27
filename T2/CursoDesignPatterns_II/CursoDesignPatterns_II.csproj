@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EBD8F6AC-A11E-4405-8D76-4DDD7B2D4E35}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CursoDesignPatterns_II</RootNamespace>
     <AssemblyName>CursoDesignPatterns_II</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,6 +83,8 @@
     <Compile Include="Cap7\PagaPedido.cs" />
     <Compile Include="Cap7\Pedido.cs" />
     <Compile Include="Cap7\Status.cs" />
+    <Compile Include="Cap8\Cliente.cs" />
+    <Compile Include="Cap8\GeradorDeXml.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
