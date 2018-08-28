@@ -119,5 +119,27 @@ namespace Caelum.Leilao
             Assert.AreEqual(1000, maiores[1].Valor, 0.0000001);
             Assert.AreEqual(900, maiores[2].Valor, 0.0000001);
         }
+
+        [Test]
+        public void DeveEncontrarMaiorEMenorRandomico()
+        {
+            var guilherme = new Usuario("Guilherme");
+            var thamara = new Usuario("Thamara");
+            var leilao = new Leilao("Mustang");
+
+            leilao.Propoe(new Lance(guilherme, 500));
+            leilao.Propoe(new Lance(thamara, 320));
+            leilao.Propoe(new Lance(guilherme, 100));
+            leilao.Propoe(new Lance(thamara, 500));
+            leilao.Propoe(new Lance(guilherme, 700));
+            leilao.Propoe(new Lance(thamara, 212));
+            leilao.Propoe(new Lance(guilherme, 542));
+
+            var leiloeiro = new Avaliador();
+            leiloeiro.Avalia(leilao);
+
+            Assert.AreEqual(100, leiloeiro.MenorLance);
+            Assert.AreEqual(700, leiloeiro.MaiorLance);
+        }
     }
 }
