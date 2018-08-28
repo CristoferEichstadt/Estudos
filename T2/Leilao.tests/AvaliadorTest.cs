@@ -48,6 +48,7 @@ namespace Caelum.Leilao
             leilao.Propoe(new Lance(davi, 630));
             leilao.Propoe(new Lance(valter, 670));
 
+            //
             var leiloeiro = new Avaliador();
             leiloeiro.AvaliaMedia(leilao);
 
@@ -55,6 +56,27 @@ namespace Caelum.Leilao
             double mediaEsperada = 554;
 
             Assert.AreEqual(mediaEsperada, leiloeiro.MediaLance);
+
+        }
+
+        [Test]
+        public void VerificaPalindromo()
+        {
+            //
+            var palindromo = new Palindromo();
+
+            var frase = "Socorram-me subi no onibus em Marrocos";
+            var frase2 = "Anotaram a data da maratonaa";
+
+
+            //
+            var ehPalindromo = palindromo.EhPalindromo(frase);
+            var naoEhPalindromo = palindromo.EhPalindromo(frase2);
+
+
+            //
+            Assert.IsTrue(ehPalindromo);
+            Assert.IsFalse(naoEhPalindromo);
 
         }
     }
