@@ -79,5 +79,35 @@ namespace Caelum.Leilao
             Assert.IsFalse(naoEhPalindromo);
 
         }
+        [Test]
+        public void DeveEntenderLeilaoComApenasUmLance()
+        {
+            var guilherme = new Usuario("Guilherme");
+            Leilao leilao = new Leilao("CAMARO AMARELO");
+
+            leilao.Propoe(new Lance(guilherme, 1000.0));
+
+            var avaliador = new Avaliador();
+            avaliador.Avalia(leilao);
+
+            Assert.AreEqual(1000, avaliador.MaiorLance, 0.0001);
+            Assert.AreEqual(1000, avaliador.MenorLance, 0.0001);
+        }
+
+        [Test]
+        public void DeveEncontrarOsTresMaioresLances()
+        {
+            var guilherme = new Usuario("Guilherme");
+            var thamara = new Usuario("Thamara");
+            var leilao = new Leilao("Mustang");
+
+            leilao.Propoe(new Lance(guilherme, 500));
+            leilao.Propoe(new Lance(thamara, 600));
+            leilao.Propoe(new Lance(guilherme, 700));
+            leilao.Propoe(new Lance(thamara, 800));
+            leilao.Propoe(new Lance(guilherme, 900));
+            leilao.Propoe(new Lance(thamara, 1000));
+            leilao.Propoe(new Lance(guilherme, 1100));
+        }
     }
 }
