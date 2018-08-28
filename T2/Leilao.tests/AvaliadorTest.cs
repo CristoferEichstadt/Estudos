@@ -189,11 +189,11 @@ namespace Caelum.Leilao
         }
 
         [Test]
-        public void DeveEncontrarOsTresMaioresLancesEntreDois()
+        public void DeveEncontrarOsDoisMaioresLancesEntreDois()
         {
             var guilherme = new Usuario("Guilherme");
             var thamara = new Usuario("Thamara");
-            var leilao = new Leilao("CACHAÇA 51");
+            var leilao = new Leilao("AP BEIRA MAR");
 
             leilao.Propoe(new Lance(thamara, 600));
             leilao.Propoe(new Lance(guilherme, 700));
@@ -206,6 +206,21 @@ namespace Caelum.Leilao
             Assert.AreEqual(2, maiores.Count);
             Assert.AreEqual(700, maiores[0].Valor, 0.000000001);
             Assert.AreEqual(600, maiores[1].Valor, 0.000000001);
+        }
+
+        [Test]
+        public void DeveRetornarListaVazia()
+        {
+            var guilherme = new Usuario("Guilherme");
+            var thamara = new Usuario("Thamara");
+            var leilao = new Leilao("VESTIDO NOIVA");
+
+            var leiloeiro = new Avaliador();
+            leiloeiro.Avalia(leilao);
+
+            var maiores = leiloeiro.TresMaiores;
+
+            Assert.AreEqual(0, maiores.Count);
         }
     }
 }
