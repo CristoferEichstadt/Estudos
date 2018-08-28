@@ -290,5 +290,19 @@ namespace Caelum.Leilao
             Assert.AreEqual(5023, resultado[0].Valor, 0.0000001);
 
         }
+
+        [Test]
+        public void DeveEliminarMenoresQue500()
+        {
+            Usuario guilherme = new Usuario("Guilherme");
+
+            FiltroDeLances filtro = new FiltroDeLances();
+            IList<Lance> resultado = filtro.Filtra(new List<Lance>() {
+            new Lance(guilherme,400),
+            new Lance(guilherme, 300)});
+
+            Assert.AreEqual(0, resultado.Count);
+        }
+
     }
 }
