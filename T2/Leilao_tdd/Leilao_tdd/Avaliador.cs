@@ -34,7 +34,6 @@ namespace Caelum.Leilao
             {
                 valorTotalLances += lance.Valor;
             }
-
             mediaDeTodos = (valorTotalLances / qtdLances);
         }
         public double MediaLance { get { return mediaDeTodos; } }

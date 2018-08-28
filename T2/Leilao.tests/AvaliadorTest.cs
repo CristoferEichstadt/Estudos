@@ -30,5 +30,32 @@ namespace Caelum.Leilao
             Assert.AreEqual(maiorEsperado, leiloeiro.MaiorLance);
             Assert.AreEqual(menorEsperado, leiloeiro.MenorLance);
         }
+
+        [Test]
+        public void DeveRetornarMediaDosLances()
+        {
+            //
+            var guilherme = new Usuario("Guilherme");
+            var joao = new Usuario("João");
+            var dylan = new Usuario("Dylan");
+            var davi = new Usuario("Davi");
+            var valter = new Usuario("Valter");
+
+            var leilao = new Leilao("RANGE ROVER USADA");
+            leilao.Propoe(new Lance(guilherme, 500));
+            leilao.Propoe(new Lance(joao, 520));
+            leilao.Propoe(new Lance(dylan, 450));
+            leilao.Propoe(new Lance(davi, 630));
+            leilao.Propoe(new Lance(valter, 670));
+
+            var leiloeiro = new Avaliador();
+            leiloeiro.AvaliaMedia(leilao);
+
+            //
+            double mediaEsperada = 554;
+
+            Assert.AreEqual(mediaEsperada, leiloeiro.MediaLance);
+
+        }
     }
 }
