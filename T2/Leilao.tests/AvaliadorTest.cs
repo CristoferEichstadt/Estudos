@@ -229,5 +229,12 @@ namespace Caelum.Leilao
             MatematicaMaluca matematica = new MatematicaMaluca();
             Assert.AreEqual(50 * 4, matematica.ContaMaluca(50));
         }
+
+        [Test]
+        public void DeveVerificarValorMaiorQueTrintaEMenorQueDez()
+        {
+            MatematicaMaluca matematica = new MatematicaMaluca();
+            Assert.AreEqual(20 * 3, matematica.ContaMaluca(20));
+        }
     }
 }
