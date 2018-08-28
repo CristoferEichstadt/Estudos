@@ -29,8 +29,8 @@ namespace Caelum.Leilao
         }
         private void PegaOsMaioresNo(Leilao leilao)
         {
-            maioresLances = new List<Lance>(leilao.Lances.OrderByDescending(x => x.Valor)); //pega os lances por ordem de valor
-            maioresLances = maioresLances.GetRange(0, maioresLances.Count > 3 ? 3 : maioresLances.Count); //se tiver 3 pega os 3, caso contrario pega o que tiver
+            var filtro = leilao.Lances.OrderByDescending(p => p.Valor).Take(3);
+            maioresLances = new List<Lance>(filtro);
         }
 
         public List<Lance> TresMaiores { get { return maioresLances; } }
