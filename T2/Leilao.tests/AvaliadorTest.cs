@@ -141,6 +141,7 @@ namespace Caelum.Leilao
             Assert.AreEqual(100, leiloeiro.MenorLance);
             Assert.AreEqual(700, leiloeiro.MaiorLance);
         }
+
         [Test]
         public void DeveEntenderLancesEmOrdemDecrescente()
         {
@@ -162,6 +163,29 @@ namespace Caelum.Leilao
             //
             Assert.AreEqual(500, leiloeiro.MaiorLance);
             Assert.AreEqual(100, leiloeiro.MenorLance);
+        }
+
+        [Test]
+        public void DeveEncontrarOsTresMaioresLancesEntreQuatro()
+        {
+            var guilherme = new Usuario("Guilherme");
+            var thamara = new Usuario("Thamara");
+            var leilao = new Leilao("CACHAÇA 51");
+
+            leilao.Propoe(new Lance(thamara, 600));
+            leilao.Propoe(new Lance(guilherme, 700));
+            leilao.Propoe(new Lance(thamara, 800));
+            leilao.Propoe(new Lance(guilherme, 1100));
+
+            var leiloeiro = new Avaliador();
+            leiloeiro.Avalia(leilao);
+
+            var maiores = leiloeiro.TresMaiores;
+
+            Assert.AreEqual(3, maiores.Count);
+            Assert.AreEqual(1100, maiores[0].Valor, 0.000000001);
+            Assert.AreEqual(800, maiores[1].Valor, 0.000000001);
+            Assert.AreEqual(700, maiores[2].Valor, 0.000000001);
         }
     }
 }
