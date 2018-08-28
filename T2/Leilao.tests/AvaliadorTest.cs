@@ -304,5 +304,17 @@ namespace Caelum.Leilao
             Assert.AreEqual(0, resultado.Count);
         }
 
+        [Test]
+        public void DeveEliminarEntre3000E5000()
+        {
+            Usuario guilherme = new Usuario("Guilherme");
+
+            FiltroDeLances filtro = new FiltroDeLances();
+            IList<Lance> resultado = filtro.Filtra(new List<Lance>() {
+            new Lance(guilherme,4000),
+            new Lance(guilherme, 3500)});
+
+            Assert.AreEqual(0, resultado.Count);
+        }
     }
 }
