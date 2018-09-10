@@ -7,6 +7,33 @@ namespace Caelum.Leilao
     [TestFixture]
     public class AvaliadorTest
     {
+
+        [Test]
+        [ExpectedException(typeof(Exception))]
+        public void NaoDeveAvaliarLeiloesSemNenhumLanceDado()
+        {
+            Leilao leilao = new CriadorDeLeilao()
+                .Para("Playstation 3 Novo")
+                .Constroi();
+
+            leiloeiro.Avalia(leilao);
+        }
+        private Avaliador leiloeiro;
+
+        [SetUp]
+        public void SetUp()
+        {
+            this.leiloeiro = new Avaliador();
+            Console.WriteLine("inicializando teste!");
+        }
+
+        [TearDown]
+        public void Finaliza()
+        {
+            Console.WriteLine("fim");
+        }
+
+
         [Test]
         public void DeveEntenderLancesEmOrdemCrescente()
         {
