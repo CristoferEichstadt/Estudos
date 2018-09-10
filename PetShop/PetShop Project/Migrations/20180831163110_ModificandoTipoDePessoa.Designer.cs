@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetShop_Project.DAO;
 
 namespace PetShop_Project.Migrations
 {
     [DbContext(typeof(PetShopContext))]
-    partial class PetShopContextModelSnapshot : ModelSnapshot
+    [Migration("20180831163110_ModificandoTipoDePessoa")]
+    partial class ModificandoTipoDePessoa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,13 +122,7 @@ namespace PetShop_Project.Migrations
 
                     b.Property<DateTime>("DataNascimento");
 
-                    b.Property<string>("InscricaoEstadual");
-
                     b.Property<string>("Nome");
-
-                    b.Property<string>("NomeFantasia");
-
-                    b.Property<string>("RazaoSocial");
 
                     b.Property<string>("TipoPessoa")
                         .IsRequired()

@@ -43,11 +43,19 @@ namespace PetShop_Project.DAO
             }
         }
 
-        public Pessoa Busca(string cpfCnpj)
+        public Pessoa BuscaPorCpfCnpj(string cpf)
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Pessoas.FirstOrDefault(p => p.CpfCnpj == cpfCnpj);
+                return contexto.Pessoas.FirstOrDefault(p => p.CpfCnpj == cpf);
+            }
+        }
+
+        public Pessoa BuscaPorUsuario(int usuarioId)
+        {
+            using (var contexto = new PetShopContext())
+            {
+                return contexto.Usuarios.Include(u => u.Pessoa).Where(u => u.Id == usuarioId).FirstOrDefault().Pessoa;
             }
         }
     }

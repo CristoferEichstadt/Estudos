@@ -47,7 +47,7 @@ namespace PetShop_Project.DAO
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Usuarios.Include(u => u.Pessoa).FirstOrDefault(u => u.Email == login && u.Senha == senha);
+                return contexto.Usuarios.FirstOrDefault(u => u.Email == login && u.Senha == senha);
             }
         }
     }

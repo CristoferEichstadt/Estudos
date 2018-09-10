@@ -1,0 +1,129 @@
+﻿@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/Content/assets/corporate/css/login.css" />
+<link rel="stylesheet" href="~/Content/assets/corporate/css/Cadastros/cadastroUsuario.css" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="~/Scripts/scriptFormCadastroUsuario.js"></script>
+<link rel="shortcut icon" href="~/Content/assets/corporate/img/layout/favicon.png">
+
+
+<div class="container">
+    <div class="row text-center mb-4">
+        <div class="col-md-12">
+            <a class="site-logo" href="/Home/Index"><img src="~/Content/assets/corporate/img/layout/logologinn.png" alt="VallePet"></a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="login-title">
+                        <h3>Cadastro</h3>
+                    </div>
+                    <div class="login-form mt-4">
+
+
+                        <div id="tipo-pessoa">
+                            <label class="radio-inline">
+                                <input id="radio-fisica" type="radio" name="usuario.Pessoa.TipoDePessoa" onchange="VerficaRadioSelecionado()" checked> <span class="label-text">Pessoa Física</span>
+                            </label>
+
+                            <label class="radio-inline">
+                                <input id="radio-juridica" type="radio" name="usuario.Pessoa.TipoDePessoa" onchange="VerficaRadioSelecionado()"> <span class="label-text">Pessoa Jurídica</span>
+                            </label>
+
+                        </div>
+
+                        <form action="/Usuario/AdicionaUsuario" method="post">
+                            <div id="formulario-fisica">
+                                <label for="nome">Nome</label>
+                                <input id="nome" name="usuario.Pessoa.Nome" placeholder="Insira seu nome completo" autofocus value="@ViewBag.Usuario.Pessoa.Nome" class="form-control" maxlength="60" required />
+
+                                <label for="email">E-mail</label>
+                                <input id="email" name="usuario.Email" type="email" placeholder="email@email.com.br" value="@ViewBag.Usuario.Email" class="form-control" maxlength="50" required />
+
+                                <label for="senha">Senha</label>
+                                <input id="senha" type="password" name="usuario.Senha" placeholder="●●●●●●●●●●" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="10" minlenght="6" required />
+
+                                <label for="dataNascimento">Data de Nascimento</label>
+                                <input id="dataNascimento" type="date" name="usuario.Pessoa.DataNascimento" value="@ViewBag.Usuario.Pessoa.DataNascimento" class="form-control" max="2004-12-31" min="1950-12-31" required />
+
+                                <label for="cpfCnpj">CPF:</label>
+                                <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira seu CPF" onkeyup="validaInvalidaCpf(this); VerificaCpfNoBanco();" maxlength="14" onkeydown="javascript: fMasc( this, mascaraCPF );" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
+
+                                <input type="text" name="usuario.Perfil" value="C" hidden />
+                                <input type="text" name="usuario.Ativo" value="True" hidden />
+                                <input type="text" name="usuario.Pessoa.TipoPessoa" value="F" hidden />
+
+                                <div class="form-row">
+
+                                    <input id="botao" type="submit" class="btn btn-danger btn-block" style=" margin-top: 30px; margin-bottom: -20px;" value="Cadastrar" />
+                                </div>
+                            </div>
+                        </form>
+
+                        <form action="/Usuario/AdicionaUsuario" method="post">
+                            <div id="formulario-juridico" hidden>
+
+                                <label for="razaoSocial"> Razão Social</label>
+                                <input id="razaoSocial" name="usuario.Pessoa.RazaoSocial" placeholder="Insira a razão social" autofocus value="@ViewBag.Usuario.Pessoa.RazaoSocial" class="form-control formularioJuridico" maxlength="70" required />
+
+                                <label for="nomeFantasia"> Nome Fantasia</label>
+                                <input id="nomeFantasia" name="usuario.Pessoa.NomeFantasia" placeholder="Insira o nome fantasia" value="@ViewBag.Usuario.Pessoa.NomeFantasia" class="form-control formularioJuridico" maxlength="50" required />
+
+                                <label for="inscricaoEstadual"> Inscrição Estadual</label>
+                                <input id="inscricaoEstadual" type="text" name="usuario.Pessoa.InscricaoEstadual" placeholder="Insira a inscrição estadual" value="@ViewBag.Usuario.Pessoa.InscricaoEstadual" class="form-control" maxlength="10" required />
+
+                                <label for="email">E-mail</label>
+                                <input id="email" name="usuario.Email" type="email" placeholder="email@email.com.br" value="@ViewBag.Usuario.Email" class="form-control" maxlength="50" required />
+
+                                <label for="senha">Senha</label>
+                                <input id="senha" type="password" name="usuario.Senha" placeholder="●●●●●●●●●●" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="10" minlenght="6" required />
+
+                                <label for="cpfCnpj">CNPJ</label>
+                                <input id="cnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CNPJ" onkeyup="cnpjCheck(this)" onkeydown="fMasc(this, mascaraCNPJ);" value="@ViewBag.Usuario.Pessoa.CpfCnpj" maxlength="18" class="form-control" required><span id="cnpjResponse"></span>
+
+
+                                <input type="text" name="usuario.Ativo" value="True" hidden />
+                                <input type="text" name="usuario.Pessoa.TipoPessoa" value="J" hidden />
+
+                                <input type="text" name="usuario.Perfil" value="C" hidden />
+
+                                <div class="form-row">
+
+                                    <input id="botao" type="submit" class="btn btn-danger btn-block" style=" margin-top: 30px; margin-bottom: -20px;" value="Cadastrar" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    function VerificaCpfNoBanco() {
+        var completou = $("#cpf").attr("maxlength") == $("#cpf").val().length;
+        if (completou) {
+            var url = "@Url.Action("VerificaCpfNoBanco", "Usuario")";
+            var params = { cpf: $("#cpf").val()};
+            $.post(url, params, verifica);
+        }
+    }
+
+    function verifica(resposta) {
+        if (resposta.existe == true) {
+            document.getElementById('cpfResponse').innerHTML = '<span style="color:red">CPF já existente!</span>';
+        }
+    }
+</script>

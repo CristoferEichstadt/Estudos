@@ -2,7 +2,7 @@
 using PetShop_Project.Models;
 using System.Web.Mvc;
 
-namespace PetShop_Project.Controllers
+namespace PetShop_Project.Controllers.Usuarios
 {
     public class LoginController : Controller
     {
@@ -15,18 +15,7 @@ namespace PetShop_Project.Controllers
         [HttpPost]
         public ActionResult Autentica(string login, string senha)
         {
-            UsuarioDAO dao = new UsuarioDAO();
-            Usuario usuario = dao.Busca(login, senha);
-
-            if (usuario != null)
-            {
-                Session["usuarioLogado"] = usuario;
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return View("Index");
-            }
+            return new UsuarioController().VerificaUsuario(login, senha);
         }
     }
 }
