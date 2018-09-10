@@ -10,18 +10,9 @@ namespace PetShop_Project.Controllers
 {
     public class PessoaController : Controller
     {
-        public JsonResult ValidarCadastroPessoa(Pessoa pessoa)
+        public bool ValidarCadastroPessoa(Pessoa pessoa)
         {
-            PessoaDAO dao = new PessoaDAO();
-
-            if (pessoa.ValidaCadastroPessoa() == true)
-            {
-                return Json(new { valido = true }, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return Json(new { valido = false }, JsonRequestBehavior.AllowGet);
-            }
+            return pessoa.ValidaCadastroPessoa();
         }
     }
 }

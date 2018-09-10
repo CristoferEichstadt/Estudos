@@ -21,14 +21,26 @@ namespace PetShop_Project.Controllers
             ViewBag.Usuario.Pessoa = new Pessoa();
             return View();
         }
+
         [HttpPost]
         public ActionResult AdicionaUsuario(Usuario usuario)
         {
             UsuarioDAO dao = new UsuarioDAO();
-            dao.Adiciona(usuario);
-            System.Web.HttpContext.Current.Session["usuarioLogado"] = usuario;
-            return RedirectToAction("Index", "Home");
+            var pessoa = usuario.Pessoa;
+            var pessoaController = new PessoaController();
+
+            if (pessoaController.ValidarCadastroPessoa(pessoa))
+            {
+                dao.Adiciona(usuario);
+                System.Web.HttpContext.Current.Session["usuarioLogado"] = usuario;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
+            }
         }
+
         [HttpGet]
         public ActionResult UsuarioLogOut()
         {

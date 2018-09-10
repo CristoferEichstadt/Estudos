@@ -38,7 +38,7 @@
 
                         </div>
 
-                        <form action="/Usuario/AdicionaUsuario" method="post">
+                        <form action="/Usuario/AdicionaUsuario" id="FormFisica" method="post">
                             <div id="formulario-fisica">
                                 <label for="nome">Nome</label>
                                 <input id="nome" name="usuario.Pessoa.Nome" placeholder="Insira seu nome completo" autofocus value="@ViewBag.Usuario.Pessoa.Nome" class="form-control" maxlength="60" required />
@@ -53,11 +53,11 @@
                                 <input id="dataNascimento" type="date" name="usuario.Pessoa.DataNascimento" value="@ViewBag.Usuario.Pessoa.DataNascimento" class="form-control" max="2004-12-31" min="1950-12-31" required />
 
                                 <label for="cpfCnpj">CPF:</label>
-                                <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira seu CPF" onkeyup="validaInvalidaCpf(this); VerificaCpfNoBanco();" maxlength="14" onkeydown="javascript: fMasc( this, mascaraCPF );" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
+                                <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira seu CPF" onkeypress="validaInvalidaCpf(this); fMasc( this, mascaraCPF );" onkeyup="VerificaCpfNoBanco()" maxlength="14" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
 
                                 <input type="text" name="usuario.Perfil" value="C" hidden />
                                 <input type="text" name="usuario.Ativo" value="True" hidden />
-                                <input type="text" name="usuario.Pessoa.TipoPessoa" value="F" hidden />
+                                <input type="text" name="usuario.Pessoa.TipoPessoa" id="TipoPessoaFisica" value="F" hidden />
 
                                 <div class="form-row">
 
@@ -66,11 +66,11 @@
                             </div>
                         </form>
 
-                        <form action="/Usuario/AdicionaUsuario" method="post">
+                        <form action="/Usuario/AdicionaUsuario" id="FormJuridica" method="post">
                             <div id="formulario-juridico" hidden>
 
                                 <label for="razaoSocial"> Razão Social</label>
-                                <input id="razaoSocial" name="usuario.Pessoa.RazaoSocial" placeholder="Insira a razão social" autofocus value="@ViewBag.Usuario.Pessoa.RazaoSocial" class="form-control formularioJuridico" maxlength="70" required />
+                                <input id="razaoSocial" name="usuario.Pessoa.RazaoSocial" placeholder="Insira a razão social" autofocus value="@ViewBag.Usuario.Pessoa.RazaoSocial" class="form-control formularioJuridico" maxlength="70" />
 
                                 <label for="nomeFantasia"> Nome Fantasia</label>
                                 <input id="nomeFantasia" name="usuario.Pessoa.NomeFantasia" placeholder="Insira o nome fantasia" value="@ViewBag.Usuario.Pessoa.NomeFantasia" class="form-control formularioJuridico" maxlength="50" required />
@@ -85,7 +85,7 @@
                                 <input id="senha" type="password" name="usuario.Senha" placeholder="●●●●●●●●●●" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="10" minlenght="6" required />
 
                                 <label for="cpfCnpj">CNPJ</label>
-                                <input id="cnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CNPJ" onkeyup="cnpjCheck(this)" onkeydown="fMasc(this, mascaraCNPJ);" value="@ViewBag.Usuario.Pessoa.CpfCnpj" maxlength="18" class="form-control" required><span id="cnpjResponse"></span>
+                                <input id="cnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CNPJ" onkeyup="validaInvalidaCnpj(this); fMascCnpj(this, mascaraCNPJ);" value="@ViewBag.Usuario.Pessoa.CpfCnpj" maxlength="18" class="form-control" required><span id="cnpjResponse"></span>
 
 
                                 <input type="text" name="usuario.Ativo" value="True" hidden />
@@ -110,8 +110,29 @@
 
 
 
-
+<script src="~/Scripts/jquery.form.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
 <script type="text/javascript">
+    $('#FormFisica').ajaxForm({
+        success: function (resposta) {
+            if (resposta.dadosinvalidos == true) {
+                alert("Dados inválidos!");
+            } else {
+                window.location.href = "@Url.Action("Index", "Home")";
+            }
+        }
+    });
+
+    $('#FormJuridica').ajaxForm({
+        success: function (resposta) {
+            if (resposta.dadosinvalidos == true) {
+                alert("Dados inválidos!");
+            } else {
+                window.location.href = "@Url.Action("Index", "Home")";
+            }
+        }
+    });
+
     function VerificaCpfNoBanco() {
         var completou = $("#cpf").attr("maxlength") == $("#cpf").val().length;
         if (completou) {
@@ -120,7 +141,6 @@
             $.post(url, params, verifica);
         }
     }
-
     function verifica(resposta) {
         if (resposta.existe == true) {
             document.getElementById('cpfResponse').innerHTML = '<span style="color:red">CPF já existente!</span>';

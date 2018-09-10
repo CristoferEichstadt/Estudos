@@ -3,8 +3,8 @@
 
 //    $.ajax({
 //        type: "GET",
-//        url: "PessoaController/ValidarCadastroPessoa"
-//            success: function (resposta) {
+//        url: "PessoaController/ValidarCadastroPessoa",
+//        success: function (resposta) {
 //            alert(resposta.valido)
 //        }
 //    });
@@ -20,7 +20,11 @@ function mascaraCPF(cpf) {
     return cpf
 }
 function mascaraCNPJ(cnpj) {
-    cnpj = cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g, "\$1.\$2.\$3\/\$4\-\$5")
+    cnpj = cnpj.replace(/\D/g, "")
+    cnpj = cnpj.replace(/^(\d{2})(\d)/, "$1.$2")
+    cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+    cnpj = cnpj.replace(/\.(\d{3})(\d)/, ".$1/$2")
+    cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2")
     return cnpj
 }
 $(document).ready(function mascaraIE() {
@@ -96,7 +100,6 @@ function fMasc(objeto, mascara) {
 function fMascEx() {
     obj.value = masc(obj.value)
 }
-
 function validaInvalidaCpf(el) {
     document.getElementById('cpfResponse').innerHTML = verificaCPF(el.value) ? '<span style="color:green">CPF válido!</span>' : '<span style="color:red">CPF inválido!</span>';
     if (el.value == '') document.getElementById('cpfResponse').innerHTML = '';
@@ -105,7 +108,7 @@ function validaInvalidaCpf(el) {
 //(cnpj)//
 function verificaCNPJ(cnpj) {
 
-    cnpj = cnpj.replace(/\D/g, "")
+    cnpj = cnpj.replace(/\D/g, "");
 
     if (cnpj == '') return false;
 
@@ -154,10 +157,6 @@ function verificaCNPJ(cnpj) {
     return true;
 
 }
-function validaInvalidaCnpj(el) {
-    document.getElementById('cnpjResponse').innerHTML = verificaCNPJ(el.value) ? '<span style="color:green">CNPJ válido!</span>' : '<span style="color:red">CNPJ inválido!</span>';
-    if (el.value == '') document.getElementById('cnpjResponse').innerHTML = '';
-}
 function fMascCnpj(objeto, mascara) {
     obj = objeto
     masc = mascara
@@ -165,4 +164,8 @@ function fMascCnpj(objeto, mascara) {
 }
 function fMascCnpjEx() {
     obj.value = masc(obj.value)
+}
+function validaInvalidaCnpj(el) {
+    document.getElementById('cnpjResponse').innerHTML = verificaCNPJ(el.value) ? '<span style="color:green">CNPJ válido!</span>' : '<span style="color:red">CNPJ inválido!</span>';
+    if (el.value == '') document.getElementById('cnpjResponse').innerHTML = '';
 }
