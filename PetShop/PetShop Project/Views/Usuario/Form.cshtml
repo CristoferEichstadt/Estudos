@@ -40,6 +40,12 @@
 
                         <form action="/Usuario/AdicionaUsuario" id="FormFisica" method="post">
                             <div id="formulario-fisica">
+
+
+                                <input type="text" name="usuario.Perfil" value="C" hidden />
+                                <input type="text" name="usuario.Ativo" value="True" hidden />
+                                <input type="text" name="usuario.Pessoa.TipoPessoa" id="TipoPessoaFisica" value="F" hidden />
+
                                 <label for="nome">Nome</label>
                                 <input id="nome" name="usuario.Pessoa.Nome" placeholder="Insira seu nome completo" autofocus value="@ViewBag.Usuario.Pessoa.Nome" class="form-control" maxlength="60" required />
 
@@ -55,10 +61,6 @@
                                 <label for="cpfCnpj">CPF:</label>
                                 <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira seu CPF" onkeypress="validaInvalidaCpf(this); fMasc( this, mascaraCPF );" onkeyup="VerificaCpfNoBanco()" maxlength="14" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
 
-                                <input type="text" name="usuario.Perfil" value="C" hidden />
-                                <input type="text" name="usuario.Ativo" value="True" hidden />
-                                <input type="text" name="usuario.Pessoa.TipoPessoa" id="TipoPessoaFisica" value="F" hidden />
-
                                 <div class="form-row">
 
                                     <input id="botao" type="submit" class="btn btn-danger btn-block" style=" margin-top: 30px; margin-bottom: -20px;" value="Cadastrar" />
@@ -69,8 +71,13 @@
                         <form action="/Usuario/AdicionaUsuario" id="FormJuridica" method="post">
                             <div id="formulario-juridico" hidden>
 
+
+                                <input type="text" name="usuario.Ativo" value="True" hidden />
+                                <input type="text" name="usuario.Pessoa.TipoPessoa" value="J" hidden />
+                                <input type="text" name="usuario.Perfil" value="C" hidden />
+
                                 <label for="razaoSocial"> Razão Social</label>
-                                <input id="razaoSocial" name="usuario.Pessoa.RazaoSocial" placeholder="Insira a razão social" autofocus value="@ViewBag.Usuario.Pessoa.RazaoSocial" class="form-control formularioJuridico" maxlength="70" />
+                                <input id="razaoSocial" name="usuario.Pessoa.RazaoSocial" placeholder="Insira a razão social" autofocus value="@ViewBag.Usuario.Pessoa.RazaoSocial" class="form-control formularioJuridico" maxlength="70" required />
 
                                 <label for="nomeFantasia"> Nome Fantasia</label>
                                 <input id="nomeFantasia" name="usuario.Pessoa.NomeFantasia" placeholder="Insira o nome fantasia" value="@ViewBag.Usuario.Pessoa.NomeFantasia" class="form-control formularioJuridico" maxlength="50" required />
@@ -79,19 +86,13 @@
                                 <input id="inscricaoEstadual" type="text" name="usuario.Pessoa.InscricaoEstadual" placeholder="Insira a inscrição estadual" value="@ViewBag.Usuario.Pessoa.InscricaoEstadual" class="form-control" maxlength="10" required />
 
                                 <label for="email">E-mail</label>
-                                <input id="email" name="usuario.Email" type="email" placeholder="email@email.com.br" value="@ViewBag.Usuario.Email" class="form-control" maxlength="50" required />
+                                <input id="email" name="usuario.Email"  placeholder="email@email.com.br" value="@ViewBag.Usuario.Email" class="form-control" />
 
                                 <label for="senha">Senha</label>
                                 <input id="senha" type="password" name="usuario.Senha" placeholder="●●●●●●●●●●" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="10" minlenght="6" required />
 
                                 <label for="cpfCnpj">CNPJ</label>
                                 <input id="cnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CNPJ" onkeyup="validaInvalidaCnpj(this); fMascCnpj(this, mascaraCNPJ);" value="@ViewBag.Usuario.Pessoa.CpfCnpj" maxlength="18" class="form-control" required><span id="cnpjResponse"></span>
-
-
-                                <input type="text" name="usuario.Ativo" value="True" hidden />
-                                <input type="text" name="usuario.Pessoa.TipoPessoa" value="J" hidden />
-
-                                <input type="text" name="usuario.Perfil" value="C" hidden />
 
                                 <div class="form-row">
 
@@ -106,9 +107,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <script src="~/Scripts/jquery.form.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>

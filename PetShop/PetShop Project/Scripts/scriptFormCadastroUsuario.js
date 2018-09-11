@@ -1,16 +1,4 @@
 ﻿
-//function pegaJson() {
-
-//    $.ajax({
-//        type: "GET",
-//        url: "PessoaController/ValidarCadastroPessoa",
-//        success: function (resposta) {
-//            alert(resposta.valido)
-//        }
-//    });
-//}
-
-
 // --> MÁSCARAS <-- //
 function mascaraCPF(cpf) {
     cpf = cpf.replace(/\D/g, "")

@@ -29,16 +29,30 @@ namespace PetShop_Project.Controllers
             var pessoa = usuario.Pessoa;
             var pessoaController = new PessoaController();
 
-            if (pessoaController.ValidarCadastroPessoa(pessoa))
+            if (usuario.Valida())
             {
-                dao.Adiciona(usuario);
-                System.Web.HttpContext.Current.Session["usuarioLogado"] = usuario;
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
+                if (pessoa.TipoPessoa == 'F')
+                {
+                    if (pessoaController.ValidarCadastroPessoaFisica(pessoa) == true)
+                    {
+                        dao.Adiciona(usuario);
+                        System.Web.HttpContext.Current.Session["usuarioLogado"] = usuario;
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else if (pessoa.TipoPessoa == 'J')
+                {
+                    if (pessoaController.ValidarCadastroPessoaJuridica(pessoa) == true)
+                    {
+                        dao.Adiciona(usuario);
+                        System.Web.HttpContext.Current.Session["usuarioLogado"] = usuario;
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+
                 return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
             }
+            else return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

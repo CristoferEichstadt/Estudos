@@ -595,6 +595,11 @@
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Subcategoria.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Validação\IValidacao.cs" />
+    <Compile Include="Models\Validação\PessoaJuridica\ValidacaoCNPJ.cs" />
+    <Compile Include="Models\Validação\PessoaJuridica\ValidacaoEmail.cs" />
+    <Compile Include="Models\Validação\PessoaJuridica\ValidacaoNomeFantasia.cs" />
+    <Compile Include="Models\Validação\PessoaJuridica\ValidacaoRazaoSocial.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendaItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

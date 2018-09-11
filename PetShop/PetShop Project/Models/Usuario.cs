@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PetShop_Project.Models.Validação.PessoaJuridica;
 
 namespace PetShop_Project.Models
 {
@@ -13,5 +10,9 @@ namespace PetShop_Project.Models
         public bool Ativo { get; set; }
         public char Perfil { get; set; }
         public Pessoa Pessoa { get; set; }
+        public bool Valida()
+        {
+            return new ValidacaoEmail().Valida(Email);
+        }
     }
 }

@@ -10,9 +10,14 @@ namespace PetShop_Project.Controllers
 {
     public class PessoaController : Controller
     {
-        public bool ValidarCadastroPessoa(Pessoa pessoa)
+        public bool ValidarCadastroPessoaFisica(Pessoa pessoa)
         {
-            return pessoa.ValidaCadastroPessoa();
+            return pessoa.ValidaCadastroPessoaFisica();
+        }
+
+        public bool ValidarCadastroPessoaJuridica(Pessoa pessoa)
+        {
+            return pessoa.ValidaCadastroPessoaJuridica();
         }
     }
 }
