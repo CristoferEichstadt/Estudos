@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ByteBank.Portal.Infraestrutura
 {
@@ -36,7 +31,7 @@ namespace ByteBank.Portal.Infraestrutura
             var requisicao = contexto.Request;
             var resposta = contexto.Response;
 
-            var path = requisicao.Url.AbsolutePath;
+            var path = requisicao.Url.PathAndQuery;
 
             if (Utilidades.EhArquivo(path))
             {

@@ -50,3 +50,4 @@ namespace ByteBank.Portal.Infraestrutura
         }
     }
 }
+
