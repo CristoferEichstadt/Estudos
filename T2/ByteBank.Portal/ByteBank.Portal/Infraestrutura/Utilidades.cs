@@ -10,6 +10,7 @@ namespace ByteBank.Portal.Infraestrutura
 {
     public static class Utilidades
     {
+
         public static bool EhArquivo(string path)
         {
             var partesPath = path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
