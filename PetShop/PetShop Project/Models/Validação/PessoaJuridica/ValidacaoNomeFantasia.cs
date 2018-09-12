@@ -16,7 +16,7 @@ namespace PetShop_Project.Models.Validação.PessoaJuridica
 
             var nomeFantasia = (string)valor;
 
-            if (nomeFantasia.EndsWith("") || nomeFantasia.StartsWith(""))
+            if (nomeFantasia.EndsWith(" ") || nomeFantasia.StartsWith(" "))
             {
                 return false;
             }

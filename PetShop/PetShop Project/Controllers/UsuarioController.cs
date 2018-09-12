@@ -49,10 +49,9 @@ namespace PetShop_Project.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                 }
-
-                return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
             }
-            else return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
+
+            return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

@@ -4,6 +4,11 @@
     {
         public bool Valida(object valor)
         {
+            if (valor == null)
+            {
+                return false;
+            }
+
             var cnpj = (string)valor;
 
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };

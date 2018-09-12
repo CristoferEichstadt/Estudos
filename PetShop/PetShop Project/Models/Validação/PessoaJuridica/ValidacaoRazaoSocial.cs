@@ -16,7 +16,7 @@ namespace PetShop_Project.Models.Validação.PessoaJuridica
 
             var razaoSocial = (string)valor;
 
-            if (razaoSocial.EndsWith("") || razaoSocial.StartsWith(""))
+            if (razaoSocial.EndsWith(" ") || razaoSocial.StartsWith(" "))
             {
                 return false;
             }
