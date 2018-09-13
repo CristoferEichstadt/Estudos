@@ -47,16 +47,16 @@
                                 <input type="text" name="usuario.Pessoa.TipoPessoa" id="TipoPessoaFisica" value="F" hidden />
 
                                 <label for="nome">Nome</label>
-                                <input id="nome" name="usuario.Pessoa.Nome" placeholder="Insira seu nome completo" autofocus value="@ViewBag.Usuario.Pessoa.Nome" class="form-control" maxlength="60" required />
+                                <input id="nome" name="usuario.Pessoa.Nome" placeholder="Insira seu nome completo" autofocus value="@ViewBag.Usuario.Pessoa.Nome" class="form-control" maxlength="60" pattern="^([A-Z]'?[a-záüóúéíãõàâêô]{2,}\s(d[oae]\s)?)([A-Z]'?[a-záàóúéíüãõâêô]{2,}\s?(d[oae]\s)?)*([A-Z]'?[a-záüàóúéíãõâêô]{2,})$" required />
 
                                 <label for="email">E-mail</label>
                                 <input id="email" name="usuario.Email" type="email" placeholder="email@email.com.br" value="@ViewBag.Usuario.Email" class="form-control" maxlength="50" required />
 
                                 <label for="senha">Senha</label>
-                                <input id="senha" type="password" name="usuario.Senha" placeholder="●●●●●●●●●●" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="10" minlenght="6" required />
+                                <input id="senha" type="password" name="usuario.Senha" placeholder="Formato Aaaa9999" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="8" minlenght="8" pattern="^[A-Z][a-z]{3}\d{4}$" required />
 
                                 <label for="dataNascimento">Data de Nascimento</label>
-                                <input id="dataNascimento" type="date" name="usuario.Pessoa.DataNascimento" value="@ViewBag.Usuario.Pessoa.DataNascimento" class="form-control" max="2004-12-31" min="1950-12-31" required />
+                                <input id="dataNascimento"  name="usuario.Pessoa.DataNascimento" value="@ViewBag.Usuario.Pessoa.DataNascimento" class="form-control" required />
 
                                 <label for="cpfCnpj">CPF:</label>
                                 <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira seu CPF" onkeypress="validaInvalidaCpf(this); fMasc( this, mascaraCPF );" onkeyup="VerificaCpfNoBanco()" maxlength="14" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
@@ -77,10 +77,10 @@
                                 <input type="text" name="usuario.Perfil" value="C" hidden />
 
                                 <label for="razaoSocial"> Razão Social</label>
-                                <input id="razaoSocial" name="usuario.Pessoa.RazaoSocial" placeholder="Insira a razão social" autofocus value="@ViewBag.Usuario.Pessoa.RazaoSocial" class="form-control formularioJuridico" maxlength="70" />
+                                <input id="razaoSocial" name="usuario.Pessoa.RazaoSocial" placeholder="Insira a razão social" autofocus value="@ViewBag.Usuario.Pessoa.RazaoSocial" class="form-control formularioJuridico" minlenght="3" maxlength="70" pattern="^([\wáàóúéíüãõâêô]+'?\s(d[oae]\s)?)([\wáàóúéíüãõâêô]+'?\s?(d[oae]\s)?)*([\wáàóúéíüãõâêô]+'?)$" required />
 
                                 <label for="nomeFantasia"> Nome Fantasia</label>
-                                <input id="nomeFantasia" name="usuario.Pessoa.NomeFantasia" placeholder="Insira o nome fantasia" value="@ViewBag.Usuario.Pessoa.NomeFantasia" class="form-control formularioJuridico" maxlength="50" required />
+                                <input id="nomeFantasia" name="usuario.Pessoa.NomeFantasia" placeholder="Insira o nome fantasia" value="@ViewBag.Usuario.Pessoa.NomeFantasia" class="form-control formularioJuridico" maxlength="50" pattern="^([\wáàóúéíüãõâêô]+'?\s(d[oae]\s)?)([\wáàóúéíüãõâêô]+'?\s?(d[oae]\s)?)*([\wáàóúéíüãõâêô]+'?)$" required />
 
                                 <label for="inscricaoEstadual"> Inscrição Estadual</label>
                                 <input id="inscricaoEstadual" type="text" name="usuario.Pessoa.InscricaoEstadual" placeholder="Insira a inscrição estadual" value="@ViewBag.Usuario.Pessoa.InscricaoEstadual" class="form-control" maxlength="10" required />
@@ -89,10 +89,10 @@
                                 <input id="email" name="usuario.Email" type="email" placeholder="email@email.com.br" value="@ViewBag.Usuario.Email" class="form-control" maxlength="50" required />
 
                                 <label for="senha">Senha</label>
-                                <input id="senha" type="password" name="usuario.Senha" placeholder="●●●●●●●●●●" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="10" minlenght="6" required />
+                                <input id="senha" type="password" name="usuario.Senha" placeholder="Formato Aaaa9999" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="8" minlenght="8" pattern="^[A-Z][a-z]{3}\d{4}$" required />
 
                                 <label for="cpfCnpj">CNPJ</label>
-                                <input id="cnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CNPJ" onkeyup="validaInvalidaCnpj(this); fMascCnpj(this, mascaraCNPJ);" value="@ViewBag.Usuario.Pessoa.CpfCnpj" maxlength="18" class="form-control" required><span id="cnpjResponse"></span>
+                                <input id="cnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CNPJ" onkeyup="validaInvalidaCnpj(this); fMascCnpj(this, mascaraCNPJ); VerificaCnpjNoBanco();" value="@ViewBag.Usuario.Pessoa.CpfCnpj" maxlength="18" class="form-control" required><span id="cnpjResponse"></span>
 
                                 <div class="form-row">
 
@@ -123,7 +123,6 @@
 
     $('#FormJuridica').ajaxForm({
         success: function (resposta) {
-            console.log(resposta);
             if (resposta.dadosinvalidos == true) {
                 alert("Dados inválidos!");
             } else {
@@ -143,6 +142,20 @@
     function verifica(resposta) {
         if (resposta.existe == true) {
             document.getElementById('cpfResponse').innerHTML = '<span style="color:red">CPF já existente!</span>';
+        }
+    }
+
+    function VerificaCnpjNoBanco() {
+        var completou = $("#cnpj").attr("maxlength") == $("#cnpj").val().length;
+        if (completou) {
+            var url = "@Url.Action("VerificaCnpjNoBanco", "Usuario")";
+            var params = { cpf: $("#cnpj").val()};
+            $.post(url, params, verifica);
+        }
+    }
+    function verifica(resposta) {
+        if (resposta.existe == true) {
+            document.getElementById('cnpjResponse').innerHTML = '<span style="color:red">CNPJ já existente!</span>';
         }
     }
 </script>

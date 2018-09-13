@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Text.RegularExpressions;
 
 namespace PetShop_Project.Models.Validação.PessoaJuridica
 {
@@ -16,17 +13,7 @@ namespace PetShop_Project.Models.Validação.PessoaJuridica
 
             var nomeFantasia = (string)valor;
 
-            if (nomeFantasia.EndsWith(" ") || nomeFantasia.StartsWith(" "))
-            {
-                return false;
-            }
-
-            if (nomeFantasia.Length < 5 || nomeFantasia.Length > 50 || String.IsNullOrWhiteSpace(nomeFantasia) || String.IsNullOrEmpty(nomeFantasia))
-            {
-                return false;
-            }
-
-            return true;
+            return Regex.IsMatch(nomeFantasia, @"^([\wáàóúéíüãõâêô]+'?\s(d[oae]\s)?)([\wáàóúéíüãõâêô]+'?\s?(d[oae]\s)?)*([\wáàóúéíüãõâêô]+'?)$");
         }
     }
 }

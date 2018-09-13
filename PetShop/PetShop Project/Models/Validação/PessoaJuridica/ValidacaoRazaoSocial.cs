@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Text.RegularExpressions;
 
 namespace PetShop_Project.Models.Validação.PessoaJuridica
 {
@@ -16,17 +13,8 @@ namespace PetShop_Project.Models.Validação.PessoaJuridica
 
             var razaoSocial = (string)valor;
 
-            if (razaoSocial.EndsWith(" ") || razaoSocial.StartsWith(" "))
-            {
-                return false;
-            }
+            return Regex.IsMatch(razaoSocial, @"^([\wáàóúéíüãõâêô]+'?\s(d[oae]\s)?)([\wáàóúéíüãõâêô]+'?\s?(d[oae]\s)?)*([\wáàóúéíüãõâêô]+'?)$");
 
-            if (razaoSocial.Length < 5 || razaoSocial.Length > 70 || String.IsNullOrWhiteSpace(razaoSocial) || String.IsNullOrEmpty(razaoSocial))
-            {
-                return false;
-            }
-
-            return true;
         }
     }
 }

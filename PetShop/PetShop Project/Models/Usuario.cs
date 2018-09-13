@@ -1,4 +1,5 @@
 ﻿using PetShop_Project.Models.Validação.PessoaJuridica;
+using PetShop_Project.Models.Validação.Usuario;
 
 namespace PetShop_Project.Models
 {
@@ -12,7 +13,8 @@ namespace PetShop_Project.Models
         public Pessoa Pessoa { get; set; }
         public bool Valida()
         {
-            return new ValidacaoEmail().Valida(Email);
+            return new ValidacaoEmail().Valida(Email)
+                && new ValidacaoSenha().Valida(Senha);
         }
     }
 }

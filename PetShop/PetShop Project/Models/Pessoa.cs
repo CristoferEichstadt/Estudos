@@ -1,4 +1,5 @@
-﻿using PetShop_Project.Models.Validação.PessoaJuridica;
+﻿using PetShop_Project.Models.Validação.PessoaFisica;
+using PetShop_Project.Models.Validação.PessoaJuridica;
 using System;
 
 namespace PetShop_Project.Models
@@ -17,55 +18,9 @@ namespace PetShop_Project.Models
         public Contato Contato { get; set; }
         public bool ValidaCadastroPessoaFisica()
         {
-            if (Nome == null)
-            {
-                return false;
-            }
-
-            if (CpfCnpj == "00000000000" || CpfCnpj == "11111111111" || CpfCnpj == "22222222222" || CpfCnpj == "33333333333" || CpfCnpj == "44444444444" ||
-                CpfCnpj == "55555555555" || CpfCnpj == "66666666666" || CpfCnpj == "77777777777" || CpfCnpj == "88888888888" || CpfCnpj == "99999999999")
-            {
-                return false;
-            }
-
-            var r = 0;
-            var s = 0;
-            for (int i = 1; i <= 9; i++)
-            {
-                s = s + Convert.ToInt32(CpfCnpj[i - 1]) * (11 - i);
-                r = (s * 10) % 11;
-            }
-
-            if ((r == 10) || (r == 11))
-            {
-                r = 0;
-            }
-
-            if (r != Convert.ToInt32(CpfCnpj[9]))
-            {
-                return false;
-            }
-
-
-            s = 0;
-            for (int i = 1; i <= 10; i++)
-            {
-                s = s + Convert.ToInt32(CpfCnpj[i - 1]) * (12 - i);
-            }
-
-
-            r = (s * 10) % 11;
-            if ((r == 10) || (r == 11))
-            {
-                r = 0;
-            }
-
-            if (r != Convert.ToInt32(CpfCnpj[10]))
-            {
-                return false;
-            }
-
-            return true;
+            return new ValidacaoCPF().Valida(CpfCnpj)
+                && new ValidacaoNome().Valida(Nome)
+                && new ValidacaoDataNascimento().Valida(DataNascimento);
         }
         public bool ValidaCadastroPessoaJuridica()
         {

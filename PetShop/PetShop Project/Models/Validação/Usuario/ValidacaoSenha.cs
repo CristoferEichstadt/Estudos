@@ -6,23 +6,14 @@ namespace PetShop_Project.Models.Validação.Usuario
     {
         public bool Valida(object valor)
         {
-            //if (valor == null)
-            //{
-            //    return false;
-            //}
+            if (valor == null)
+            {
+                return false;
+            }
 
-            //var senha = (string)valor;
+            var senha = (string)valor;
 
-            //string pattern = "[A-Z][a-z]{3}[0-9]{4}";
-            //Regex regex = new Regex(pattern);
-
-
-            //if (!regex.IsMatch(senha, pattern))
-            //{
-            //    return false;
-            //}
-
-            return true;
+            return Regex.IsMatch(senha, @"^[A-Z][a-z]{3}\d{4}$");
         }
     }
 }

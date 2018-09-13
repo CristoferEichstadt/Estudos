@@ -78,16 +78,13 @@ namespace PetShop_Project.Controllers
         public JsonResult VerificaCpfNoBanco(string cpf)
         {
             PessoaDAO dao = new PessoaDAO();
-            Pessoa pessoa = dao.BuscaPorCpfCnpj(cpf);
+            return Json(new { existe = dao.BuscaPorCpfCnpj(cpf) }, JsonRequestBehavior.AllowGet);
+        }
 
-            if (pessoa == null)
-            {
-                return Json(new { existe = false }, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return Json(new { existe = true }, JsonRequestBehavior.AllowGet);
-            }
+        public JsonResult VerificaCnpjNoBanco(string cnpj)
+        {
+            PessoaDAO dao = new PessoaDAO();
+            return Json(new { existe = dao.BuscaPorCpfCnpj(cnpj) }, JsonRequestBehavior.AllowGet);
         }
 
     }
