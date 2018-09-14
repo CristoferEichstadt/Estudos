@@ -26,7 +26,8 @@ namespace PetShop_Project.Models
         {
             return new ValidacaoRazaoSocial().Valida(RazaoSocial)
                 && new ValidacaoCNPJ().Valida(CpfCnpj)
-                && new ValidacaoNomeFantasia().Valida(NomeFantasia);
+                && new ValidacaoNomeFantasia().Valida(NomeFantasia)
+                && new ValidacaoIE().Valida(InscricaoEstadual);
         }
     }
 }

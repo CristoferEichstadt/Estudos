@@ -600,6 +600,7 @@
     <Compile Include="Models\Validação\PessoaFisica\ValidacaoDataNascimento.cs" />
     <Compile Include="Models\Validação\PessoaFisica\ValidacaoNome.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoCNPJ.cs" />
+    <Compile Include="Models\Validação\PessoaJuridica\ValidacaoIE.cs" />
     <Compile Include="Models\Validação\Usuario\ValidacaoEmail.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoNomeFantasia.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoRazaoSocial.cs" />

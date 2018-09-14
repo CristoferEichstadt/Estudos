@@ -21,8 +21,141 @@ $(document).ready(function mascaraIE() {
         var expre = /[^\d]/g;
         $(this).val($(this).val().replace(expre, ''));
     });
-});
+    botaoFisica = document.querySelectorAll(".botao")[0];
+    botaoJuridica = document.querySelectorAll(".botao")[1];
 
+
+    botaoFisica.addEventListener("click", function (event) {
+        var corNome = document.querySelector("#textNome");
+        var corEmail = document.querySelector("#textEmail");
+        var corSenha = document.querySelector("#textSenha");
+        var corData = document.querySelector("#textData");
+
+        //nome
+        if ($("#nome").val() == "") {
+            event.preventDefault();
+            corNome.style.color = '#ff0000';
+            alert("Preencha o seu nome completo!");
+        } else {
+            var regexNome = new RegExp("^([A-Z]'?[a-záüóúéíãõàâêô]{2,}\\s(d[oae]\\s)?)([A-Z]'?[a-záàóúéíüãõâêô]{2,}\\s?(d[oae]\\s)?)*([A-Z]'?[a-záüàóúéíãõâêô]{2,})$");
+            if (!regexNome.test($("#nome").val())) {
+                event.preventDefault();
+                corNome.style.color = '#ff0000';
+                alert("Nome está incorreto!");
+                alert("Lembre-se, nome deve iniciar com letra maiúscula e deve ser completo!");
+            }
+        }
+        //email
+        if ($("#emailFisica").val() == "") {
+            event.preventDefault();
+            corEmail.style.color = '#ff0000';
+            alert("Preencha o seu e-mail!");
+        } else {
+            var regexEmail = new RegExp("^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\\-+)|([A-Za-z0-9]+\\.+)|([A-Za-z0-9]+\\++))*[A-Za-z0-9]+@((\\w+\\-+)|(\\w+\\.))*\\w{1,63}\\.[a-zA-Z]{2,6}$");
+            if (!regexEmail.test($("#emailFisica").val())) {
+                event.preventDefault();
+                corEmail.style.color = '#ff0000';
+                alert("E-mail está incorreto!");
+            }
+        }
+
+        //senha
+        if ($("#senhaFisica").val() == "") {
+            event.preventDefault();
+            corSenha.style.color = '#ff0000';
+            alert("Preencha a sua senha!");
+        } else {
+            var regexSenha = new RegExp("^[A-Z][a-z]{3}[0-9]{4}$");
+            if (!regexSenha.test($("#senhaFisica").val())) {
+                console.log(regexSenha.test($("#senhaFisica").val()));
+                event.preventDefault();
+                corSenha.style.color = '#ff0000';
+                alert("Senha está incorreta!");
+                alert('Lembre-se, a senha deve seguir o formato "Aaaa0000"!');
+            }
+        }
+
+        //data nascimento
+        if ($("#dataNascimento").val() == "") {
+            event.preventDefault();
+            corData.style.color = '#ff0000';
+            alert("Preencha a data de nascimento!");
+        }
+    });
+
+    botaoJuridica.addEventListener("click", function (event) {
+        var corRSocial = document.querySelector("#textRazaoSocial");
+        var corNomeFant = document.querySelector("#textNomeFant");
+        var corIE = document.querySelector("#textIE");
+        var corEmailJuridica = document.querySelector("#textEmailJuridica");
+        var corSenhaJuridica = document.querySelector("#textSenhaJuridica");
+
+        //razao social
+        if ($("#razaoSocial").val() == "") {
+            event.preventDefault();
+            corRSocial.style.color = '#ff0000';
+            alert("Preencha a razão social completo!");
+        } else {
+            var regexRSocial = new RegExp("^([\\wáàóúéíüãõâêô]+'?\\s(d[oae]\\s)?)([\\wáàóúéíüãõâêô]+'?\\s?(d[oae]\\s)?)*([\\wáàóúéíüãõâêô]+'?)$");
+            if (!regexRSocial.test($("#razaoSocial").val())) {
+                event.preventDefault();
+                corRSocial.style.color = '#ff0000';
+                alert("Razão Social está incorreta!");
+            }
+        }
+
+        //nome fantasia
+        if ($("#nomeFantasia").val() == "") {
+            event.preventDefault();
+            corNomeFant.style.color = '#ff0000';
+            alert("Preencha o nome fantasia completo!");
+        } else {
+            var regexNomeFantasia = new RegExp("^([\\wáàóúéíüãõâêô]+'?\\s(d[oae]\\s)?)([\\wáàóúéíüãõâêô]+'?\\s?(d[oae]\\s)?)*([\\wáàóúéíüãõâêô]+'?)$");
+            if (!regexNomeFantasia.test($("#nomeFantasia").val())) {
+                event.preventDefault();
+                corNomeFant.style.color = '#ff0000';
+                alert("Nome Fantasia está incorreto!");
+            }
+        }
+
+        //IE
+        if ($("#inscricaoEstadual").val() == "") {
+            event.preventDefault();
+            corIE.style.color = '#ff0000';
+            alert("Preencha a inscrição estadual completa!");
+        }
+
+        //email
+        if ($("#emailJuridica").val() == "") {
+            event.preventDefault();
+            corEmailJuridica.style.color = '#ff0000';
+            alert("Preencha o seu e-mail!");
+        } else {
+            var regexEmailJuridica = new RegExp("^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\\-+)|([A-Za-z0-9]+\\.+)|([A-Za-z0-9]+\\++))*[A-Za-z0-9]+@((\\w+\\-+)|(\\w+\\.))*\\w{1,63}\\.[a-zA-Z]{2,6}$");
+            if (!regexEmailJuridica.test($("#emailJuridica").val())) {
+                event.preventDefault();
+                corEmailJuridica.style.color = '#ff0000';
+                alert("E-mail está incorreto!");
+            }
+        }
+
+        //senha
+        if ($("#senhaJuridica").val() == "") {
+            event.preventDefault();
+            corSenhaJuridica.style.color = '#ff0000';
+            alert("Preencha a sua senha!");
+        } else {
+            var regexSenhaJuridica = new RegExp("^[A-Z][a-z]{3}[0-9]{4}$");
+            if (!regexSenhaJuridica.test($("#senhaJuridica").val())) {
+                event.preventDefault();
+                corSenhaJuridica.style.color = '#ff0000';
+                alert("Senha está incorreta!");
+                alert('Lembre-se, a senha deve seguir o formato "Aaaa0000"!');
+            }
+        }
+
+    });
+});
 
 // --> FUNÇÕES <-- //
 
@@ -90,7 +223,7 @@ function fMascEx() {
 }
 function validaInvalidaCpf(el) {
     document.getElementById('cpfResponse').innerHTML = verificaCPF(el.value) ? '<span style="color:green">CPF válido!</span>' : '<span style="color:red">CPF inválido!</span>';
-    if (el.value == '') document.getElementById('cpfResponse').innerHTML = '';
+    if (el.value == '') document.getElementById('cpfResponse').innerHTML = '<span> </span>';
 }
 
 //(cnpj)//
@@ -155,5 +288,6 @@ function fMascCnpjEx() {
 }
 function validaInvalidaCnpj(el) {
     document.getElementById('cnpjResponse').innerHTML = verificaCNPJ(el.value) ? '<span style="color:green">CNPJ válido!</span>' : '<span style="color:red">CNPJ inválido!</span>';
-    if (el.value == '') document.getElementById('cnpjResponse').innerHTML = '';
+    if (el.value == '') document.getElementById('cnpjResponse').innerHTML = '<span></span>';
 }
+

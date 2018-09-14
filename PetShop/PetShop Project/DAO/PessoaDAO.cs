@@ -47,7 +47,7 @@ namespace PetShop_Project.DAO
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Pessoas.FirstOrDefault(p => p.CpfCnpj == cpfCnpj) != null;
+                return contexto.Pessoas.Where(p => p.CpfCnpj == cpfCnpj).FirstOrDefault() != null;
             }
         }
 
