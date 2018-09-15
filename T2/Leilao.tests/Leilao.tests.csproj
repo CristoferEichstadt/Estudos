@@ -53,12 +53,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Leilao_tdd\Leilao_tdd\Caelum.Leilao.csproj">
-      <Project>{698bc183-31de-4100-bb66-be9db06f292f}</Project>
-      <Name>Caelum.Leilao</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
