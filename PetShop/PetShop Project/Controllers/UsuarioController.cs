@@ -60,10 +60,10 @@ namespace PetShop_Project.Controllers
             System.Web.HttpContext.Current.Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
-        public ActionResult VerificaUsuario(string login, string senha)
+        public ActionResult VerificaUsuario(string email, string senha)
         {
             UsuarioDAO dao = new UsuarioDAO();
-            Usuario usuario = dao.Busca(login, senha);
+            Usuario usuario = dao.Busca(email, senha);
 
             if (usuario != null)
             {

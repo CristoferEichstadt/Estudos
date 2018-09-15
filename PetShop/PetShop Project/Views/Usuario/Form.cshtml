@@ -7,7 +7,6 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="~/Scripts/scriptFormCadastroUsuario.js"></script>
 <link rel="shortcut icon" href="~/Content/assets/corporate/img/layout/favicon.png">
 
 
@@ -58,7 +57,7 @@
                                 <label id="textData" for="dataNascimento">Data de Nascimento</label>
                                 <input id="dataNascimento" type="date" name="usuario.Pessoa.DataNascimento" value="@ViewBag.Usuario.Pessoa.DataNascimento" max="2004-12-31" min="1950-12-31" class="form-control" />
 
-                                <label for="cpfCnpj">CPF:</label>
+                                <label id="textCpf" for="cpfCnpj">CPF:</label>
                                 <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira seu CPF" onkeypress="validaInvalidaCpf(this); fMasc( this, mascaraCPF );" onkeyup="VerificaCpfNoBanco()" maxlength="14" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
 
                                 <div class="form-row">
@@ -91,7 +90,7 @@
                                 <label id="textSenhaJuridica" for="senha">Senha</label>
                                 <input id="senhaJuridica" type="password" name="usuario.Senha" placeholder="Formato Aaaa9999" value="@ViewBag.Usuario.Senha" class="form-control senha" maxlength="8" minlenght="8" />
 
-                                <label for="cpfCnpj">CNPJ</label>
+                                <label id="textCnpj" for="cpfCnpj">CNPJ</label>
                                 <input id="cnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CNPJ" onkeyup="validaInvalidaCnpj(this); fMascCnpj(this, mascaraCNPJ); VerificaCnpjNoBanco();" value="@ViewBag.Usuario.Pessoa.CpfCnpj" maxlength="18" class="form-control" required><span id="cnpjResponse"></span>
 
                                 <div class="form-row">
@@ -108,6 +107,8 @@
     </div>
 </div>
 
+<script src="~/Scripts/scriptValidacoesCadastroUsuario.js"></script>
+<script src="~/Scripts/scriptFormCadastroUsuario.js"></script>
 <script src="~/Scripts/jquery.form.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
 <script type="text/javascript">
@@ -130,6 +131,7 @@
             }
         }
     });
+
 
     function VerificaCpfNoBanco() {
         var completou = $("#cpf").attr("maxlength") == $("#cpf").val().length;

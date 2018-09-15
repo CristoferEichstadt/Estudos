@@ -43,11 +43,11 @@ namespace PetShop_Project.DAO
             }
         }
 
-        public Usuario Busca(string login, string senha)
+        public Usuario Busca(string email, string senha)
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Usuarios.FirstOrDefault(u => u.Email == login && u.Senha == senha);
+                return contexto.Usuarios.Where(u => u.Email == email && u.Senha == senha).FirstOrDefault();
             }
         }
     }

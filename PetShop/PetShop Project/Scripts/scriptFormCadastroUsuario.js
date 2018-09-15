@@ -15,187 +15,45 @@ function mascaraCNPJ(cnpj) {
     cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2")
     return cnpj
 }
-$(document).ready(function mascaraIE() {
-    $("#inscricaoEstadual").bind("keyup blur focus", function (e) {
-        e.preventDefault();
-        var expre = /[^\d]/g;
-        $(this).val($(this).val().replace(expre, ''));
-    });
-    botaoFisica = document.querySelectorAll(".botao")[0];
-    botaoJuridica = document.querySelectorAll(".botao")[1];
 
-
-    botaoFisica.addEventListener("click", function (event) {
-        var corNome = document.querySelector("#textNome");
-        var corEmail = document.querySelector("#textEmail");
-        var corSenha = document.querySelector("#textSenha");
-        var corData = document.querySelector("#textData");
-
-        //nome
-        if ($("#nome").val() == "") {
-            event.preventDefault();
-            corNome.style.color = '#ff0000';
-            alert("Preencha o seu nome completo!");
-        } else {
-            var regexNome = new RegExp("^([A-Z]'?[a-záüóúéíãõàâêô]{2,}\\s(d[oae]\\s)?)([A-Z]'?[a-záàóúéíüãõâêô]{2,}\\s?(d[oae]\\s)?)*([A-Z]'?[a-záüàóúéíãõâêô]{2,})$");
-            if (!regexNome.test($("#nome").val())) {
-                event.preventDefault();
-                corNome.style.color = '#ff0000';
-                alert("Nome está incorreto!");
-                alert("Lembre-se, nome deve iniciar com letra maiúscula e deve ser completo!");
-            } else {
-                corNome.style.color = '#000000';
-            }
-        }
-        //email
-        if ($("#emailFisica").val() == "") {
-            event.preventDefault();
-            corEmail.style.color = '#ff0000';
-            alert("Preencha o seu e-mail!");
-        } else {
-            var regexEmail = new RegExp("^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\\-+)|([A-Za-z0-9]+\\.+)|([A-Za-z0-9]+\\++))*[A-Za-z0-9]+@((\\w+\\-+)|(\\w+\\.))*\\w{1,63}\\.[a-zA-Z]{2,6}$");
-            if (!regexEmail.test($("#emailFisica").val())) {
-                event.preventDefault();
-                corEmail.style.color = '#ff0000';
-                alert("E-mail está incorreto!");
-            } else {
-                corEmail.style.color = '#000000';
-            }
-        }
-
-        //senha
-        if ($("#senhaFisica").val() == "") {
-            event.preventDefault();
-            corSenha.style.color = '#ff0000';
-            alert("Preencha a sua senha!");
-        } else {
-            var regexSenha = new RegExp("^[A-Z][a-z]{3}[0-9]{4}$");
-            if (!regexSenha.test($("#senhaFisica").val())) {
-                console.log(regexSenha.test($("#senhaFisica").val()));
-                event.preventDefault();
-                corSenha.style.color = '#ff0000';
-                alert("Senha está incorreta!");
-                alert('Lembre-se, a senha deve seguir o formato "Aaaa0000"!');
-            } else {
-                corSenha.style.color = '#000000';
-            }
-        }
-
-        //data nascimento
-        if ($("#dataNascimento").val() == "") {
-            event.preventDefault();
-            corData.style.color = '#ff0000';
-            alert("Preencha a data de nascimento!");
-        } else {
-            corData.style.color = '#000000';
-        }
-    });
-
-    botaoJuridica.addEventListener("click", function (event) {
-        var corRSocial = document.querySelector("#textRazaoSocial");
-        var corNomeFant = document.querySelector("#textNomeFant");
-        var corIE = document.querySelector("#textIE");
-        var corEmailJuridica = document.querySelector("#textEmailJuridica");
-        var corSenhaJuridica = document.querySelector("#textSenhaJuridica");
-
-        //razao social
-        if ($("#razaoSocial").val() == "") {
-            event.preventDefault();
-            corRSocial.style.color = '#ff0000';
-            alert("Preencha a razão social completo!");
-        } else {
-            var regexRSocial = new RegExp("^([\\wáàóúéíüãõâêô]+'?\\s(d[oae]\\s)?)([\\wáàóúéíüãõâêô]+'?\\s?(d[oae]\\s)?)*([\\wáàóúéíüãõâêô]+'?)$");
-            if (!regexRSocial.test($("#razaoSocial").val())) {
-                event.preventDefault();
-                corRSocial.style.color = '#ff0000';
-                alert("Razão Social está incorreta!");
-            } else {
-                corRSocial.style.color = '#000000';
-            }
-        }
-
-        //nome fantasia
-        if ($("#nomeFantasia").val() == "") {
-            event.preventDefault();
-            corNomeFant.style.color = '#ff0000';
-            alert("Preencha o nome fantasia completo!");
-        } else {
-            var regexNomeFantasia = new RegExp("^([\\wáàóúéíüãõâêô]+'?\\s(d[oae]\\s)?)([\\wáàóúéíüãõâêô]+'?\\s?(d[oae]\\s)?)*([\\wáàóúéíüãõâêô]+'?)$");
-            if (!regexNomeFantasia.test($("#nomeFantasia").val())) {
-                event.preventDefault();
-                corNomeFant.style.color = '#ff0000';
-                alert("Nome Fantasia está incorreto!");
-            } else {
-                corNomeFant.style.color = '#000000';
-            }
-        }
-
-        //IE
-        if ($("#inscricaoEstadual").val() == "") {
-            event.preventDefault();
-            corIE.style.color = '#ff0000';
-            alert("Preencha a inscrição estadual completa!");
-        } else {
-            var regexIe = new RegExp("^[0-9]{4,11}");
-            if (!regexIe.test($("#inscricaoEstadual").val())) {
-                event.preventDefault();
-                corIE.style.color = '#ff0000';
-                alert("Inscrição Estadual incorreta!");
-            } else {
-                corIE.style.color = '#000000';
-            }
-        }
-
-        //email
-        if ($("#emailJuridica").val() == "") {
-            event.preventDefault();
-            corEmailJuridica.style.color = '#ff0000';
-            alert("Preencha o seu e-mail!");
-        } else {
-            var regexEmailJuridica = new RegExp("^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\\-+)|([A-Za-z0-9]+\\.+)|([A-Za-z0-9]+\\++))*[A-Za-z0-9]+@((\\w+\\-+)|(\\w+\\.))*\\w{1,63}\\.[a-zA-Z]{2,6}$");
-            if (!regexEmailJuridica.test($("#emailJuridica").val())) {
-                event.preventDefault();
-                corEmailJuridica.style.color = '#ff0000';
-                alert("E-mail está incorreto!");
-            } else {
-                corEmailJuridica.style.color = '#000000';
-            }
-        }
-
-        //senha
-        if ($("#senhaJuridica").val() == "") {
-            event.preventDefault();
-            corSenhaJuridica.style.color = '#ff0000';
-            alert("Preencha a sua senha!");
-        } else {
-            var regexSenhaJuridica = new RegExp("^[A-Z][a-z]{3}[0-9]{4}$");
-            if (!regexSenhaJuridica.test($("#senhaJuridica").val())) {
-                event.preventDefault();
-                corSenhaJuridica.style.color = '#ff0000';
-                alert("Senha está incorreta!");
-                alert('Lembre-se, a senha deve seguir o formato "Aaaa0000"!');
-            } else {
-                corSenhaJuridica.style.color = '#000000';
-            }
-        }
-
-    });
-});
 
 // --> FUNÇÕES <-- //
 
 function VerficaRadioSelecionado() {
+    var corRSocial = document.querySelector("#textRazaoSocial");
+    var corNomeFant = document.querySelector("#textNomeFant");
+    var corIE = document.querySelector("#textIE");
+    var corEmailJuridica = document.querySelector("#textEmailJuridica");
+    var corSenhaJuridica = document.querySelector("#textSenhaJuridica");
+    var corCnpj = document.querySelector("#textCnpj")
+
+    var corNome = document.querySelector("#textNome");
+    var corEmail = document.querySelector("#textEmail");
+    var corSenha = document.querySelector("#textSenha");
+    var corData = document.querySelector("#textData");
+    var corCpf = document.querySelector("#textCpf");
 
     //verifica se o radio de fisica tá "assinalado"
     if ($('#radio-fisica').is(":checked") == true) {
         $('#formulario-fisica').prop('hidden', false);
         $('#nome').focus();
         $('#formulario-juridico').prop('hidden', true);
+        corRSocial.style.color = '#000000';
+        corEmailJuridica.style.color = '#000000';
+        corNomeFant.style.color = '#000000';
+        corIE.style.color = '#000000';
+        corSenhaJuridica.style.color = '#000000';
+        corCnpj.style.color = '#000000';
     }
     else {
         $('#formulario-fisica').prop('hidden', true);
         $('#formulario-juridico').prop('hidden', false);
         $('#razaoSocial').focus();
+        corNome.style.color = '#000000';
+        corEmail.style.color = '#000000';
+        corSenha.style.color = '#000000';
+        corData.style.color = '#000000';
+        corCpf.style.color = '#000000';
     }
 }
 
