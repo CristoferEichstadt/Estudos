@@ -16,6 +16,10 @@
             <a class="site-logo" href="/Home/Index"><img src="~/Content/assets/corporate/img/layout/logologinn.png" alt="VallePet"></a>
         </div>
     </div>
+    @if (ViewBag.Erro != null)
+    {
+        <h1>@ViewBag.Erro</h1>
+    }
     <div class="row text-center">
         <div class="col-md-6 offset-md-3">
             <div class="card">

@@ -1,9 +1,4 @@
-﻿using PetShop_Project.DAO;
-using PetShop_Project.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PetShop_Project.Models;
 using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers

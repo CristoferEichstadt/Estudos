@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Form</title>
+</head>
+<body>
+    <div>
+        <form action="/Subcategoria/AdicionaSubcategoria" id="formSubategoria" method="post">
+            <div>
+                <select name="categoria">
+                    @foreach (var categoria in ViewBag.Categorias)
+                    {
+                        <option value="@categoria.Id">@categoria.Nome</option>
+                    }
+                </select>
+
+                <label id="textNome" for="nome">Nome</label>
+                <input id="nomeSubcategoria" name="nome" placeholder="Insira o nome da Subcategoria" autofocus value="@ViewBag.Subcategoria.Nome"
+                       class="form-control" maxlength="20" />
+
+                <div class="form-row">
+
+                    <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Categoria" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

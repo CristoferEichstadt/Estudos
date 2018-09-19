@@ -172,6 +172,51 @@
     <Content Include="App_Data\PetShopDB_log.ldf">
       <DependentUpon>PetShopDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\adm\css\base-admin-responsive.css" />
+    <Content Include="Content\adm\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\adm\css\bootstrap.css" />
+    <Content Include="Content\adm\css\bootstrap.min.css" />
+    <Content Include="Content\adm\css\font-awesome-ie7.css" />
+    <Content Include="Content\adm\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\adm\css\font-awesome.css" />
+    <Content Include="Content\adm\css\font-awesome.min.css" />
+    <Content Include="Content\adm\css\formCategorias.css" />
+    <Content Include="Content\adm\css\pages\dashboard.css" />
+    <Content Include="Content\adm\css\pages\faq.css" />
+    <Content Include="Content\adm\css\pages\plans.css" />
+    <Content Include="Content\adm\css\pages\reports.css" />
+    <Content Include="Content\adm\css\pages\signin.css" />
+    <Content Include="Content\adm\css\style.css" />
+    <Content Include="Content\adm\font\fontawesome-webfont.svg" />
+    <Content Include="Content\adm\img\body-bg.png" />
+    <Content Include="Content\adm\img\glyphicons-halflings-white.html" />
+    <Content Include="Content\adm\img\glyphicons-halflings.html" />
+    <Content Include="Content\adm\img\home.png" />
+    <Content Include="Content\adm\img\icons-sa7c41345d9.png" />
+    <Content Include="Content\adm\img\message_avatar1.png" />
+    <Content Include="Content\adm\img\message_avatar2.png" />
+    <Content Include="Content\adm\img\signin\check.png" />
+    <Content Include="Content\adm\img\signin\fb_btn.png" />
+    <Content Include="Content\adm\img\signin\password.png" />
+    <Content Include="Content\adm\img\signin\twitter_btn.png" />
+    <Content Include="Content\adm\img\signin\user.png" />
+    <Content Include="Content\adm\js\base.js" />
+    <Content Include="Content\adm\js\bootstrap.js" />
+    <Content Include="Content\adm\js\chart.min.js" />
+    <Content Include="Content\adm\js\charts\area.js" />
+    <Content Include="Content\adm\js\charts\bar.js" />
+    <Content Include="Content\adm\js\charts\donut.js" />
+    <Content Include="Content\adm\js\charts\line.js" />
+    <Content Include="Content\adm\js\charts\pie.js" />
+    <Content Include="Content\adm\js\excanvas.min.js" />
+    <Content Include="Content\adm\js\faq.js" />
+    <Content Include="Content\adm\js\full-calendar\fullcalendar.css" />
+    <Content Include="Content\adm\js\full-calendar\fullcalendar.min.js" />
+    <Content Include="Content\adm\js\guidely\guidely-number.png" />
+    <Content Include="Content\adm\js\guidely\guidely.css" />
+    <Content Include="Content\adm\js\guidely\guidely.min.js" />
+    <Content Include="Content\adm\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\adm\js\signin.js" />
     <Content Include="Content\assets\corporate\css\Cadastros\cadastroUsuario.css" />
     <Content Include="Content\assets\corporate\css\custom.css" />
     <Content Include="Content\assets\corporate\css\login.css" />
@@ -535,7 +580,14 @@
     <Content Include="Content\assets\plugins\zoom\jquery.zoom.js" />
     <Content Include="Content\assets\plugins\zoom\jquery.zoom.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Content\adm\font\fontawesome-webfont.eot" />
+    <Content Include="Content\adm\font\fontawesome-webfont.svgz" />
+    <Content Include="Content\adm\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\adm\font\fontawesome-webfont.woff" />
+    <Content Include="Content\adm\font\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\adm\font\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\formCategoriaAdm.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -554,10 +606,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\SubcategoriaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
@@ -702,6 +758,11 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Usuario\Form.cshtml" />
+    <Content Include="Views\Categoria\Form.cshtml" />
+    <Content Include="Views\Subcategoria\Form.cshtml" />
+    <Content Include="Views\Shared\_LayoutADM.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Form.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -714,6 +775,7 @@
     <Folder Include="Content\assets\corporate\img\login\" />
     <Folder Include="Views\Pessoas\" />
     <Folder Include="Views\Pessoa\" />
+    <Folder Include="Views\Produto\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

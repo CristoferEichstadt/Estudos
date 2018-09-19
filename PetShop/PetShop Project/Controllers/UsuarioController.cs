@@ -1,9 +1,5 @@
 ﻿using PetShop_Project.DAO;
 using PetShop_Project.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
@@ -68,11 +64,24 @@ namespace PetShop_Project.Controllers
             if (usuario != null)
             {
                 System.Web.HttpContext.Current.Session["usuarioLogado"] = usuario;
-                return RedirectToAction("Index", "Home");
+
+                if (usuario.Perfil == 'C')
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else if (usuario.Perfil == 'A')
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    System.Web.HttpContext.Current.Session.Abandon();
+                    return RedirectToAction("Index", "Login");
+                }
             }
             else
             {
-                return View("Index");
+                return RedirectToAction("Index");
             }
         }
         public JsonResult VerificaCpfNoBanco(string cpf)

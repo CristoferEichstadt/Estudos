@@ -1,11 +1,7 @@
 ﻿@{PetShop_Project.Models.Usuario usuarioLogado = (PetShop_Project.Models.Usuario)HttpContext.Current.Session["usuarioLogado"]; }
 
 <!DOCTYPE html>
-<!--
-Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
-<html lang="en">
-<!--<![endif]-->
-<!-- Head BEGIN -->
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -87,6 +83,7 @@ Template: Metronic Frontend Freebie - Responsive HTML Template Based On Twitter 
                             }
                             else
                             {
+                                <li>@Html.ActionLink("ADMIN", "Form", "Categoria")</li>
                                 <li> @Html.ActionLink("Login / Cadastro", "Index", "Login") </li>
                             }
                         }

@@ -19,7 +19,7 @@
             alert("Preencha a sua senha!");
         } else {
             var regexSenha = new RegExp("^[A-Z][a-z]{3}[0-9]{4}$");
-            if (!regexSenha.test($("#senhaFisica").val())) {
+            if (!regexSenha.test($("#pass").val())) {
                 event.preventDefault();
                 alert("Senha está no formato incorreto!");
             }

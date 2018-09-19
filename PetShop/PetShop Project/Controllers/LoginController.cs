@@ -13,9 +13,9 @@ namespace PetShop_Project.Controllers.Usuarios
         }
 
         [HttpPost]
-        public ActionResult Autentica(string login, string senha)
+        public ActionResult Autentica(string email, string senha)
         {
-            return new UsuarioController().VerificaUsuario(login, senha);
+            return new UsuarioController().VerificaUsuario(email, senha);
         }
     }
 }

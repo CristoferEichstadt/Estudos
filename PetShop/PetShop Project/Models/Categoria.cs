@@ -11,7 +11,6 @@ namespace PetShop_Project.Models
         public string Nome { get; set; }
         public bool Ativo { get; set; }
         public IList<Subcategoria> Subcategorias { get; set; }
-
         public Categoria()
         {
             Subcategorias = new List<Subcategoria>();

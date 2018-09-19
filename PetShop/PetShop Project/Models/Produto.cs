@@ -24,6 +24,5 @@ namespace PetShop_Project.Models
         {
             VendaItens = new List<VendaItem>();
         }
-
     }
 }

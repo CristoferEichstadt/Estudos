@@ -1,3 +1,12 @@
-﻿@{ 
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{
+    PetShop_Project.Models.Usuario usuarioLogado = (PetShop_Project.Models.Usuario)HttpContext.Current.Session["usuarioLogado"];
+    if (usuarioLogado != null && usuarioLogado.Perfil == 'A')
+    {
+        Layout = "~/Views/Shared/_LayoutADM.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
 }
