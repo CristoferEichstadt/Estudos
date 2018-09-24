@@ -176,11 +176,11 @@
     <Content Include="Content\adm\css\bootstrap-responsive.min.css" />
     <Content Include="Content\adm\css\bootstrap.css" />
     <Content Include="Content\adm\css\bootstrap.min.css" />
+    <Content Include="Content\adm\css\Categoria.css" />
     <Content Include="Content\adm\css\font-awesome-ie7.css" />
     <Content Include="Content\adm\css\font-awesome-ie7.min.css" />
     <Content Include="Content\adm\css\font-awesome.css" />
     <Content Include="Content\adm\css\font-awesome.min.css" />
-    <Content Include="Content\adm\css\formCategorias.css" />
     <Content Include="Content\adm\css\pages\dashboard.css" />
     <Content Include="Content\adm\css\pages\faq.css" />
     <Content Include="Content\adm\css\pages\plans.css" />
@@ -191,7 +191,6 @@
     <Content Include="Content\adm\img\body-bg.png" />
     <Content Include="Content\adm\img\glyphicons-halflings-white.html" />
     <Content Include="Content\adm\img\glyphicons-halflings.html" />
-    <Content Include="Content\adm\img\home.png" />
     <Content Include="Content\adm\img\icons-sa7c41345d9.png" />
     <Content Include="Content\adm\img\message_avatar1.png" />
     <Content Include="Content\adm\img\message_avatar2.png" />
@@ -609,6 +608,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
@@ -762,7 +762,7 @@
     <Content Include="Views\Subcategoria\Form.cshtml" />
     <Content Include="Views\Shared\_LayoutADM.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Form.cshtml" />
+    <Content Include="Views\Funcionario\Form.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -773,6 +773,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\corporate\img\login\" />
+    <Folder Include="Views\Layout\" />
     <Folder Include="Views\Pessoas\" />
     <Folder Include="Views\Pessoa\" />
     <Folder Include="Views\Produto\" />

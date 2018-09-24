@@ -1,6 +1,5 @@
 ﻿using PetShop_Project.DAO;
 using PetShop_Project.Models;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -12,7 +11,13 @@ namespace PetShop_Project.Controllers
         // GET: Categoria
         public ActionResult Form()
         {
+            var dao = new CategoriaDAO();
+
+            ViewBag.Subcategoria = new Subcategoria();
+            ViewBag.Categorias = dao.Lista();
+
             ViewBag.Categoria = new Categoria();
+
             return View();
         }
 
@@ -23,13 +28,37 @@ namespace PetShop_Project.Controllers
             var categoria = new Categoria
             {
                 Nome = nome,
-                Ativo = true
+                Ativo = true,
             };
 
             dao.Adiciona(categoria);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Form");
         }
+
+        [HttpPost]
+        public ActionResult AdicionaSubcategoria(string nome, int cat)
+        {
+            SubcategoriaDAO dao = new SubcategoriaDAO();
+            Subcategoria sub = new Subcategoria()
+            {
+                Nome = nome,
+                Ativo = true,
+                CategoriaId = cat,
+            };
+            
+            dao.Adiciona(sub);
+
+            return RedirectToAction("Form");
+
+        }
+
+        //public JsonResult ListaSub(Categoria categoria)
+        //{
+        //    CategoriaDAO dao = new CategoriaDAO();
+
+        //    return Json(new { lista = dao.ListaSubcategorias(categoria), JsonRequestBehavior.AllowGet });
+        //}
 
     }
 }

@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutADM.cshtml";
+}
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="shortcut icon" href="~/Content/assets/corporate/img/layout/favicon.png">
+
+<div class="main">
+
+    <div class="main-inner">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="widget ">
+
+                        <div class="widget-header">
+                            <i class="icon-user"></i>
+                            <h3>Cadastro de Funcionários</h3>
+                        </div> <!-- /widget-header -->
+
+                        <div class="widget-content">
+                            <div id="esquerda">
+                                <form action="/Funcionario/AdicionaFuncionario" id="formFuncionario" method="post">
+                                    <div>
+                                        <input type="text" name="usuario.Perfil" value="F" hidden />
+                                        <input type="text" name="usuario.Ativo" value="True" hidden />
+                                        <input type="text" name="usuario.Pessoa.TipoPessoa" value="F" hidden />
+
+                                        <label id="textNome" for="nome">Funcionário</label>
+                                        <input id="nome" name="usuario.Pessoa.Nome" placeholder="Insira o nome completo" autofocus value="@ViewBag.Usuario.Pessoa.Nome" class="form-control" maxlength="60" />
+
+                                        <label id="textEmail" for="email">E-mail</label>
+                                        <input id="emailFisica" name="usuario.Email" type="email" placeholder="email@email.com.br" value="@ViewBag.Usuario.Email" class="form-control email" maxlength="50" />
+
+                                        <label id="textSenha" for="senha">Senha</label>
+                                        <input id="senhaFisica" type="password" name="usuario.Senha" placeholder="Formato Aaaa9999" value="@ViewBag.Usuario.Senha" class="form-control senha" maxlength="8" minlength="8" />
+
+                                        <label id="textData" for="dataNascimento">Data de Nascimento</label>
+                                        <input id="dataNascimento" type="date" name="usuario.Pessoa.DataNascimento" value="@ViewBag.Usuario.Pessoa.DataNascimento" max="2004-12-31" min="1950-12-31" class="form-control" />
+
+                                        <label id="textCpf" for="cpfCnpj">CPF:</label>
+                                        <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CPF" @*onkeypress="validaInvalidaCpf(this); fMasc( this, mascaraCPF );" onkeyup="VerificaCpfNoBanco()"*@ maxlength="14" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
+
+                                        <div class="form-row">
+                                            <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Funcionário" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+
+                    </div> <!-- /row -->
+
+                </div> <!-- /container -->
+
+            </div> <!-- /main-inner -->
+
+        </div> <!-- /main -->
+    </div>
+</div>

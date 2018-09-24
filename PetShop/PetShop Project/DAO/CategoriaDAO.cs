@@ -47,6 +47,5 @@ namespace PetShop_Project.DAO
                 return contexto.Categorias.Where(c => c.Nome == nome).FirstOrDefault();
             }
         }
-
     }
 }

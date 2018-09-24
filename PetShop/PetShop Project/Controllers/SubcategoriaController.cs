@@ -13,28 +13,10 @@ namespace PetShop_Project.Controllers
         // GET: Subcategoria
         public ActionResult Form()
         {
-            var dao = new CategoriaDAO();
-
-            ViewBag.Subcategoria = new Subcategoria();
-            ViewBag.Categorias = dao.Lista();
+            
             return View();
         }
 
-        public ActionResult AdicionaSubcategoria(string nome, int categoria)
-        {
-            SubcategoriaDAO dao = new SubcategoriaDAO();
-            Subcategoria sub = new Subcategoria()
-            {
-                Nome = nome,
-                Ativo = true,
-                CategoriaId = categoria
-            };
-
-            dao.Adiciona(sub);
-
-            return RedirectToAction("Form");
-
-        }
-
+        
     }
 }

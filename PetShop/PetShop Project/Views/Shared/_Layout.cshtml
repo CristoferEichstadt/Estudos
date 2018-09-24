@@ -43,6 +43,7 @@
     <link href="~/Content/assets/corporate/css/style-responsive.css" rel="stylesheet">
     <link href="~/Content/assets/corporate/css/themes/red.css" rel="stylesheet" id="style-color">
     <link href="~/Content/assets/corporate/css/custom.css" rel="stylesheet">
+
     <!-- Theme styles END -->
 </head>
 <!-- Head END -->
@@ -75,7 +76,8 @@
                                 }
                                 else
                                 {
-                                    nome = new PetShop_Project.DAO.PessoaDAO().BuscaPorUsuario(usuarioLogado.Id).NomeFantasia;
+                                    var nomeInteiro = new PetShop_Project.DAO.PessoaDAO().BuscaPorUsuario(usuarioLogado.Id).NomeFantasia;
+                                    nome = nomeInteiro.Substring(0, nomeInteiro.IndexOf(' '));
                                     <li>Seja bem vindo, @nome!</li>
                                 }
                                 <li>@Html.ActionLink("Minha Conta", "Index", "ContaUsuario")</li>
@@ -181,75 +183,24 @@
             <!-- MENU NAVEGAÇÃO -->
             <div class="header-navigation">
                 <ul>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-                            Alimentos
-                        </a>
-                        <!-- SUB MENU ALIMENTOS -->
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu">
-                            <li><a href="shop-product-list.html">Cachorro</a></li>
-                            <li><a href="shop-product-list.html">Gato</a></li>
-                            <li><a href="shop-product-list.html">Pássaros</a></li>
-                            <li><a href="shop-product-list.html">Peixes</a></li>
-                            <li><a href="shop-product-list.html">Roedores</a></li>
-                        </ul>
-                        <!-- FIM -->
-
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-                            Cachorros
-                        </a>
-                        <!-- SUB MENU CACHORROS -->
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu">
-                            <li><a href="shop-product-list.html">Saúde Canina</a></li>
-                            <li><a href="shop-product-list.html">Limpeza</a></li>
-                            <li><a href="shop-product-list.html">Acessórios</a></li>
-                            <li><a href="shop-product-list.html">Brinquedos</a></li>
-                        </ul>
-                        <!-- FIM -->
-                    </li>
-
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-                            Gatos
-                        </a>
-                        <!-- SUB MENU GATOS -->
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu">
-                            <li><a href="shop-product-list.html">Saúde Felina</a></li>
-                            <li><a href="shop-product-list.html">Limpeza</a></li>
-                            <li><a href="shop-product-list.html">Acessórios</a></li>
-                            <li><a href="shop-product-list.html">Brinquedos</a></li>
-                        </ul>
-                        <!-- FIM -->
-                    </li>
-
-
-                    <li><a href="shop-item.html">Hotel</a></li>
-                    <li><a href="shop-item.html">Veterinário</a></li>
-
-
-                    <!-- BEGIN TOP SEARCH
-                    <li class="menu-search">
-                        <span class="sep"></span>
-                        <i class="fa fa-search search-btn"></i>
-                        <div class="search-box">
-                            <form action="#">
-                                <div class="input-group">
-                                    <input type="text" placeholder="Search" class="form-control">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="submit">Search</button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-                    END TOP SEARCH -->
-
+                    @{var categorias = new PetShop_Project.DAO.CategoriaDAO(); var sub = new PetShop_Project.DAO.SubcategoriaDAO();}
+                    @foreach (var c in categorias.Lista())
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                                @c.Nome
+                            </a>
+                            <!-- SUB MENU ALIMENTOS -->
+                            @foreach (var s in sub.ListaSubcategorias(c.Id))
+                            {
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-submenu">
+                                    <li><a href="shop-product-list.html">@s.Nome</a></li>
+                                </ul>
+                            }
+                        </li>
+                    }
+                    <!-- FIM -->
 
                 </ul>
             </div>

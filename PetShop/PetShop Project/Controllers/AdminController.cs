@@ -1,4 +1,5 @@
-﻿using PetShop_Project.Models;
+﻿using PetShop_Project.DAO;
+using PetShop_Project.Models;
 using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
@@ -8,11 +9,6 @@ namespace PetShop_Project.Controllers
     {
         // GET: Admin
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult Form()
         {
             return View();
         }
