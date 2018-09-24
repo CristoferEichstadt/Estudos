@@ -29,6 +29,7 @@ namespace PetShop_Project.Controllers
                 }
             }
             return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
+
         }
         public JsonResult VerificaCpfFuncionarioNoBanco(string cpf)
         {

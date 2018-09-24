@@ -66,14 +66,15 @@
     </div>
 </div>
 
-<script src="~/Scripts/scriptFormCadastroUsuario.js"></script>
+<script src="~/Scripts/scriptValidacoesCadastroUsuario.js"></script>
+<script src="~/Scripts/jquery.form.js"></script>
 <script>
     $('#FormFuncionario').ajaxForm({
         success: function (resposta) {
             if (resposta.dadosinvalidos == true) {
                 alert("Dados inválidos!");
             } else {
-                window.location.href = "@Url.Action("Index", "Home")";
+                location.reload();
             }
         }
     });
