@@ -643,6 +643,10 @@
     <Compile Include="Migrations\20180831195751_AdicionandoPropriedadesPessoa.designer.cs">
       <DependentUpon>20180831195751_AdicionandoPropriedadesPessoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180924192013_ModificacaoModels.cs" />
+    <Compile Include="Migrations\20180924192013_ModificacaoModels.designer.cs">
+      <DependentUpon>20180924192013_ModificacaoModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PetShopContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Contato.cs" />
