@@ -23,15 +23,17 @@ namespace PetShop_Project.Controllers
 
             if (usuario.Valida())
             {
-                if (pessoa.TipoPessoa == 'F')
+                if (pessoaController.ValidarCadastroPessoaFisica(pessoa) == true)
                 {
-                    if (pessoaController.ValidarCadastroPessoaFisica(pessoa) == true)
-                    {
-                        dao.Adiciona(usuario);
-                    }
+                    dao.Adiciona(usuario);
                 }
             }
             return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult VerificaCpfFuncionarioNoBanco(string cpf)
+        {
+            PessoaDAO dao = new PessoaDAO();
+            return Json(new { existeCpf = dao.BuscaPorCpfCnpj(cpf) }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -5,7 +5,6 @@
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="shortcut icon" href="~/Content/assets/corporate/img/layout/favicon.png">
 
 <div class="main">
 
@@ -26,11 +25,11 @@
 
                         <div class="widget-content">
                             <div id="esquerda">
-                                <form action="/Funcionario/AdicionaFuncionario" id="formFuncionario" method="post">
+                                <form action="/Funcionario/AdicionaFuncionario" id="FormFuncionario" method="post">
                                     <div>
-                                        <input type="text" name="usuario.Perfil" value="F" hidden />
-                                        <input type="text" name="usuario.Ativo" value="True" hidden />
-                                        <input type="text" name="usuario.Pessoa.TipoPessoa" value="F" hidden />
+                                        <input type="text" name="usuario.Perfil" value="F" style="display:none" />
+                                        <input type="text" name="usuario.Ativo" value="True" style="display:none" />
+                                        <input type="text" name="usuario.Pessoa.TipoPessoa" value="F" style="display:none" />
 
                                         <label id="textNome" for="nome">Funcionário</label>
                                         <input id="nome" name="usuario.Pessoa.Nome" placeholder="Insira o nome completo" autofocus value="@ViewBag.Usuario.Pessoa.Nome" class="form-control" maxlength="60" />
@@ -45,7 +44,7 @@
                                         <input id="dataNascimento" type="date" name="usuario.Pessoa.DataNascimento" value="@ViewBag.Usuario.Pessoa.DataNascimento" max="2004-12-31" min="1950-12-31" class="form-control" />
 
                                         <label id="textCpf" for="cpfCnpj">CPF:</label>
-                                        <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CPF" @*onkeypress="validaInvalidaCpf(this); fMasc( this, mascaraCPF );" onkeyup="VerificaCpfNoBanco()"*@ maxlength="14" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
+                                        <input id="cpf @ViewBag.usuario.Pessoa.CpfCnpj" type="text" name="usuario.Pessoa.CpfCnpj" placeholder="Insira o CPF" onkeypress="validaInvalidaCpf(this); fMasc( this, mascaraCPF );" onkeyup="VerificaCpfNoBanco()" maxlength="14" value="@ViewBag.Usuario.Pessoa.CpfCnpj" class="form-control" required> <span id="cpfResponse"></span>
 
                                         <div class="form-row">
                                             <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Funcionário" />
@@ -66,3 +65,31 @@
         </div> <!-- /main -->
     </div>
 </div>
+
+<script src="~/Scripts/scriptFormCadastroUsuario.js"></script>
+<script>
+    $('#FormFuncionario').ajaxForm({
+        success: function (resposta) {
+            if (resposta.dadosinvalidos == true) {
+                alert("Dados inválidos!");
+            } else {
+                window.location.href = "@Url.Action("Index", "Home")";
+            }
+        }
+    });
+
+     function VerificaCpfNoBanco() {
+        var completou = $("#cpf").attr("maxlength") == $("#cpf").val().length;
+        if (completou) {
+            var url = "@Url.Action("VerificaCpfFuncionarioNoBanco", "Funcionario")";
+            var params = { cpf: $("#cpf").val()};
+            $.post(url, params, verificaCpf);
+        }
+    }
+    function verificaCpf(resposta) {
+        if (resposta.existeCpf == true) {
+            document.getElementById('cpfResponse').innerHTML = '<span style="color:red">CPF já existente!</span>';
+        }
+    }
+
+</script>

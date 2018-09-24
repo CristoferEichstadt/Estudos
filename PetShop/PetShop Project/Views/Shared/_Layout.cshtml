@@ -85,7 +85,6 @@
                             }
                             else
                             {
-                                <li>@Html.ActionLink("ADMIN", "Form", "Categoria")</li>
                                 <li> @Html.ActionLink("Login / Cadastro", "Index", "Login") </li>
                             }
                         }
@@ -191,15 +190,15 @@
                                 @c.Nome
                             </a>
                             <!-- SUB MENU ALIMENTOS -->
-                            @foreach (var s in sub.ListaSubcategorias(c.Id))
-                            {
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-submenu">
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    @foreach (var s in sub.ListaSubcategorias(c.Id))
+                                    {
                                     <li><a href="shop-product-list.html">@s.Nome</a></li>
+                                }
                                 </ul>
-                            }
-                        </li>
-                    }
+                            </li>
+                        }
                     <!-- FIM -->
 
                 </ul>
