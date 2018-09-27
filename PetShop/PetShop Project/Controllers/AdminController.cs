@@ -1,10 +1,9 @@
-﻿using PetShop_Project.DAO;
-using PetShop_Project.Models;
+﻿using PetShop_Project.Filtros;
 using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
 {
-    
+    [AdminFilter]
     public class AdminController : Controller
     {
         // GET: Admin

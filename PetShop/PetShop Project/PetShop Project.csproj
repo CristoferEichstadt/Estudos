@@ -611,6 +611,7 @@
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MinhaContaController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\SubcategoriaController.cs" />
@@ -627,7 +628,8 @@
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
     <Compile Include="DAO\VendaItemDao.cs" />
-    <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
+    <Compile Include="Filtros\AdminFilterAttribute.cs" />
+    <Compile Include="Filtros\ClienteFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -646,6 +648,18 @@
     <Compile Include="Migrations\20180924192013_ModificacaoModels.cs" />
     <Compile Include="Migrations\20180924192013_ModificacaoModels.designer.cs">
       <DependentUpon>20180924192013_ModificacaoModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180926031132_modeloEndereco.cs" />
+    <Compile Include="Migrations\20180926031132_modeloEndereco.designer.cs">
+      <DependentUpon>20180926031132_modeloEndereco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180927201125_AtualizacaoDeBD.cs" />
+    <Compile Include="Migrations\20180927201125_AtualizacaoDeBD.designer.cs">
+      <DependentUpon>20180927201125_AtualizacaoDeBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180927201731_ImagemParaStringTemporaria.cs" />
+    <Compile Include="Migrations\20180927201731_ImagemParaStringTemporaria.designer.cs">
+      <DependentUpon>20180927201731_ImagemParaStringTemporaria.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PetShopContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -767,6 +781,8 @@
     <Content Include="Views\Shared\_LayoutADM.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Funcionario\Form.cshtml" />
+    <Content Include="Views\Produto\Form.cshtml" />
+    <Content Include="Views\MinhaConta\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -777,10 +793,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\corporate\img\login\" />
-    <Folder Include="Views\Layout\" />
-    <Folder Include="Views\Pessoas\" />
-    <Folder Include="Views\Pessoa\" />
-    <Folder Include="Views\Produto\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

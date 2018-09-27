@@ -16,5 +16,6 @@ namespace PetShop_Project.Models
         public string Numero { get; set; }
         public string Cep { get; set; }
         public Pessoa Pessoa { get; set; }
+        public int PessoaId { get; set; }
     }
 }

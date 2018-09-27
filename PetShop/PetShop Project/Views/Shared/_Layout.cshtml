@@ -80,7 +80,7 @@
                                     nome = nomeInteiro.Substring(0, nomeInteiro.IndexOf(' '));
                                     <li>Seja bem vindo, @nome!</li>
                                 }
-                                <li>@Html.ActionLink("Minha Conta", "Index", "ContaUsuario")</li>
+                                <li>@Html.ActionLink("Minha Conta", "Index", "MinhaConta")</li>
                                 <li><a href="#" onclick="deslogar()">Sair</a></li>
                             }
                             else
@@ -360,7 +360,7 @@
 
         function atualiza(resposta) {
             if (resposta.deslogar == true) {
-                location.reload();
+                location.href = "/Home";
             }
         }
     </script>

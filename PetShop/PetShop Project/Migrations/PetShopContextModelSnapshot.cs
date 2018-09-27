@@ -145,13 +145,13 @@ namespace PetShop_Project.Migrations
 
                     b.Property<bool>("Ativo");
 
-                    b.Property<int?>("CategoriaId");
+                    b.Property<int>("CategoriaId");
 
                     b.Property<DateTime>("DataInsercao");
 
                     b.Property<string>("Descricao");
 
-                    b.Property<byte[]>("Imagem");
+                    b.Property<string>("Imagem");
 
                     b.Property<double>("MargemLucro");
 
@@ -159,7 +159,7 @@ namespace PetShop_Project.Migrations
 
                     b.Property<int>("Quantidade");
 
-                    b.Property<int?>("SubcategoriaId");
+                    b.Property<int>("SubcategoriaId");
 
                     b.Property<double>("ValorCusto");
 
@@ -285,11 +285,13 @@ namespace PetShop_Project.Migrations
                 {
                     b.HasOne("PetShop_Project.Models.Categoria", "Categoria")
                         .WithMany()
-                        .HasForeignKey("CategoriaId");
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("PetShop_Project.Models.Subcategoria", "Subcategoria")
                         .WithMany()
-                        .HasForeignKey("SubcategoriaId");
+                        .HasForeignKey("SubcategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("PetShop_Project.Models.Subcategoria", b =>

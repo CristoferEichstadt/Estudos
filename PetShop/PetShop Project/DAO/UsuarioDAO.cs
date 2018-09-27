@@ -1,9 +1,7 @@
 ﻿using PetShop_Project.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace PetShop_Project.DAO
 {
@@ -38,7 +36,7 @@ namespace PetShop_Project.DAO
         {
             using (var contexto = new PetShopContext())
             {
-                contexto.Entry(usuario).State = EntityState.Modified;
+                contexto.Usuarios.Update(usuario);
                 contexto.SaveChanges();
             }
         }
@@ -47,7 +45,10 @@ namespace PetShop_Project.DAO
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Usuarios.Where(u => u.Email == email && u.Senha == senha).FirstOrDefault();
+                return contexto.Usuarios
+                    .Include(u => u.Pessoa).ThenInclude(p => p.Endereco)
+                    .Include(u => u.Pessoa).ThenInclude(p => p.Contato)
+                    .Where(u => u.Email == email && u.Senha == senha).FirstOrDefault();
             }
         }
     }

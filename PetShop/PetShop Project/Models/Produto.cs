@@ -10,6 +10,8 @@ namespace PetShop_Project.Models
         public int Id { get; private set; }
         public Categoria Categoria { get; set; }
         public Subcategoria Subcategoria { get; set; }
+        public int SubcategoriaId { get; set; }
+        public int CategoriaId { get; set; }
         public DateTime DataInsercao { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
@@ -18,7 +20,7 @@ namespace PetShop_Project.Models
         public double ValorCusto { get; set; }
         public double MargemLucro { get; set; }
         public bool Ativo { get; set; }
-        public byte[] Imagem { get; set; }
+        public string Imagem { get; set; }
         public IList<VendaItem> VendaItens { get; set; }
         public Produto()
         {

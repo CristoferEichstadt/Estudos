@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_LayoutADM.cshtml";
+}
+
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="widget ">
+                        <div class="widget-header">
+                            <i class="icon-user"></i>
+                            <h3>Cadastro de Produtos</h3>
+                        </div>
+
+
+
+                        <div class="widget-content">
+                            <div>
+
+
+
+                                <form action="/Produto/Adiciona" method="post">
+
+
+                                    <div>
+                                        <label>Escolha a Categoria</label>
+                                        <select required name="cat" onchange="populaSubs()">
+                                            <option value="">Selecione...</option>
+                                            @foreach (var categoria in ViewBag.Categorias)
+                                            {
+                                                <option id="catId" value="@categoria.Id">@categoria.Nome</option>
+                                            }
+                                        </select>
+
+                                        <label>Escolha a Subcategoria</label>
+                                        <select id="selectSubs" name="sub">
+                                            <option value="">Selecione...</option>
+                                        </select>
+
+                                    </div>
+
+                                    <label id="textNome" for="nome">Nome</label>
+                                    <input type="text" id="nomeProduto" name="Estoque.Produto.Nome" placeholder="Insira o nome do Produto" value="" class="form-control" maxlength="20" />
+
+                                    <label id="textNome" for="quantidade">Quantidade</label>
+                                    <input type="number" id="quantidade" name="Estoque.Produto.Quantidade" placeholder="Insira a quantidade" value="" class="form-control" min="0" />
+
+                                    <label id="textNome" for="valorUni">Valor Unitário</label>
+                                    <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value="" class="form-control" maxlength="20" />
+
+                                    <label id="textNome" for="valorCusto">Valor Custo</label>
+                                    <input type="text" id="valorCusto" name="Estoque.Produto.ValorCusto" placeholder="Insira o valor custo" value="" class="form-control" maxlength="20" />
+
+                                    <label id="textNome" for="margemLucro">Margem de Lucro</label>
+                                    <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="Insira a margem de lucro" value="" class="form-control" maxlength="20" />
+
+                                    <label>Situação</label>
+                                    <select id="selectSituacao" name="Estoque.Produto.Ativo">
+                                        <option value="">Selecione...</option>
+                                        <option value="True">Ativo</option>
+                                        <option value="False">Inativo</option>
+                                    </select>
+
+                                    <label id="textNome" for="imagem">IMAGEM</label>
+                                    <input type="text" id="imagem" name="Estoque.Produto.Imagem" placeholder="Imagem" value="" class="form-control" maxlength="20" />
+
+
+                                    <div class="form-row">
+
+                                        <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Produto" />
+                                    </div>
+
+
+                                </form>
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function populaSubs() {
+        $("#selectSubs option").remove();
+        console.log($("select option:selected").val());
+        var selecionado = $("select option:selected").val();
+        console.log(selecionado);
+        $.ajax({
+            type: "GET",
+            url: "/Produto/PopulaSubcategorias/" + selecionado,
+            success: function (data) {
+                var lista = data.lista;
+                var select = $("#selectSubs");
+
+                $(lista).each(function (i) {
+                    console.log(i);
+                    var itemLista = $("<option>").text(lista[i].Nome).val(lista[i].Id);
+                    select.append(itemLista);
+                });
+            }
+
+        });
+    }
+
+</script>

@@ -6,5 +6,6 @@
         public string Celular { get; set; }
         public string Telefone { get; set; }
         public Pessoa Pessoa { get; set; }
+        public int PessoaId { get; set; }
     }
 }

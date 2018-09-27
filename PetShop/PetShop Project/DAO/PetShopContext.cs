@@ -12,7 +12,7 @@ namespace PetShop_Project.DAO
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Subcategoria> Subcategorias { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Models.Usuario> Usuarios { get; set; }
         public DbSet<Venda> Vendas { get; set; }
         public DbSet<Contato> Contatos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

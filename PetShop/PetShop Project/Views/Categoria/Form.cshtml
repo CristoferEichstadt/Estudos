@@ -4,24 +4,19 @@
 }
 
 <link href="~/Content/adm/css/Categoria.css" rel="stylesheet" />
+
 <div class="main">
-
     <div class="main-inner">
-
         <div class="container">
-
             <div class="row">
-
                 <div class="span12">
-
                     <div class="widget ">
-
                         <div class="widget-header">
                             <i class="icon-user"></i>
-                            <h3>Cadastro de Categorias - Subcategorias - Produtos</h3>
-                        </div> <!-- /widget-header -->
-
+                            <h3>Cadastro de Categorias - Subcategorias</h3>
+                        </div>
                         <div class="widget-content">
+
                             <div id="esquerda">
                                 <form action="/Categoria/AdicionaCategoria" id="formCategoria" method="post">
                                     <div>
@@ -37,11 +32,12 @@
                                 </form>
                             </div>
 
-                            <div class="linha-vertical"></div>
+
 
                             <div id="direita">
                                 <form action="/Categoria/AdicionaSubcategoria" id="formSubategoria" method="post">
                                     <div>
+                                        <label>Selecione para adicionar sua Subcategoria</label>
                                         <select name="cat">
                                             @foreach (var categoria in ViewBag.Categorias)
                                             {
@@ -49,7 +45,7 @@
                                             }
                                         </select>
 
-                                        <label id="textNome" for="nome">Nome</label>
+                                        <label id="textNome" for="nome">Subcategoria</label>
                                         <input id="nomeSubcategoria" name="nome" placeholder="Insira o nome da Subcategoria" autofocus value="@ViewBag.Subcategoria.Nome"
                                                class="form-control" maxlength="20" />
 
@@ -58,53 +54,17 @@
                                             <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Subcategoria" />
                                         </div>
                                     </div>
+
+
                                 </form>
                             </div>
 
 
 
-                            @*<select name="categoria">
-                                    @foreach (var cat in ViewBag.Categorias)
-                                    {
-                                        <option>@cat.Subcategorias</option>
-                                    }
-                                </select>*@
-
-
-
-
                         </div>
-
-                    </div> <!-- /row -->
-
-                </div> <!-- /container -->
-
-            </div> <!-- /main-inner -->
-
-        </div> <!-- /main -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-@*<script>
-    $(document).ready(function () {
-        $.ajax({
-            type: "GET",
-            url: "Categoria/ListaSub",
-            dataType: "json",
-            contentType: "application/json; charset-utf-8",
-            success: function (obj) {
-                if (obj != null) {
-                    var data = obj.data;
-                    var selectBox = $("#listaSubcategorias");
-                    selectBox.find('option').remove();
-                    $('<option>').val("").text("Selecione a subcategoria").appendTo(selectBox);
-                    $.each(data, function (i,d) {
-                        $('<option>').val(d.Id).text(d.Subcategoria).appendTo(selectBox);
-                    });
-                }
-            }
-
-        });
-    });
-
-</script>*@
