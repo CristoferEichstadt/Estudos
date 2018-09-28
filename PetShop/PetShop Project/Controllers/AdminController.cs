@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
 {
-    [AdminFilter]
+    //[AdminFilter]
     public class AdminController : Controller
     {
         // GET: Admin

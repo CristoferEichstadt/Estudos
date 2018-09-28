@@ -17,6 +17,8 @@ function mascaraCNPJ(cnpj) {
 }
 
 
+
+
 // --> FUNÇÕES <-- //
 
 function VerficaRadioSelecionado() {

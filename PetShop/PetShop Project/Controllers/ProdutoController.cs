@@ -2,6 +2,7 @@
 using PetShop_Project.Filtros;
 using PetShop_Project.Models;
 using System;
+using System.Web;
 using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
@@ -14,7 +15,6 @@ namespace PetShop_Project.Controllers
             CategoriaDAO dao = new CategoriaDAO();
             ViewBag.Categorias = dao.Lista();
 
-            ProdutoDAO daoP = new ProdutoDAO();
             ViewBag.Estoque = new Estoque();
             ViewBag.Estoque.Produto = new Produto();
 
@@ -28,36 +28,34 @@ namespace PetShop_Project.Controllers
             return Json(new { lista = dao.ListaSubcategorias(id) }, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Adiciona(Estoque estoque, int cat, int sub)
+        public ActionResult Adiciona(Estoque estoque, int cat, int sub, HttpPostedFileBase upload)
         {
             EstoqueDAO dao = new EstoqueDAO();
-            //Produto produto = new Produto
-            //{
-            //    CategoriaId = cat,
-            //    SubcategoriaId = sub,
-            //    Nome = nome,
-            //    MargemLucro = margemlucro,
-            //    Quantidade = quantidade,
-            //    DataInsercao = DateTime.Now,
-            //    ValorCusto = valorcusto,
-            //    ValorUnitario = valoruni
-            //};
-            
 
-            if (estoque != null)
+            if (upload != null && upload.ContentLength > 0 && estoque != null)
             {
-                estoque.Produto.CategoriaId = cat;
-                estoque.Produto.SubcategoriaId = sub;
-                estoque.Produto.DataInsercao = DateTime.Now;
-                estoque.TipoMovimentacao = 1;
-                dao.Adiciona(estoque);
-                return RedirectToAction("Form");
-
+                using (System.IO.Stream inputStream = upload.InputStream)
+                {
+                    System.IO.MemoryStream memoryStream = inputStream as System.IO.MemoryStream;
+                    if (memoryStream == null)
+                    {
+                        memoryStream = new System.IO.MemoryStream();
+                        inputStream.CopyTo(memoryStream);
+                    }
+                    estoque.Produto.Imagem = memoryStream.ToArray();
+                    estoque.Produto.CategoriaId = cat;
+                    estoque.Produto.SubcategoriaId = sub;
+                    estoque.Produto.DataInsercao = DateTime.Now;
+                    estoque.TipoMovimentacao = 1;
+                    dao.Adiciona(estoque);
+                    return RedirectToAction("Form");
+                }
             }
             else
             {
                 return RedirectToAction("Form");
             }
+
         }
 
 

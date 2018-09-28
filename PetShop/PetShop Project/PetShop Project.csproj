@@ -283,6 +283,7 @@
     <Content Include="Content\assets\pages\css\portfolio.css" />
     <Content Include="Content\assets\pages\css\slider.css" />
     <Content Include="Content\assets\pages\css\style-shop.css" />
+    <Content Include="Content\assets\pages\css\style.css" />
     <Content Include="Content\assets\pages\img\brands\canon.jpg" />
     <Content Include="Content\assets\pages\img\brands\esprit.jpg" />
     <Content Include="Content\assets\pages\img\brands\gap.jpg" />
@@ -601,6 +602,7 @@
     <Content Include="Scripts\scriptFormCadastroUsuario.js" />
     <Content Include="Scripts\scriptValidacaoLogin.js" />
     <Content Include="Scripts\scriptValidacoesCadastroUsuario.js" />
+    <Content Include="Scripts\scriptValidacoesMinhaConta.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -630,6 +632,7 @@
     <Compile Include="DAO\VendaItemDao.cs" />
     <Compile Include="Filtros\AdminFilterAttribute.cs" />
     <Compile Include="Filtros\ClienteFilterAttribute.cs" />
+    <Compile Include="Filtros\FuncionarioFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -661,6 +664,10 @@
     <Compile Include="Migrations\20180927201731_ImagemParaStringTemporaria.designer.cs">
       <DependentUpon>20180927201731_ImagemParaStringTemporaria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180928000556_CriacaoByteImagem.cs" />
+    <Compile Include="Migrations\20180928000556_CriacaoByteImagem.designer.cs">
+      <DependentUpon>20180928000556_CriacaoByteImagem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PetShopContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Contato.cs" />
@@ -671,12 +678,14 @@
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Subcategoria.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Validação\Categoria\ValidacaoNomeCategoria.cs" />
     <Compile Include="Models\Validação\IValidacao.cs" />
     <Compile Include="Models\Validação\PessoaFisica\ValidacaoCPF.cs" />
     <Compile Include="Models\Validação\PessoaFisica\ValidacaoDataNascimento.cs" />
     <Compile Include="Models\Validação\PessoaFisica\ValidacaoNome.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoCNPJ.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoIE.cs" />
+    <Compile Include="Models\Validação\Subcategoria\ValidacaoNomeSubcategoria.cs" />
     <Compile Include="Models\Validação\Usuario\ValidacaoEmail.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoNomeFantasia.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoRazaoSocial.cs" />
@@ -793,6 +802,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\corporate\img\login\" />
+    <Folder Include="Models\Validação\Contato\" />
+    <Folder Include="Models\Validação\Endereco\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -33,9 +33,14 @@ namespace PetShop_Project.Controllers
                 Ativo = true,
             };
 
-            dao.Adiciona(categoria);
+            if (categoria.Valida())
+            {
+                dao.Adiciona(categoria);
+                return RedirectToAction("Form");
+            }
 
-            return RedirectToAction("Form");
+            return Json(new { dadosInvalidos = true }, JsonRequestBehavior.AllowGet);
+
         }
 
         [HttpPost]
@@ -48,19 +53,14 @@ namespace PetShop_Project.Controllers
                 Ativo = true,
                 CategoriaId = cat,
             };
+            if (sub.Valida())
+            {
+                dao.Adiciona(sub);
+                return RedirectToAction("Form");
+            }
 
-            dao.Adiciona(sub);
-
-            return RedirectToAction("Form");
-
+            return Json(new { dadosInvalidos = true }, JsonRequestBehavior.AllowGet);
         }
-
-        //public JsonResult ListaSub(Categoria categoria)
-        //{
-        //    CategoriaDAO dao = new CategoriaDAO();
-
-        //    return Json(new { lista = dao.ListaSubcategorias(categoria), JsonRequestBehavior.AllowGet });
-        //}
 
     }
 }

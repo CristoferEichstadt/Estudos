@@ -1,9 +1,13 @@
 ﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutADM.cshtml";
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_LayoutADM.cshtml";
 }
 
 <link href="~/Content/adm/css/Categoria.css" rel="stylesheet" />
+<script src="~/Content/assets/plugins/jquery.min.js"></script>
+
 
 <div class="main">
     <div class="main-inner">
@@ -26,7 +30,7 @@
 
                                         <div class="form-row">
 
-                                            <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Categoria" />
+                                            <input type="submit" id="botaoCat" class="btn btn-danger btn-block botao" value="Adicionar Categoria" />
                                         </div>
                                     </div>
                                 </form>
@@ -68,3 +72,45 @@
         </div>
     </div>
 </div>
+
+<script src="~/Scripts/jquery.form.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        botao = document.querySelector("#botaoCat");
+        botao.addEventListener("click", function (event) {
+            event.preventDefault();
+            validaCategoria();
+
+        });
+    });
+
+    function validaCategoria() {
+        var url = "@Url.Action("AdicionaCategoria", "Categoria")";
+        var params = { nome: $("#nomeCategoria").val() };
+        $.post(url, params, verifica);
+    }
+
+    function verifica(resposta) {
+        if (resposta.dadosInvalidos == true) {
+            alert("Dados Inválidos!");
+            return;
+        }
+    }
+
+    function validaSubcategoria() {
+        var url = "@Url.Action("AdicionaSubcategoria", "Categoria")";
+        var params = { nome: $("#nomeSubcategoria").val() };
+        $.post(url, params, verificaSub);
+    }
+
+    function verificaSub(resposta) {
+        if (resposta.dadosInvalidos == true) {
+            alert("Dados Inválidos!");
+            return;
+        }
+    }
+
+
+</script>

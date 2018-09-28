@@ -1,5 +1,4 @@
 ﻿using PetShop_Project.DAO;
-using PetShop_Project.Filtros;
 using PetShop_Project.Models;
 using System.Web.Mvc;
 
@@ -9,20 +8,20 @@ namespace PetShop_Project.Controllers
     {
         public ActionResult Form()
         {
-            ViewBag.Usuario = new Models.Usuario();
+            ViewBag.Usuario = new Usuario();
             ViewBag.Usuario.Pessoa = new Pessoa();
             return View();
         }
 
-        [AdminFilter]
+
         [HttpPost]
-        public ActionResult AdicionaUsuario(Models.Usuario usuario, Endereco endereco, Contato contato)
+        public ActionResult AdicionaUsuario(Usuario usuario, Endereco endereco, Contato contato)
         {
-            DAO.UsuarioDAO dao = new DAO.UsuarioDAO();
+            UsuarioDAO dao = new UsuarioDAO();
             var pessoa = usuario.Pessoa;
             pessoa.Endereco = endereco;
             pessoa.Contato = contato;
-            
+
             var pessoaController = new PessoaController();
 
             if (usuario.Valida())
@@ -49,10 +48,10 @@ namespace PetShop_Project.Controllers
 
             return Json(new { dadosinvalidos = true }, JsonRequestBehavior.AllowGet);
         }
-        [AdminFilter]
+
         public ActionResult VerificaUsuario(string email, string senha)
         {
-            UsuarioDAO dao = new DAO.UsuarioDAO();
+            UsuarioDAO dao = new UsuarioDAO();
             Usuario usuario = dao.Busca(email, senha);
 
             if (usuario != null)
@@ -67,6 +66,10 @@ namespace PetShop_Project.Controllers
                 {
                     return RedirectToAction("Index", "Admin");
                 }
+                else if (usuario.Perfil == 'F')
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
                 else
                 {
                     System.Web.HttpContext.Current.Session.Abandon();
@@ -78,7 +81,7 @@ namespace PetShop_Project.Controllers
                 return RedirectToAction("Index");
             }
         }
- 
+
         public JsonResult VerificaCpfNoBanco(string cpf)
         {
             PessoaDAO dao = new PessoaDAO();

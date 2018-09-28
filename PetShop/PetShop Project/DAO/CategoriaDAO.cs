@@ -40,11 +40,11 @@ namespace PetShop_Project.DAO
             }
         }
 
-        public Categoria BuscaPorNome(string nome)
+        public bool BuscaPorNome(string nome)
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Categorias.Where(c => c.Nome == nome).FirstOrDefault();
+                return contexto.Categorias.Where(c => c.Nome == nome).FirstOrDefault() != null;
             }
         }
     }

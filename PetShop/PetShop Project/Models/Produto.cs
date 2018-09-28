@@ -20,7 +20,7 @@ namespace PetShop_Project.Models
         public double ValorCusto { get; set; }
         public double MargemLucro { get; set; }
         public bool Ativo { get; set; }
-        public string Imagem { get; set; }
+        public byte[] Imagem { get; set; }
         public IList<VendaItem> VendaItens { get; set; }
         public Produto()
         {

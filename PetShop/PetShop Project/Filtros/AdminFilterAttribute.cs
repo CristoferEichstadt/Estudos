@@ -15,7 +15,7 @@ namespace PetShop_Project.Filtros
             {
                 var usuario = (Usuario)user;
                 bool login = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "Login";
-                if (usuario.Perfil != 'A' && !login)
+                if (usuario.Perfil != 'A' && usuario.Perfil != 'F' && !login)
                 {
                     filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Index" }));
                 }

@@ -38,7 +38,7 @@ namespace PetShop_Project.DAO
         {
             using (var contexto = new PetShopContext())
             {
-                contexto.Entry(subcategoria).State = EntityState.Modified;
+                contexto.Subcategorias.Update(subcategoria);
                 contexto.SaveChanges();
             }
         }
@@ -50,11 +50,11 @@ namespace PetShop_Project.DAO
             }
         }
 
-        public Subcategoria BuscaPorNome(string nome)
+        public bool BuscaPorNome(string nome)
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Subcategorias.Where(c => c.Nome == nome).FirstOrDefault();
+                return contexto.Subcategorias.Where(c => c.Nome == nome).FirstOrDefault() != null;
             }
         }
 

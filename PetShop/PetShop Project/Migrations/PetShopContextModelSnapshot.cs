@@ -151,7 +151,7 @@ namespace PetShop_Project.Migrations
 
                     b.Property<string>("Descricao");
 
-                    b.Property<string>("Imagem");
+                    b.Property<byte[]>("Imagem");
 
                     b.Property<double>("MargemLucro");
 

@@ -183,7 +183,8 @@
             <div class="header-navigation">
                 <ul>
                     @{var categorias = new PetShop_Project.DAO.CategoriaDAO(); var sub = new PetShop_Project.DAO.SubcategoriaDAO();}
-                    @foreach (var c in categorias.Lista())
+
+                    @foreach (var c in categorias.Lista().Take(6))
                     {
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
@@ -199,9 +200,12 @@
                                 </ul>
                             </li>
                         }
-                    <!-- FIM -->
-
+                    @{ if (categorias.Lista().Count() > 3)
+                        {
+                            <li><a href="/Home">Todas Categorias</a></li>} }
                 </ul>
+                <!-- FIM -->
+
             </div>
             <!-- END NAVIGATION -->
         </div>

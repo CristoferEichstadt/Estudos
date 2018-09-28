@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_LayoutADM.cshtml";
 }
 
+<link href="~/Content/assets/pages/css/style.css" rel="stylesheet" />
+
 <div class="main">
     <div class="main-inner">
         <div class="container">
@@ -20,12 +22,11 @@
                         <div class="widget-content">
                             <div>
 
+                                @using (Html.BeginForm("Adiciona", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
 
-
-                                <form action="/Produto/Adiciona" method="post">
-
-
-                                    <div>
+                                <div >
+                                    <div class="form-control">
                                         <label>Escolha a Categoria</label>
                                         <select required name="cat" onchange="populaSubs()">
                                             <option value="">Selecione...</option>
@@ -35,46 +36,51 @@
                                             }
                                         </select>
 
+                                    </div>
+ 
+                                    <div >
                                         <label>Escolha a Subcategoria</label>
                                         <select id="selectSubs" name="sub">
                                             <option value="">Selecione...</option>
                                         </select>
 
                                     </div>
+                                </div>
 
-                                    <label id="textNome" for="nome">Nome</label>
-                                    <input type="text" id="nomeProduto" name="Estoque.Produto.Nome" placeholder="Insira o nome do Produto" value="" class="form-control" maxlength="20" />
+                                        <label id="textNome" for="nome">Nome</label>
+                                        <input type="text" id="nomeProduto" name="Estoque.Produto.Nome" placeholder="Insira o nome do Produto" value="" class="form-control" maxlength="20" />
 
-                                    <label id="textNome" for="quantidade">Quantidade</label>
-                                    <input type="number" id="quantidade" name="Estoque.Produto.Quantidade" placeholder="Insira a quantidade" value="" class="form-control" min="0" />
+                                        <label id="textNome" for="quantidade">Quantidade</label>
+                                        <input type="number" id="quantidade" name="Estoque.Produto.Quantidade" placeholder="Insira a quantidade" value="" class="form-control" min="0" />
 
-                                    <label id="textNome" for="valorUni">Valor Unitário</label>
-                                    <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value="" class="form-control" maxlength="20" />
+                                        <label id="textNome" for="valorUni">Valor Unitário</label>
+                                        <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value="" class="form-control" maxlength="20" />
 
-                                    <label id="textNome" for="valorCusto">Valor Custo</label>
-                                    <input type="text" id="valorCusto" name="Estoque.Produto.ValorCusto" placeholder="Insira o valor custo" value="" class="form-control" maxlength="20" />
+                                        <label id="textNome" for="valorCusto">Valor Custo</label>
+                                        <input type="text" id="valorCusto" name="Estoque.Produto.ValorCusto" placeholder="Insira o valor custo" value="" class="form-control" maxlength="20" />
 
-                                    <label id="textNome" for="margemLucro">Margem de Lucro</label>
-                                    <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="Insira a margem de lucro" value="" class="form-control" maxlength="20" />
+                                        <label id="textNome" for="margemLucro">Margem de Lucro</label>
+                                        <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="Insira a margem de lucro" value="" class="form-control" maxlength="20" />
 
-                                    <label>Situação</label>
-                                    <select id="selectSituacao" name="Estoque.Produto.Ativo">
-                                        <option value="">Selecione...</option>
-                                        <option value="True">Ativo</option>
-                                        <option value="False">Inativo</option>
-                                    </select>
+                                        <label>Situação</label>
+                                        <select id="selectSituacao" name="Estoque.Produto.Ativo">
+                                            <option value="">Selecione...</option>
+                                            <option value="True">Ativo</option>
+                                            <option value="False">Inativo</option>
+                                        </select>
 
-                                    <label id="textNome" for="imagem">IMAGEM</label>
-                                    <input type="text" id="imagem" name="Estoque.Produto.Imagem" placeholder="Imagem" value="" class="form-control" maxlength="20" />
+                                        <label>Escolha a imagem do seu produto</label>
+                                        <span class="btn btn-default btn-file">
+                                            Procurar <input type="file" name="upload">
+                                        </span>
 
-
+                                    <br />
                                     <div class="form-row">
-
                                         <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Produto" />
                                     </div>
 
 
-                                </form>
+                                }
 
 
 

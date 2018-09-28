@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using PetShop_Project.Models.Validação.Categoria;
+using System.Collections.Generic;
 
 namespace PetShop_Project.Models
 {
@@ -12,5 +13,11 @@ namespace PetShop_Project.Models
         {
             Subcategorias = new List<Subcategoria>();
         }
+
+        public bool Valida()
+        {
+            return new ValidacaoNomeCategoria().Valida(Nome);
+        }
+
     }
 }

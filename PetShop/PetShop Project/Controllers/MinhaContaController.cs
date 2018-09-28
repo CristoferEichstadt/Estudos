@@ -1,6 +1,7 @@
 ﻿using PetShop_Project.DAO;
 using PetShop_Project.Models;
 using System;
+using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 using UsuarioDAO = PetShop_Project.DAO.UsuarioDAO;
@@ -17,6 +18,12 @@ namespace PetShop_Project.Controllers
             var usuarioLogado = dao.BuscaPorUsuario(user.Id);
             ViewBag.PessoaFisica = usuarioLogado.TipoPessoa == 'F';
             ViewBag.PessoaJuridica = usuarioLogado.TipoPessoa == 'J';
+
+            var data = usuarioLogado.DataNascimento;
+
+            
+
+            ViewBag.DataNascimento = data.ToString("yyyy'-'MM'-'dd"); 
 
             ViewBag.Usuario = user;
             ViewBag.Pessoa = usuarioLogado;
@@ -89,9 +96,6 @@ namespace PetShop_Project.Controllers
         public ActionResult AlteraDadosJuridicos()
         {
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
-
-
-
 
             return RedirectToAction("Index");
         }
