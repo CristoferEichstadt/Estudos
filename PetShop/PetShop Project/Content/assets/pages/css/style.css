@@ -21,4 +21,19 @@
         display: block;
     }
 
+#catsub {
+    text-align: center;
+}
 
+.inlineBlock {
+    display: inline-block;
+}
+
+.lineblock {
+    display: inline-block;
+}
+
+
+.inlineblockdois {
+    display: inline-block;
+}

@@ -82,7 +82,7 @@
                                 <div class="panel-heading">
                                     <h2 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#checkout-page" href="#checkout-content" class="accordion-toggle">
-                                            Dados JURÍDICOS
+                                            Dados Jurídicos
                                         </a>
                                     </h2>
                                 </div>
@@ -93,7 +93,7 @@
                                         <form action="/MinhaConta/AlteraDadosJuridicos" method="post">
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="razaoSocial">Razão Social<span class="require">*</span></label>
+                                                    <label id="textRazaoSocial" for="razaoSocial">Razão Social<span class="require">*</span></label>
                                                     <input type="text" id="razaoSocial" name="razaoSocial" class="form-control" value="@ViewBag.Pessoa.RazaoSocial" />
                                                 </div>
 
@@ -104,32 +104,32 @@
 
 
                                                 <div class="form-group">
-                                                    <label for="ie">Inscrição Estadual<span class="require">*</span></label>
-                                                    <input type="text" id="ie" name="ie" class="form-control" value="@ViewBag.Pessoa.InscricaoEstadual" />
+                                                    <label id="textIE" for="ie">Inscrição Estadual<span class="require">*</span></label>
+                                                    <input type="text" id="inscricaoEstadual" name="inscricaoEstadual" class="form-control" value="@ViewBag.Pessoa.InscricaoEstadual" />
                                                 </div>
 
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="nomeFantasia">Nome Fantasia<span class="require">*</span></label>
+                                                    <label id="textNomeFant" for="nomeFantasia">Nome Fantasia<span class="require">*</span></label>
                                                     <input type="text" id="nomeFantasia" name="nomeFantasia" class="form-control" value="@ViewBag.Pessoa.NomeFantasia" />
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="email">E-mail<span class="require">*</span></label>
-                                                    <input type="email" id="email" name="email" class="form-control" value="@ViewBag.Usuario.Email" />
+                                                    <label id="textEmailJuridica" for="email">E-mail<span class="require">*</span></label>
+                                                    <input type="email" id="emailJuridica" name="email" class="form-control" value="@ViewBag.Usuario.Email" />
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="senha">Senha<span class="require">*</span></label>
-                                                    <input type="password" id="senha" name="senha" class="form-control" value="@ViewBag.Usuario.Senha" />
+                                                    <label id="textSenhaJuridica" for="senha">Senha<span class="require">*</span></label>
+                                                    <input type="password" id="senhaJuridica" name="senhaJuridica" class="form-control" value="@ViewBag.Usuario.Senha" />
                                                 </div>
 
 
 
                                             </div>
                                             <div class="col-md-12">
-                                                <button class="btn btn-primary  pull-right salvaDadosJuridicos" type="submit" id="button-dados" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-method-content">Salvar Dados</button>
+                                                <button class="btn btn-primary pull-right salvaDadosJuridicos" type="submit" id="button-dados" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-method-content">Salvar Dados</button>
                                             </div>
 
                                         </form>
@@ -246,8 +246,6 @@
                     </div>
                     <!-- FIM CONTATOS-->
 
-
-
                 </div>
             </div>
         </div>
@@ -269,7 +267,16 @@
 
 <script src="~/Content/assets/corporate/scripts/layout.js" type="text/javascript"></script>
 <script src="~/Content/assets/pages/scripts/checkout.js" type="text/javascript"></script>
-<script src="~/Scripts/scriptValidacoesMinhaConta.js"></script>
+
+@{ if (ViewBag.PessoaFisica)
+    {
+        <script src="~/Scripts/scriptValidacoesMinhaConta.js"></script>
+    }
+    if (ViewBag.PessoaJuridica)
+    {
+        <script src="~/Scripts/scriptMinhaContaJuridica.js"></script>
+    }
+}
 
 
 <script>

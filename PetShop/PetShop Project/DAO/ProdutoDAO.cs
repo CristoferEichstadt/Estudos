@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.EntityFrameworkCore;
 
 namespace PetShop_Project.DAO
 {
@@ -18,11 +19,21 @@ namespace PetShop_Project.DAO
             }
         }
 
+        public void AlternaAtivo(int id)
+        {
+            using (var context = new PetShopContext())
+            {
+                var produto = context.Produtos.Find(id);
+                produto.Ativo = !produto.Ativo; //fazer o contrario do que já tem
+                context.SaveChanges();
+            }
+        }
+
         public IList<Produto> Lista()
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Produtos.ToList();
+                return contexto.Produtos.Include(p => p.Categoria).Include(p => p.Subcategoria).ToList();
             }
         }
 
@@ -38,7 +49,11 @@ namespace PetShop_Project.DAO
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Produtos.Find(id);
+                return contexto.Produtos
+                    .Include(p => p.Categoria)
+                    .Include(p => p.Subcategoria)
+                    .Where(p => p.Id == id)
+                    .FirstOrDefault();
             }
         }
 
@@ -47,6 +62,15 @@ namespace PetShop_Project.DAO
             using (var contexto = new PetShopContext())
             {
                 return contexto.Produtos.Where(c => c.Nome == nome).FirstOrDefault();
+            }
+        }
+
+        public void Exclui(int id)
+        {
+            using (var contexto = new PetShopContext())
+            {
+                contexto.Produtos.Remove(contexto.Produtos.Find(id));
+                contexto.SaveChanges();
             }
         }
     }

@@ -1,0 +1,62 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutADM.cshtml";
+}
+
+<link href="~/Content/adm/css/Categoria.css" rel="stylesheet" />
+<script src="~/Content/assets/plugins/jquery.min.js"></script>
+
+
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="widget ">
+                        <div class="widget-header">
+                            <i class="icon-user"></i>
+                            <h3>Editar Subcategoria</h3>
+                        </div>
+                        <div class="widget-content">
+
+
+                            <div style="text-align:center;">
+                                <form action="/Subcategoria/EditaSubcategoria" id="formSubcategoria" method="post">
+                                    <div>
+
+                                        <input type="hidden" name="catId" value="@ViewBag.Subcategoria.CategoriaId" />
+                                        <input type="hidden" name="id" value="@ViewBag.Subcategoria.Id" />
+
+                                        <label>Categoria:</label>
+                                        <select name="categoria.Nome" disabled>
+                                            <option>@ViewBag.Categoria.Nome</option>
+                                        </select>
+
+                                        <label id="textNome" for="nome">Subcategoria</label>
+                                        <input id="nomeSubcategoria" name="nome" placeholder="Insira o nome da Subcategoria" autofocus value="@ViewBag.Subcategoria.Nome"
+                                               class="form-control" maxlength="20" />
+
+                                        <div class="form-row">
+
+                                            <input type="submit" class="btn btn-danger btn-block botao" value="Editar Subcategoria" />
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                            </div>
+
+                            <div style="float:right;"><a href="/Categoria/Index">Voltar</a></div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

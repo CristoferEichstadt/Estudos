@@ -24,6 +24,15 @@ namespace PetShop_Project.DAO
             }
         }
 
+        public void AlternaAtivo(int id)
+        {
+            using (var context = new PetShopContext())
+            {
+                var categoria = context.Categorias.Find(id);
+                categoria.Ativo = !categoria.Ativo; //alterna entre true false
+                context.SaveChanges();
+            }
+        }
         public void Atualiza(Categoria categoria)
         {
             using (var contexto = new PetShopContext())

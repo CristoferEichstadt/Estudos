@@ -21,7 +21,11 @@
     <link href="~/Content/adm/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
     <link href="~/Content/adm/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/assets/pages/css/style.css" rel="stylesheet" />
     <link href="~/Content/adm/css/style.css" rel="stylesheet">
+    <script src="~/Content/adm/js/jquery-1.7.2.min.js"></script>
+    <link href="~/Content/adm/css/select.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/adm/css/bugsSelect.css" rel="stylesheet" />
 
     <link rel="shortcut icon" href="~/Content/assets/corporate/img/layout/favicon.png">
 
@@ -71,16 +75,16 @@
                     @{ if (usuarioLogado.Perfil == 'A')
                         {
                             <li id="botaoHome"><a href="/Admin"><i class="icon-dashboard"></i><span>Home</span> </a> </li>
-                            <li id="botaoVenda"><a href="/Categoria/Form"><i class="icon-list"></i><span>Categorias</span> </a> </li>
-                            <li id="botaoProdutos"><a href="/Produto/Form"><i class="icon-tags"></i><span>Produtos</span> </a> </li>
+                            <li id="botaoVenda"><a href="/Categoria/Index"><i class="icon-list"></i><span>Categorias</span> </a> </li>
+                            <li id="botaoProdutos"><a href="/Produto/Index"><i class="icon-tags"></i><span>Produtos</span> </a> </li>
                             <li id="botaoFuncionario"><a href="/Funcionario/Form"><i class="icon-user"></i><span>Funcionários</span> </a></li>
                             <li id="botaoTabelas"><a href="#"><i class="icon-table"></i><span>Tabelas</span> </a> </li>
                         }
                         if (usuarioLogado.Perfil == 'F')
                         {
                             <li id="botaoHome"><a href="/Admin"><i class="icon-dashboard"></i><span>Home</span> </a> </li>
-                            <li id="botaoVenda"><a href="/Categoria/Form"><i class="icon-list"></i><span>Categorias</span> </a> </li>
-                            <li id="botaoProdutos"><a href="/Produto/Form"><i class="icon-tags"></i><span>Produtos</span> </a> </li>
+                            <li id="botaoVenda"><a href="/Categoria/Index"><i class="icon-table"></i><span>Categorias</span> </a> </li>
+                            <li id="botaoProdutos"><a href="/Produto/Index"><i class="icon-tags"></i><span>Produtos</span> </a> </li>
                         }
                     }
                 </ul>
@@ -94,8 +98,10 @@
 
     @RenderBody()
 
-
     <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/datatables.js"></script>
+
+    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script type="text/javascript">
     function deslogar(){
     var url = "@Url.Action("SignOut", "Authorization")";
@@ -107,6 +113,10 @@
                 location.href = "/Home"
             }
         }
+
+
+
+        @RenderSection("body_scripts", false)
     </script>
 </body>
 </html>

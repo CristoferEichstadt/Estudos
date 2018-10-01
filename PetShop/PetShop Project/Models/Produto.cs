@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace PetShop_Project.Models
 {
     public class Produto
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public Categoria Categoria { get; set; }
         public Subcategoria Subcategoria { get; set; }
         public int SubcategoriaId { get; set; }

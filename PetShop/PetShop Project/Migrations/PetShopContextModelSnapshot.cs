@@ -84,6 +84,8 @@ namespace PetShop_Project.Migrations
 
                     b.Property<int?>("ProdutoId");
 
+                    b.Property<int>("Quantidade");
+
                     b.Property<int>("TipoMovimentacao");
 
                     b.Property<int?>("UsuarioAlteracaoId");
@@ -297,7 +299,7 @@ namespace PetShop_Project.Migrations
             modelBuilder.Entity("PetShop_Project.Models.Subcategoria", b =>
                 {
                     b.HasOne("PetShop_Project.Models.Categoria", "Categoria")
-                        .WithMany("Subcategorias")
+                        .WithMany()
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

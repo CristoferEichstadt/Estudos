@@ -1,37 +1,63 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutADM.cshtml";
 }
 
-<!DOCTYPE html>
+<link href="~/Content/adm/css/Categoria.css" rel="stylesheet" />
+<script src="~/Content/assets/plugins/jquery.min.js"></script>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Form</title>
-</head>
-<body>
-    <div>
-        <form action="/Subcategoria/AdicionaSubcategoria" id="formSubategoria" method="post">
-            <div>
-                <select name="categoria">
-                    @foreach (var categoria in ViewBag.Categorias)
-                    {
-                        <option value="@categoria.Id">@categoria.Nome</option>
-                    }
-                </select>
 
-                <label id="textNome" for="nome">Nome</label>
-                <input id="nomeSubcategoria" name="nome" placeholder="Insira o nome da Subcategoria" autofocus value="@ViewBag.Subcategoria.Nome"
-                       class="form-control" maxlength="20" />
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="widget ">
+                        <div class="widget-header">
+                            <i class="icon-user"></i>
+                            <h3>Cadastro de Subcategorias</h3>
+                        </div>
+                        <div class="widget-content">
 
-                <div class="form-row">
 
-                    <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Categoria" />
+                            <div style="text-align:center;">
+                                <form action="/Subcategoria/AdicionaSubcategoria" id="formSubategoria" method="post">
+                                    <div>
+
+                                        <input type="hidden" name="catId" value="@ViewBag.Categorias.Id" />
+
+
+                                        <label>Categoria:</label>
+                                        <select name="categoria.Nome" disabled>
+                                            <option>@ViewBag.Categorias.Nome</option>
+                                        </select>
+
+                                        <label id="textNome" for="nome">Subcategoria</label>
+                                        <input id="nomeSubcategoria" name="nome" placeholder="Insira o nome da Subcategoria" autofocus value="@ViewBag.Subcategoria.Nome"
+                                               class="form-control" maxlength="20" />
+
+                                        <div class="form-row">
+
+                                            <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Subcategoria" />
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                            </div>
+
+                            <div style="float:right;"><a href="/Categoria/Index">Voltar</a></div>
+
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
-
+        </div>
     </div>
-</body>
-</html>
+</div>
+
+

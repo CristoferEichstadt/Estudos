@@ -1,0 +1,4 @@
+﻿table.dataTable.table-striped tbody > tr.odd.selected,
+table.dataTable.table-striped tbody > tr.odd > .selected {
+    background-color: #4CAF50 !important;
+}

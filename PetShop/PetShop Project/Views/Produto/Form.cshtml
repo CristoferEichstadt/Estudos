@@ -4,13 +4,13 @@
     Layout = "~/Views/Shared/_LayoutADM.cshtml";
 }
 
-<link href="~/Content/assets/pages/css/style.css" rel="stylesheet" />
+<script src="https://raw.githubusercontent.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
 
 <div class="main">
     <div class="main-inner">
         <div class="container">
-            <div class="row">
-                <div class="span12">
+            <div>
+                <div>
                     <div class="widget ">
                         <div class="widget-header">
                             <i class="icon-user"></i>
@@ -19,60 +19,87 @@
 
 
 
+
                         <div class="widget-content">
-                            <div>
+                            <div style="text-align: center;">
 
                                 @using (Html.BeginForm("Adiciona", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
 
-                                <div >
-                                    <div class="form-control">
-                                        <label>Escolha a Categoria</label>
-                                        <select required name="cat" onchange="populaSubs()">
-                                            <option value="">Selecione...</option>
-                                            @foreach (var categoria in ViewBag.Categorias)
-                                            {
-                                                <option id="catId" value="@categoria.Id">@categoria.Nome</option>
-                                            }
-                                        </select>
+                                    <div id="catsub">
+                                        <div>
+                                            <div class="form-control inlineBlock" id="categoriaSelect">
+                                                <label>Escolha a Categoria</label>
+                                                <select required name="cat" onchange="populaSubs()">
+                                                    <option value="">Selecione...</option>
+                                                    @foreach (var categoria in ViewBag.Categorias)
+                                                    {
+                                                        <option id="catId" value="@categoria.Id">@categoria.Nome</option>
+                                                    }
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-control inlineBlock" id="subSelect">
+                                                <label>Escolha a Subcategoria</label>
+                                                <select id="selectSubs" name="sub">
+                                                    <option value="">Selecione...</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
 
                                     </div>
- 
-                                    <div >
-                                        <label>Escolha a Subcategoria</label>
-                                        <select id="selectSubs" name="sub">
-                                            <option value="">Selecione...</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-
+                                    <br />
+                                    <div class="lineblock">
                                         <label id="textNome" for="nome">Nome</label>
                                         <input type="text" id="nomeProduto" name="Estoque.Produto.Nome" placeholder="Insira o nome do Produto" value="" class="form-control" maxlength="20" />
 
+                                    </div>
+                                    <div class="lineblock">
                                         <label id="textNome" for="quantidade">Quantidade</label>
-                                        <input type="number" id="quantidade" name="Estoque.Produto.Quantidade" placeholder="Insira a quantidade" value="" class="form-control" min="0" />
-
+                                        <input type="number" id="quantidade" name="quantidade" placeholder="Insira a quantidade" value="" class="form-control" min="0" />
+                                    </div>
+                                    <div class="lineblock">
                                         <label id="textNome" for="valorUni">Valor Unitário</label>
-                                        <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value="" class="form-control" maxlength="20" />
+                                        <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value="" class="form-control dinheiro" maxlength="20" />
+                                    </div>
 
+                                    <div class="lineblock">
                                         <label id="textNome" for="valorCusto">Valor Custo</label>
-                                        <input type="text" id="valorCusto" name="Estoque.Produto.ValorCusto" placeholder="Insira o valor custo" value="" class="form-control" maxlength="20" />
+                                        <input type="text" id="valorCusto" name="Estoque.Produto.ValorCusto" placeholder="Insira o valor custo" value="" class="form-control dinheiro" maxlength="20" />
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <div>
+                                        <div class="inlineblockdois">
+                                            <label id="textNome" for="margemLucro">Margem de Lucro</label>
+                                            <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="Insira a margem de lucro" value="" class="form-control dinheiro" maxlength="20" />
 
-                                        <label id="textNome" for="margemLucro">Margem de Lucro</label>
-                                        <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="Insira a margem de lucro" value="" class="form-control" maxlength="20" />
+                                        </div>
 
-                                        <label>Situação</label>
-                                        <select id="selectSituacao" name="Estoque.Produto.Ativo">
-                                            <option value="">Selecione...</option>
-                                            <option value="True">Ativo</option>
-                                            <option value="False">Inativo</option>
-                                        </select>
+                                        <div class="inlineblockdois">
+                                            <label>Situação</label>
+                                            <select id="selectSituacao" name="Estoque.Produto.Ativo">
+                                                <option value="">Selecione...</option>
+                                                <option value="True">Ativo</option>
+                                                <option value="False">Inativo</option>
+                                            </select>
 
-                                        <label>Escolha a imagem do seu produto</label>
-                                        <span class="btn btn-default btn-file">
-                                            Procurar <input type="file" name="upload">
-                                        </span>
+                                        </div>
+
+
+                                        <div class="inlineblockdois">
+                                            <label>Escolha a imagem do seu produto</label>
+                                            <span class="btn btn-default btn-file">
+                                                Procurar <input type="file" name="upload">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <label>Insira a descrição do produto</label>
+                                    <textarea name="Estoque.Produto.Descricao" style="width:900px; height:100px; resize:none;"></textarea>
 
                                     <br />
                                     <div class="form-row">
@@ -103,7 +130,7 @@
         $("#selectSubs option").remove();
         console.log($("select option:selected").val());
         var selecionado = $("select option:selected").val();
-        console.log(selecionado);
+
         $.ajax({
             type: "GET",
             url: "/Produto/PopulaSubcategorias/" + selecionado,

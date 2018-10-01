@@ -21,7 +21,7 @@
                         </div>
                         <div class="widget-content">
 
-                            <div id="esquerda">
+                            <div style="text-align:center;">
                                 <form action="/Categoria/AdicionaCategoria" id="formCategoria" method="post">
                                     <div>
                                         <label id="textNome" for="nome">Categoria</label>
@@ -36,34 +36,7 @@
                                 </form>
                             </div>
 
-
-
-                            <div id="direita">
-                                <form action="/Categoria/AdicionaSubcategoria" id="formSubategoria" method="post">
-                                    <div>
-                                        <label>Selecione para adicionar sua Subcategoria</label>
-                                        <select name="cat">
-                                            @foreach (var categoria in ViewBag.Categorias)
-                                            {
-                                                <option value="@categoria.Id">@categoria.Nome</option>
-                                            }
-                                        </select>
-
-                                        <label id="textNome" for="nome">Subcategoria</label>
-                                        <input id="nomeSubcategoria" name="nome" placeholder="Insira o nome da Subcategoria" autofocus value="@ViewBag.Subcategoria.Nome"
-                                               class="form-control" maxlength="20" />
-
-                                        <div class="form-row">
-
-                                            <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Subcategoria" />
-                                        </div>
-                                    </div>
-
-
-                                </form>
-                            </div>
-
-
+                            <div style="float:right;"><a href="/Categoria/Index">Voltar</a></div>
 
                         </div>
                     </div>
@@ -76,7 +49,7 @@
 <script src="~/Scripts/jquery.form.js"></script>
 <script>
 
-    $(document).ready(function () {
+    @*$(document).ready(function () {
 
         botao = document.querySelector("#botaoCat");
         botao.addEventListener("click", function (event) {
@@ -97,20 +70,6 @@
             alert("Dados Inválidos!");
             return;
         }
-    }
-
-    function validaSubcategoria() {
-        var url = "@Url.Action("AdicionaSubcategoria", "Categoria")";
-        var params = { nome: $("#nomeSubcategoria").val() };
-        $.post(url, params, verificaSub);
-    }
-
-    function verificaSub(resposta) {
-        if (resposta.dadosInvalidos == true) {
-            alert("Dados Inválidos!");
-            return;
-        }
-    }
-
+    }*@
 
 </script>

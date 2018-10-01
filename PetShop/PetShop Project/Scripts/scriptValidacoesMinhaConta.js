@@ -1,7 +1,6 @@
 ﻿$(document).ready(function () {
 
     botaoFisico = document.querySelector(".salvaDadosFisicos");
-    botaoJuridico = document.querySelector(".salvaDadosJuridicos");
 
     botaoFisico.addEventListener("click", function (event) {
         var corNome = document.querySelector("#textNome");
@@ -68,9 +67,6 @@
         } else {
             corData.style.color = '#000000';
         }
-        
     });
-
-
 
 });

@@ -1,9 +1,7 @@
 ﻿using PetShop_Project.DAO;
 using PetShop_Project.Models;
 using System;
-using System.Globalization;
 using System.Web.Mvc;
-using System.Web.Security;
 using UsuarioDAO = PetShop_Project.DAO.UsuarioDAO;
 
 namespace PetShop_Project.Controllers
@@ -14,22 +12,29 @@ namespace PetShop_Project.Controllers
         {
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
 
-            PessoaDAO dao = new PessoaDAO();
-            var usuarioLogado = dao.BuscaPorUsuario(user.Id);
-            ViewBag.PessoaFisica = usuarioLogado.TipoPessoa == 'F';
-            ViewBag.PessoaJuridica = usuarioLogado.TipoPessoa == 'J';
+            if (user != null)
+            {
+                PessoaDAO dao = new PessoaDAO();
+                var usuarioLogado = dao.BuscaPorUsuario(user.Id);
+                ViewBag.PessoaFisica = usuarioLogado.TipoPessoa == 'F';
+                ViewBag.PessoaJuridica = usuarioLogado.TipoPessoa == 'J';
 
-            var data = usuarioLogado.DataNascimento;
-
-            
-
-            ViewBag.DataNascimento = data.ToString("yyyy'-'MM'-'dd"); 
-
-            ViewBag.Usuario = user;
-            ViewBag.Pessoa = usuarioLogado;
+                var data = usuarioLogado.DataNascimento;
 
 
-            return View();
+                ViewBag.DataNascimento = data.ToString("yyyy'-'MM'-'dd");
+
+                ViewBag.Usuario = user;
+                ViewBag.Pessoa = usuarioLogado;
+
+                return View();
+            }
+            else
+            {
+                HttpContext.Session.Abandon();
+                return RedirectToAction("Index", "Home");
+            }
+
         }
 
         [HttpPost]
@@ -37,22 +42,32 @@ namespace PetShop_Project.Controllers
         {
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
 
-            PessoaDAO dao = new PessoaDAO();
-            UsuarioDAO daoUser = new UsuarioDAO();
+            if (user != null)
+            {
+                PessoaDAO dao = new PessoaDAO();
+                UsuarioDAO daoUser = new UsuarioDAO();
 
-            var usuarioLogado = dao.BuscaPorUsuario(user.Id);
+                var usuarioLogado = dao.BuscaPorUsuario(user.Id);
 
-            user.Email = email;
-            user.Senha = senha;
-            daoUser.Atualiza(user);
+                user.Email = email;
+                user.Senha = senha;
+                daoUser.Atualiza(user);
 
-            usuarioLogado.Nome = nome;
-            usuarioLogado.CpfCnpj = cpf;
-            usuarioLogado.DataNascimento = dataNascimento;
+                usuarioLogado.Nome = nome;
+                usuarioLogado.CpfCnpj = cpf;
+                usuarioLogado.DataNascimento = dataNascimento;
 
-            dao.Atualiza(usuarioLogado);
+                dao.Atualiza(usuarioLogado);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                HttpContext.Session.Abandon();
+                return RedirectToAction("Index", "Home");
+            }
+
+
         }
 
         [HttpPost]
@@ -60,20 +75,29 @@ namespace PetShop_Project.Controllers
         {
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
 
-            user.Pessoa.Endereco.Logradouro = logradouro;
-            user.Pessoa.Endereco.Cep = cep;
-            user.Pessoa.Endereco.Numero = numero;
-            user.Pessoa.Endereco.Estado = estado;
-            user.Pessoa.Endereco.Referencia = referencia;
-            user.Pessoa.Endereco.Bairro = bairro;
-            user.Pessoa.Endereco.Complemento = complemento;
-            user.Pessoa.Endereco.Cidade = cidade;
+            if (user != null)
+            {
+                user.Pessoa.Endereco.Logradouro = logradouro;
+                user.Pessoa.Endereco.Cep = cep;
+                user.Pessoa.Endereco.Numero = numero;
+                user.Pessoa.Endereco.Estado = estado;
+                user.Pessoa.Endereco.Referencia = referencia;
+                user.Pessoa.Endereco.Bairro = bairro;
+                user.Pessoa.Endereco.Complemento = complemento;
+                user.Pessoa.Endereco.Cidade = cidade;
 
 
-            var dao = new UsuarioDAO();
-            dao.Atualiza(user);
+                var dao = new UsuarioDAO();
+                dao.Atualiza(user);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                HttpContext.Session.Abandon();
+                return RedirectToAction("Index", "Home");
+            }
+
         }
 
         [HttpPost]
@@ -81,23 +105,56 @@ namespace PetShop_Project.Controllers
         {
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
 
-            user.Pessoa.Contato.Email = email2;
-            user.Pessoa.Contato.Celular = celular;
-            user.Pessoa.Contato.Telefone = telefone;
+            if (user != null)
+            {
+                user.Pessoa.Contato.Email = email2;
+                user.Pessoa.Contato.Celular = celular;
+                user.Pessoa.Contato.Telefone = telefone;
 
-            var dao = new UsuarioDAO();
-            dao.Atualiza(user);
+                var dao = new UsuarioDAO();
+                dao.Atualiza(user);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                HttpContext.Session.Abandon();
+                return RedirectToAction("Index", "Home");
+            }
+
         }
 
 
         [HttpPost]
-        public ActionResult AlteraDadosJuridicos()
+        public ActionResult AlteraDadosJuridicos(string email, string senhaJuridica, string razaoSocial, string inscricaoEstadual, string nomeFantasia)
         {
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
 
-            return RedirectToAction("Index");
+
+            if (user != null)
+            {
+                PessoaDAO dao = new PessoaDAO();
+                UsuarioDAO daoUser = new UsuarioDAO();
+
+                var usuarioLogado = dao.BuscaPorUsuario(user.Id);
+
+                user.Email = email;
+                user.Senha = senhaJuridica;
+                daoUser.Atualiza(user);
+
+                usuarioLogado.RazaoSocial = razaoSocial;
+                usuarioLogado.NomeFantasia = nomeFantasia;
+                usuarioLogado.InscricaoEstadual = inscricaoEstadual;
+
+                dao.Atualiza(usuarioLogado);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                HttpContext.Session.Abandon();
+                return RedirectToAction("Index", "Home");
+            }
         }
 
     }

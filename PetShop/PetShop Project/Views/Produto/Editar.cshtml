@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_LayoutADM.cshtml";
+}
+
+<script src="https://raw.githubusercontent.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
+
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div>
+                <div>
+                    <div class="widget ">
+                        <div class="widget-header">
+                            <i class="icon-user"></i>
+                            <h3>Editar Produto</h3>
+                        </div>
+
+
+
+
+                        <div class="widget-content">
+                            <div style="text-align: center;">
+
+                                @using (Html.BeginForm("EditaProduto", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+
+
+                                    <input type="hidden" name="produto.Id" value="@ViewBag.Produto.Id" />
+                                    <input type="hidden" name="produto.CategoriaId" value="@ViewBag.Produto.CategoriaId" readonly />
+                                    <input type="hidden" name="produto.SubcategoriaId" value="@ViewBag.Produto.SubcategoriaId" readonly />
+
+                                    <div id="catsub">
+                                        <div>
+                                            <input name="cat" value="@ViewBag.Produto.Categoria.Nome" readonly />
+
+                                            <input name="sub" value="@ViewBag.Produto.Subcategoria.Nome" readonly />
+
+
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="lineblock">
+                                        <label id="textNome" for="nome">Nome</label>
+                                        <input type="text" id="nomeProduto" name="produto.Nome" placeholder="Insira o nome do Produto" value="@ViewBag.Produto.Nome" class="form-control" maxlength="20" />
+
+                                    </div>
+                                    <div class="lineblock">
+                                        <label id="textNome" for="quantidade">Quantidade</label>
+                                        <input type="number" id="quantidade" name="quantidade" placeholder="Insira a quantidade" value="@ViewBag.Produto.Quantidade" class="form-control" min="0" />
+                                    </div>
+                                    <div class="lineblock">
+                                        <label id="textNome" for="valorUni">Valor Unitário</label>
+                                        <input type="text" id="valorUni" name="produto.ValorUnitario" placeholder="Insira o valor unitário" value="@ViewBag.Produto.ValorUnitario" class="form-control dinheiro" maxlength="20" />
+                                    </div>
+
+                                    <div class="lineblock">
+                                        <label id="textNome" for="valorCusto">Valor Custo</label>
+                                        <input type="text" id="valorCusto" name="produto.ValorCusto" placeholder="Insira o valor custo" value="@ViewBag.Produto.ValorCusto" class="form-control dinheiro" maxlength="20" />
+                                    </div>
+
+
+                                    <br />
+                                    <br />
+                                    <div>
+                                        <div class="inlineblockdois">
+                                            <label id="textNome" for="margemLucro">Margem de Lucro</label>
+                                            <input type="text" name="produto.MargemLucro" placeholder="Margem Lucro" value="@ViewBag.Produto.MargemLucro" class="form-control dinheiro" />
+                                        </div>
+
+                                        <div class="inlineblockdois">
+                                            <label>Situação</label>
+                                            <select id="selectSituacao" name="Produto.Ativo">
+                                                <option value="">Selecione...</option>
+                                                @if (ViewBag.Produto.Ativo)
+                                                {
+                                                    <option value="True" selected>Ativo</option>
+                                                    <option value="False">Inativo</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="True">Ativo</option>
+                                                    <option value="False" selected>Inativo</option>
+                                                }
+                                            </select>
+
+                                        </div>
+
+                                        <div class="inlineblockdois">
+                                            <label>Escolha a imagem do seu produto</label>
+                                            <span class="btn btn-default btn-file">
+                                                Procurar <input type="file" name="upload">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <br />
+
+                                    <label>Descrição do produto</label>
+                                    <textarea name="produto.Descricao" style="width:900px; height:100px; resize:none;">@ViewBag.Produto.Descricao</textarea>
+
+                                    <div class="form-row">
+                                        <input type="submit" class="btn btn-danger btn-block botao" value="Editar Produto" />
+                                    </div>
+
+
+                                }
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -13,13 +13,13 @@ namespace PetShop_Project.Controllers
         // GET: Categoria
         public ActionResult Form()
         {
-            var dao = new CategoriaDAO();
-
-            ViewBag.Subcategoria = new Subcategoria();
-            ViewBag.Categorias = dao.Lista();
-
             ViewBag.Categoria = new Categoria();
 
+            return View();
+        }
+
+        public ActionResult Index()
+        {
             return View();
         }
 
@@ -33,33 +33,46 @@ namespace PetShop_Project.Controllers
                 Ativo = true,
             };
 
-            if (categoria.Valida())
-            {
-                dao.Adiciona(categoria);
-                return RedirectToAction("Form");
-            }
+            //if (categoria.Valida())
+            //{
+            dao.Adiciona(categoria);
+            return RedirectToAction("Form");
+            //}
 
-            return Json(new { dadosInvalidos = true }, JsonRequestBehavior.AllowGet);
+            //return Json(new { dadosInvalidos = true }, JsonRequestBehavior.AllowGet);
 
         }
 
-        [HttpPost]
-        public ActionResult AdicionaSubcategoria(string nome, int cat)
+        public ActionResult PegaCategorias()
         {
-            SubcategoriaDAO dao = new SubcategoriaDAO();
-            Subcategoria sub = new Subcategoria()
-            {
-                Nome = nome,
-                Ativo = true,
-                CategoriaId = cat,
-            };
-            if (sub.Valida())
-            {
-                dao.Adiciona(sub);
-                return RedirectToAction("Form");
-            }
+            CategoriaDAO dao = new CategoriaDAO();
+            var lista = dao.Lista();
 
-            return Json(new { dadosInvalidos = true }, JsonRequestBehavior.AllowGet);
+            return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Status(int id)
+        {
+            CategoriaDAO dao = new CategoriaDAO();
+            dao.AlternaAtivo(id);
+            return Json(new { mudou = true }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Editar(int id)
+        {
+            CategoriaDAO dao = new CategoriaDAO();
+            ViewBag.Categoria = dao.BuscaPorId(id);
+
+            return View();
+        }
+
+        public ActionResult EditaCategoria(Categoria categoria)
+        {
+            CategoriaDAO dao = new CategoriaDAO();
+
+            dao.Atualiza(categoria);
+
+            return RedirectToAction("Index");
         }
 
     }
