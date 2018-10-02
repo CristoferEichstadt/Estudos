@@ -24,7 +24,7 @@ namespace PetShop_Project.DAO
             using (var context = new PetShopContext())
             {
                 var sub = context.Subcategorias.Find(id);
-                sub.Ativo = !sub.Ativo; 
+                sub.Ativo = !sub.Ativo;
                 context.SaveChanges();
             }
         }

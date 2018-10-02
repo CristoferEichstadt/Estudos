@@ -1,11 +1,9 @@
 ﻿using PetShop_Project.DAO;
-using PetShop_Project.Filtros;
 using PetShop_Project.Models;
 using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
 {
-    [AdminFilter]
     public class SubcategoriaController : Controller
     {
         public ActionResult Form(int id)
@@ -13,14 +11,48 @@ namespace PetShop_Project.Controllers
             var dao = new CategoriaDAO();
             ViewBag.Categorias = dao.BuscaPorId(id);
             ViewBag.Subcategoria = new Subcategoria();
-            return View();
+
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
         }
         public ActionResult MostraSubs(int id)
         {
             CategoriaDAO dao = new CategoriaDAO();
             ViewBag.IdCategoria = id;
             ViewBag.Categoria = dao.BuscaPorId(id);
-            return View();
+
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         public ActionResult pegaSubs(int id)
@@ -64,7 +96,24 @@ namespace PetShop_Project.Controllers
             CategoriaDAO daoC = new CategoriaDAO();
             ViewBag.Categoria = daoC.BuscaPorId(s.CategoriaId);
 
-            return View();
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         public ActionResult EditaSubcategoria(int catId, string nome, int id)

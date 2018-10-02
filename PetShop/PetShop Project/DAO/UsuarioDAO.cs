@@ -23,6 +23,15 @@ namespace PetShop_Project.DAO
                 return contexto.Usuarios.ToList();
             }
         }
+        public void AlternaAtivo(int id)
+        {
+            using (var context = new PetShopContext())
+            {
+                var usuario = context.Usuarios.Find(id);
+                usuario.Ativo = !usuario.Ativo; //fazer o contrario do que já tem
+                context.SaveChanges();
+            }
+        }
 
         public Usuario BuscaPorId(int id)
         {

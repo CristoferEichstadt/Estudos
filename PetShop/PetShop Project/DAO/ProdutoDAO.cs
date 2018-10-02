@@ -65,6 +65,18 @@ namespace PetShop_Project.DAO
             }
         }
 
+        public IList<Produto> BuscaPorSub(int id)
+        {
+            using (var contexto = new PetShopContext())
+            {
+                return contexto.Produtos
+                    .Where(c => c.SubcategoriaId == id)
+                    .Include(p => p.Subcategoria)
+                    .Include(p => p.Categoria)
+                    .ToList();
+            }
+        }
+
         public void Exclui(int id)
         {
             using (var contexto = new PetShopContext())

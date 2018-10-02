@@ -35,7 +35,7 @@
                                                 <th>Subcategoria</th>
                                                 <th>Estoque</th>
                                                 <th>Preço</th>
-                                                <th>Ativo</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                     </table>
@@ -74,9 +74,17 @@
                         return "R$ " + Number.parseFloat(meta.ValorUnitario).toFixed(2).replace(".", ",");
                     }
                 },
-                { "data": "Ativo", "autoWidth": true },
+                {
+                    "data": "Ativo", "autoWidth": true,
+                    render: function (type, meta, row) {
+                        if (row.Ativo == true) {
+                            return "Ativo";
+                        } else {
+                            return "Inativo";
+                        }
+                    }
+                },
             ],
-
 
         });
 

@@ -60,21 +60,23 @@
                                         <label id="textNome" for="quantidade">Quantidade</label>
                                         <input type="number" id="quantidade" name="quantidade" placeholder="Insira a quantidade" value="" class="form-control" min="0" />
                                     </div>
+
+
                                     <div class="lineblock">
                                         <label id="textNome" for="valorUni">Valor Unitário</label>
-                                        <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value="" class="form-control dinheiro" maxlength="20" />
+                                        <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value=" " class="form-control dinheiro" maxlength="20" />
                                     </div>
 
                                     <div class="lineblock">
                                         <label id="textNome" for="valorCusto">Valor Custo</label>
-                                        <input type="text" id="valorCusto" name="Estoque.Produto.ValorCusto" placeholder="Insira o valor custo" value="" class="form-control dinheiro" maxlength="20" />
+                                        <input type="text" id="valorCusto" name="Estoque.Produto.ValorCusto" placeholder="Insira o valor custo" value=" " class="form-control dinheiro" onkeyup="valorVenda();" maxlength="20" />
                                     </div>
                                     <br />
                                     <br />
                                     <div>
                                         <div class="inlineblockdois">
-                                            <label id="textNome" for="margemLucro">Margem de Lucro</label>
-                                            <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="Insira a margem de lucro" value="" class="form-control dinheiro" maxlength="20" />
+                                            <label id="textNome" for="margemLucro">Margem mínima de lucro</label>
+                                            <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="Insira a margem de lucro" value=" " class="form-control dinheiro" maxlength="20" onkeyup="valorVenda();" />
 
                                         </div>
 
@@ -108,8 +110,6 @@
 
 
                                 }
-
-
 
                             </div>
                         </div>
@@ -147,5 +147,36 @@
 
         });
     }
+
+
+    function valorVenda() {
+        var m = $("#margemLucro").val();
+        var v = $("#valorCusto").val();
+        var valor = parseFloat(v);
+        var margem = parseFloat(m);
+
+        var valorVenda = $("#valorUni");
+
+        var total = valor;
+        var conta = margem * valor;
+        var valorDeVenda = total + conta;
+
+        valorVenda.val(valorDeVenda);
+    }
+
+    //$(document).ready(function () {
+
+    //    botao = document.querySelector(".botao");
+
+    //    botao.addEventListener("click", function (event) {
+
+    //        if ($("#").val() == "") {
+
+    //        };
+
+    //    });
+
+    //});
+
 
 </script>

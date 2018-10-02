@@ -1,19 +1,35 @@
 ﻿using PetShop_Project.DAO;
-using PetShop_Project.Filtros;
 using PetShop_Project.Models;
 using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
 {
-    [AdminFilter]
     public class FuncionarioController : Controller
     {
         // GET: Funcionario
         public ActionResult Form()
         {
-            ViewBag.Usuario = new Models.Usuario();
+            ViewBag.Usuario = new Usuario();
             ViewBag.Usuario.Pessoa = new Pessoa();
-            return View();
+
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
+
         }
 
         [HttpPost]

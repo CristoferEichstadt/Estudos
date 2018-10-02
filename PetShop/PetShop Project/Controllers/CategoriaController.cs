@@ -1,5 +1,4 @@
 ﻿using PetShop_Project.DAO;
-using PetShop_Project.Filtros;
 using PetShop_Project.Models;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,20 +6,52 @@ using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
 {
-    [AdminFilter]
+
     public class CategoriaController : Controller
     {
-        // GET: Categoria
         public ActionResult Form()
         {
             ViewBag.Categoria = new Categoria();
 
-            return View();
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
+
         }
 
         public ActionResult Index()
         {
-            return View();
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         [HttpPost]
@@ -63,7 +94,24 @@ namespace PetShop_Project.Controllers
             CategoriaDAO dao = new CategoriaDAO();
             ViewBag.Categoria = dao.BuscaPorId(id);
 
-            return View();
+
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         public ActionResult EditaCategoria(Categoria categoria)

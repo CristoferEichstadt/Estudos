@@ -18,6 +18,16 @@ namespace PetShop_Project.DAO
                 context.SaveChanges();
             }
         }
+        public IList<Estoque> Lista()
+        {
+            using (var contexto = new PetShopContext())
+            {
+                return contexto.Estoque
+                    .Include(e => e.UsuarioAlteracao)
+                    .ThenInclude(u => u.Pessoa)
+                    .ToList();
+            }
+        }
 
         public void Atualiza(Estoque estoque)
         {
@@ -41,7 +51,10 @@ namespace PetShop_Project.DAO
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Estoque.Include(e => e.Produto)
+                return contexto.Estoque
+                    .Include(e => e.UsuarioAlteracao)
+                    .ThenInclude(u => u.Pessoa)
+                    .Include(e => e.Produto)
                     .ThenInclude(p => p.Categoria)
                     .Include(e => e.Produto)
                     .ThenInclude(p => p.Subcategoria)

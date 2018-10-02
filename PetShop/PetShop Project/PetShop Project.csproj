@@ -172,12 +172,14 @@
     <Content Include="App_Data\PetShopDB_log.ldf">
       <DependentUpon>PetShopDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\adm\css\addfuncionario.css" />
     <Content Include="Content\adm\css\base-admin-responsive.css" />
     <Content Include="Content\adm\css\bootstrap-responsive.min.css" />
     <Content Include="Content\adm\css\bootstrap.css" />
     <Content Include="Content\adm\css\bootstrap.min.css" />
     <Content Include="Content\adm\css\bugsSelect.css" />
     <Content Include="Content\adm\css\Categoria.css" />
+    <Content Include="Content\adm\css\EditarProduto.css" />
     <Content Include="Content\adm\css\font-awesome-ie7.css" />
     <Content Include="Content\adm\css\font-awesome-ie7.min.css" />
     <Content Include="Content\adm\css\font-awesome.css" />
@@ -580,6 +582,7 @@
     <Content Include="Content\assets\plugins\uniform\jquery.uniform.min.js" />
     <Content Include="Content\assets\plugins\zoom\jquery.zoom.js" />
     <Content Include="Content\assets\plugins\zoom\jquery.zoom.min.js" />
+    <Content Include="Content\Error\error.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\adm\font\fontawesome-webfont.eot" />
     <Content Include="Content\adm\font\fontawesome-webfont.svgz" />
@@ -603,6 +606,7 @@
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\scriptFormCadastroUsuario.js" />
     <Content Include="Scripts\scriptMinhaContaJuridica.js" />
     <Content Include="Scripts\scriptValidacaoLogin.js" />
@@ -615,6 +619,8 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -622,6 +628,7 @@
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\SubcategoriaController.cs" />
+    <Compile Include="Controllers\TelaProdutosController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
@@ -635,9 +642,6 @@
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
     <Compile Include="DAO\VendaItemDao.cs" />
-    <Compile Include="Filtros\AdminFilterAttribute.cs" />
-    <Compile Include="Filtros\ClienteFilterAttribute.cs" />
-    <Compile Include="Filtros\FuncionarioFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -788,7 +792,6 @@
     <Content Include="Content\assets\plugins\simple-line-icons\fonts\Simple-Line-Icons.woff" />
     <Content Include="Content\assets\plugins\uniform\css\uniform.default.scss" />
     <Content Include="Content\assets\plugins\uniform\README.md" />
-    <Content Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
@@ -808,6 +811,9 @@
     <Content Include="Views\Subcategoria\Editar.cshtml" />
     <Content Include="Views\Categoria\Editar.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Estoque\Index.cshtml" />
+    <Content Include="Views\TelaProdutos\Tela.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -818,6 +824,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\corporate\img\login\" />
+    <Folder Include="Filtros\" />
     <Folder Include="Models\Validação\Contato\" />
     <Folder Include="Models\Validação\Endereco\" />
   </ItemGroup>

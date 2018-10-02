@@ -4,8 +4,7 @@
     Layout = "~/Views/Shared/_LayoutADM.cshtml";
 }
 
-<script src="https://raw.githubusercontent.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
-
+<link href="~/Content/adm/css/EditarProduto.css" rel="stylesheet" />
 <div class="main">
     <div class="main-inner">
         <div class="container">
@@ -88,16 +87,35 @@
 
                                         </div>
 
-                                        <div class="inlineblockdois">
-                                            <label>Escolha a imagem do seu produto</label>
-                                            <span class="btn btn-default btn-file">
-                                                Procurar <input type="file" name="upload">
-                                            </span>
-                                        </div>
+                                        <br />
+                                        <br />
+                                    </div>
+
+                                    <div class="imgProduto" id="escolher">
+                                        <label>Deseja alterar a imagem?</label>
+                                        <span class="btn btn-default btn-file">
+                                            Alterar <input type="file" name="upload" value="imagem">
+                                        </span>
                                     </div>
 
                                     <br />
 
+                                    string img = "";
+                                    if (ViewBag.Produto.Imagem != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(ViewBag.Produto.Imagem);
+                                        var extensao = "jpeg";
+
+                                        img = $"data:image/{extensao};base64,{base64}";
+
+                                    }
+                                    <div >
+                                        <img class="img-fluid" width="130" src="@img" />
+                                        <label>Imagem Atual</label>
+                                    </div>
+
+                                    <br />
+                                    <br />
                                     <label>Descrição do produto</label>
                                     <textarea name="produto.Descricao" style="width:900px; height:100px; resize:none;">@ViewBag.Produto.Descricao</textarea>
 

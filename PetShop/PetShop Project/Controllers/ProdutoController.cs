@@ -1,5 +1,4 @@
 ﻿using PetShop_Project.DAO;
-using PetShop_Project.Filtros;
 using PetShop_Project.Models;
 using System;
 using System.Web;
@@ -7,25 +6,55 @@ using System.Web.Mvc;
 
 namespace PetShop_Project.Controllers
 {
-    [AdminFilter]
+
     public class ProdutoController : Controller
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
 
-        public object ProdutosDAO { get; private set; }
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
+        }
 
         public ActionResult Form()
         {
-            CategoriaDAO dao = new CategoriaDAO();
-            ViewBag.Categorias = dao.Lista();
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    CategoriaDAO dao = new CategoriaDAO();
+                    ViewBag.Categorias = dao.Lista();
 
-            ViewBag.Estoque = new Estoque();
-            ViewBag.Estoque.Produto = new Produto();
+                    ViewBag.Estoque = new Estoque();
+                    ViewBag.Estoque.Produto = new Produto();
 
-            return View();
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         public ActionResult PopulaSubcategorias(int id)
@@ -39,30 +68,47 @@ namespace PetShop_Project.Controllers
         {
             EstoqueDAO dao = new EstoqueDAO();
 
-            if (upload != null && upload.ContentLength > 0)
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
             {
-                using (System.IO.Stream inputStream = upload.InputStream)
+                if (user.Perfil == 'A' || user.Perfil == 'F')
                 {
-                    System.IO.MemoryStream memoryStream = inputStream as System.IO.MemoryStream;
-                    if (memoryStream == null)
+
+                    if (upload != null && upload.ContentLength > 0)
                     {
-                        memoryStream = new System.IO.MemoryStream();
-                        inputStream.CopyTo(memoryStream);
+                        using (System.IO.Stream inputStream = upload.InputStream)
+                        {
+                            System.IO.MemoryStream memoryStream = inputStream as System.IO.MemoryStream;
+                            if (memoryStream == null)
+                            {
+                                memoryStream = new System.IO.MemoryStream();
+                                inputStream.CopyTo(memoryStream);
+                            }
+                            estoque.Produto.Imagem = memoryStream.ToArray();
+                            estoque.Produto.CategoriaId = cat;
+                            estoque.Produto.SubcategoriaId = sub;
+                            estoque.Produto.DataInsercao = DateTime.Now;
+                            estoque.TipoMovimentacao = 1;
+                            estoque.Produto.Quantidade = quantidade;
+                            estoque.Quantidade = quantidade;
+                            dao.Adiciona(estoque);
+                            return RedirectToAction("Form");
+                        }
                     }
-                    estoque.Produto.Imagem = memoryStream.ToArray();
-                    estoque.Produto.CategoriaId = cat;
-                    estoque.Produto.SubcategoriaId = sub;
-                    estoque.Produto.DataInsercao = DateTime.Now;
-                    estoque.TipoMovimentacao = 1;
-                    estoque.Produto.Quantidade = quantidade;
-                    estoque.Quantidade = quantidade;
-                    dao.Adiciona(estoque);
-                    return RedirectToAction("Form");
+                    else
+                    {
+                        return RedirectToAction("Form");
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
                 }
             }
             else
             {
-                return RedirectToAction("Form");
+                return RedirectToAction("Error", "Error");
             }
 
         }
@@ -72,6 +118,7 @@ namespace PetShop_Project.Controllers
         {
             ProdutoDAO dao = new ProdutoDAO();
             var lista = dao.Lista();
+
             return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
         }
 
@@ -80,7 +127,23 @@ namespace PetShop_Project.Controllers
             ProdutoDAO dao = new ProdutoDAO();
             ViewBag.Produto = dao.BuscaPorId(id);
 
-            return View();
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         public ActionResult EditaProduto(Produto produto, HttpPostedFileBase upload, int quantidade)
@@ -88,37 +151,54 @@ namespace PetShop_Project.Controllers
             ProdutoDAO dao = new ProdutoDAO();
 
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
-
-            if (upload != null && upload.ContentLength > 0)
+            if (user != null)
             {
-                using (System.IO.Stream inputStream = upload.InputStream)
+                if (user.Perfil == 'A' || user.Perfil == 'F')
                 {
-                    System.IO.MemoryStream memoryStream = inputStream as System.IO.MemoryStream;
-                    if (memoryStream == null)
-                    {
-                        memoryStream = new System.IO.MemoryStream();
-                        inputStream.CopyTo(memoryStream);
 
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        using (System.IO.Stream inputStream = upload.InputStream)
+                        {
+                            System.IO.MemoryStream memoryStream = inputStream as System.IO.MemoryStream;
+                            if (memoryStream == null)
+                            {
+                                memoryStream = new System.IO.MemoryStream();
+                                inputStream.CopyTo(memoryStream);
+
+                            }
+                            produto.Imagem = memoryStream.ToArray();
+                        }
                     }
-                    produto.Imagem = memoryStream.ToArray();
+
+                    Estoque estoque = new Estoque();
+                    EstoqueDAO daoEst = new EstoqueDAO();
+
+                    estoque.UsuarioAlteracaoId = user.Id;
+                    estoque.TipoMovimentacao = 1;
+                    estoque.UsuarioAlteracao = user;
+
+                    estoque.DataAlteracao = DateTime.Now;
+                    estoque.ProdutoId = produto.Id;
+                    produto.Quantidade = quantidade;
+                    estoque.Quantidade = quantidade;
+
+
+                    dao.Atualiza(produto);
+                    daoEst.Adiciona(estoque);
+
+                    return RedirectToAction("Index", "Produto");
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
                 }
             }
-
-            Estoque estoque = new Estoque();
-            EstoqueDAO daoEst = new EstoqueDAO();
-
-
-            estoque.UsuarioAlteracaoId = user.Id;
-            estoque.DataAlteracao = DateTime.Now;
-            estoque.ProdutoId = produto.Id;
-            produto.Quantidade = quantidade;
-            estoque.Quantidade = quantidade;
-
-
-            dao.Atualiza(produto);
-            daoEst.Adiciona(estoque);
-
-            return RedirectToAction("Index", "Produto");
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
         }
 
 

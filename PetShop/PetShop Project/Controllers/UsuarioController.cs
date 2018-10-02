@@ -13,6 +13,27 @@ namespace PetShop_Project.Controllers
             return View();
         }
 
+        public ActionResult Index()
+        {
+            var user = (Usuario)HttpContext.Session["usuarioLogado"];
+            if (user != null)
+            {
+                if (user.Perfil == 'A' || user.Perfil == 'F')
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Error", "Error");
+            }
+        }
+
 
         [HttpPost]
         public ActionResult AdicionaUsuario(Usuario usuario, Endereco endereco, Contato contato)
@@ -54,7 +75,7 @@ namespace PetShop_Project.Controllers
             UsuarioDAO dao = new UsuarioDAO();
             Usuario usuario = dao.Busca(email, senha);
 
-            if (usuario != null)
+            if (usuario != null && usuario.Ativo != false)
             {
                 System.Web.HttpContext.Current.Session["usuarioLogado"] = usuario;
 
@@ -92,6 +113,21 @@ namespace PetShop_Project.Controllers
         {
             PessoaDAO dao = new PessoaDAO();
             return Json(new { existeCnpj = dao.BuscaPorCpfCnpj(cnpj) }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult pegaUsuarios()
+        {
+            UsuarioDAO dao = new UsuarioDAO();
+            var lista = dao.Lista();
+            return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Status(int id)
+        {
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.AlternaAtivo(id);
+            return Json(new { mudou = true }, JsonRequestBehavior.AllowGet);
         }
 
     }

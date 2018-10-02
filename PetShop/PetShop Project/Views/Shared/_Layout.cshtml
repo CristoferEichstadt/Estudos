@@ -184,7 +184,7 @@
                 <ul>
                     @{var categorias = new PetShop_Project.DAO.CategoriaDAO(); var sub = new PetShop_Project.DAO.SubcategoriaDAO();}
 
-                    @foreach (var c in categorias.Lista().Take(6))
+                    @foreach (var c in categorias.Lista().Take(2))
                     {
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
@@ -195,7 +195,7 @@
                                 <li class="dropdown-submenu">
                                     @foreach (var s in sub.ListaSubcategorias(c.Id))
                                     {
-                                    <li><a href="shop-product-list.html">@s.Nome</a></li>
+                                    <li><a href="@Url.Action("Tela", "TelaProdutos", new { id = s.Id })">@s.Nome</a></li>
                                 }
                                 </ul>
                             </li>
@@ -366,7 +366,11 @@
             if (resposta.deslogar == true) {
                 location.href = "/Home";
             }
-        }
+    }
+
+
+
+
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>
