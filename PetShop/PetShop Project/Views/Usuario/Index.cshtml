@@ -1,4 +1,4 @@
-﻿
+﻿@{PetShop_Project.Models.Usuario usuarioLogado = (PetShop_Project.Models.Usuario)HttpContext.Current.Session["usuarioLogado"]; }
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutADM.cshtml";
@@ -20,8 +20,11 @@
                             <div>
                                 <div>
                                     <div style="float:right;">
-                                        <button class="btn btn-success" id="btnFuncionario">+ Funcionario </button>
-                                        <button class="btn btn-danger" id="status">Status</button>
+                                        @{ if (usuarioLogado.Perfil == 'A')
+                                            {
+                                                <button class="btn btn-success" id="btnFuncionario">+ Funcionario </button>
+                                                <button class="btn btn-danger" id="status">Status</button>
+                                            } }
                                     </div>
                                     <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                                         <thead>

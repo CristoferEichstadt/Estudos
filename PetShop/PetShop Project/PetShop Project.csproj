@@ -230,6 +230,7 @@
     <Content Include="Content\assets\corporate\css\themes\orange.css" />
     <Content Include="Content\assets\corporate\css\themes\red.css" />
     <Content Include="Content\assets\corporate\css\themes\turquoise.css" />
+    <Content Include="Content\assets\corporate\img\arrow-up-01-512.png" />
     <Content Include="Content\assets\corporate\img\blockquote-corner-another-color.png" />
     <Content Include="Content\assets\corporate\img\blockquote-corner.png" />
     <Content Include="Content\assets\corporate\img\fa-angle-brands.png" />
@@ -413,10 +414,14 @@
     <Content Include="Content\assets\pages\img\products\p6.jpg" />
     <Content Include="Content\assets\pages\img\products\p7.jpg" />
     <Content Include="Content\assets\pages\img\sale.png" />
+    <Content Include="Content\assets\pages\img\shop-slider\slide1\banner1-dogcat.jpg" />
+    <Content Include="Content\assets\pages\img\shop-slider\slide1\banner1.jpg" />
     <Content Include="Content\assets\pages\img\shop-slider\slide1\bg.jpg" />
     <Content Include="Content\assets\pages\img\shop-slider\slide2\bg.jpg" />
     <Content Include="Content\assets\pages\img\shop-slider\slide2\price.png" />
     <Content Include="Content\assets\pages\img\shop-slider\slide3\bg.jpg" />
+    <Content Include="Content\assets\pages\img\shop-slider\slide3\cao.jpeg" />
+    <Content Include="Content\assets\pages\img\shop-slider\slide3\img.jpg" />
     <Content Include="Content\assets\pages\img\shop-slider\slide4\bg.jpg" />
     <Content Include="Content\assets\pages\img\shop-slider\slide4\buy.png" />
     <Content Include="Content\assets\pages\img\shop-slider\slide4\price.png" />
@@ -460,6 +465,9 @@
     <Content Include="Content\assets\pages\img\social\youtube.png" />
     <Content Include="Content\assets\pages\img\step3-angle-right.png" />
     <Content Include="Content\assets\pages\img\title-bg\1.jpg" />
+    <Content Include="Content\assets\pages\img\title-bg\board.png" />
+    <Content Include="Content\assets\pages\img\title-bg\cat.jpg" />
+    <Content Include="Content\assets\pages\img\title-bg\Dogs1_InternalV2.png" />
     <Content Include="Content\assets\pages\img\title-bg\man.jpg" />
     <Content Include="Content\assets\pages\img\title-bg\woman.jpg" />
     <Content Include="Content\assets\pages\img\works\img1.jpg" />
@@ -619,6 +627,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\DetalhesProdutoController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
@@ -630,6 +639,7 @@
     <Compile Include="Controllers\SubcategoriaController.cs" />
     <Compile Include="Controllers\TelaProdutosController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\VerTodasCategoriasController.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
     <Compile Include="DAO\EstoqueDAO.cs" />
@@ -814,6 +824,8 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Estoque\Index.cshtml" />
     <Content Include="Views\TelaProdutos\Tela.cshtml" />
+    <Content Include="Views\DetalhesProduto\Detalhes.cshtml" />
+    <Content Include="Views\VerTodasCategorias\TodasCategorias.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

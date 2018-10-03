@@ -119,7 +119,9 @@ namespace PetShop_Project.Controllers
             ProdutoDAO dao = new ProdutoDAO();
             var lista = dao.Lista();
 
-            return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+            JsonResult js = Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+            js.MaxJsonLength = int.MaxValue;
+            return js;
         }
 
         public ActionResult Editar(int id)

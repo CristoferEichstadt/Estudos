@@ -36,6 +36,7 @@ namespace PetShop_Project.DAO
                 return contexto.Subcategorias.ToList();
             }
         }
+
         public IList<Subcategoria> ListaSubcategorias(int id)
         {
             using (var contexto = new PetShopContext())

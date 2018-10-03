@@ -11,6 +11,9 @@ namespace PetShop_Project.Controllers
             SubcategoriaDAO dao = new SubcategoriaDAO();
             ViewBag.Subcategoria = dao.BuscaPorId(id);
             var s = dao.BuscaPorId(id);
+            var c = s.CategoriaId;
+            
+            ViewBag.Subcategorias = dao.ListaSubcategorias(c);
             ProdutoDAO daoP = new ProdutoDAO();
 
             ViewBag.Produto = daoP.BuscaPorSub(id);

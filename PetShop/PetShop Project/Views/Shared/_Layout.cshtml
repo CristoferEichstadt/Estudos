@@ -48,7 +48,8 @@
 </head>
 <!-- Head END -->
 <!-- Body BEGIN -->
-<body class="ecommerce">
+<body class="ecommerce" style="width: 100%;
+  height: 100%;">
 
     <!-- COMEÇO DO MENU DO TOPO -->
     <div class="pre-header">
@@ -99,7 +100,7 @@
     <!-- BEGIN HEADER -->
     <div class="header">
         <div class="container">
-            <a class="site-logo" href="/Home"><img src="~/Content/assets/corporate/img/layout/logohome.png" alt="VallePet"></a>
+            <a style="height:45px;" class="site-logo" href="/Home"><img src="~/Content/assets/corporate/img/layout/logohome.png" alt="VallePet"></a>
 
             <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -184,8 +185,9 @@
                 <ul>
                     @{var categorias = new PetShop_Project.DAO.CategoriaDAO(); var sub = new PetShop_Project.DAO.SubcategoriaDAO();}
 
-                    @foreach (var c in categorias.Lista().Take(2))
+                    @foreach (var c in categorias.Lista().Take(5))
                     {
+
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                                 @c.Nome
@@ -200,13 +202,14 @@
                                 </ul>
                             </li>
                         }
-                    @{ if (categorias.Lista().Count() > 3)
-                        {
-                            <li><a href="/Home">Todas Categorias</a></li>} }
                 </ul>
-                <!-- FIM -->
-
             </div>
+            @{ if (categorias.Lista().Count > 5)
+                {
+                    <a style="top:40px; position:absolute; right:10px;" href="@Url.Action("TodasCategorias", "VerTodasCategorias")">Ver todas Categorias</a>
+                }
+            }
+            <!-- FIM -->
             <!-- END NAVIGATION -->
         </div>
     </div>

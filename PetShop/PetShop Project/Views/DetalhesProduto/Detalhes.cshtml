@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{string img = "";
+    if (ViewBag.Produto.Imagem != null)
+    {
+        var base64 = Convert.ToBase64String(ViewBag.Produto.Imagem);
+        var extensao = "jpeg";
+
+        img = $"data:image/{extensao};base64,{base64}";
+
+    }
+}
+
+
+<div class="main" style="width: 100%;
+  height: 100%;">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/Home">Home</a></li>
+            <li><a href="#">Loja</a></li>
+            @*<li class="active">@ViewBag.Subcategoria.Nome</li>*@
+        </ul>
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+            <!-- BEGIN SIDEBAR -->
+            <div class="sidebar col-md-3 col-sm-5">
+                <ul class="list-group margin-bottom-25 sidebar-menu">
+                    @*@{ foreach (var s in ViewBag.Subcategorias)
+                        {
+                            <li class="list-group-item clearfix"><a href="@Url.Action("Tela", "TelaProdutos", new { id = s.Id })"><i class="fa fa-angle-right"></i> @s.Nome</a></li>
+                        } }*@
+                </ul>
+
+
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="col-md-9 col-sm-7">
+                <div class="product-page">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="product-main-image">
+                                <img src="@img" alt="Produto" class="img-responsive" data-BigImgsrc="assets/pages/img/products/model7.jpg">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <h1>@ViewBag.Produto.Nome</h1>
+                            <div class="price-availability-block clearfix">
+                                <div class="price">
+                                    <strong><span>R$</span> @ViewBag.Produto.ValorUnitario</strong>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    @ViewBag.Produto.Descricao
+                                </p>
+                            </div>
+                            <div class="product-page-options">
+
+                            </div>
+                            <div class="product-page-cart">
+                                <div class="product-quantity">
+                                    <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
+                                </div>
+                                <button class="btn btn-primary" type="submit">Adicionar no carrinho</button>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+</div>
+

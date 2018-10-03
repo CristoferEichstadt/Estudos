@@ -101,7 +101,7 @@ textarea {
 }
 
 .navbar .search-query::-webkit-input-placeholder {
-    color: #666;
+    color: #000;
 }
 
 .navbar .search-query:-moz-placeholder {
