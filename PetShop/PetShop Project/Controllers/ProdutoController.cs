@@ -67,14 +67,12 @@ namespace PetShop_Project.Controllers
         public ActionResult Adiciona(Estoque estoque, int cat, int sub, HttpPostedFileBase upload, int quantidade)
         {
             EstoqueDAO dao = new EstoqueDAO();
-            
 
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
             if (user != null)
             {
                 if (user.Perfil == 'A' || user.Perfil == 'F')
                 {
-
                     if (upload != null && upload.ContentLength > 0)
                     {
                         using (System.IO.Stream inputStream = upload.InputStream)

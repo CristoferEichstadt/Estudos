@@ -315,6 +315,8 @@
     <Content Include="Content\assets\corporate\img\up.png" />
     <Content Include="Content\assets\corporate\scripts\back-to-top.js" />
     <Content Include="Content\assets\corporate\scripts\layout.js" />
+    <Content Include="Content\assets\corporate\scripts\notify.js" />
+    <Content Include="Content\assets\corporate\scripts\notify.min.js" />
     <Content Include="Content\assets\pages\css\animate.css" />
     <Content Include="Content\assets\pages\css\components.css" />
     <Content Include="Content\assets\pages\css\gallery.css" />
@@ -769,6 +771,7 @@
     <Compile Include="Models\Validação\PessoaFisica\ValidacaoNome.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoCNPJ.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoIE.cs" />
+    <Compile Include="Models\Validação\Produto\ValidacaoNome.cs" />
     <Compile Include="Models\Validação\Subcategoria\ValidacaoNomeSubcategoria.cs" />
     <Compile Include="Models\Validação\Usuario\ValidacaoEmail.cs" />
     <Compile Include="Models\Validação\PessoaJuridica\ValidacaoNomeFantasia.cs" />

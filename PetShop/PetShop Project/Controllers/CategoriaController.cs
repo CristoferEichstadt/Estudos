@@ -32,7 +32,6 @@ namespace PetShop_Project.Controllers
             }
 
         }
-
         public ActionResult Index()
         {
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
@@ -53,7 +52,6 @@ namespace PetShop_Project.Controllers
                 return RedirectToAction("Error", "Error");
             }
         }
-
         [HttpPost]
         public ActionResult AdicionaCategoria(string nome)
         {
@@ -64,13 +62,13 @@ namespace PetShop_Project.Controllers
                 Ativo = true,
             };
 
-            //if (categoria.Valida())
-            //{
-            dao.Adiciona(categoria);
-            return RedirectToAction("Form");
-            //}
+            if (categoria.Valida())
+            {
+                dao.Adiciona(categoria);
+                return RedirectToAction("Form");
+            }
 
-            //return Json(new { dadosInvalidos = true }, JsonRequestBehavior.AllowGet);
+            return Json(new { dadosInvalidos = true }, JsonRequestBehavior.AllowGet);
 
         }
 
@@ -123,5 +121,10 @@ namespace PetShop_Project.Controllers
             return RedirectToAction("Index");
         }
 
+        public JsonResult VerificaCategoriaNoBanco(string nome)
+        {
+            CategoriaDAO dao = new CategoriaDAO();
+            return Json(new { existe = dao.BuscaPorNome(nome) }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

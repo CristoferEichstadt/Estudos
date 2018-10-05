@@ -19,7 +19,12 @@ namespace PetShop_Project.Models.Validação.Categoria
                 return false;
             }
 
-            if (Regex.IsMatch(nome, @"[!""#$%&'()*+,-./:;?@[\\\]_`{|}~]") || Regex.IsMatch(nome, @"[\\d]"))
+            if (Regex.IsMatch(nome, @"[[!""#$%&'()*+,-.¨<>\/:;?@[\\\]_`°^₢{|}~¹ºª§¬¢£³²']"))
+            {
+                return false;
+            }
+
+            if (Regex.IsMatch(nome, @"[0-9]"))
             {
                 return false;
             }

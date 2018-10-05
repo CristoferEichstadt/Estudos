@@ -1,8 +1,8 @@
 ﻿@{
-                /**/
+    /**/
 
-                ViewBag.Title = "Index";
-                Layout = "~/Views/Shared/_LayoutADM.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutADM.cshtml";
 }
 
 <link href="~/Content/adm/css/Categoria.css" rel="stylesheet" />
@@ -30,7 +30,7 @@
 
                                         <div class="form-row">
 
-                                            <input type="submit" id="botaoCat" class="btn btn-danger btn-block botao" value="Adicionar Categoria" />
+                                            <input type="submit" id="botaoCat" class="btn btn-danger btn-block botao" value="Adicionar Categoria" onclick="validaNomeBanco(); "/>
                                         </div>
                                     </div>
                                 </form>
@@ -46,18 +46,29 @@
     </div>
 </div>
 
-<script src="~/Scripts/jquery.form.js"></script>
 <script>
-
-    @*$(document).ready(function () {
+   $(document).ready(function () {
 
         botao = document.querySelector("#botaoCat");
         botao.addEventListener("click", function (event) {
             event.preventDefault();
             validaCategoria();
-
+            $("#nomeCategoria").val("");
         });
     });
+
+
+    function validaNomeBanco() {
+        var url = "@Url.Action("VerificaCategoriaNoBanco", "Categoria")";
+        var params = { nome: $("#nomeCategoria").val() };
+        $.post(url, params, verificaBanco);
+    }
+
+    function verificaBanco(resposta) {
+        if (resposta.existe) {
+            $.notify("Categoria já existe!", "error", { position: "right bottom"});
+        }
+    }
 
     function validaCategoria() {
         var url = "@Url.Action("AdicionaCategoria", "Categoria")";
@@ -67,9 +78,9 @@
 
     function verifica(resposta) {
         if (resposta.dadosInvalidos == true) {
-            alert("Dados Inválidos!");
-            return;
+            $("#nomeCategoria").notify("Dados Inválidos!", "error");
+        } else {
+            $.notify("Categoria cadastrada com sucesso!", "success", { position: "top center" })
         }
-    }*@
-
+    }
 </script>

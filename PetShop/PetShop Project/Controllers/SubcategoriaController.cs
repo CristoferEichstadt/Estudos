@@ -63,7 +63,6 @@ namespace PetShop_Project.Controllers
             return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
         }
 
-
         [HttpPost]
         public ActionResult AdicionaSubcategoria(int catId, string nome)
         {
@@ -74,7 +73,6 @@ namespace PetShop_Project.Controllers
                 Ativo = true,
                 CategoriaId = catId,
             };
-
             dao.Adiciona(sub);
             return RedirectToAction("Index", "Categoria");
 
@@ -129,6 +127,10 @@ namespace PetShop_Project.Controllers
             dao.Atualiza(sub);
             return RedirectToAction("Index", "Categoria");
         }
+        public JsonResult VerificaSubcategoriaNoBanco(string nome)
+        {
+            SubcategoriaDAO dao = new SubcategoriaDAO();
+            return Json(new { existe = dao.BuscaPorNome(nome) }, JsonRequestBehavior.AllowGet);
+        }
     }
-
 }

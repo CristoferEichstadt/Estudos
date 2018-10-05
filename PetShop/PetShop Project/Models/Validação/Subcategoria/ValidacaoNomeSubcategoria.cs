@@ -1,11 +1,7 @@
 ﻿using PetShop_Project.DAO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 
-namespace PetShop_Project.Models.Validação.Subcategoria
+namespace PetShop_Project.Models.Validação
 {
     public class ValidacaoNomeSubcategoria : IValidacao
     {
@@ -18,12 +14,17 @@ namespace PetShop_Project.Models.Validação.Subcategoria
 
             var nome = (string)valor;
 
-            if (nome.Length < 2 || nome.Length > 25)
+            if (nome.Length < 2 || nome.Length > 20)
             {
                 return false;
             }
 
-            if (Regex.IsMatch(nome, @"[!""#$%&'()*+,-./:;?@[\\\]_`{|}~]") || Regex.IsMatch(nome, @"[\\d]"))
+            if (Regex.IsMatch(nome, @"[[!""#$%&'()*+,-.¨<>\/:;?@[\\\]_`°^₢{|}~¹ºª§¬¢£³²']"))
+            {
+                return false;
+            }
+
+            if (Regex.IsMatch(nome, @"[0-9]"))
             {
                 return false;
             }

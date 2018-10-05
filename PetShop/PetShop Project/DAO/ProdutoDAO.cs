@@ -9,7 +9,6 @@ namespace PetShop_Project.DAO
 {
     public class ProdutoDAO
     {
-
         public void Adiciona(Produto produto)
         {
             using (var context = new PetShopContext())
@@ -18,7 +17,6 @@ namespace PetShop_Project.DAO
                 context.SaveChanges();
             }
         }
-
         public void AlternaAtivo(int id)
         {
             using (var context = new PetShopContext())
@@ -28,7 +26,6 @@ namespace PetShop_Project.DAO
                 context.SaveChanges();
             }
         }
-
         public IList<Produto> Lista()
         {
             using (var contexto = new PetShopContext())
@@ -36,7 +33,6 @@ namespace PetShop_Project.DAO
                 return contexto.Produtos.Include(p => p.Categoria).Include(p => p.Subcategoria).ToList();
             }
         }
-
         public void Atualiza(Produto produto)
         {
             using (var contexto = new PetShopContext())
@@ -57,11 +53,11 @@ namespace PetShop_Project.DAO
             }
         }
 
-        public Produto BuscaPorNome(string nome)
+        public bool BuscaPorNome(string nome)
         {
             using (var contexto = new PetShopContext())
             {
-                return contexto.Produtos.Where(c => c.Nome == nome).FirstOrDefault();
+                return contexto.Produtos.Where(c => c.Nome == nome).FirstOrDefault() != null;
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using PetShop_Project.Models.Validação.Subcategoria;
+﻿using PetShop_Project.Models.Validação;
 using System;
 using System.Collections.Generic;
 using System.Linq;

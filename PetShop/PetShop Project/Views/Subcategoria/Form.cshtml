@@ -6,7 +6,6 @@
 }
 
 <link href="~/Content/adm/css/Categoria.css" rel="stylesheet" />
-<script src="~/Content/assets/plugins/jquery.min.js"></script>
 
 
 <div class="main">
@@ -40,7 +39,7 @@
 
                                         <div class="form-row">
 
-                                            <input type="submit" class="btn btn-danger btn-block botao" value="Adicionar Subcategoria" />
+                                            <input id="botao" type="submit" class="btn btn-danger btn-block botao" value="Adicionar Subcategoria" />
                                         </div>
                                     </div>
 
@@ -60,4 +59,41 @@
     </div>
 </div>
 
+<script>
+   //$(document).ready(function () {
 
+   //    botao = document.querySelector("#botao");
+   //     botao.addEventListener("click", function (event) {
+   //         event.preventDefault();
+   //         //validaSubcategoria();
+   //         $("#nomeSubcategoria").val("");
+   //     });
+   // });
+
+
+    function validaNomeBanco() {
+        var url = "@Url.Action("VerificaSubcategoriaNoBanco", "Subcategoria")";
+        var params = { nome: $("#nomeSubcategoria").val() };
+        $.post(url, params, verificaBanco);
+    }
+
+    function verificaBanco(resposta) {
+        if (resposta.existe) {
+            $.notify("Subcategoria já existe!", "error", { position: "right bottom"});
+        }
+    }
+
+    function validaSubcategoria() {
+        var url = "@Url.Action("AdicionaSubcategoria", "Subcategoria")";
+        var params = { nome: $("#nomeSubcategoria").val() };
+        $.post(url, params, verifica);
+    }
+
+    function verifica(resposta) {
+        if (resposta.dadosInvalidos == true) {
+            $("#nomeSubcategoria").notify("Dados Inválidos!", "error");
+        } else {
+            $.notify("Subcategoria cadastrada com sucesso!", "success", { position: "top center" })
+        }
+    }
+</script>
