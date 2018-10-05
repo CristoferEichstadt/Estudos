@@ -56,7 +56,6 @@ namespace PetShop_Project.Controllers
         {
             var carrinho = Session["carrinho"] as Venda;
 
-
             var itemParaRemover = carrinho.VendaItens.FirstOrDefault(i => i.ProdutoId == id);
             carrinho.VendaItens.Remove(itemParaRemover);
 
@@ -64,6 +63,16 @@ namespace PetShop_Project.Controllers
 
             return Json(new { removeu = true }, JsonRequestBehavior.AllowGet);
         }
+
+        //public ActionResult AumentaQuantidade()
+        //{
+
+        //}
+
+        //public ActionResult DiminuiQuantidade()
+        //{
+
+        //}
 
     }
 }

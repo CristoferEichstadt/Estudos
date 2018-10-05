@@ -123,7 +123,7 @@
 
 <script src="~/Content/adm/bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
 <script>
-    
+
     function populaSubs() {
         $("#selectSubs option").remove();
         console.log($("select option:selected").val());
@@ -147,7 +147,7 @@
     }
 
     function valorVenda() {
-        var valor = $("#valorCusto").val().replace(".","").replace(",", ".");
+        var valor = $("#valorCusto").val().replace(".", "").replace(",", ".");
         var valorConvertido = Number.parseFloat(valor);
 
         var margem = $("#margemLucro").val();
@@ -160,23 +160,23 @@
 
         var t = Number.parseFloat(valorDeVenda).toFixed(2);
 
-        valorVenda.val(t.toString().replace(".", ",")).
-            $("#valorUni").mask('#.##0,00', { reverse: true });
+        valorVenda.val(t.toString().replace(".", ","));
     }
 
-    $(document).ready(function () {
 
+    $(document).ready(function () {
         botao = document.querySelector(".botao");
 
         botao.addEventListener("click", function (event) {
-            var valor = $("#valorCusto").val().replace(",", ".");
+            var valor = $("#valorCusto").val().replace(".", "").replace(",", ".");
             var valorConvertido = Number.parseFloat(valor);
 
-            var margem = $("#margemLucro").val().replace(",", ".");
-            var margemConvertida = Number.parseFloat(margem);
+            var margem = $("#margemLucro").val();
+
+            var valorVenda = $("#valorUni");
 
             var total = valorConvertido;
-            var conta = (margemConvertida * valorConvertido);
+            var conta = ((margem / 100) * valorConvertido);
             var valorDeVenda = (total + conta);
 
             var t = Number.parseFloat(valorDeVenda).toFixed(2);

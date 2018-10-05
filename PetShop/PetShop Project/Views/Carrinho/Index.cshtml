@@ -61,7 +61,7 @@
                                             <strong><span>$</span>0</strong>
                                         </td>
                                         <td class="del-goods-col">
-                                            <a class="del-goods" href="@Url.Action("RemoveItem", "Carrinho", new { id = item.Produto.Id })">&nbsp;</a>
+                                            <a class="del-goods" id="btnRemover" href="@Url.Action("RemoveItem", "Carrinho", new { id = item.Produto.Id })">&nbsp;</a>
                                         </td>
                                     </tr>
                                 }
@@ -94,6 +94,11 @@
 <script type="text/javascript">
     jQuery(document).ready(function () {
         Layout.initTouchspin();
+    });
+
+    $("#btnRemover").click(function () {
+        var tr = $(this).closest('tr');
+        tr.remove();
     });
 
 </script>
