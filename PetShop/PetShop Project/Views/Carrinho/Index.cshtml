@@ -1,0 +1,99 @@
+﻿@model PetShop_Project.Models.Venda
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main">
+    <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+            <!-- BEGIN CONTENT -->
+            <div class="col-md-12 col-sm-12">
+                <h1>Carrinho de compras</h1>
+                <div class="goods-page">
+                    <div class="goods-data clearfix">
+                        <div class="table-wrapper-responsive">
+                            <table summary="CARRINHO">
+                                <tr>
+                                    <th class="goods-page-image">Imagem</th>
+                                    <th class="goods-page-description">Produto</th>
+                                    <th class="goods-page-quantity">Quantidade</th>
+                                    <th class="goods-page-price">Preço Unitário</th>
+                                    <th class="goods-page-total" colspan="2">Total</th>
+                                </tr>
+
+
+
+                                @foreach (var item in Model.VendaItens)
+                                {
+                                    string img = "";
+                                    if (item.Produto.Imagem != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(item.Produto.Imagem);
+                                        var extensao = "jpeg";
+
+                                        img = $"data:image/{extensao};base64,{base64}";
+
+                                    }
+
+
+                                    <tr>
+                                        <td class="goods-page-image">
+                                            <a href="@Url.Action("Detalhes", "DetalhesProduto", new { id = item.Produto.Id })"><img src="@img" alt=""></a>
+                                        </td>
+                                        <td class="goods-page-description">
+                                            <h3><a href="@Url.Action("Detalhes", "DetalhesProduto", new { id = item.Produto.Id })">@item.Produto.Nome</a></h3>
+                                        </td>
+                                        <td class="goods-page-ref-no">
+                                            ID[@item.Produto.Id]
+                                        </td>
+                                        <td class="goods-page-quantity">
+                                            <div class="product-quantity">
+                                                <input id="product-quantity" type="number" value="1" max="@item.Produto.Quantidade" readonly class="form-control input-sm">
+                                            </div>
+                                        </td>
+                                        <td class="goods-page-price">
+                                            <strong><span>R$ @item.Produto.ValorUnitario</span></strong>
+                                        </td>
+                                        <td class="goods-page-total">
+                                            <strong><span>$</span>0</strong>
+                                        </td>
+                                        <td class="del-goods-col">
+                                            <a class="del-goods" href="@Url.Action("RemoveItem", "Carrinho", new { id = item.Produto.Id })">&nbsp;</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+
+                        <div class="shopping-total">
+                            <ul>
+                                <li>
+                                    <em>TOTAL</em>
+                                    <strong class="price"><span>$</span>0</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="btn btn-default" type="submit">Continuar comprando <i class="fa fa-shopping-cart"></i></button>
+                    <button class="btn btn-primary" type="submit">Finalizar compra <i class="fa fa-check"></i></button>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+    </div>
+</div>
+
+<script src="~/Content/assets/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="~/Content/assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>
+
+<script src="~/Content/assets/corporate/scripts/layout.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        Layout.initTouchspin();
+    });
+
+</script>

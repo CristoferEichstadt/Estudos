@@ -24,6 +24,7 @@ namespace PetShop_Project.DAO
             }
         }
 
+
         public void AlternaAtivo(int id)
         {
             using (var context = new PetShopContext())

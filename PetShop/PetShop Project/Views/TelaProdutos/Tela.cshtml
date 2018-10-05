@@ -28,7 +28,11 @@
                 <ul class="list-group margin-bottom-25 sidebar-menu">
                     @{ foreach (var s in ViewBag.Subcategorias)
                         {
-                            <li class="list-group-item clearfix"><a href="@Url.Action("Tela", "TelaProdutos", new { id = s.Id })"><i class="fa fa-angle-right"></i> @s.Nome</a></li>
+                            if (s.Ativo == true)
+                            {
+
+                                <li class="list-group-item clearfix"><a href="@Url.Action("Tela", "TelaProdutos", new { id = s.Id })"><i class="fa fa-angle-right"></i> @s.Nome</a></li>
+                            }
                         } }
                 </ul>
 
@@ -43,32 +47,36 @@
                 <div class="row product-list list-view-sorting clearfix">
                     @{foreach (var p in ViewBag.Produto)
                         {
-                            <!-- PRODUCT ITEM START -->
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                                <div class="product-item" style="height:400px;">
-                                    <div class="pi-img-wrapper">
+                            if (p.Ativo == true)
+                            {
 
-                                        @{string img = "";
-                                            if (p.Imagem != null)
-                                            {
-                                                var base64 = Convert.ToBase64String(p.Imagem);
-                                                var extensao = "jpeg";
+                                <!-- PRODUCT ITEM START -->
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <div class="product-item" style="height:400px;">
+                                        <div class="pi-img-wrapper">
 
-                                                img = $"data:image/{extensao};base64,{base64}";
+                                            @{string img = "";
+                                                if (p.Imagem != null)
+                                                {
+                                                    var base64 = Convert.ToBase64String(p.Imagem);
+                                                    var extensao = "jpeg";
 
+                                                    img = $"data:image/{extensao};base64,{base64}";
+
+                                                }
                                             }
-                                        }
 
-                                        <img src="@img" class="img-responsive img-fluid">
-                                        <div>
-                                            <a href="@Url.Action("Detalhes", "DetalhesProduto", new { id = p.Id })" class="btn btn-default fancybox-fast-view">Visualizar</a>
+                                            <img src="@img" class="img-responsive img-fluid">
+                                            <div>
+                                                <a href="@Url.Action("Detalhes", "DetalhesProduto", new { id = p.Id })" class="btn btn-default fancybox-fast-view">Visualizar</a>
+                                            </div>
                                         </div>
+                                        <h3><a href="@Url.Action("Detalhes", "DetalhesProduto", new { id = p.Id })" style="line-height: normal;">@p.Nome</a></h3>
+                                        <div class="pi-price" style="position: absolute; bottom: 45px;">R$@p.ValorUnitario</div>
+                                        <a href="@Url.Action("AdicionaItem", "Carrinho", new { id = p.Id, qtd = 1 })" class="btn btn-default add2cart" style="position:absolute; bottom:15px;">Adicionar ao carrinho</a>
                                     </div>
-                                    <h3><a href="@Url.Action("Detalhes", "DetalhesProduto", new { id = p.Id })" style="line-height: normal;">@p.Nome</a></h3>
-                                    <div class="pi-price" style="position: absolute; bottom: 45px;">R$@p.ValorUnitario</div>
-                                    <a href="" class="btn btn-default add2cart" style="position:absolute; bottom:15px;">Adicionar ao carrinho</a>
                                 </div>
-                            </div>
+                            }
 
                         }
                     }
@@ -77,3 +85,9 @@
         </div>
     </div>
 </div>
+
+<script>
+
+
+
+</script>

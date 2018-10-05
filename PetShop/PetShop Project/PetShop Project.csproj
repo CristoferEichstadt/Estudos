@@ -172,6 +172,18 @@
     <Content Include="App_Data\PetShopDB_log.ldf">
       <DependentUpon>PetShopDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\adm\bootstrap-touchspin-master\.gitignore" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\demo\demo.css" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\demo\favicon.ico" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\demo\index-bs3.html" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\demo\index.html" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\dist\jquery.bootstrap-touchspin.css" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\dist\jquery.bootstrap-touchspin.js" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\dist\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\dist\jquery.bootstrap-touchspin.min.js" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\Gruntfile.js" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\src\jquery.bootstrap-touchspin.css" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\src\jquery.bootstrap-touchspin.js" />
     <Content Include="Content\adm\css\addfuncionario.css" />
     <Content Include="Content\adm\css\base-admin-responsive.css" />
     <Content Include="Content\adm\css\bootstrap-responsive.min.css" />
@@ -218,6 +230,28 @@
     <Content Include="Content\adm\js\guidely\guidely.css" />
     <Content Include="Content\adm\js\guidely\guidely.min.js" />
     <Content Include="Content\adm\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\.gitignore" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\dist\jquery.mask.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\dist\jquery.mask.min.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\Gruntfile.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\package.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\src\jquery.mask.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\jquery.mask.test.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\qunit.css" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\qunit.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\sinon-1.10.3.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\sinon-qunit-1.0.0.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\sinon-qunit.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\test-for-jquery-1.11.1.html" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\test-for-jquery-1.7.2.html" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\test-for-jquery-1.8.3.html" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\test-for-jquery-1.9.1.html" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\test-for-jquery-2.1.1.html" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\test-for-jquery-3.0.0.html" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\test-for-zepto.html" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\zepto\data.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\zepto\event.js" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\test\zepto\zepto.min.js" />
     <Content Include="Content\adm\js\signin.js" />
     <Content Include="Content\assets\corporate\css\Cadastros\cadastroUsuario.css" />
     <Content Include="Content\assets\corporate\css\custom.css" />
@@ -599,6 +633,32 @@
     <Content Include="Content\adm\font\fontawesome-webfontd41d.eot" />
     <Content Include="Content\adm\font\FontAwesome.otf" />
     <Content Include="Content\adm\css\select.dataTables.min.css" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\.editorconfig" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\.jshintrc" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\.travis.yml" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\bootstrap-touchspin.jquery.json" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\bower.json" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\CONTRIBUTING.md" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\LICENSE.md" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\package-lock.json" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\package.json" />
+    <Content Include="Content\adm\bootstrap-touchspin-master\README.md" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\.jshintrc" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\.ruby-version" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\.travis.yml" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\bower.json" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\CHANGELOG.md" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\component.json" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\composer.json" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\CONTRIBUTING.md" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\deploy.rb" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\docker-compose.yml" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\Dockerfile" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\ISSUE_TEMPLATE.md" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\LICENSE" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\package-lock.json" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\package.json" />
+    <Content Include="Content\adm\js\jQuery-Mask-Plugin-master\README.md" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\datatables.js" />
     <Content Include="Scripts\datatables.min.js" />
@@ -626,6 +686,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\DetalhesProdutoController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -826,6 +887,7 @@
     <Content Include="Views\TelaProdutos\Tela.cshtml" />
     <Content Include="Views\DetalhesProduto\Detalhes.cshtml" />
     <Content Include="Views\VerTodasCategorias\TodasCategorias.cshtml" />
+    <Content Include="Views\Carrinho\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -836,7 +898,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\corporate\img\login\" />
-    <Folder Include="Filtros\" />
     <Folder Include="Models\Validação\Contato\" />
     <Folder Include="Models\Validação\Endereco\" />
   </ItemGroup>

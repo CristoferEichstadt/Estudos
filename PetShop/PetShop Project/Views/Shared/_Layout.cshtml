@@ -185,22 +185,29 @@
                 <ul>
                     @{var categorias = new PetShop_Project.DAO.CategoriaDAO(); var sub = new PetShop_Project.DAO.SubcategoriaDAO();}
 
-                    @foreach (var c in categorias.Lista().Take(5))
+                    @foreach (var c in categorias.Lista())
                     {
+                        if (c.Ativo == true)
+                        {
 
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-                                @c.Nome
-                            </a>
-                            <!-- SUB MENU ALIMENTOS -->
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                    @foreach (var s in sub.ListaSubcategorias(c.Id))
-                                    {
-                                    <li><a href="@Url.Action("Tela", "TelaProdutos", new { id = s.Id })">@s.Nome</a></li>
-                                }
-                                </ul>
-                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                                    @c.Nome
+                                </a>
+                                <!-- SUB MENU ALIMENTOS -->
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-submenu">
+                                        @foreach (var s in sub.ListaSubcategorias(c.Id))
+                                        {
+                                            if (s.Ativo == true)
+                                            {
+
+                                            <li><a href="@Url.Action("Tela", "TelaProdutos", new { id = s.Id })">@s.Nome</a></li>
+                                        }
+                                    }
+                                    </ul>
+                                </li>
+                            }
                         }
                 </ul>
             </div>

@@ -22,8 +22,7 @@
                         <div class="widget-content">
                             <div style="text-align: center;">
 
-                                @using (Html.BeginForm("EditaProduto", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                                {
+                                <form action="/Produto/EditaProduto" method="post">
 
 
                                     <input type="hidden" name="produto.Id" value="@ViewBag.Produto.Id" />
@@ -48,7 +47,7 @@
                                     </div>
                                     <div class="lineblock">
                                         <label id="textNome" for="quantidade">Quantidade</label>
-                                        <input type="number" id="quantidade" name="quantidade" placeholder="Insira a quantidade" value="@ViewBag.Produto.Quantidade" class="form-control" min="0" />
+                                        <input type="number" id="quantidade" name="quantidade" placeholder="Insira a quantidade" value="@ViewBag.Produto.Quantidade" class="form-control" readonly />
                                     </div>
                                     <div class="lineblock">
                                         <label id="textNome" for="valorUni">Valor Unitário</label>
@@ -57,7 +56,7 @@
 
                                     <div class="lineblock">
                                         <label id="textNome" for="valorCusto">Valor Custo</label>
-                                        <input type="text" id="valorCusto" name="produto.ValorCusto" placeholder="Insira o valor custo" value="@ViewBag.Produto.ValorCusto" class="form-control dinheiro" maxlength="20" />
+                                        <input type="text" id="valorCusto" name="produto.ValorCusto" placeholder="Insira o valor custo" value="@ViewBag.Produto.ValorCusto" class="form-control dinheiro" maxlength="20" onkeyup="valorVenda();" />
                                     </div>
 
 
@@ -66,7 +65,7 @@
                                     <div>
                                         <div class="inlineblockdois">
                                             <label id="textNome" for="margemLucro">Margem de Lucro</label>
-                                            <input type="text" name="produto.MargemLucro" placeholder="Margem Lucro" value="@ViewBag.Produto.MargemLucro" class="form-control dinheiro" />
+                                            <input type="text" id="margemLucro" name="produto.MargemLucro" placeholder="Margem Lucro" value="@ViewBag.Produto.MargemLucro" class="form-control dinheiro" onkeyup="valorVenda();" />
                                         </div>
 
                                         <div class="inlineblockdois">
@@ -91,27 +90,22 @@
                                         <br />
                                     </div>
 
-                                    <div class="imgProduto" id="escolher">
-                                        <label>Deseja alterar a imagem?</label>
-                                        <span class="btn btn-default btn-file">
-                                            Alterar <input type="file" name="upload" value="imagem">
-                                        </span>
-                                    </div>
-
                                     <br />
 
-                                    string img = "";
-                                    if (ViewBag.Produto.Imagem != null)
-                                    {
-                                        var base64 = Convert.ToBase64String(ViewBag.Produto.Imagem);
-                                        var extensao = "jpeg";
+                                    @{string img = "";
+                                        if (ViewBag.Produto.Imagem != null)
+                                        {
+                                            var base64 = Convert.ToBase64String(ViewBag.Produto.Imagem);
+                                            var extensao = "jpeg";
 
-                                        img = $"data:image/{extensao};base64,{base64}";
+                                            img = $"data:image/{extensao};base64,{base64}";
 
+                                        }
                                     }
-                                    <div >
+
+                                    <div>
                                         <img class="img-fluid" width="130" src="@img" />
-                                        <label>Imagem Atual</label>
+                                        <label>Imagem do Produto</label>
                                     </div>
 
                                     <br />
@@ -123,9 +117,7 @@
                                         <input type="submit" class="btn btn-danger btn-block botao" value="Editar Produto" />
                                     </div>
 
-
-                                }
-
+                                </form>
 
 
                             </div>
@@ -140,3 +132,54 @@
     </div>
 </div>
 
+<script>
+    function valorVenda() {
+        var valor = $("#valorCusto").val().replace(",", ".");
+        var valorConvertido = Number.parseFloat(valor);
+
+        var margem = $("#margemLucro").val().replace(",", ".");
+        var margemConvertida = Number.parseFloat(margem);
+
+        var valorVenda = $("#valorUni");
+
+        var total = valorConvertido;
+        var conta = (margemConvertida * valorConvertido);
+        var valorDeVenda = (total + conta);
+
+        var t = Number.parseFloat(valorDeVenda).toFixed(2);
+
+        valorVenda.val(t.toString().replace(".", ","));
+    }
+
+    $(document).ready(function () {
+
+        botao = document.querySelector(".botao");
+
+        botao.addEventListener("click", function (event) {
+            var valor = $("#valorCusto").val().replace(",", ".");
+            var valorConvertido = Number.parseFloat(valor);
+
+            var margem = $("#margemLucro").val().replace(",", ".");
+            var margemConvertida = Number.parseFloat(margem);
+
+            var valorVenda = $("#valorUni");
+
+            var total = valorConvertido;
+            var conta = (margemConvertida * valorConvertido);
+            var valorDeVenda = (total + conta);
+
+            var t = Number.parseFloat(valorDeVenda).toFixed(2);
+
+            valorVenda.val(t.toString().replace(".", ","));
+
+            //if ($("#valorUni").val() < valorVenda) {
+            //    event.preventDefault();
+            //    alert("Valor unitário deve ser maior ou igual à margem mínima de lucro!");
+            //};
+
+        });
+
+    });
+
+
+</script>

@@ -4,8 +4,7 @@
     Layout = "~/Views/Shared/_LayoutADM.cshtml";
 }
 
-<script src="https://raw.githubusercontent.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
-
+<link href="~/Content/adm/bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" />
 <div class="main">
     <div class="main-inner">
         <div class="container">
@@ -61,23 +60,22 @@
                                         <input type="number" id="quantidade" name="quantidade" placeholder="Insira a quantidade" value="" class="form-control" min="0" />
                                     </div>
 
-
-                                    <div class="lineblock">
-                                        <label id="textNome" for="valorUni">Valor Unitário</label>
-                                        <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value=" " class="form-control dinheiro" maxlength="20" />
-                                    </div>
-
                                     <div class="lineblock">
                                         <label id="textNome" for="valorCusto">Valor Custo</label>
                                         <input type="text" id="valorCusto" name="Estoque.Produto.ValorCusto" placeholder="Insira o valor custo" value=" " class="form-control dinheiro" onkeyup="valorVenda();" maxlength="20" />
                                     </div>
+                                    <div class="lineblock">
+                                        <label id="textNome" for="margemLucro">Porcentagem mínima de lucro</label>
+                                        <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="" value=" " class="form-control dinheiro margem" maxlength="20" style="width:50px;" />
+                                    </div>
+
+
                                     <br />
                                     <br />
                                     <div>
                                         <div class="inlineblockdois">
-                                            <label id="textNome" for="margemLucro">Margem mínima de lucro</label>
-                                            <input type="text" id="margemLucro" name="Estoque.Produto.MargemLucro" placeholder="Insira a margem de lucro" value=" " class="form-control dinheiro" maxlength="20" onkeyup="valorVenda();" />
-
+                                            <label id="textNome" for="valorUni">Valor Unitário</label>
+                                            <input type="text" id="valorUni" name="Estoque.Produto.ValorUnitario" placeholder="Insira o valor unitário" value=" " class="form-control" maxlength="20" />
                                         </div>
 
                                         <div class="inlineblockdois">
@@ -123,8 +121,10 @@
     </div>
 </div>
 
-
+<script src="~/Content/adm/bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
 <script>
+    
+
 
     function populaSubs() {
         $("#selectSubs option").remove();
@@ -150,33 +150,70 @@
 
 
     function valorVenda() {
-        var m = $("#margemLucro").val();
-        var v = $("#valorCusto").val();
-        var valor = parseFloat(v);
-        var margem = parseFloat(m);
+        var valor = $("#valorCusto").val().replace(".","").replace(",", ".");
+        var valorConvertido = Number.parseFloat(valor);
+
+        var margem = $("#margemLucro").val();
 
         var valorVenda = $("#valorUni");
 
-        var total = valor;
-        var conta = margem * valor;
-        var valorDeVenda = total + conta;
+        var total = valorConvertido;
+        var conta = ((margem / 100) * valorConvertido);
+        var valorDeVenda = (total + conta);
 
-        valorVenda.val(valorDeVenda);
+        var t = Number.parseFloat(valorDeVenda).toFixed(2);
+
+        valorVenda.val(t.toString().replace(".", ",")).
+            $("#valorUni").mask('#.##0,00', { reverse: true });
     }
 
-    //$(document).ready(function () {
 
-    //    botao = document.querySelector(".botao");
+    $(document).ready(function () {
 
-    //    botao.addEventListener("click", function (event) {
+        botao = document.querySelector(".botao");
 
-    //        if ($("#").val() == "") {
+        botao.addEventListener("click", function (event) {
+            var valor = $("#valorCusto").val().replace(",", ".");
+            var valorConvertido = Number.parseFloat(valor);
 
-    //        };
+            var margem = $("#margemLucro").val().replace(",", ".");
+            var margemConvertida = Number.parseFloat(margem);
 
-    //    });
+            var total = valorConvertido;
+            var conta = (margemConvertida * valorConvertido);
+            var valorDeVenda = (total + conta);
 
-    //});
+            var t = Number.parseFloat(valorDeVenda).toFixed(2);
 
+            var digitado = Number.parseFloat($("#valorUni").val().replace(",", "."));
+
+            if (digitado < t) {
+                event.preventDefault();
+                alert("Valor unitário deve ser maior ou igual à margem mínima de lucro!");
+            };
+
+
+        });
+
+    });
+
+    $("input[name='Estoque.Produto.MargemLucro']").TouchSpin({
+        min: 0,
+        max: 999,
+        boostat: 5,
+        maxboostedstep: 10,
+        postfix: '%'
+    });
+    $('[class*="bootstrap-touchspin-"]').click(function (event) {
+        var $this = $(this);
+
+        if ($this.hasClass('bootstrap-touchspin-down')) {
+            valorVenda();
+        } else if ($this.hasClass('bootstrap-touchspin-up')) {
+            valorVenda();
+        }
+    });
+
+    //$('class *="input-group bootstrap-touchspin"]').css({ "display": "inline-flex;" });
 
 </script>

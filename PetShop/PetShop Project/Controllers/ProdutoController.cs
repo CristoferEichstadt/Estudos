@@ -67,6 +67,7 @@ namespace PetShop_Project.Controllers
         public ActionResult Adiciona(Estoque estoque, int cat, int sub, HttpPostedFileBase upload, int quantidade)
         {
             EstoqueDAO dao = new EstoqueDAO();
+            
 
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
             if (user != null)
@@ -148,46 +149,30 @@ namespace PetShop_Project.Controllers
             }
         }
 
-        public ActionResult EditaProduto(Produto produto, HttpPostedFileBase upload, int quantidade)
+        public ActionResult EditaProduto(Produto produto/*, HttpPostedFileBase upload*/)
         {
             ProdutoDAO dao = new ProdutoDAO();
-
             var user = (Usuario)HttpContext.Session["usuarioLogado"];
             if (user != null)
             {
                 if (user.Perfil == 'A' || user.Perfil == 'F')
                 {
 
-                    if (upload != null && upload.ContentLength > 0)
-                    {
-                        using (System.IO.Stream inputStream = upload.InputStream)
-                        {
-                            System.IO.MemoryStream memoryStream = inputStream as System.IO.MemoryStream;
-                            if (memoryStream == null)
-                            {
-                                memoryStream = new System.IO.MemoryStream();
-                                inputStream.CopyTo(memoryStream);
+                    //if (upload != null && upload.ContentLength > 0)
+                    //{
+                    //    using (System.IO.Stream inputStream = upload.InputStream)
+                    //    {
+                    //        System.IO.MemoryStream memoryStream = inputStream as System.IO.MemoryStream;
+                    //        if (memoryStream == null)
+                    //        {
+                    //            memoryStream = new System.IO.MemoryStream();
+                    //            inputStream.CopyTo(memoryStream);
 
-                            }
-                            produto.Imagem = memoryStream.ToArray();
-                        }
-                    }
-
-                    Estoque estoque = new Estoque();
-                    EstoqueDAO daoEst = new EstoqueDAO();
-
-                    estoque.UsuarioAlteracaoId = user.Id;
-                    estoque.TipoMovimentacao = 1;
-                    estoque.UsuarioAlteracao = user;
-
-                    estoque.DataAlteracao = DateTime.Now;
-                    estoque.ProdutoId = produto.Id;
-                    produto.Quantidade = quantidade;
-                    estoque.Quantidade = quantidade;
-
-
+                    //        }
+                    //        produto.Imagem = memoryStream.ToArray();
+                    //    }
+                    //}
                     dao.Atualiza(produto);
-                    daoEst.Adiciona(estoque);
 
                     return RedirectToAction("Index", "Produto");
                 }
@@ -202,7 +187,6 @@ namespace PetShop_Project.Controllers
                 return RedirectToAction("Error", "Error");
             }
         }
-
 
         public JsonResult Status(int id)
         {

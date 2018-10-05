@@ -8,9 +8,13 @@
     <h1 style="text-align:center; font-size:40px;">CATEGORIAS</h1>
     @{ foreach (var c in ViewBag.Categorias)
         {
-            <div style="text-align:center;">
-                <a href="/Home">@c.Nome</a>
-            </div>
+            if (c.Ativo == true)
+            {
+                <div style="text-align:center;">
+                    <a href="/Home">@c.Nome</a>
+                </div>
+
+            }
         }
     }
 </div>

@@ -51,6 +51,8 @@
     moment.locale("pt-br");
     $(document).ready(function () {
         var tabela = $('#dataTable').DataTable({
+            "pageLength": 25,
+            "pagingType": "full_numbers",
             dom: 'Bfrtip',
             select: { style: 'single' },
             "ajax": {
