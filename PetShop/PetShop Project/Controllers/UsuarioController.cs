@@ -81,7 +81,13 @@ namespace PetShop_Project.Controllers
 
                 if (usuario.Perfil == 'C')
                 {
+                    if (System.Web.HttpContext.Current.Session["carrinho"] as Venda != null)
+                    {
+                        return RedirectToAction("Checkout", "Carrinho");
+                    }
+
                     return RedirectToAction("Index", "Home");
+
                 }
                 else if (usuario.Perfil == 'A')
                 {

@@ -12,6 +12,9 @@ namespace PetShop_Project.Models
         public Usuario Usuario { get; set; }
         public DateTime DataVenda { get; set; }
         public IList<VendaItem> VendaItens { get; set; }
+        public double ValorTotal { get; set; }
+        public int? UsuarioId { get; set; }
+        public int? FormaPagamentoId { get; set; }
         public Venda()
         {
             VendaItens = new List<VendaItem>();

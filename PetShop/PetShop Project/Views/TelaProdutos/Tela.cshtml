@@ -52,7 +52,7 @@
 
                                 <!-- PRODUCT ITEM START -->
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="product-item" style="height:400px;">
+                                    <div class="product-item" style="height:400px;" id="@p.Id">
                                         <div class="pi-img-wrapper">
 
                                             @{string img = "";
@@ -73,9 +73,10 @@
                                         </div>
                                         <h3><a href="@Url.Action("Detalhes", "DetalhesProduto", new { id = p.Id })" style="line-height: normal;">@p.Nome</a></h3>
                                         <div class="pi-price" style="position: absolute; bottom: 45px;">R$@p.ValorUnitario</div>
-                                        <a href="@Url.Action("AdicionaItem", "Carrinho", new { id = p.Id, qtd = 1 })" class="btn btn-default add2cart" style="position:absolute; bottom:15px;">Adicionar ao carrinho</a>
+                                        <a class="btn btn-default add2cart btnAdicionar" style="position:absolute; bottom:15px;">Adicionar ao carrinho</a>
                                     </div>
                                 </div>
+
                             }
 
                         }
@@ -86,8 +87,22 @@
     </div>
 </div>
 
-<script>
 
+@section scriptsProdutos {
+    <script>
+        $(".btnAdicionar").click(function () {
+            var idProduto = $(this).parent().prop("id");
+            $.ajax({
+                type: "POST",
+                url: "/Carrinho/AdicionaItem/" + idProduto,
+                dataType: "json",
+                success: function (response) {
+                    if (response.adicionou) {
+                        $.notify("Produto adicionado ao carrinho com sucesso!", "success",{ position: "top center" });
+                    }
+                }
+            });
+        });
 
-
-</script>
+    </script>
+}

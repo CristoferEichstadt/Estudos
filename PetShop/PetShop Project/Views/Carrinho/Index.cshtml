@@ -3,6 +3,8 @@
 @{
     /**/
 
+    /**/
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -51,17 +53,20 @@
                                         </td>
                                         <td class="goods-page-quantity">
                                             <div class="product-quantity">
-                                                <input id="product-quantity" type="number" value="1" max="@item.Produto.Quantidade" readonly class="form-control input-sm">
+                                                <input id="product-quantity" type="number" value="@item.Quantidade" max="@item.Produto.Quantidade" readonly class="form-control input-sm">
                                             </div>
                                         </td>
                                         <td class="goods-page-price">
                                             <strong><span>R$ @item.Produto.ValorUnitario</span></strong>
                                         </td>
                                         <td class="goods-page-total">
-                                            <strong><span>$</span>0</strong>
+                                            <strong>
+                                                <span>R$ </span>
+                                                <span class="subtotalProduto">@(item.Produto.ValorUnitario * item.Quantidade)</span>
+                                            </strong>
                                         </td>
-                                        <td class="del-goods-col">
-                                            <a class="del-goods" id="btnRemover" href="@Url.Action("RemoveItem", "Carrinho", new { id = item.Produto.Id })">&nbsp;</a>
+                                        <td class="del-goods-col" id="@item.Produto.Id">
+                                            <a class="del-goods btnRemover">&nbsp;</a>
                                         </td>
                                     </tr>
                                 }
@@ -72,13 +77,13 @@
                             <ul>
                                 <li>
                                     <em>TOTAL</em>
-                                    <strong class="price"><span>$</span>0</strong>
+                                    <strong class="price"><span>R$ </span><span id="totalCarrinho">@Model.ValorTotal.ToString()</span></strong>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <button class="btn btn-default" type="submit">Continuar comprando <i class="fa fa-shopping-cart"></i></button>
-                    <button class="btn btn-primary" type="submit">Finalizar compra <i class="fa fa-check"></i></button>
+                    <button class="btn btn-primary" type="submit" onclick="window.location.href = '@Url.Action("Checkout","Carrinho")'">Finalizar compra <i class="fa fa-check"></i></button>
                 </div>
             </div>
             <!-- END CONTENT -->
@@ -94,11 +99,47 @@
 <script type="text/javascript">
     jQuery(document).ready(function () {
         Layout.initTouchspin();
+        jQuery(".quantity-down, .quantity-up").click(function () {
+            var subtotalInput = $(this).closest('tr').find(".goods-page-total").find("strong").find(".subtotalProduto");
+            var id = $(this).closest('tr').find(".del-goods-col").prop("id");
+            var quantidade = $(this).parent().parent().find("#product-quantity").val();
+            $.ajax({
+                type: "POST",
+                url: "/Carrinho/AtualizaQuantidade",
+                dataType: "json",
+                data: { id: id, quantidade: quantidade },
+                success: function (response) {
+                    if (response.atualizou) {
+                        subtotalInput.text(response.subtotal);
+                        subtotalInput.text(subtotalInput.text().replace(".", ","));
+                        $("#totalCarrinho").text(response.novoTotal);
+                        $("#totalCarrinho").text($("#totalCarrinho").text().replace(".", ","));
+                    } else {
+                        console.log(response.msg);
+                    }
+                }
+            });
+        });
     });
 
-    $("#btnRemover").click(function () {
+    $(".btnRemover").click(function () {
         var tr = $(this).closest('tr');
-        tr.remove();
+        var idProduto = $(this).parent().prop("id");
+        $.ajax({
+            type: "POST",
+            url: "/Carrinho/RemoveItem/" + idProduto,
+            dataType: "json",
+            success: function (response) {
+                if (response.removeu) {
+                    tr.remove();
+                    $("#totalCarrinho").text(response.novoTotal);
+                    $("#totalCarrinho").text($("#totalCarrinho").text().replace(".", ","));
+                    $.notify("Produto removido com sucesso!", "success", { position: "top center" });
+
+                }
+            }
+        });
     });
+
 
 </script>

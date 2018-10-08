@@ -706,7 +706,6 @@
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
     <Compile Include="DAO\EstoqueDAO.cs" />
-    <Compile Include="DAO\FormaPagamentoDAO.cs" />
     <Compile Include="DAO\PedidoDAO.cs" />
     <Compile Include="DAO\PessoaDAO.cs" />
     <Compile Include="DAO\PetShopContext.cs" />
@@ -753,6 +752,10 @@
     <Compile Include="Migrations\20181001214916_AdicionandoQtdEstoque.cs" />
     <Compile Include="Migrations\20181001214916_AdicionandoQtdEstoque.designer.cs">
       <DependentUpon>20181001214916_AdicionandoQtdEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181008131756_VendasValorTotal.cs" />
+    <Compile Include="Migrations\20181008131756_VendasValorTotal.designer.cs">
+      <DependentUpon>20181008131756_VendasValorTotal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PetShopContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -891,6 +894,7 @@
     <Content Include="Views\DetalhesProduto\Detalhes.cshtml" />
     <Content Include="Views\VerTodasCategorias\TodasCategorias.cshtml" />
     <Content Include="Views\Carrinho\Index.cshtml" />
+    <Content Include="Views\Carrinho\Checkout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

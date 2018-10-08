@@ -232,6 +232,8 @@ namespace PetShop_Project.Migrations
 
                     b.Property<int?>("UsuarioId");
 
+                    b.Property<double>("ValorTotal");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FormaPagamentoId");

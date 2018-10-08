@@ -90,6 +90,8 @@ namespace PetShop_Project.Controllers
                             estoque.TipoMovimentacao = 1;
                             estoque.Produto.Quantidade = quantidade;
                             estoque.Quantidade = quantidade;
+                            estoque.DataAlteracao = DateTime.Now;
+                            estoque.UsuarioAlteracaoId = user.Id;
                             dao.Adiciona(estoque);
                             return RedirectToAction("Form");
                         }
